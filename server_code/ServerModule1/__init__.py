@@ -19,11 +19,6 @@ import anvil.http
 #
 @anvil.server.callable
 def req(data):
-  dtn = {
-      'data': data
-    }
-  headers = {'Content-Type': 'application/json'}
   url = "https://applipay.com/commands"
-  response = anvil.http.request(url, method="POST", headers=headers, data=dtn,
-                                username='admin', password='123Give!@#', json=True)
+  response = anvil.http.request(url, method="POST", data=data, username='admin', password='123Give!@#')
   return response
