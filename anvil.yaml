@@ -11,13 +11,19 @@ services:
 startup: {type: form, module: Login}
 package_name: Powerpay_Loan_App
 allow_embedding: false
-name: Clone of Powerpay Loan App
+name: Powerpay Loan App
 runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-sandbox
   server_spec: {base: python310-minimal}
-metadata: {title: Powerpay, description: '', logo_img: 'asset:apple-touch-icon.png'}
+metadata: {title: Powerpay, description: 'Manage your borrowed devices with ease using
+    Powerpay Loan App! Keep track of all your loaned devices, their condition, and
+    who they''re loaned to, all in one place. Powerpay Loan App allows you to set
+    due dates, send reminders, and receive notifications when a device is overdue.
+    You can also quickly view device histories and generate reports to analyze usage
+    trends. With Powerpay Loan App, you can streamline your device loan process and
+    ensure all your devices are accounted for.', logo_img: 'asset:apple-touch-icon.png'}
 startup_form: null
 db_schema:
   products:
