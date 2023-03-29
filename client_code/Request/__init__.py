@@ -15,9 +15,12 @@ class Request(RequestTemplate):
     # Any code you write here will run before the form opens.
 
   def send_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    
+    """This method is called when the button is clicked"""    
     data = self.data.text
-    res = anvil.server.call('req', data)
-    self.display.text = res
+    dt = {
+      "data": data
+    }
+    response = anvil.server.call('req', dt)
+    text = response.get_bytes().decode('utf-8')
+    self.display.text = text
 
