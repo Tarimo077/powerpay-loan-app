@@ -1,0 +1,77 @@
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {enable_v2: true}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: false, enable_automatically: true, use_email: true,
+    confirm_email: true, require_secure_passwords: true, allow_remember_me: true,
+    remember_me_days: 30}
+  server_config: {user_table: users}
+startup: {type: form, module: Login}
+package_name: Powerpay_Loan_App
+allow_embedding: false
+name: Clone of Powerpay Loan App
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-sandbox
+  server_spec: {base: python310-minimal}
+metadata: {title: Powerpay, description: '', logo_img: 'asset:apple-touch-icon.png'}
+startup_form: null
+db_schema:
+  products:
+    client: full
+    server: full
+    columns:
+    - name: image
+      admin_ui: {order: 0, width: 200}
+      type: media
+    - name: product_name
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: product_description
+      admin_ui: {order: 2, width: 200}
+      type: string
+    - name: product_id
+      admin_ui: {order: -1, width: 200}
+      type: number
+    title: Products
+  customers:
+    client: full
+    server: full
+    columns:
+    - name: name
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: dob
+      admin_ui: {order: 1, width: 200}
+      type: date
+    - name: id_num
+      admin_ui: {order: 2, width: 200}
+      type: number
+    - name: contact
+      admin_ui: {order: 4, width: 200}
+      type: number
+    - name: image
+      admin_ui: {order: 5, width: 200}
+      type: media
+    - name: products
+      admin_ui: {order: 5, width: 200}
+      type: simpleObject
+    - name: active_date
+      admin_ui: {order: 6, width: 200}
+      type: date
+    title: Customers
+  users:
+    client: search
+    server: full
+    columns:
+    - name: username
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: password
+      admin_ui: {order: 1, width: 200}
+      type: string
+    title: Users
+renamed: true
