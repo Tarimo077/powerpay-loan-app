@@ -16,11 +16,9 @@ class Request(RequestTemplate):
 
   def send_click(self, **event_args):
     """This method is called when the button is clicked"""    
-    data = self.data.text
     dt = {
-      "data": data
+      "data": ''
     }
     response = anvil.server.call('req', dt)
-    text = response.get_bytes().decode('utf-8')
-    self.display.text = text
+    self.display.text = response
 

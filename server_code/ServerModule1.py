@@ -19,7 +19,7 @@ import anvil.http
 #
 @anvil.server.callable
 def req(data):
-  url = "http://40.76.95.237:1880/commands"
+  url = "http://appliapay.com/commands"
   headers = {
     "Content-Type": "application/json"
   }
