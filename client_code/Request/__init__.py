@@ -20,5 +20,6 @@ class Request(RequestTemplate):
       "data": ''
     }
     response = anvil.server.call('req', dt)
-    self.display.text = response
+    array_string = ', '.join(map(str, response))
+    self.display.text = text
 

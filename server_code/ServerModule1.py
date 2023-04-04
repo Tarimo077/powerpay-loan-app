@@ -19,9 +19,9 @@ import anvil.http
 #
 @anvil.server.callable
 def req(data):
-  url = "http://appliapay.com/commands"
+  url = "https://appliapay.com/command"
   headers = {
     "Content-Type": "application/json"
   }
-  response = anvil.http.request(url, method="POST", data=data, headers=headers)
+  response = anvil.http.request(url, method="GET", data=data, headers=headers)
   return response
