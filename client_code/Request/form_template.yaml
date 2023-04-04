@@ -16,10 +16,10 @@ components:
     name: send
     layout_properties: {grid_position: 'LBSHLX,UEKEVQ'}
     event_bindings: {click: send_click}
-  - type: Label
-    properties: {}
-    name: display
-    layout_properties: {grid_position: 'FECFKV,DTNRXQ'}
+  - type: RepeatingPanel
+    properties: {item_template: Request.ItemTemplate5}
+    name: repeating_panel_1
+    layout_properties: {grid_position: 'FQFIWO,KUVQVD'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

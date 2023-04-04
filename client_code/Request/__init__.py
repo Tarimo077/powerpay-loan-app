@@ -17,9 +17,19 @@ class Request(RequestTemplate):
   def send_click(self, **event_args):
     """This method is called when the button is clicked"""    
     dt = {
-      "data": ''
+      "data": 'GET'
     }
     response = anvil.server.call('req', dt)
-    array_string = ', '.join(map(str, response))
-    self.display.text = text
-
+    text = response.get_bytes().decode('utf-8')
+    my_array = json.loads(text)
+    keys_to_extract = ['deviceID', 'active']
+    key_res = []
+    val_res = []
+    for my_object in my_array:
+      extracted_keys = {}
+      for key, value in my_object.items(): 
+        if key in keys_to_extract:
+          key_res.append(str(key)+":"+str(value))
+          #val_res.append(value)
+        #    extracted_keys[key] = value
+    self.repeating_panel_1.items = key_res
