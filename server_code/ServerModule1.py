@@ -23,5 +23,5 @@ def req(data):
   headers = {
     "Content-Type": "application/json"
   }
-  response = anvil.http.request(url, method="GET", data=data, headers=headers)
+  response = anvil.http.request(url, method="GET", data=data, headers=headers, username='admin', password='123Give!@#')
   return response
