@@ -9,9 +9,11 @@ import json
 from .ItemTemplate6 import ItemTemplate6
 
 class Request(RequestTemplate):
-  def __init__(self, **properties):
+  def __init__(self,user_tag, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.item = user_tag
+    self.user.text = user_tag
     dt = {
       "data": 'GET'
     }
@@ -19,23 +21,27 @@ class Request(RequestTemplate):
     text = response.get_bytes().decode('utf-8')
     my_array = json.loads(text)
     self.repeating_panel_1.items = my_array
-    myobj = ItemTemplate6()
-    for x in my_array:
-      actve = x["active"]
-      dev = x["deviceID"]
-      ItemTemplate6.get_rws(self,actve,dev)
+      #ItemTemplate6.get_rws(self,actve,dev)
+      
 
     # Any code you write here will run before the form opens.
 
-  def send_click(self, **event_args):
-    """This method is called when the button is clicked"""    
-    keys_to_extract = ['deviceID', 'active']
-    key_res = []
-    val_res = []
-    for my_object in my_array:
-      extracted_keys = {}
-      for key, value in my_object.items(): 
-        if key in keys_to_extract:
-          key_res.append(str(key)+":"+str(value))
-          #val_res.append(value)
-        #    extracted_keys[key] = value
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Home', self.item)
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Products', self.item)
+
+  def link_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Customers', self.item)
+
+  def request_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Request', self.item)
+
+
+
+

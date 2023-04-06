@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"KJKUOB":25,"QGQTGZ":35,"CKANIH":25,"VKBCKM":35}'}
+  properties: {col_widths: '{"KJKUOB":25,"QGQTGZ":35,"CKANIH":25,"VKBCKM":35,"RRFVTZ":25,"JSZKJY":35}'}
 components:
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
@@ -26,11 +26,27 @@ components:
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: active
   layout_properties: {grid_position: 'DXYDKA,VKBCKM'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Last status change:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'XXAGRS,RRFVTZ'}
+- type: Label
+  properties: {}
+  name: time
+  layout_properties: {grid_position: 'XXAGRS,JSZKJY'}
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: button_1, font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
       Container', bold: false, underline: false, icon: ''}
   name: change_state
-  layout_properties: {grid_position: 'XXAGRS,GTYTSM'}
+  layout_properties: {grid_position: 'YOTWIQ,MMFWLW'}
+  event_bindings: {click: change_state_click}
+- type: Spacer
+  properties: {height: 52}
+  name: spacer_1
+  layout_properties: {grid_position: 'HTMPYD,WKYIRV'}
 is_package: false

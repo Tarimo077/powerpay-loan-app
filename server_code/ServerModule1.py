@@ -25,3 +25,12 @@ def req(data):
   }
   response = anvil.http.request(url, method="GET", data=data, headers=headers, username='admin', password='123Give!@#')
   return response
+
+@anvil.server.callable
+def changeStatus(data):
+  url = "https://appliapay.com/changeStatus"
+  headers = {
+    "Content-Type": "application/json"
+  }
+  response = anvil.http.request(url, method="POST", data=data, headers=headers, username='admin', password='123Give!@#')
+  return response

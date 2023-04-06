@@ -40,6 +40,11 @@ class Products(ProductsTemplate):
     """This method is called when the button is clicked"""
     open_form('AddProduct', self.item)
 
+  def request_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Request', self.item)
+
+
 
 
     
