@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 from .. import Request
 import anvil.server
 import json
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 
 class ItemTemplate6(ItemTemplate6Template):
@@ -18,12 +18,18 @@ class ItemTemplate6(ItemTemplate6Template):
     self.active.text = self.item['active']
     self.devid.text = self.item['deviceID']
     time_text = self.item['time']
-    
 # Convert the time string to a datetime object
-    time_obj = datetime.fromisoformat(time_text.replace("Z", "+00:00"))
+    time_obj_utc = datetime.fromisoformat(time_text.replace("Z", "+00:00"))
+
+# Convert the datetime object to the server's timezone
+    time_obj_server_tz = time_obj_utc.astimezone(timezone.utc).astimezone()
+
+# Convert the datetime object to Kenyan time
+    tz_offset = timedelta(hours=3)
+    time_obj_kenya = time_obj_server_tz # + tz_offset
 
 # Format the datetime object as a string in the desired format
-    formatted_time_str = time_obj.strftime("%d %B %Y %I.%M%p").replace("AM", " AM").replace("PM", " PM")
+    formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I.%M%p").replace("AM", " AM").replace("PM", " PM")
     formatted_time_str = formatted_time_str.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
     self.time.text = formatted_time_str
     if(self.active.text==True):
