@@ -15,7 +15,10 @@ class ItemTemplate6(ItemTemplate6Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.active.text = self.item['active']
+    if(self.item['active']==True):
+      self.active.text = 'Yes'
+    else:
+      self.active.text = 'No'
     self.devid.text = self.item['deviceID']
     time_text = self.item['time']
 # Convert the time string to a datetime object
@@ -29,10 +32,10 @@ class ItemTemplate6(ItemTemplate6Template):
     time_obj_kenya = time_obj_server_tz # + tz_offset
 
 # Format the datetime object as a string in the desired format
-    formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I.%M%p").replace("AM", " AM").replace("PM", " PM")
+    formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
     formatted_time_str = formatted_time_str.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
     self.time.text = formatted_time_str
-    if(self.active.text==True):
+    if(self.active.text=='Yes'):
       self.change_state.text = "Deactivate"
       self.change_state.background = "#ffa500"
     else:
@@ -42,11 +45,15 @@ class ItemTemplate6(ItemTemplate6Template):
 
   def change_state_click(self, **event_args):
     """This method is called when the button is clicked"""
+    if(self.active.text=='Yes'):
+      act = True
+    else:
+      act=False
     data = {
       "selectedDev": self.devid.text,
-      "status": self.active.text
+      "status": act
     }
-    if(self.active.text==True):
+    if(self.active.text=='Yes'):
       c = confirm(title='Deactivate Device', large=True, content='Do you wish to deactivate device '+str(self.devid.text))
       if(c==True):
         res = anvil.server.call('changeStatus', data)
