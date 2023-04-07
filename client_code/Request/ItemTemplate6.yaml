@@ -13,6 +13,8 @@ components:
   properties: {}
   name: devid
   layout_properties: {grid_position: 'ZKYEMQ,QGQTGZ'}
+  data_bindings:
+  - {property: text, code: 'self.item[''deviceID'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Active:', font_size: null, font: '', spacing_above: small, icon_align: left,
@@ -26,6 +28,8 @@ components:
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: active
   layout_properties: {grid_position: 'DXYDKA,VKBCKM'}
+  data_bindings:
+  - {property: text, code: 'self.item[''active'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Last status change:', font_size: null, font: '', spacing_above: small,
@@ -37,6 +41,8 @@ components:
   properties: {}
   name: time
   layout_properties: {grid_position: 'XXAGRS,JSZKJY'}
+  data_bindings:
+  - {property: text, code: 'self.item[''time'']'}
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: button_1, font_size: null, font: '', spacing_above: small,

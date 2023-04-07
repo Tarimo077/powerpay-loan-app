@@ -28,6 +28,7 @@ class Login(LoginTemplate):
       self.login.background = '#8fce00'
       return
     else:
+      self.item = username
       open_form('Home',username)
       style = """
       .my-notification {
@@ -53,6 +54,7 @@ class Login(LoginTemplate):
       self.eye.icon = 'fa:eye'
       self.pass_state = False
       self.eye.background = '#8fce00'
+
       
 
       

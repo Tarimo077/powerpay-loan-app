@@ -5,7 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .. import Request
+from ..Login import Login 
 import anvil.server
 import json
 from datetime import datetime, timezone, timedelta
@@ -14,12 +14,8 @@ from datetime import datetime, timezone, timedelta
 class ItemTemplate6(ItemTemplate6Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
+    self.refresh_data_bindings()
     self.init_components(**properties)
-    if(self.item['active']==True):
-      self.active.text = 'Yes'
-    else:
-      self.active.text = 'No'
-    self.devid.text = self.item['deviceID']
     time_text = self.item['time']
 # Convert the time string to a datetime object
     time_obj_utc = datetime.fromisoformat(time_text.replace("Z", "+00:00"))
@@ -34,8 +30,7 @@ class ItemTemplate6(ItemTemplate6Template):
 # Format the datetime object as a string in the desired format
     formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
     formatted_time_str = formatted_time_str.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
-    self.time.text = formatted_time_str
-    if(self.active.text=='Yes'):
+    if(self.item['active']==True):
       self.change_state.text = "Deactivate"
       self.change_state.background = "#ffa500"
     else:
@@ -45,7 +40,7 @@ class ItemTemplate6(ItemTemplate6Template):
 
   def change_state_click(self, **event_args):
     """This method is called when the button is clicked"""
-    if(self.active.text=='Yes'):
+    if(self.item['active']==True):
       act = True
     else:
       act=False
@@ -53,21 +48,22 @@ class ItemTemplate6(ItemTemplate6Template):
       "selectedDev": self.devid.text,
       "status": act
     }
-    if(self.active.text=='Yes'):
+    if(self.item['active']==True):
       c = confirm(title='Deactivate Device', large=True, content='Do you wish to deactivate device '+str(self.devid.text))
       if(c==True):
         res = anvil.server.call('changeStatus', data)
-        alert('Device '+ str(self.devid.text) + ' has been deactivated')
         self.refresh_data_bindings()
+        alert('Device '+ str(self.devid.text) + ' has been deactivated') 
       else:
         self.refresh_data_bindings()
     else:
       c = confirm(title='Activate Device', large=True, content='Do you wish to activate device '+str(self.devid.text))
       if(c==True):
         res = anvil.server.call('changeStatus', data)
-        alert('Device '+ str(self.devid.text) + ' has been activated')
         self.refresh_data_bindings()
+        alert('Device '+ str(self.devid.text) + ' has been activated')
       else:
         self.refresh_data_bindings()
+    
         
       

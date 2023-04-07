@@ -12,6 +12,7 @@ components:
     properties: {item_template: Request.ItemTemplate6}
     name: repeating_panel_1
     layout_properties: {grid_position: 'IPSDVD,TNUTIQ'}
+    event_bindings: {show: repeating_panel_1_show}
   - type: Spacer
     properties: {height: 32}
     name: spacer_1
@@ -100,3 +101,4 @@ components:
     properties: {}
     name: user
     layout_properties: {}
+    data_bindings: []

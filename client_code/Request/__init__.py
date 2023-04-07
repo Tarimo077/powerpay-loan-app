@@ -21,6 +21,9 @@ class Request(RequestTemplate):
     text = response.get_bytes().decode('utf-8')
     my_array = json.loads(text)
     self.repeating_panel_1.items = my_array
+    #my_obj = ItemTemplate6()
+    #usr = self.item
+    #my_obj.getItem(usr)
       #ItemTemplate6.get_rws(self,actve,dev)
       
 
@@ -41,6 +44,13 @@ class Request(RequestTemplate):
   def request_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Request', self.item)
+  def returnItem(self):
+    return self.item
+
+  def repeating_panel_1_show(self, **event_args):
+    """This method is called when the RepeatingPanel is shown on the screen"""
+    self.refresh_data_bindings()
+
 
 
 
