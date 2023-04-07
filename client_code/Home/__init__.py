@@ -15,6 +15,7 @@ class Home(HomeTemplate):
     self.range = 3
     self.plot_dt()
     self.item = user_tag
+    res = anvil.server.call('sendUser', self.item)
     self.user.text = user_tag
     product_table = app_tables.products
     customer_table = app_tables.customers

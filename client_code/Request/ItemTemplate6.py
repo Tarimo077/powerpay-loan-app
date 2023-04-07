@@ -5,7 +5,6 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ..Login import Login 
 import anvil.server
 import json
 from datetime import datetime, timezone, timedelta
@@ -30,6 +29,12 @@ class ItemTemplate6(ItemTemplate6Template):
 # Format the datetime object as a string in the desired format
     formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
     formatted_time_str = formatted_time_str.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
+    self.time.text = formatted_time_str
+    self.devid.text = self.item['deviceID']
+    if(self.item['active']==True):
+      self.active.text = 'Yes'
+    else:
+      self.active.text = 'No'
     if(self.item['active']==True):
       self.change_state.text = "Deactivate"
       self.change_state.background = "#ffa500"
@@ -52,16 +57,24 @@ class ItemTemplate6(ItemTemplate6Template):
       c = confirm(title='Deactivate Device', large=True, content='Do you wish to deactivate device '+str(self.devid.text))
       if(c==True):
         res = anvil.server.call('changeStatus', data)
-        self.refresh_data_bindings()
         alert('Device '+ str(self.devid.text) + ' has been deactivated') 
+        resp = anvil.server.call('getUser')
+        text = resp.get_bytes().decode('utf-8')
+        my_array = json.loads(text)
+        self.refresh_data_bindings()
+        open_form('Request', my_array['user'])        
       else:
         self.refresh_data_bindings()
     else:
       c = confirm(title='Activate Device', large=True, content='Do you wish to activate device '+str(self.devid.text))
       if(c==True):
         res = anvil.server.call('changeStatus', data)
-        self.refresh_data_bindings()
         alert('Device '+ str(self.devid.text) + ' has been activated')
+        respo = anvil.server.call('getUser')
+        tex = respo.get_bytes().decode('utf-8')
+        my_arr = json.loads(tex)
+        self.refresh_data_bindings()
+        open_form('Request', my_arr['user'])
       else:
         self.refresh_data_bindings()
     

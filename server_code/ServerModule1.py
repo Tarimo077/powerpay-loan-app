@@ -34,3 +34,30 @@ def changeStatus(data):
   }
   response = anvil.http.request(url, method="POST", data=data, headers=headers, username='admin', password='123Give!@#')
   return response
+
+@anvil.server.callable
+def sendUser(user):
+  usr = user
+  data = {
+    "user": usr
+  }
+  url = "https://appliapay.com/usr"
+  headers = {
+    "Content-Type": "application/json"
+  }
+  response = anvil.http.request(url, method="POST", data=data, headers=headers, username='admin', password='123Give!@#')
+
+@anvil.server.callable
+def getUser():
+  data = {
+    "user": ""
+  }
+  url = "https://appliapay.com/user"
+  headers = {
+    "Content-Type": "application/json"
+  }
+  response = anvil.http.request(url, method="GET", data=data, headers=headers, username='admin', password='123Give!@#')
+  return response
+  
+
+  
