@@ -47,7 +47,7 @@ class EditProduct(EditProductTemplate):
       app_tables.products.add_row(image=self.file_loader_1.file, product_id=product_id,
                                   product_name=product_name, product_description=product_desc)
       alert("Product has been updated. Press OK to return to page")
-      self.refresh_data_bindings()
+      open_form('Products')
 
 
 

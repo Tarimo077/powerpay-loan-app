@@ -52,8 +52,7 @@ class ItemTemplate4(ItemTemplate4Template):
         if y == False:
           x.delete()
           alert("Product deleted")
-          self.__init__()
-          self.refresh_data_bindings()
+          open_form('Products')
         else:
           pass
       else: 

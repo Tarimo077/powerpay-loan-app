@@ -9,11 +9,9 @@ import json
 from .ItemTemplate6 import ItemTemplate6
 
 class Request(RequestTemplate):
-  def __init__(self,user_tag, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.item = user_tag
-    self.user.text = user_tag
     dt = {
       "data": 'GET'
     }
@@ -32,22 +30,20 @@ class Request(RequestTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home', self.item)
+    open_form('Home')
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Products', self.item)
+    open_form('Products')
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Customers', self.item)
+    open_form('Customers')
 
   def request_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Request', self.item)
-  def returnItem(self):
-    return self.item
-
+    open_form('Request')
+    
   def repeating_panel_1_show(self, **event_args):
     """This method is called when the RepeatingPanel is shown on the screen"""
     self.refresh_data_bindings()

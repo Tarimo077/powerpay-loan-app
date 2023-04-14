@@ -62,7 +62,7 @@ class ItemTemplate6(ItemTemplate6Template):
         text = resp.get_bytes().decode('utf-8')
         my_array = json.loads(text)
         self.refresh_data_bindings()
-        open_form('Request', my_array['user'])        
+        open_form('Request')        
       else:
         self.refresh_data_bindings()
     else:
@@ -74,7 +74,7 @@ class ItemTemplate6(ItemTemplate6Template):
         tex = respo.get_bytes().decode('utf-8')
         my_arr = json.loads(tex)
         self.refresh_data_bindings()
-        open_form('Request', my_arr['user'])
+        open_form('Request')
       else:
         self.refresh_data_bindings()
     

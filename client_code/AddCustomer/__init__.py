@@ -8,15 +8,11 @@ from anvil.tables import app_tables
 import datetime
 
 class AddCustomer(AddCustomerTemplate):
-  def __init__(self,user_tag, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.my_column_data = [row['product_name'] for row in app_tables.products.search()]
-    self.item = user_tag
-    self.user.text = user_tag
-
     self.product_list.items = self.my_column_data
-
     self.slctlist = []
     self.db_list = []
     # Any code you write here will run before the form opens.
@@ -58,20 +54,19 @@ class AddCustomer(AddCustomerTemplate):
                                    dob=self.dob.date, image=self.file_loader_1.file, products=self.db_list,
                                    active_date=current_date)
       alert('Customer ' + name + ' has been added to the system')
-      open_form('Customers', self.item)
+      open_form('Customers')
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home', self.item)
+    open_form('Home')
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Products', self.item)
+    open_form('Products')
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Customers', self.item)
-
+    open_form('Customers')
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -81,8 +76,6 @@ class AddCustomer(AddCustomerTemplate):
     sepa = ''
     my_str = sepa.join(self.slctlist)
     self.items_selected.text = my_str
-    # Assuming you have two lists called 'list1' and 'list2':
-
 # Remove any elements from list1 that are also in list2:
     self.my_column_data = [x for x in self.my_column_data if x not in self.slctlist]
     self.product_list.items = self.my_column_data

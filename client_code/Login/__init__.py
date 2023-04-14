@@ -29,7 +29,7 @@ class Login(LoginTemplate):
       return
     else:
       self.item = username
-      open_form('Home',username)
+      open_form('Home')
       style = """
       .my-notification {
         background-color: blue;

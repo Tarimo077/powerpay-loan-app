@@ -9,14 +9,11 @@ import anvil.users
 from datetime import datetime, timedelta
 
 class Home(HomeTemplate):
-  def __init__(self, user_tag, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.range = 3
     self.plot_dt()
-    self.item = user_tag
-    res = anvil.server.call('sendUser', self.item)
-    self.user.text = user_tag
     product_table = app_tables.products
     customer_table = app_tables.customers
 
@@ -58,15 +55,15 @@ class Home(HomeTemplate):
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home', self.item)
+    open_form('Home')
 
   def products_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Products', self.item)
+    open_form('Products')
 
   def customers_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Customers', self.item)
+    open_form('Customers')
 
   def last_3_days_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -106,7 +103,7 @@ class Home(HomeTemplate):
 
   def request_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Request', self.item)
+    open_form('Request')
 
   
 

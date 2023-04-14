@@ -58,10 +58,9 @@ class ItemTemplate1(ItemTemplate1Template):
       if x is not None:
         x.delete()
         alert("Customer deleted")
-        self.refresh_data_bindings()
+        open_form('Customers')
     else:
-      pass
-    self.refresh_data_bindings()
+      open_form('Customers')
 
       
 

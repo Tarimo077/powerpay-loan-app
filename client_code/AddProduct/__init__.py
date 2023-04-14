@@ -7,25 +7,22 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class AddProduct(AddProductTemplate):
-  def __init__(self, user_tag, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.item = user_tag
-    self.user.text = user_tag
-
     # Any code you write here will run before the form opens.
 
   def link_1_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home', self.item)
+    open_form('Home')
 
   def link_2_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Products', self.item)
+    open_form('Products')
 
   def link_3_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Customers', self.item)
+    open_form('Customers')
 
   def add_product_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -47,7 +44,7 @@ class AddProduct(AddProductTemplate):
         app_tables.products.add_row(image=img, product_id=product_id,
                                     product_name=product_name, product_description=product_desc)
         alert(product_name+' has been added to the system with product id '+str(product_id))
-        open_form('Products', self.item)
+        open_form('Products')
       else:
         alert('There already exists a Product with that id and name')
         self.product_id.text = ''

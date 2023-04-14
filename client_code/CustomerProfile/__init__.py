@@ -69,7 +69,7 @@ class CustomerProfile(CustomerProfileTemplate):
                                    image=self.file_loader_1.file,
                                    dob=date_of_birth, id_num=id_num, products=prods_num, active_date=rw_dt)
       alert("Customer has been updated. Press OK to return to page")
-      self.refresh_data_bindings()
+      open_form('Customers')
 
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
