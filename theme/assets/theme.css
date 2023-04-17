@@ -173,6 +173,11 @@ color: %color:On Primary Container%;
   height: 5px;
 }
 
+.anvil-role-bx {
+  font_size=15,
+  border=" 3px solid #8fce00",
+}
+
 .anvil-role-body > .label-text, .anvil-role-body .link-text {
   padding-top: 0;
   padding-bottom: 0;

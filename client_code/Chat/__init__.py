@@ -31,8 +31,10 @@ class Chat(ChatTemplate):
 
   def makeLabels(self, prompt, **event_args):
     if(self.item==False):
-      s = Label(align="right", text="You:\n", spacing_above="medium", icon="fa:comments", spacing_below="small", role="usr")
-      c = Label(align="right", text=prompt+" ", spacing_above="small", font_size=15, border=" 3px solid #8fce00")
+      s = Label(align="right", text="You:\n", spacing_above="medium",
+                icon="fa:comments", spacing_below="small", role="usr")
+      wid = (len(prompt)) * 15
+      c = Label(align="right", text=prompt+" ", spacing_above="small")
     else:
       text = prompt.get_bytes().decode('utf-8')
       s = Label(align="left", text="PPBot:\n", spacing_above="medium", icon="fa:magic", spacing_below="small", role="bot")
