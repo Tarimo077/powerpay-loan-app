@@ -150,6 +150,29 @@ color: %color:On Primary Container%;
   line-height: 1.5;
 }
 
+.anvil-role-usr {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-right: 15%;
+}
+
+.anvil-role-bot {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.anvil-role-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100%;
+  font-size: 14px;
+  background-color: transparent;
+  border-width: 5px;
+  border-style: solid;
+  box-sizing: border-box;
+  height: 5px;
+}
+
 .anvil-role-body > .label-text, .anvil-role-body .link-text {
   padding-top: 0;
   padding-bottom: 0;
