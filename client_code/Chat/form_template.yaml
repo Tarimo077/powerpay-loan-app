@@ -8,12 +8,10 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
-  - type: RichText
-    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: null, content: '', font: '', spacing_above: small,
-      spacing_below: small, data: null, background: '', format: plain_text}
-    name: rich_text_1
-    layout_properties: {grid_position: 'KTSWEK,QEXGUH'}
+  - type: LinearPanel
+    properties: {}
+    name: linear_panel_1
+    layout_properties: {grid_position: 'HPGLIN,UZCLAZ'}
   - type: TextBox
     properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
@@ -21,6 +19,7 @@ components:
       background: '', bold: false, underline: false}
     name: text_box_1
     layout_properties: {grid_position: 'EVLVXM,VIPYQF'}
+    event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - type: Button
     properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,

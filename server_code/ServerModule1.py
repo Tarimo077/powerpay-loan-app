@@ -49,9 +49,11 @@ def sendUser(user):
 
 @anvil.server.callable
 def getChat(prompt):
-  
+  data = {
+    "data": prompt
+  }
   url = "https://appliapay.com/chat"
-  response = anvil.http.request(url, method="GET", data=prompt, username='admin', password='123Give!@#')
+  response = anvil.http.request(url, method="GET", data=data, username='admin', password='123Give!@#')
   return response
   
 
