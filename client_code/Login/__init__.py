@@ -30,15 +30,6 @@ class Login(LoginTemplate):
     else:
       self.item = username
       open_form('Home')
-      style = """
-      .my-notification {
-        background-color: blue;
-        color: red;
-        font-size: 24px;
-        }
-"""
-
-#Notification("Hello, world!", html=style, css_class="my-notification").show()
       alert('Hi '+username+', welcome to Powerpay Loan App')
 
   def eye_click(self, **event_args):
