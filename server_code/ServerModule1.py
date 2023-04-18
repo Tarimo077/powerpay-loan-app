@@ -55,6 +55,10 @@ def getChat(prompt):
   url = "https://appliapay.com/chat"
   response = anvil.http.request(url, method="GET", data=data, username='admin', password='123Give!@#')
   return response
+
+@anvil.server.callable
+def getInfluxdb_devs():
+  
   
 
   

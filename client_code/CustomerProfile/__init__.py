@@ -11,10 +11,10 @@ class CustomerProfile(CustomerProfileTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.item = my_list
+    print(my_list)
     self.cname.text = my_list['name']
     self.id_num.text = my_list['id_num']
     self.contact.text = my_list['contact']
-    self.device_ids.selected_value = my_list['device_id']
     devices = [row['device_id'] for row in app_tables.customers.search()]
     ndevs = []
     for x in devices:
@@ -23,6 +23,7 @@ class CustomerProfile(CustomerProfileTemplate):
       
     print(ndevs)
     self.device_ids.items = ndevs
+    self.device_ids.selected_value = str(my_list['device_id'])
     self.dob.date = my_list['dob']
     self.db_name = my_list['name']
     self.db_contact = my_list['contact']
@@ -85,4 +86,7 @@ class CustomerProfile(CustomerProfileTemplate):
         open_form('Customers')
       else:
         alert("Customer " +rx['name']+" is assigned to that device")
+
+
+    
 
