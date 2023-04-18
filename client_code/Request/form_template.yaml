@@ -4,10 +4,44 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
   name: content_panel
   layout_properties: {slot: default}
   components:
+  - type: Label
+    properties: {role: display, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: 'theme:Primary Container',
+      bold: true, underline: false, icon: 'fa:battery-full'}
+    name: activeDevs
+    layout_properties: {grid_position: 'FBVXWY,YBMUKE'}
+  - type: Label
+    properties: {role: display, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: 'theme:orange', bold: true,
+      underline: false, icon: 'fa:battery-empty'}
+    name: inactiveDevs
+    layout_properties: {grid_position: 'FBVXWY,UWFHAF'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Active Devices, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'VLEQDS,HTFLYA'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Inactive Devices, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_2
+    layout_properties: {grid_position: 'VLEQDS,AMTEWA'}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_2
+    layout_properties: {grid_position: 'FVAKVH,FIVTWB'}
   - type: RepeatingPanel
     properties: {item_template: Request.ItemTemplate6}
     name: repeating_panel_1
@@ -17,6 +51,12 @@ components:
     properties: {height: 32}
     name: spacer_1
     layout_properties: {grid_position: 'WOOWQB,MGQHHG'}
+  - type: Label
+    properties: {}
+    name: label_1_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: LJUATQ,CEGUGE
 - type: ColumnPanel
   properties: {}
   name: column_panel_1
