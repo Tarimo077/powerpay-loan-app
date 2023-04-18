@@ -8,7 +8,7 @@ services:
     confirm_email: true, require_secure_passwords: true, allow_remember_me: true,
     remember_me_days: 30}
   server_config: {user_table: users}
-startup: {type: form, module: Customers}
+startup: {type: form, module: Login}
 package_name: Powerpay_Loan_App
 allow_embedding: false
 name: Powerpay Loan App
@@ -26,23 +26,6 @@ metadata: {title: Powerpay, description: 'Manage your borrowed devices with ease
     ensure all your devices are accounted for.', logo_img: 'asset:apple-touch-icon.png'}
 startup_form: null
 db_schema:
-  products:
-    client: full
-    server: full
-    columns:
-    - name: image
-      admin_ui: {order: 0, width: 200}
-      type: media
-    - name: product_name
-      admin_ui: {order: 1, width: 200}
-      type: string
-    - name: product_description
-      admin_ui: {order: 2, width: 200}
-      type: string
-    - name: product_id
-      admin_ui: {order: -1, width: 200}
-      type: number
-    title: Products
   customers:
     client: full
     server: full

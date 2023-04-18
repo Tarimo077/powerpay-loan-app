@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import json
 
 class CustomerProfile(CustomerProfileTemplate):
   def __init__(self, my_list, **properties):
@@ -15,13 +16,16 @@ class CustomerProfile(CustomerProfileTemplate):
     self.cname.text = my_list['name']
     self.id_num.text = my_list['id_num']
     self.contact.text = my_list['contact']
-    devices = [row['device_id'] for row in app_tables.customers.search()]
+    res = anvil.server.call('getInfluxdb_devs')
+    text = res.get_bytes().decode('utf-8')
+    my_array = json.loads(text)
+    my_array = sorted(my_array, key=lambda x: x['deviceID'])
     ndevs = []
-    for x in devices:
+    for x in my_array:
+      x = x['deviceID']
       x = str(x)
       ndevs.append(x)
-      
-    print(ndevs)
+
     self.device_ids.items = ndevs
     self.device_ids.selected_value = str(my_list['device_id'])
     self.dob.date = my_list['dob']

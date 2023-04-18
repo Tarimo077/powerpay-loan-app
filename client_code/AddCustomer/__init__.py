@@ -6,16 +6,27 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
+import json
 
 class AddCustomer(AddCustomerTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.my_column_data = [row['product_name'] for row in app_tables.products.search()]
-    self.product_list.items = self.my_column_data
+    #self.my_column_data = [row['product_name'] for row in app_tables.products.search()]
+    #self.product_list.items = self.my_column_data
     self.slctlist = []
     self.db_list = []
     # Any code you write here will run before the form opens.
+    res = anvil.server.call('getInfluxdb_devs')
+    text = res.get_bytes().decode('utf-8')
+    my_array = json.loads(text)
+    sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
+    my_items = []
+    for x in sorted_items:
+      x = str(x['deviceID'])
+      my_items.append(x)
+
+    self.deviceList.items = my_items
 
   def addcustomer_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -45,40 +56,31 @@ class AddCustomer(AddCustomerTemplate):
       alert('There already exists a customer with that id number and contact')
       return
     else:
-      for x in self.slctlist:
-        product_row = app_tables.products.get(product_name=x)
-        r = product_row['product_id']
-        self.db_list.append(r)
       current_date = datetime.date.today()
-      app_tables.customers.add_row(name=name, id_num=id_num1, contact=contact1,
-                                   dob=self.dob.date, image=self.file_loader_1.file, products=self.db_list,
-                                   active_date=current_date)
-      alert('Customer ' + name + ' has been added to the system')
-      open_form('Customers')
+      dev = int(self.deviceList.selected_value)
+      d = app_tables.customers.get(device_id=dev)
+      if d is None:
+        app_tables.customers.add_row(name=name, id_num=id_num1, contact=contact1,
+                                   dob=self.dob.date, image=self.file_loader_1.file,
+                                   active_date=current_date, device_id=dev)
+        alert('Customer ' + name + ' has been added to the system')
+        open_form('Customers')
+      else:
+        alert('Customer '+d['name']+" has already been assigned that device")
+        
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Home')
 
-  def link_2_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('Products')
-
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Customers')
 
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    slct = self.product_list.selected_value
-    self.slctlist.append(slct)
-    self.product_list.selected_value = None
-    sepa = ''
-    my_str = sepa.join(self.slctlist)
-    self.items_selected.text = my_str
-# Remove any elements from list1 that are also in list2:
-    self.my_column_data = [x for x in self.my_column_data if x not in self.slctlist]
-    self.product_list.items = self.my_column_data
+  def request_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Request')
+
     
 
 

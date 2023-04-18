@@ -28,21 +28,6 @@ components:
     layout_properties: {grid_position: 'WZWLNI,RPFKTZ'}
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: PRODUCTS, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '', bold: true, underline: false,
-      icon: 'fa:shopping-cart'}
-    name: products
-    layout_properties: {grid_position: 'KAOFAR,YDUKBI'}
-    event_bindings: {click: products_click}
-  - type: Spacer
-    properties: {height: 3}
-    name: spacer_1_copy
-    layout_properties:
-      col_widths: {}
-      grid_position: ZJSLEJ,TSBFMG
-  - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
       foreground: '', visible: true, text: CUSTOMERS, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
       spacing_below: small, italic: false, background: '', bold: true, underline: false,
@@ -141,3 +126,35 @@ components:
     properties: {}
     name: plot_1
     layout_properties: {grid_position: 'OPVVUC,GNCZVR'}
+  - type: Spacer
+    properties: {height: 34}
+    name: spacer_2
+    layout_properties: {grid_position: 'VSWKMV,FAYBFW'}
+  - type: Label
+    properties: {role: display, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: 'theme:Primary Container',
+      bold: true, underline: false, icon: 'fa:line-chart'}
+    name: portfolio
+    layout_properties: {grid_position: 'DVDIUA,FXTLHF'}
+  - type: Label
+    properties: {role: display, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: 'theme:orange', bold: true,
+      underline: false, icon: 'fa:user-times'}
+    name: churn
+    layout_properties: {grid_position: 'DVDIUA,OHAQOG'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Portfolio Growth, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_3
+    layout_properties: {grid_position: 'BYIJLH,JSJMMT'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Churn Rate, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_4
+    layout_properties: {grid_position: 'BYIJLH,NBONBZ'}
