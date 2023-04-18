@@ -28,8 +28,8 @@ class Request(RequestTemplate):
       else:
         inactive_devs += 1
 
-    self.activeDevs.text = str(active_devs)
-    self.inactiveDevs.text = str(inactive_devs)
+    self.activeDevs.text = "   "+str(active_devs)
+    self.inactiveDevs.text = "   "+str(inactive_devs)
     #my_obj = ItemTemplate6()
     #usr = self.item
     #my_obj.getItem(usr)

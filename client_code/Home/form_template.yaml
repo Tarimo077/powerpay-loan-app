@@ -88,14 +88,14 @@ components:
     layout_properties: {grid_position: 'XUGIQW,BPOJHR'}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: Total Customers, font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Customer Total ', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'MTKYGM,YTTSIC'}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: Product Total, font_size: null, font: '', spacing_above: small,
+      visible: true, text: Device Total, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_2

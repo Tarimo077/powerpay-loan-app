@@ -7,11 +7,19 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.users
 from datetime import datetime, timedelta
+import json
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    dt = {
+      "data": 'GET'
+    }
+    response = anvil.server.call('req', dt)
+    text = response.get_bytes().decode('utf-8')
+    my_array = json.loads(text)
+    dev_total = len(my_array)
     self.range = 3
     self.plot_dt()
     product_table = app_tables.products
@@ -20,7 +28,7 @@ class Home(HomeTemplate):
 # Count the number of rows in the table
     product_count = len(product_table.search())
     customer_count = len(customer_table.search())
-    self.product_no.text = product_count
+    self.product_no.text = dev_total
     self.customers_no.text = customer_count
     # Any code you write here will run before the form opens.
 

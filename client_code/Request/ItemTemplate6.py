@@ -58,10 +58,6 @@ class ItemTemplate6(ItemTemplate6Template):
       if(c==True):
         res = anvil.server.call('changeStatus', data)
         alert('Device '+ str(self.devid.text) + ' has been deactivated') 
-        resp = anvil.server.call('getUser')
-        text = resp.get_bytes().decode('utf-8')
-        my_array = json.loads(text)
-        self.refresh_data_bindings()
         open_form('Request')        
       else:
         self.refresh_data_bindings()
@@ -70,10 +66,6 @@ class ItemTemplate6(ItemTemplate6Template):
       if(c==True):
         res = anvil.server.call('changeStatus', data)
         alert('Device '+ str(self.devid.text) + ' has been activated')
-        respo = anvil.server.call('getUser')
-        tex = respo.get_bytes().decode('utf-8')
-        my_arr = json.loads(tex)
-        self.refresh_data_bindings()
         open_form('Request')
       else:
         self.refresh_data_bindings()
