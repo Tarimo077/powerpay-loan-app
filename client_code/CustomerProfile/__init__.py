@@ -14,15 +14,25 @@ class CustomerProfile(CustomerProfileTemplate):
     self.cname.text = my_list['name']
     self.id_num.text = my_list['id_num']
     self.contact.text = my_list['contact']
+    self.device_ids.selected_value = my_list['device_id']
+    devices = [row['device_id'] for row in app_tables.customers.search()]
+    ndevs = []
+    for x in devices:
+      x = str(x)
+      ndevs.append(x)
+      
+    print(ndevs)
+    self.device_ids.items = ndevs
     self.dob.date = my_list['dob']
     self.db_name = my_list['name']
     self.db_contact = my_list['contact']
     self.db_id = my_list['id_num']
-    self.db_products = my_list['products']
-    self.productdisplay.text = self.db_products
-    self.slct_list = []
-    self.my_column_data = [row['product_name'] for row in app_tables.products.search()]
-    self.products.items = self.my_column_data
+    self.dev_id = my_list['device_id']
+    #self.db_products = my_list['products']
+    #self.productdisplay.text = self.db_products
+    #self.slct_list = []
+    #self.my_column_data = [row['product_name'] for row in app_tables.products.search()]
+    #self.products.items = self.my_column_data
     # Any code you write here will run before the form opens.
 
   def button_1_click(self, **event_args):
@@ -33,11 +43,11 @@ class CustomerProfile(CustomerProfileTemplate):
     date_of_birth = self.dob.date
     id_len = len(str(id_num))
     contact_len = len(str(contact))
-    prods = []
-    prods_num= []
-    my_string = self.productdisplay.text
-    prods = my_string.split(",")
-    prods = list(prods)
+    #prods = []
+    #prods_num= []
+    #my_string = self.productdisplay.text
+    #prods = my_string.split(",")
+    #prods = list(prods)
     if name.strip() == '':
     # One or more fields are empty
       alert('Please fill in a name')
@@ -57,40 +67,18 @@ class CustomerProfile(CustomerProfileTemplate):
       return
       
     else:
-      row = app_tables.customers.get(name= self.db_name, contact=self.db_contact,id_num=self.db_id)
-      for prod in prods:
-        rw = app_tables.products.get(product_name=prod)
-        r = rw['product_id']
-        prods_num.append(r)        
-
+      row = app_tables.customers.get(name=self.db_name, contact=self.db_contact,id_num=self.db_id)
+      #for prod in prods:
+       # rw = app_tables.products.get(product_name=prod)
+       # r = rw['product_id']
+        #prods_num.append(r)        
       rw_dt = row['active_date']
       row.delete()
+      slct = int(self.device_ids.selected_value)
       app_tables.customers.add_row(name=name, contact=contact,
                                    image=self.file_loader_1.file,
-                                   dob=date_of_birth, id_num=id_num, products=prods_num, active_date=rw_dt)
+                                   dob=date_of_birth, id_num=id_num, active_date=rw_dt,
+                                   device_id=slct)
       alert("Customer has been updated. Press OK to return to page")
-      open_form('Customers')
-
-  def button_2_click(self, **event_args):
-    """This method is called when the button is clicked"""
-
-  def additem_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    x = self.products.selected_value
-    self.slct_list.append(x)
-    separator = ','
-    my_string = separator.join(self.slct_list)
-    self.productdisplay.text = my_string
-    self.products.selected_value = None
-    self.my_column_data = [x for x in self.my_column_data if x not in self.slct_list]
-    self.products.items = self.my_column_data
-
-    
-      
-
-    
-
-      
-    
-    
+      open_form('Customers')    
 

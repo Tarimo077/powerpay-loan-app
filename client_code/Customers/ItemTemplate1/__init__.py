@@ -11,16 +11,16 @@ class ItemTemplate1(ItemTemplate1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    selected_products = []
+    #selected_products = []
     customer_row = app_tables.customers.get(id_num=self.id_num.text)
-    product_ids = customer_row['products']
-    for product_id in product_ids:
-      product_row = app_tables.products.get(product_id=product_id)
-      selected_products.append(product_row['product_name'])
+    #product_ids = customer_row['products']
+    #for product_id in product_ids:
+     # product_row = app_tables.products.get(product_id=product_id)
+      #selected_products.append(product_row['product_name'])
 
-    separator = ', '
-    my_string = separator.join(selected_products)
-    self.products.text = my_string
+    #separator = ', '
+    #my_string = separator.join(selected_products)
+    #self.products.text = my_string
     
     #name = self.cname.text
     #id_num = self.id_num.text
@@ -36,9 +36,10 @@ class ItemTemplate1(ItemTemplate1Template):
     contact = self.contact.text
     dob = self.dob.text
     img = self.image_1.source
-    products = []
-    products = self.products.text
-    my_list = {'name': name, 'id_num': id_num, 'contact': contact, 'dob': dob, 'products': products, 'img': img}
+    device_id = self.device.text
+    #products = []
+    #products = self.products.text
+    my_list = {'name': name, 'id_num': id_num, 'contact': contact, 'dob': dob, 'img': img, 'device_id': device_id}
     new_form = CustomerProfile(my_list)
     #open_form(new_form)
     alert(

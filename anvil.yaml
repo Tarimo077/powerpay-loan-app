@@ -8,7 +8,7 @@ services:
     confirm_email: true, require_secure_passwords: true, allow_remember_me: true,
     remember_me_days: 30}
   server_config: {user_table: users}
-startup: {type: form, module: Login}
+startup: {type: form, module: Customers}
 package_name: Powerpay_Loan_App
 allow_embedding: false
 name: Powerpay Loan App
@@ -62,12 +62,12 @@ db_schema:
     - name: image
       admin_ui: {order: 5, width: 200}
       type: media
-    - name: products
-      admin_ui: {order: 5, width: 200}
-      type: simpleObject
     - name: active_date
       admin_ui: {order: 6, width: 200}
       type: date
+    - name: device_id
+      admin_ui: {order: 7, width: 200}
+      type: number
     title: Customers
   users:
     client: search

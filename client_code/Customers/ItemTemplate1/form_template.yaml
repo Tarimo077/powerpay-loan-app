@@ -70,16 +70,17 @@ components:
   - {property: text, code: 'self.item[''dob'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Products:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    text: 'Device ID:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
   name: label_6
   layout_properties: {grid_position: 'ZECFJP,VUYTLO LCTYHB,VEVNTC'}
 - type: Label
   properties: {}
-  name: products
+  name: device
   layout_properties: {grid_position: 'ZECFJP,VUYTLO LCTYHB,ALSXDZ'}
-  data_bindings: []
+  data_bindings:
+  - {property: text, code: 'self.item[''device_id'']'}
 - type: Spacer
   properties: {height: 2}
   name: spacer_1
