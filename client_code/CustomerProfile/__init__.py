@@ -73,12 +73,16 @@ class CustomerProfile(CustomerProfileTemplate):
        # r = rw['product_id']
         #prods_num.append(r)        
       rw_dt = row['active_date']
-      row.delete()
       slct = int(self.device_ids.selected_value)
-      app_tables.customers.add_row(name=name, contact=contact,
+      rx = app_tables.customers.get(device_id=slct)
+      if rx is None:
+        row.delete()
+        app_tables.customers.add_row(name=name, contact=contact,
                                    image=self.file_loader_1.file,
                                    dob=date_of_birth, id_num=id_num, active_date=rw_dt,
                                    device_id=slct)
-      alert("Customer has been updated. Press OK to return to page")
-      open_form('Customers')    
+        alert("Customer has been updated. Press OK to return to page")
+        open_form('Customers')
+      else:
+        alert("Customer " +rx['name']+" is assigned to that device")
 
