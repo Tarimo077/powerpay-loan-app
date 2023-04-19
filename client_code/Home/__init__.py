@@ -22,23 +22,24 @@ class Home(HomeTemplate):
     today = datetime.now().date()
 # Calculate the date 1 month ago from today
     one_month_ago = today - timedelta(days=30)
-    customers_this_month = app_tables.customers.search(active_date=q.between(one_month_ago, today))
-    dats = {
-      'one_month': one_month_ago,
-      'today': today
-    }
+    customers_begin_of_period = app_tables.customers.search(active_date=q.less_than_or_equal_to(one_month_ago))
+    new_customers = app_tables.customers.search(active_date=q.greater_than(one_month_ago))
+    bgn = len(customers_begin_of_period)
+    nw = len(new_customers)    
+    dats = {}
     rxt = anvil.server.call('getchurn', dats)
     rxt = rxt.get_bytes().decode('utf-8')
     rxt = json.loads(rxt)
-    print(rxt)
+    customers_this_month = app_tables.customers.search()
+    customers_this_month = len(customers_this_month)
     
     curr_customers = len(app_tables.customers.search())
-    churn = (old_customers/(curr_customers+old_customers))*100
-    portfolio = 1
+    churn = (rxt/(bgn+nw))*100
+    portfolio = ((customers_this_month-bgn)/bgn)*100
     churn = round(churn, 1)
     portfolio = round(portfolio, 1)
     self.churn.text = "   "+str(churn)+"%"
-    self.portfolio.text = "   "+str(portfolio)
+    self.portfolio.text = "   "+str(portfolio)+"%"
     dt = {
       "data": 'GET'
     }
