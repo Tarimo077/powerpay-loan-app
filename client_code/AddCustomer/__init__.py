@@ -68,12 +68,22 @@ class AddCustomer(AddCustomerTemplate):
         ans = anvil.server.call('checkoldcustomers', dt)
         ans = ans.get_bytes().decode('utf-8')
         ans = json.loads(ans)
-        
-        app_tables.customers.add_row(name=name, id_num=id_num1, contact=contact1,
+        if ans==True:
+          a = confirm("Customer "+name+" was removed from the system in the past.Do you wish to reinstate them as a customer?")
+          if a==True:
+            app_tables.customers.add_row(name=name, id_num=id_num1, contact=contact1,
                                    dob=self.dob.date, image=self.file_loader_1.file,
                                    active_date=current_date, device_id=dev)
-        alert('Customer ' + name + ' has been added to the system')
-        open_form('Customers')
+            alert('Customer ' + name + ' has been added to the system')
+            open_form('Customers')
+          else:
+            pass
+        else:
+          app_tables.customers.add_row(name=name, id_num=id_num1, contact=contact1,
+                                   dob=self.dob.date, image=self.file_loader_1.file,
+                                   active_date=current_date, device_id=dev)
+          alert('Customer ' + name + ' has been added to the system')
+          open_form('Customers')         
       else:
         alert('Customer '+d['name']+" has already been assigned that device")
         
