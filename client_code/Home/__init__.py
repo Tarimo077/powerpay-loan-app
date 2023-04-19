@@ -17,7 +17,21 @@ class Home(HomeTemplate):
     res = anvil.server.call('getoldcustomers')
     text = res.get_bytes().decode('utf-8')
     old_customers = json.loads(text)
+
     # Get today's date
+    today = datetime.now().date()
+# Calculate the date 1 month ago from today
+    one_month_ago = today - timedelta(days=30)
+    customers_this_month = app_tables.customers.search(active_date=q.between(one_month_ago, today))
+    dats = {
+      'one_month': one_month_ago,
+      'today': today
+    }
+    rxt = anvil.server.call('getchurn', dats)
+    rxt = rxt.get_bytes().decode('utf-8')
+    rxt = json.loads(rxt)
+    print(rxt)
+    
     curr_customers = len(app_tables.customers.search())
     churn = (old_customers/(curr_customers+old_customers))*100
     portfolio = 1

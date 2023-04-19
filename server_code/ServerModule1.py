@@ -112,4 +112,14 @@ def removeoldcustomers(data):
   response = anvil.http.request(url, method="POST", data=dt, username='admin', password='123Give!@#')
   return response
 
+@anvil.server.callable
+def getchurn(data):
+  dt = {
+    'one_month': data['one_month'],
+    'today': data['today']
+  }
+  url = "https://appliapay.com/churn"
+  response = anvil.http.request(url, method="GET", data=dt, username='admin', password='123Give!@#')
+  return response
+
   
