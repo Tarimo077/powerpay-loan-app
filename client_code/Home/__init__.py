@@ -19,8 +19,6 @@ class Home(HomeTemplate):
 
 # Calculate the date 1 month ago from today
     one_month_ago = today - timedelta(days=30)
-    print(one_month_ago)
-    print(today)
 
 # Query the database to get the number of active customers 1 month ago
     active_customers_one_month_ago = app_tables.customers.search(active_date=q.less_than_or_equal_to(one_month_ago))
