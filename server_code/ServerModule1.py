@@ -84,6 +84,13 @@ def deletedCustomers(data):
   }
   response = anvil.http.request(url, method="POST", data=dt, headers=headers, username='admin', password='123Give!@#')
   return response
+
+@anvil.server.callable
+def getoldcustomers():
+  dt = {}
+  url = "https://appliapay.com/oldcustomers"
+  response = anvil.http.request(url, method="GET", data=dt, username='admin', password='123Give!@#')
+  return response
   
   
 

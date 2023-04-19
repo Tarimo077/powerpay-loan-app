@@ -14,28 +14,16 @@ class Home(HomeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    res = anvil.server.call('getoldcustomers')
+    text = res.get_bytes().decode('utf-8')
+    old_customers = json.loads(text)
     # Get today's date
-    today = datetime.now().date()
-
-# Calculate the date 1 month ago from today
-    one_month_ago = today - timedelta(days=30)
-
-# Query the database to get the number of active customers 1 month ago
-    active_customers_one_month_ago = app_tables.customers.search(active_date=q.less_than_or_equal_to(one_month_ago))
-
-# Query the database to get the number of active customers today
-    active_customers_today = app_tables.customers.search(active_date=q.less_than_or_equal_to(today))
-
-# Calculate the number of customers that were active 1 month ago
-    num_active_customers_one_month_ago = len(active_customers_one_month_ago)
-
-# Calculate the number of active customers today
-    num_active_customers_today = len(active_customers_today)
-    churn = num_active_customers_today/(num_active_customers_one_month_ago-num_active_customers_today)
-    portfolio = num_active_customers_today/num_active_customers_one_month_ago
+    curr_customers = len(app_tables.customers.search())
+    churn = (old_customers/(curr_customers+old_customers))*100
+    portfolio = 1
     churn = round(churn, 1)
     portfolio = round(portfolio, 1)
-    self.churn.text = "   "+str(churn)
+    self.churn.text = "   "+str(churn)+"%"
     self.portfolio.text = "   "+str(portfolio)
     dt = {
       "data": 'GET'
