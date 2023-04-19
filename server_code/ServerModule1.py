@@ -67,6 +67,23 @@ def getInfluxdb_devs():
   }
   response = anvil.http.request(url, method="GET", data=data, headers=headers, username='admin', password='123Give!@#')
   return response
+
+@anvil.server.callable
+def deletedCustomers(data):
+  name = data['name']
+  contact = data['contact']
+  id_num = data['id_num']
+  dt = {
+    'name': name,
+    'contact': contact,
+    'id_num': id_num
+  }
+  url = "https://appliapay.com/deletedCustomers"
+  headers = {
+    "Content-Type": "application/json"
+  }
+  response = anvil.http.request(url, method="POST", data=dt, headers=headers, username='admin', password='123Give!@#')
+  return response
   
   
 

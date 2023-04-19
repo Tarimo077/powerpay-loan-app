@@ -53,11 +53,17 @@ class ItemTemplate1(ItemTemplate1Template):
     name = self.cname.text
     id_num = self.id_num.text
     contact = self.contact.text
+    dt = {
+      'name': name,
+      'contact': contact,
+      'id_num': id_num
+    }
     c = confirm("Do you wish to delete customer " + self.cname.text + "? This action cannot be undone")
     if c == True:
       x = app_tables.customers.get(contact=contact, name=name, id_num=id_num)
       if x is not None:
         x.delete()
+        anvil.server.call('deletedCustomers', dt)
         alert("Customer deleted")
         open_form('Customers')
     else:
