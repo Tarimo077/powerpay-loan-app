@@ -55,6 +55,9 @@ class AddCustomer(AddCustomerTemplate):
     if b is not None:
       alert('There already exists a customer with that id number and contact')
       return
+    if self.deviceList.selected_value is None:
+      alert('Kindly select a device ID')
+      return
     else:
       current_date = datetime.date.today()
       dev = int(self.deviceList.selected_value)
@@ -74,6 +77,7 @@ class AddCustomer(AddCustomerTemplate):
             app_tables.customers.add_row(name=name, id_num=id_num1, contact=contact1,
                                    dob=self.dob.date, image=self.file_loader_1.file,
                                    active_date=current_date, device_id=dev)
+            reste = anvil.server.call('removeoldcustomers', dt)
             alert('Customer ' + name + ' has been added to the system')
             open_form('Customers')
           else:

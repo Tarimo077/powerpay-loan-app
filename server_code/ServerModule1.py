@@ -97,7 +97,19 @@ def checkoldcustomers(data):
   url = "https://appliapay.com/checkoldcustomers"
   response = anvil.http.request(url, method="GET", data=data, username='admin', password='123Give!@#')
   return response
-  
-  
+
+@anvil.server.callable
+def removeoldcustomers(data):
+  name = data['name']
+  contact = data['contact']
+  id_num = data['id_num']
+  dt = {
+    'name': name,
+    'contact': contact,
+    'id_num': id_num
+  }
+  url = "https://appliapay.com/remove"
+  response = anvil.http.request(url, method="POST", data=dt, username='admin', password='123Give!@#')
+  return response
 
   

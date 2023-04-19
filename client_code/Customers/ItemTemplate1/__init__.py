@@ -63,7 +63,7 @@ class ItemTemplate1(ItemTemplate1Template):
       x = app_tables.customers.get(contact=contact, name=name, id_num=id_num)
       if x is not None:
         x.delete()
-        anvil.server.call('deletedCustomers', dt)
+        res = anvil.server.call('deletedCustomers', dt)
         alert("Customer deleted")
         open_form('Customers')
     else:
