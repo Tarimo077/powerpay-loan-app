@@ -91,6 +91,12 @@ def getoldcustomers():
   url = "https://appliapay.com/oldcustomers"
   response = anvil.http.request(url, method="GET", data=dt, username='admin', password='123Give!@#')
   return response
+
+@anvil.server.callable
+def checkoldcustomers(data):
+  url = "https://appliapay.com/checkoldcustomers"
+  response = anvil.http.request(url, method="GET", data=data, username='admin', password='123Give!@#')
+  return response
   
   
 

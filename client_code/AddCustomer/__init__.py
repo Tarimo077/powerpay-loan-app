@@ -60,6 +60,12 @@ class AddCustomer(AddCustomerTemplate):
       dev = int(self.deviceList.selected_value)
       d = app_tables.customers.get(device_id=dev)
       if d is None:
+        dt = {
+          'name': name,
+          'contact': contact1,
+          'id_num': id_num1
+        }
+        ans = anvil.server.call('checkoldcustomers', dt)
         app_tables.customers.add_row(name=name, id_num=id_num1, contact=contact1,
                                    dob=self.dob.date, image=self.file_loader_1.file,
                                    active_date=current_date, device_id=dev)
