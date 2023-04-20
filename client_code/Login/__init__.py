@@ -22,10 +22,19 @@ class Login(LoginTemplate):
     username = self.username.text
     password = self.password.text
     d = app_tables.users.get(username=username,password=password)
-
+    if username == '':
+      alert('Fill in username')
+      self.password.text = ''
+      self.login.background = '#8fce00'
+      return
+    if password == '':
+      alert('Fill in password')
+      self.login.background = '#8fce00'
+      return
     if d is None:
       alert('Wrong username or password. If the problem persists contact Powerpay Support team.')
       self.login.background = '#8fce00'
+      self.password.text = ''
       return
     else:
       self.item = username

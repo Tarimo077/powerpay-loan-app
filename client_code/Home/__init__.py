@@ -8,13 +8,13 @@ from anvil.tables import app_tables
 import anvil.users
 from datetime import datetime, timedelta
 import json
+import anvil.js
 
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.home_link.
     res = anvil.server.call('getoldcustomers')
     text = res.get_bytes().decode('utf-8')
     old_customers = json.loads(text)
@@ -82,6 +82,9 @@ class Home(HomeTemplate):
       'title': 'NEW CUSTOMERS PER DAY',
       'xaxis': {
         'title': 'TIME'
+      },
+      'yaxis': {
+        'title': 'CUSTOMERS'
       }
     }
     self.plot_1.layout.yaxis.title = 'CUSTOMERS'
@@ -164,24 +167,3 @@ class Home(HomeTemplate):
     self.last_14_days.background = '#ffa500'
     self.last_7_days.background = '#ffa500'
     self.plot_dt()
-    
-
-
-
-
-
-
-
-  
-
-    
-
-
-
-
-
-    
-
-    
-
-
