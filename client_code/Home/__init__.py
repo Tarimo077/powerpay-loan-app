@@ -75,10 +75,10 @@ class Home(HomeTemplate):
 
     primary_color = '#8fce00'
     self.plot_1.data = go.Bar(x=x, y=y, marker=dict(color=primary_color),
-                              hovertemplate='<b>%{x}</b><br>' + 'Active Customers: %{y}')
+                              hovertemplate='<b>%{x}</b><br>' + 'New Customers: %{y}')
     # Configure the plot layout
     self.plot_1.layout = {
-      'title': 'CUSTOMERS ADDED PER DAY',
+      'title': 'NEW CUSTOMERS PER DAY',
       'xaxis': {
         'title': 'TIME'
       }
@@ -101,6 +101,8 @@ class Home(HomeTemplate):
     self.last_7_days.background = '#ffa500'
     self.last_14_days.background = '#ffa500'
     self.last_30_days.background = '#ffa500'
+    self.last_60_days.background = '#ffa500'
+    self.last_90_days.background = '#ffa500'
     self.plot_dt()
 
   def last_7_days_click(self, **event_args):
@@ -110,6 +112,8 @@ class Home(HomeTemplate):
     self.last_3_days.background = '#ffa500'
     self.last_30_days.background = '#ffa500'
     self.last_14_days.background = '#ffa500'
+    self.last_60_days.background = '#ffa500'
+    self.last_90_days.background = '#ffa500'
     self.plot_dt()
 
   def last_14_days_click(self, **event_args):
@@ -119,6 +123,8 @@ class Home(HomeTemplate):
     self.last_3_days.background = '#ffa500'
     self.last_30_days.background = '#ffa500'
     self.last_7_days.background = '#ffa500'
+    self.last_60_days.background = '#ffa500'
+    self.last_90_days.background = '#ffa500'
     self.plot_dt()
 
   def last_30_days_click(self, **event_args):
@@ -128,11 +134,42 @@ class Home(HomeTemplate):
     self.last_3_days.background = '#ffa500'
     self.last_14_days.background = '#ffa500'
     self.last_7_days.background = '#ffa500'
+    self.last_60_days.background = '#ffa500'
+    self.last_90_days.background = '#ffa500'
     self.plot_dt()
 
   def request_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Request')
+
+  def last_60_days_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.range = 60
+    self.last_60_days.background = '#8fce00'
+    self.last_30_days.background = '#ffa500'
+    self.last_3_days.background = '#ffa500'
+    self.last_14_days.background = '#ffa500'
+    self.last_7_days.background = '#ffa500'
+    self.last_90_days.background = '#ffa500'
+    self.plot_dt()
+
+  def last_90_days_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.range = 90
+    self.last_90_days.background = "#8fce00"
+    self.last_60_days.background = '#ffa500'
+    self.last_30_days.background = '#ffa500'
+    self.last_3_days.background = '#ffa500'
+    self.last_14_days.background = '#ffa500'
+    self.last_7_days.background = '#ffa500'
+    self.plot_dt()
+    
+
+
+
+
+
+
 
   
 

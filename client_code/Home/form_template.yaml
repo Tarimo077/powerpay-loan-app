@@ -122,6 +122,22 @@ components:
       name: last_30_days
       layout_properties: {}
       event_bindings: {click: last_30_days_click}
+    - type: Button
+      properties: {role: outlined-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: Last 60 days, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:orange', bold: true, underline: false, icon: ''}
+      name: last_60_days
+      layout_properties: {}
+      event_bindings: {click: last_60_days_click}
+    - type: Button
+      properties: {role: outlined-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: Last 90 Days, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:orange', bold: true, underline: false, icon: ''}
+      name: last_90_days
+      layout_properties: {}
+      event_bindings: {click: last_90_days_click}
   - type: Plot
     properties: {}
     name: plot_1
