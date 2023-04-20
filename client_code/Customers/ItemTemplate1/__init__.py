@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ...CustomerProfile import CustomerProfile
+from datetime import datetime, timezone, timedelta
 
 class ItemTemplate1(ItemTemplate1Template):
   def __init__(self, **properties):
@@ -13,6 +14,10 @@ class ItemTemplate1(ItemTemplate1Template):
     self.init_components(**properties)
     #selected_products = []
     customer_row = app_tables.customers.get(id_num=self.id_num.text)
+    dob = self.item['dob']
+    formatted_date = dob.strftime("%d %B %Y")
+    self.dob.text = formatted_date
+    
     #product_ids = customer_row['products']
     #for product_id in product_ids:
      # product_row = app_tables.products.get(product_id=product_id)

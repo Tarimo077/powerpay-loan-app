@@ -66,8 +66,7 @@ components:
   properties: {}
   name: dob
   layout_properties: {grid_position: 'ZECFJP,VUYTLO ZFCCDD,JAFFQG'}
-  data_bindings:
-  - {property: text, code: 'self.item[''dob'']'}
+  data_bindings: []
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Device ID:', font_size: null, font: '', spacing_above: small, icon_align: left,

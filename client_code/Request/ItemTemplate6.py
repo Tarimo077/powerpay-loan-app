@@ -38,9 +38,11 @@ class ItemTemplate6(ItemTemplate6Template):
     if(self.item['active']==True):
       self.change_state.text = "Deactivate"
       self.change_state.background = "#ffa500"
+      self.change_state.tooltip = "Turn Device Off"
     else:
       self.change_state.text = "Activate"
       self.change_state.background = "#8fce00"
+      self.change_state.tooltip = "Turn Device On"
     # Any code you write here will run before the form opens.
 
   def change_state_click(self, **event_args):
