@@ -14,6 +14,7 @@ class Home(HomeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.home_link.
     res = anvil.server.call('getoldcustomers')
     text = res.get_bytes().decode('utf-8')
     old_customers = json.loads(text)
