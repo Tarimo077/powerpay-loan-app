@@ -38,5 +38,25 @@ class Support(SupportTemplate):
     self.email.text = ''
     self.feedback.text = ''
 
+  def home_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Home')
+
+  def customers_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Customers')
+
+  def request_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Request')
+
+  def home_link_copy_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Support')
+
+
+
+
+
     
 

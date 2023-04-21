@@ -54,6 +54,11 @@ class Request(RequestTemplate):
     """This method is called when the RepeatingPanel is shown on the screen"""
     self.refresh_data_bindings()
 
+  def home_link_copy_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Support')
+
+
 
 
 

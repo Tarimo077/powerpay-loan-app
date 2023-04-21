@@ -18,7 +18,7 @@ components:
     name: label_1
     layout_properties: {grid_position: 'RPAEVC,ZUGVXC'}
   - type: Spacer
-    properties: {height: 59}
+    properties: {height: 36}
     name: spacer_2
     layout_properties: {grid_position: 'XTHEBS,CMTCZB'}
   - type: Label
@@ -61,9 +61,9 @@ components:
     name: label_3
     layout_properties: {grid_position: 'GKXEBP,VZYOXV'}
   - type: TextArea
-    properties: {role: outlined, align: left, height: 169, tooltip: '', placeholder: '',
+    properties: {role: outlined, align: left, height: 87, tooltip: '', placeholder: '',
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+      auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
       background: '', bold: false, underline: false}
     name: feedback
     layout_properties: {grid_position: 'GKXEBP,VCACWY'}
@@ -98,6 +98,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: OSZLCM,CZEYAA
+    event_bindings: {click: home_link_click}
   - type: Spacer
     properties: {height: 3}
     name: spacer_1
@@ -114,6 +115,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: NIQRCO,YGOWBL
+    event_bindings: {click: customers_click}
   - type: Spacer
     properties: {height: 3}
     name: spacer_1_copy_2
@@ -130,6 +132,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: JVYYEJ,NRFBBU
+    event_bindings: {click: request_click}
   - type: Spacer
     properties: {height: 3}
     name: spacer_1_copy_3
@@ -146,3 +149,4 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: PYVKDW,EFFRNN
+    event_bindings: {click: home_link_copy_click}
