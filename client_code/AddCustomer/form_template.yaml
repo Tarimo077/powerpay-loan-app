@@ -249,3 +249,26 @@ components:
       col_widths: {}
       grid_position: ZQFIXQ,EHNDEE
     event_bindings: {click: home_link_copy_click}
+  - type: Spacer
+    properties: {height: 3}
+    name: spacer_1_copy_5
+    layout_properties:
+      col_widths: {}
+      grid_position: GCQBNQ,FVIOGY
+  - type: Link
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
+      foreground: '', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: 'theme:orange', bold: true,
+      underline: false, icon: 'fa:sign-out'}
+    name: home_link_copy_2
+    layout_properties:
+      col_widths: {}
+      grid_position: XAAVGF,ZUYWJO
+    event_bindings: {click: home_link_copy_2_click}
+- type: Spacer
+  properties: {height: 3}
+  name: spacer_1_copy_6
+  layout_properties:
+    col_widths: {}
+    grid_position: GCQBNQ,FVIOGY

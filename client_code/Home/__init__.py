@@ -9,16 +9,18 @@ import anvil.users
 from datetime import datetime, timedelta
 import json
 import anvil.js
+from ..Intro import Intro
+
 
 
 class Home(HomeTemplate):
-  def __init__(self, **properties):
+  def __init__(self, boo, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     res = anvil.server.call('getoldcustomers')
     text = res.get_bytes().decode('utf-8')
     old_customers = json.loads(text)
-
+    self.boo = boo
     # Get today's date
     today = datetime.now().date()
 # Calculate the date 1 month ago from today
@@ -88,11 +90,10 @@ class Home(HomeTemplate):
       }
     }
     self.plot_1.layout.yaxis.title = 'CUSTOMERS'
-
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home')
+    open_form('Home', 0)
 
   def customers_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -171,3 +172,36 @@ class Home(HomeTemplate):
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Support')
+
+  def timer_1_tick(self, **event_args):
+    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+    if(self.boo==0):
+      self.timer_1.interval=0
+      pass
+    else:
+      c = app_tables.users.get(username=self.boo)
+      intr = c['intro']
+      if(intr==True):
+        #show intro message
+        new_form = Intro(self.boo)
+        alert(
+          content = new_form,
+          large=True,
+          title='POWERPAY TUTORIAL'
+        )
+        print(intr)
+        self.boo = 0
+        self.timer_1.interval = 0
+      else:
+        self.boo = 0
+        self.timer_1.interval = 0
+        pass
+
+  def home_link_copy_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Login')
+
+
+
+
+    

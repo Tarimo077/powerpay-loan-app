@@ -40,7 +40,7 @@ class Support(SupportTemplate):
 
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home')
+    open_form('Home', 0)
 
   def customers_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -53,6 +53,11 @@ class Support(SupportTemplate):
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Support')
+
+  def home_link_copy_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Login')
+
 
 
 

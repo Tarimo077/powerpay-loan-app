@@ -40,7 +40,7 @@ class Request(RequestTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home')
+    open_form('Home', 0)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -57,6 +57,11 @@ class Request(RequestTemplate):
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Support')
+
+  def home_link_copy_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Login')
+
 
 
 

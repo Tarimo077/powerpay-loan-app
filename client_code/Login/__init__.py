@@ -5,7 +5,6 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ..Home import Home
 
 class Login(LoginTemplate):
   def __init__(self, **properties):
@@ -38,7 +37,7 @@ class Login(LoginTemplate):
       return
     else:
       self.item = username
-      open_form('Home')
+      open_form('Home', username)
       alert('Hi '+username+', welcome to Powerpay Loan App')
 
   def eye_click(self, **event_args):
