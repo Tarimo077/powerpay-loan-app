@@ -52,6 +52,23 @@ components:
       col_widths: {}
       grid_position: OXJKEJ,XYHFLB
     event_bindings: {click: request_click}
+  - type: Spacer
+    properties: {height: 3}
+    name: spacer_1_copy_3
+    layout_properties:
+      col_widths: {}
+      grid_position: ANMFOV,SCQEMJ
+  - type: Link
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
+      foreground: '', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:chain-broken'}
+    name: home_link_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: NDRKXO,RZYKAL
+    event_bindings: {click: home_link_copy_click}
 - type: ColumnPanel
   properties: {col_widths: '{}'}
   name: column_panel_1

@@ -167,3 +167,7 @@ class Home(HomeTemplate):
     self.last_14_days.background = '#ffa500'
     self.last_7_days.background = '#ffa500'
     self.plot_dt()
+
+  def home_link_copy_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Support')

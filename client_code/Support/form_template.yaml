@@ -1,0 +1,148 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{"CHWLCX":20,"GHSGOT":40,"SHUTUI":20,"NAKRFJ":40,"VZYOXV":20,"VCACWY":40}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Having Issues?
+
+        Share your feedback and we will get back to you', font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: true, underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'RPAEVC,ZUGVXC'}
+  - type: Spacer
+    properties: {height: 59}
+    name: spacer_2
+    layout_properties: {grid_position: 'XTHEBS,CMTCZB'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Name:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_2
+    layout_properties: {grid_position: 'FSDXCS,CHWLCX'}
+  - type: TextBox
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: name
+    layout_properties: {grid_position: 'FSDXCS,GHSGOT'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Email:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_2_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: QPXEGG,SHUTUI
+  - type: TextBox
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: email, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: email
+    layout_properties:
+      col_widths: {}
+      grid_position: QPXEGG,NAKRFJ
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Share your feedback:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_3
+    layout_properties: {grid_position: 'GKXEBP,VZYOXV'}
+  - type: TextArea
+    properties: {role: outlined, align: left, height: 169, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: feedback
+    layout_properties: {grid_position: 'GKXEBP,VCACWY'}
+  - type: Spacer
+    properties: {height: 58}
+    name: spacer_3
+    layout_properties: {grid_position: 'DWBRUG,LXBQPH'}
+  - type: Button
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SHARE, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: 'theme:orange',
+      bold: true, underline: false, icon: 'fa:location-arrow'}
+    name: button_1
+    layout_properties: {grid_position: 'JXEOKS,ROJDXT'}
+    event_bindings: {click: button_1_click}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- type: ColumnPanel
+  properties: {}
+  name: column_panel_1
+  layout_properties: {slot: left-nav}
+  components:
+  - type: Link
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
+      foreground: '', visible: true, text: HOME, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:home'}
+    name: home_link
+    layout_properties:
+      col_widths: {}
+      grid_position: OSZLCM,CZEYAA
+  - type: Spacer
+    properties: {height: 3}
+    name: spacer_1
+    layout_properties:
+      col_widths: {}
+      grid_position: SSORCJ,JEQGUY
+  - type: Link
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
+      foreground: '', visible: true, text: CUSTOMERS, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:users'}
+    name: customers
+    layout_properties:
+      col_widths: {}
+      grid_position: NIQRCO,YGOWBL
+  - type: Spacer
+    properties: {height: 3}
+    name: spacer_1_copy_2
+    layout_properties:
+      col_widths: {}
+      grid_position: CZDHPL,QNGAAK
+  - type: Link
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
+      foreground: '', visible: true, text: DEVICE MANAGEMENT, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:cogs'}
+    name: request
+    layout_properties:
+      col_widths: {}
+      grid_position: JVYYEJ,NRFBBU
+  - type: Spacer
+    properties: {height: 3}
+    name: spacer_1_copy_3
+    layout_properties:
+      col_widths: {}
+      grid_position: CFPRKZ,NNAESY
+  - type: Link
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
+      foreground: '', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:chain-broken'}
+    name: home_link_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: PYVKDW,EFFRNN

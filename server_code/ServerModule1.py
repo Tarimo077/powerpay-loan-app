@@ -48,13 +48,10 @@ def sendUser(user):
   response = anvil.http.request(url, method="POST", data=data, headers=headers, username='admin', password='123Give!@#')
 
 @anvil.server.callable
-def getChat(prompt):
-  data = {
-    "data": prompt
-  }
-  url = "https://appliapay.com/chat"
-  response = anvil.http.request(url, method="GET", data=data, username='admin', password='123Give!@#')
-  return response
+def getSupport(feedback):
+  data = feedback
+  url = "https://appliapay.com/support"
+  response = anvil.http.request(url, method="POST", data=data, username='admin', password='123Give!@#')
 
 @anvil.server.callable
 def getInfluxdb_devs():
