@@ -189,7 +189,6 @@ class Home(HomeTemplate):
           large=True,
           title='POWERPAY TUTORIAL'
         )
-        print(intr)
         self.boo = 0
         self.timer_1.interval = 0
       else:
