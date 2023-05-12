@@ -115,4 +115,10 @@ def getchurn(data):
   response = anvil.http.request(url, method="GET", data=data, username='admin', password='123Give!@#')
   return response
 
+@anvil.server.callable
+def getcashin():
+  url = "https://appliapay.com/mpesarecords"
+  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#')
+  return response
+
   

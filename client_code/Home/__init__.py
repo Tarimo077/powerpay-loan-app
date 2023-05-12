@@ -169,10 +169,6 @@ class Home(HomeTemplate):
     self.last_7_days.background = '#ffa500'
     self.plot_dt()
 
-  def home_link_copy_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('Support')
-
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
     if(self.boo==0):
@@ -203,6 +199,19 @@ class Home(HomeTemplate):
       open_form('Login')
     else:
       pass
+
+  def home_link_copy_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Support')
+
+  def transactions_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Transactions')
+
+
+
+
+
 
 
 
