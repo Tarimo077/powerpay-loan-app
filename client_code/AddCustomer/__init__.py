@@ -108,13 +108,20 @@ class AddCustomer(AddCustomerTemplate):
     """This method is called when the link is clicked"""
     open_form('Support')
 
-  def home_link_copy_2_click(self, **event_args):
+  def transactions_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Transactions')
+
+  def home_link_copy_4_click(self, **event_args):
     """This method is called when the link is clicked"""
     c = confirm('Are you sure you want to logout?')
     if(c==True):
       open_form('Login')
     else:
       pass
+
+
+
 
 
 
