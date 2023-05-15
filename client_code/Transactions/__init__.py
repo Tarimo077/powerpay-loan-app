@@ -8,6 +8,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import json
 from datetime import datetime
+from collections import Counter
 
 class Transactions(TransactionsTemplate):
   def __init__(self, **properties):
@@ -34,11 +35,12 @@ class Transactions(TransactionsTemplate):
       parsed_date = datetime.strptime(transtime, '%Y%m%d%H%M%S')
       formatted_date = parsed_date.strftime('%d %B %Y %H:%M:%S')
       x['transtime'] = formatted_date
+      x['amount'] = format(x['amount'], ',')
     amnt = 0
     for y in amounts:
       amnt = amnt + y 
-    latest_trans = my_array[-5:]
-    self.moneyin.text = "KSH "+str(amnt)
+    formatted_number = format(amnt, ',')
+    self.moneyin.text = "KSH "+str(formatted_number)
     reversed = my_array[::-1]
     self.repeating_panel_1.items = reversed
     primary_color = '#8fce00'
@@ -54,8 +56,13 @@ class Transactions(TransactionsTemplate):
         'title': 'AMOUNT'
       }
     }
+    
+    names = [obj['name'] for obj in my_array]
+    name_counter = Counter(names)
 
-    # Any code you write here will run before the form opens.
+# Get the top 5 most frequent transactors
+    top_transactors = [{'name': name, 'frequency': count} for name, count in name_counter.most_common(5)]
+    self.repeating_panel_2.items = top_transactors
 
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""

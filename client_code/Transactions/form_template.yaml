@@ -69,6 +69,41 @@ components:
     properties: {}
     name: plot_1
     layout_properties: {grid_position: 'NIGARY,RCHWTS'}
+  - type: Spacer
+    properties: {height: 36}
+    name: spacer_5
+    layout_properties: {grid_position: 'ZJCFPJ,IYGBQQ'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: TOP TRANSACTORS, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_3
+    layout_properties: {grid_position: 'DJPTXZ,YWSOCS'}
+  - type: DataGrid
+    properties:
+      role: tonal-data-grid
+      columns:
+      - {id: ZTNUOE, title: Name, data_key: name, $$hashKey: 'object:147134'}
+      - {id: LFHOTN, title: Number of Transactions, data_key: frequency, $$hashKey: 'object:147135'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 10
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_2
+    layout_properties: {grid_position: 'UOCPJE,BRWGQK'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Transactions.RowTemplate2}
+      name: repeating_panel_2
+      layout_properties: {}
 - type: FlowPanel
   properties: {}
   name: navbar_links
