@@ -75,9 +75,44 @@ components:
     layout_properties: {grid_position: 'ZJCFPJ,IYGBQQ'}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: TOP TRANSACTORS, font_size: null, font: '', spacing_above: small,
+      visible: true, text: TOP TRANSACTORS BY AMOUNT, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
+    name: label_4
+    layout_properties: {grid_position: 'TYBXPA,HBHHQM'}
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: MQINJG, title: Name, data_key: column_1, $$hashKey: 'object:158249'}
+      - {id: HETDLK, title: Column 2, data_key: column_2, $$hashKey: 'object:158250'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_3
+    layout_properties: {grid_position: 'DSJVPW,WEPMZG'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Transactions.RowTemplate3}
+      name: repeating_panel_3
+      layout_properties: {}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_6
+    layout_properties: {grid_position: 'IWPQZM,FLIFMJ'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: TOP TRANSACTORS BY FREQUENCY, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: true, underline: false, icon: ''}
     name: label_3
     layout_properties: {grid_position: 'DJPTXZ,YWSOCS'}
   - type: DataGrid

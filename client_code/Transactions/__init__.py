@@ -20,6 +20,7 @@ class Transactions(TransactionsTemplate):
     amounts = []
     dates = []
     totals = []
+    total_amounts = {}
     for x in my_array:
       transtime = str(x['transtime'])
       transtim = datetime.strptime(str(x['transtime']), '%Y%m%d%H%M%S')
@@ -38,8 +39,16 @@ class Transactions(TransactionsTemplate):
 # Convert the datetime object to the desired format
       formatted_time = time_obj.strftime('%d %B %Y %I:%M:%S %p')
       x['transtime'] = formatted_time
+      name = x['name']
+      amount = int(x['amount'])
+      if name in total_amounts:
+        total_amounts[name] += amount
+      else:
+        total_amounts[name] = amount
       x['amount'] = format(x['amount'], ',')
     amnt = 0
+    output = [{'name': name, 'amount': total_amounts[name]} for name in total_amounts]
+    print(output)
     for y in amounts:
       amnt = amnt + y 
     formatted_number = format(amnt, ',')
