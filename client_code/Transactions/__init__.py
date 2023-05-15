@@ -31,3 +31,37 @@ class Transactions(TransactionsTemplate):
     self.repeating_panel_1.items = latest_trans
 
     # Any code you write here will run before the form opens.
+
+  def home_link_copy_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Transactions')
+
+  def home_link_copy_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Support')
+
+  def home_link_copy_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    c = confirm('Are you sure you want to logout?')
+    if(c==True):
+      open_form('Login')
+    else:
+      pass
+
+  def home_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Home', 0)
+
+  def customers_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Customers')
+
+  def request_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Request')
+
+
+
+
+
+

@@ -84,7 +84,7 @@ components:
   name: navbar_links
   layout_properties: {slot: nav-right}
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: column_panel_1
   layout_properties: {slot: left-nav}
   components:
@@ -141,10 +141,10 @@ components:
       grid_position: CFPRKZ,NNAESY
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile,
+      foreground: '', visible: true, text: TRANSACTIONS, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
       spacing_below: small, italic: false, background: '', bold: true, underline: false,
-      icon: 'fa:chain-broken'}
+      icon: 'fa:money'}
     name: home_link_copy
     layout_properties:
       col_widths: {}
@@ -158,12 +158,28 @@ components:
       grid_position: BVYBZT,KZFPNV
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: 'theme:orange', bold: true,
-      underline: false, icon: 'fa:sign-out'}
+      foreground: '', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}',
+      spacing_below: small, italic: false, background: 'theme:Primary Container',
+      bold: true, underline: false, icon: 'fa:chain-broken'}
     name: home_link_copy_2
     layout_properties:
       col_widths: {}
       grid_position: LYARSC,JQZFMU
     event_bindings: {click: home_link_copy_2_click}
+    components: []
+  - type: Spacer
+    properties: {height: 3}
+    name: spacer_4
+    layout_properties: {grid_position: 'RDVWWG,PVQPRQ'}
+  - type: Link
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
+      foreground: '', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: 'theme:orange', bold: true,
+      underline: false, icon: 'fa:sign-out'}
+    name: home_link_copy_3
+    layout_properties:
+      col_widths: {}
+      grid_position: COUMBM,FTRBXJ
+    event_bindings: {click: home_link_copy_3_click}
