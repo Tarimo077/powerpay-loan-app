@@ -34,7 +34,10 @@ class Transactions(TransactionsTemplate):
       amounts.append(x['amount'])
       parsed_date = datetime.strptime(transtime, '%Y%m%d%H%M%S')
       formatted_date = parsed_date.strftime('%d %B %Y %H:%M:%S')
-      x['transtime'] = formatted_date
+      time_obj = datetime.strptime(formatted_date, '%d %B %Y %H:%M:%S')
+# Convert the datetime object to the desired format
+      formatted_time = time_obj.strftime('%d %B %Y %I:%M:%S %p')
+      x['transtime'] = formatted_time
       x['amount'] = format(x['amount'], ',')
     amnt = 0
     for y in amounts:
