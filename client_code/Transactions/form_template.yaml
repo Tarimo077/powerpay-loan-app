@@ -28,7 +28,7 @@ components:
     layout_properties: {grid_position: 'LCLEAZ,MKPCOQ'}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: LATEST TRANSACTIONS, font_size: null, font: '', spacing_above: small,
+      visible: true, text: TRANSACTIONS, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_2
@@ -37,15 +37,17 @@ components:
     properties:
       role: tonal-data-grid
       columns:
+      - {id: WDPUXI, title: Transactor Name, data_key: name, $$hashKey: 'object:141093'}
       - {id: JLBRSM, title: Account Reference, data_key: ref, $$hashKey: 'object:39748',
         expand: false}
       - {id: CNCMJG, title: Transaction ID, data_key: id, $$hashKey: 'object:39749'}
       - {id: KWPYWM, title: Amount, data_key: amount, $$hashKey: 'object:39750'}
+      - {id: RCAREM, title: Transaction Time, data_key: transtime, $$hashKey: 'object:140008'}
       auto_header: true
       tooltip: ''
       border: ''
       foreground: ''
-      rows_per_page: 20
+      rows_per_page: 10
       visible: true
       wrap_on: never
       show_page_controls: true
