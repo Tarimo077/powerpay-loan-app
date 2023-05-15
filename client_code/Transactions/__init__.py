@@ -1,5 +1,6 @@
 from ._anvil_designer import TransactionsTemplate
 from anvil import *
+import plotly.graph_objects as go
 import anvil.server
 import anvil.users
 import anvil.tables as tables
@@ -16,21 +17,43 @@ class Transactions(TransactionsTemplate):
     text = res.get_bytes().decode('utf-8')
     my_array = json.loads(text)
     amounts = []
+    dates = []
+    totals = []
     for x in my_array:
       transtime = str(x['transtime'])
+      transtim = datetime.strptime(str(x['transtime']), '%Y%m%d%H%M%S')
+      day = transtim.date().strftime('%Y-%m-%d')
+    # Check if the day is already in the dates list
+      if day in dates:
+        index = dates.index(day)
+        totals[index] += x['amount']
+      else:
+        dates.append(day)
+        totals.append(x['amount'])
+      amounts.append(x['amount'])
       parsed_date = datetime.strptime(transtime, '%Y%m%d%H%M%S')
       formatted_date = parsed_date.strftime('%d %B %Y %H:%M:%S')
       x['transtime'] = formatted_date
-      amounts.append(x['amount'])
     amnt = 0
-    print(my_array)
     for y in amounts:
-      amnt = amnt + y
-      
+      amnt = amnt + y 
     latest_trans = my_array[-5:]
     self.moneyin.text = "KSH "+str(amnt)
     reversed = my_array[::-1]
     self.repeating_panel_1.items = reversed
+    primary_color = '#8fce00'
+    self.plot_1.data = go.Bar(x=dates, y=totals, marker=dict(color=primary_color),
+                              hovertemplate='<b>%{x}</b><br>' + 'Amount: %{y}')
+    # Configure the plot layout
+    self.plot_1.layout = {
+      'title': 'AMOUNT RECEIVED PER DAY',
+      'xaxis': {
+        'title': 'TIME'
+      },
+      'yaxis': {
+        'title': 'AMOUNT'
+      }
+    }
 
     # Any code you write here will run before the form opens.
 
