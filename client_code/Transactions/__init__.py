@@ -47,7 +47,12 @@ class Transactions(TransactionsTemplate):
         total_amounts[name] = amount
       x['amount'] = format(x['amount'], ',')
     amnt = 0
-    output = [{'name': name, 'amount': total_amounts[name]} for name in total_amounts]
+    print(total_amounts)
+    sorted_transactors = sorted(total_amounts.items(), key=lambda x: x[1], reverse=True)
+    print(sorted_transactors)
+    output = [{'name': nme, 'amount': am} for nme, am in sorted_transactors]
+    for s in output:
+      s['amount'] = format(s['amount'], ',')
     print(output)
     for y in amounts:
       amnt = amnt + y 
@@ -75,6 +80,7 @@ class Transactions(TransactionsTemplate):
 # Get the top 5 most frequent transactors
     top_transactors = [{'name': name, 'frequency': count} for name, count in name_counter.most_common(5)]
     self.repeating_panel_2.items = top_transactors
+    self.repeating_panel_3.items = output
 
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""

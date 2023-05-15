@@ -82,15 +82,15 @@ components:
     layout_properties: {grid_position: 'TYBXPA,HBHHQM'}
   - type: DataGrid
     properties:
-      role: null
+      role: tonal-data-grid
       columns:
-      - {id: MQINJG, title: Name, data_key: column_1, $$hashKey: 'object:158249'}
-      - {id: HETDLK, title: Column 2, data_key: column_2, $$hashKey: 'object:158250'}
+      - {id: MQINJG, title: Name, data_key: name, $$hashKey: 'object:158249'}
+      - {id: HETDLK, title: Amount Transacted, data_key: amount, $$hashKey: 'object:158250'}
       auto_header: true
       tooltip: ''
       border: ''
       foreground: ''
-      rows_per_page: 20
+      rows_per_page: 10
       visible: true
       wrap_on: never
       show_page_controls: true
