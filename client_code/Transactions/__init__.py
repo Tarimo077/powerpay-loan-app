@@ -16,7 +16,7 @@ class Transactions(TransactionsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     label_element = anvil.js.get_dom_node(self.moneyin)
-    label_element.style.filter = "blur(10px)"
+    label_element.style.filter = "blur(25px)"
     self.seecash = True
     self.button_1.tooltip = 'view cash in'
     res = anvil.server.call('getcashin')
@@ -119,7 +119,7 @@ class Transactions(TransactionsTemplate):
       self.button_1.icon = 'fa:eye'
       self.button_1.tooltip = 'view cash in'
       label_element = anvil.js.get_dom_node(self.moneyin)
-      label_element.style.filter = "blur(10px)"
+      label_element.style.filter = "blur(25px)"
       self.seecash = True
     else:
       self.button_1.background = '#ffa500'
