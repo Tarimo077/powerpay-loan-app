@@ -11,6 +11,7 @@ class Login(LoginTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.password.hide_text = True
+    self.eye.tooltip = 'view password'
     self.pass_state = False
 
     # Any code you write here will run before the form opens.
@@ -47,12 +48,14 @@ class Login(LoginTemplate):
       self.eye.icon = 'fa:eye-slash'
       self.pass_state = True
       self.eye.background = '#ffa500'
+      self.eye.tooltip = 'hide password'
       
     else:
       self.password.hide_text = True
       self.eye.icon = 'fa:eye'
       self.pass_state = False
       self.eye.background = '#8fce00'
+      self.eye.tooltip = 'view password'
 
       
 

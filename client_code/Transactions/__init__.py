@@ -9,11 +9,16 @@ from anvil.tables import app_tables
 import json
 from datetime import datetime
 from collections import Counter
+import anvil.js
 
 class Transactions(TransactionsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    label_element = anvil.js.get_dom_node(self.moneyin)
+    label_element.style.filter = "blur(10px)"
+    self.seecash = True
+    self.button_1.tooltip = 'view cash in'
     res = anvil.server.call('getcashin')
     text = res.get_bytes().decode('utf-8')
     my_array = json.loads(text)
@@ -47,13 +52,10 @@ class Transactions(TransactionsTemplate):
         total_amounts[name] = amount
       x['amount'] = format(x['amount'], ',')
     amnt = 0
-    print(total_amounts)
     sorted_transactors = sorted(total_amounts.items(), key=lambda x: x[1], reverse=True)
-    print(sorted_transactors)
     output = [{'name': nme, 'amount': am} for nme, am in sorted_transactors]
     for s in output:
       s['amount'] = format(s['amount'], ',')
-    print(output)
     for y in amounts:
       amnt = amnt + y 
     formatted_number = format(amnt, ',')
@@ -109,6 +111,25 @@ class Transactions(TransactionsTemplate):
   def request_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Request')
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if(self.seecash==False):
+      self.button_1.background = '#8fce00'
+      self.button_1.icon = 'fa:eye'
+      self.button_1.tooltip = 'view cash in'
+      label_element = anvil.js.get_dom_node(self.moneyin)
+      label_element.style.filter = "blur(10px)"
+      self.seecash = True
+    else:
+      self.button_1.background = '#ffa500'
+      self.button_1.icon = 'fa:eye-slash'
+      self.button_1.tooltip = 'hide cash in'
+      label_element = anvil.js.get_dom_node(self.moneyin)
+      label_element.style.filter = "blur(0px)"
+      self.seecash = False
+      
+
 
 
 

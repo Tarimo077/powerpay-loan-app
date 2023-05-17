@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"HHCRYA":55,"VCOCKL":5}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -22,6 +22,18 @@ components:
       bold: true, underline: false, icon: 'fa:money'}
     name: moneyin
     layout_properties: {grid_position: 'FPPKOT,HHCRYA'}
+  - type: Spacer
+    properties: {height: 5}
+    name: spacer_7
+    layout_properties: {grid_position: 'FPPKOT,VCOCKL LIYLDU,QWDKRA'}
+  - type: Button
+    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
+        Container', bold: false, underline: false, icon: 'fa:eye'}
+    name: button_1
+    layout_properties: {grid_position: 'FPPKOT,VCOCKL ZNPXNM,YIXRCU'}
+    event_bindings: {click: button_1_click}
   - type: Spacer
     properties: {height: 45}
     name: spacer_2
