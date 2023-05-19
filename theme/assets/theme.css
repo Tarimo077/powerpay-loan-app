@@ -1078,13 +1078,14 @@ div.plot-container.plotly svg.main-svg {
   height: 40px;
   border-radius: 50%;
   border: 7px solid #8fce00; /* Green color */
-  border-top: 7px solid #ffa500; /* Yellow color */
+  border-top: 7px solid #ffa500;  /* Yellow color */
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
   75% { transform: rotate(270deg); }
   100% { transform: rotate(360deg); }
 }
