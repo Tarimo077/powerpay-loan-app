@@ -10,14 +10,15 @@ import json
 from datetime import datetime
 from collections import Counter
 import anvil.js
+from ..Password import Password
 
 class Transactions(TransactionsTemplate):
-  def __init__(self, **properties):
+  def __init__(self, csh, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     label_element = anvil.js.get_dom_node(self.moneyin)
     label_element.style.filter = "blur(25px)"
-    self.seecash = True
+    self.seecash = csh
     self.button_1.tooltip = 'view cash in'
     res = anvil.server.call('getcashin')
     text = res.get_bytes().decode('utf-8')
@@ -86,7 +87,7 @@ class Transactions(TransactionsTemplate):
 
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Transactions')
+    open_form('Transactions', True)
 
   def home_link_copy_2_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -115,6 +116,12 @@ class Transactions(TransactionsTemplate):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     if(self.seecash==False):
+      nw_frm = Password()
+      alert(
+          content = new_frm,
+          large=False,
+          title='ENTER PIN'
+        )
       self.button_1.background = '#8fce00'
       self.button_1.icon = 'fa:eye'
       self.button_1.tooltip = 'view cash in'

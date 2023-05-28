@@ -11,8 +11,6 @@ import json
 import anvil.js
 from ..Intro import Intro
 
-
-
 class Home(HomeTemplate):
   def __init__(self, boo, **properties):
     # Set Form properties and Data Bindings.
@@ -206,7 +204,7 @@ class Home(HomeTemplate):
 
   def transactions_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Transactions')
+    open_form('Transactions', True)
 
 
 

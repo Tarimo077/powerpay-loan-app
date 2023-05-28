@@ -110,7 +110,7 @@ class AddCustomer(AddCustomerTemplate):
 
   def transactions_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Transactions')
+    open_form('Transactions', True)
 
   def home_link_copy_4_click(self, **event_args):
     """This method is called when the link is clicked"""
