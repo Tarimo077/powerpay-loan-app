@@ -16,10 +16,7 @@ class Transactions(TransactionsTemplate):
   def __init__(self, csh, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    label_element = anvil.js.get_dom_node(self.moneyin)
-    label_element.style.filter = "blur(25px)"
     self.seecash = csh
-    self.button_1.tooltip = 'view cash in'
     res = anvil.server.call('getcashin')
     text = res.get_bytes().decode('utf-8')
     my_array = json.loads(text)
@@ -61,6 +58,10 @@ class Transactions(TransactionsTemplate):
       amnt = amnt + y 
     formatted_number = format(amnt, ',')
     self.moneyin.text = "KSH "+str(formatted_number)
+    if(self.seecash==True):
+      self.hide_cash()
+    else:
+      self.view_cash()
     reversed = my_array[::-1]
     self.repeating_panel_1.items = reversed
     primary_color = '#8fce00'
@@ -81,7 +82,7 @@ class Transactions(TransactionsTemplate):
     name_counter = Counter(names)
 
 # Get the top 5 most frequent transactors
-    top_transactors = [{'name': name, 'frequency': count} for name, count in name_counter.most_common(5)]
+    top_transactors = [{'name': name, 'frequency': count} for name, count in name_counter.most_common()]
     self.repeating_panel_2.items = top_transactors
     self.repeating_panel_3.items = output
 
@@ -113,28 +114,38 @@ class Transactions(TransactionsTemplate):
     """This method is called when the link is clicked"""
     open_form('Request')
 
+  def view_cash(self, **event_args):
+    self.button_1.background = '#ffa500'
+    self.button_1.icon = 'fa:eye-slash'
+    self.button_1.tooltip = 'hide cash in'
+    label_element = anvil.js.get_dom_node(self.moneyin)
+    label_element.style.filter = "blur(0px)"
+    self.seecash = False
+
+  def hide_cash(self, **event_args):
+    self.button_1.background = '#8fce00'
+    self.button_1.icon = 'fa:eye'
+    self.button_1.tooltip = 'view cash in'
+    label_element = anvil.js.get_dom_node(self.moneyin)
+    label_element.style.filter = "blur(25px)"
+    self.seecash = True   
+    
+
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    if(self.seecash==False):
+    if(self.seecash==True):
       nw_frm = Password()
-      alert(
-          content = new_frm,
-          large=False,
-          title='ENTER PIN'
-        )
-      self.button_1.background = '#8fce00'
-      self.button_1.icon = 'fa:eye'
-      self.button_1.tooltip = 'view cash in'
-      label_element = anvil.js.get_dom_node(self.moneyin)
-      label_element.style.filter = "blur(25px)"
-      self.seecash = True
-    else:
-      self.button_1.background = '#ffa500'
-      self.button_1.icon = 'fa:eye-slash'
-      self.button_1.tooltip = 'hide cash in'
-      label_element = anvil.js.get_dom_node(self.moneyin)
-      label_element.style.filter = "blur(0px)"
+      alert_instance = alert(
+        content=nw_frm,
+        large=False,
+        title='ENTER PIN',
+        dismissible=False,
+        buttons=None
+      )
       self.seecash = False
+    else:
+      self.hide_cash()
+      
       
 
 
