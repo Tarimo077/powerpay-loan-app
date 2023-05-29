@@ -13,10 +13,9 @@ class ItemTemplate1(ItemTemplate1Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     #selected_products = []
-    customer_row = app_tables.customers.get(id_num=self.id_num.text)
-    dob = self.item['dob']
-    formatted_date = dob.strftime("%d %B %Y")
-    self.dob.text = formatted_date
+    
+    #formatted_date = dob.strftime("%d %B %Y")
+    
     
     #product_ids = customer_row['products']
     #for product_id in product_ids:

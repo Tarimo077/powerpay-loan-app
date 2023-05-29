@@ -11,7 +11,7 @@ components:
   layout_properties: {grid_position: 'BZZXEV,ZMSJYA'}
 - type: Label
   properties: {}
-  name: cname
+  name: name
   layout_properties: {grid_position: 'BZZXEV,NXTDUP'}
   data_bindings:
   - {property: text, code: 'self.item[''name'']'}
@@ -37,9 +37,10 @@ components:
   layout_properties: {grid_position: 'ZFCCDD,EIZLZE'}
 - type: Label
   properties: {}
-  name: dob
+  name: age
   layout_properties: {grid_position: 'ZFCCDD,JAFFQG'}
-  data_bindings: []
+  data_bindings:
+  - {property: text, code: 'self.item[''age'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Customer ID:', font_size: null, font: '', spacing_above: small, icon_align: left,
@@ -49,10 +50,10 @@ components:
   layout_properties: {grid_position: 'LCTYHB,VEVNTC'}
 - type: Label
   properties: {}
-  name: device
+  name: id
   layout_properties: {grid_position: 'LCTYHB,ALSXDZ'}
   data_bindings:
-  - {property: text, code: 'self.item[''device_id'']'}
+  - {property: text, code: 'self.item[''id'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Email:', font_size: null, font: '', spacing_above: small, icon_align: left,
@@ -64,6 +65,8 @@ components:
   properties: {}
   name: email
   layout_properties: {grid_position: 'VNSBVX,JZKPUH'}
+  data_bindings:
+  - {property: text, code: 'self.item[''email'']'}
 - type: Spacer
   properties: {height: 35}
   name: spacer_2

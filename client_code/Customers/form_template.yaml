@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"BNEMFK":25,"JWNTPA":35}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -12,14 +12,10 @@ components:
     properties: {height: 32}
     name: spacer_3
     layout_properties: {grid_position: 'PSXPPK,DIGBNB'}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Add New Customer, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: 'theme:Primary Container', bold: true, underline: false, icon: 'fa:user-plus'}
-    name: addcustomer
-    layout_properties: {grid_position: 'VKYJVN,EHPETU'}
-    event_bindings: {click: addcustomer_click}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_6
+    layout_properties: {grid_position: 'VKYJVN,BNEMFK'}
   - type: TextBox
     properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: search customers...,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
@@ -27,7 +23,7 @@ components:
       background: '', bold: false, underline: false}
     name: search
     layout_properties: {grid_position: 'VKYJVN,JWNTPA'}
-    event_bindings: {}
+    event_bindings: {change: search_change}
   - type: Spacer
     properties: {height: 32}
     name: spacer_2

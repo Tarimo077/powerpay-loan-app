@@ -15,32 +15,32 @@ class Home(HomeTemplate):
   def __init__(self, boo, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    res = anvil.server.call('getoldcustomers')
-    text = res.get_bytes().decode('utf-8')
-    old_customers = json.loads(text)
+    #res = anvil.server.call('getoldcustomers')
+    #text = res.get_bytes().decode('utf-8')
+    #old_customers = json.loads(text)
     self.boo = boo
     # Get today's date
-    today = datetime.now().date()
+    #today = datetime.now().date()
 # Calculate the date 1 month ago from today
-    one_month_ago = today - timedelta(days=30)
-    customers_begin_of_period = app_tables.customers.search(active_date=q.less_than_or_equal_to(one_month_ago))
-    new_customers = app_tables.customers.search(active_date=q.greater_than(one_month_ago))
-    bgn = len(customers_begin_of_period)
-    nw = len(new_customers)    
-    dats = {}
-    rxt = anvil.server.call('getchurn', dats)
-    rxt = rxt.get_bytes().decode('utf-8')
-    rxt = json.loads(rxt)
-    customers_this_month = app_tables.customers.search()
-    customers_this_month = len(customers_this_month)
+    #one_month_ago = today - timedelta(days=30)
+    #customers_begin_of_period = app_tables.customers.search(active_date=q.less_than_or_equal_to(one_month_ago))
+    #new_customers = app_tables.customers.search(active_date=q.greater_than(one_month_ago))
+    #bgn = len(customers_begin_of_period)
+    #nw = len(new_customers)    
+    #dats = {}
+    #rxt = anvil.server.call('getchurn', dats)
+    #rxt = rxt.get_bytes().decode('utf-8')
+    #rxt = json.loads(rxt)
+    #customers_this_month = app_tables.customers.search()
+    #customers_this_month = len(customers_this_month)
     
-    curr_customers = len(app_tables.customers.search())
-    churn = (rxt/(bgn+nw))*100
-    portfolio = ((customers_this_month-bgn)/bgn)*100
-    churn = round(churn, 1)
-    portfolio = round(portfolio, 1)
-    self.churn.text = "   "+str(churn)+"%"
-    self.portfolio.text = "   "+str(portfolio)+"%"
+    #curr_customers = len(app_tables.customers.search())
+    #churn = (rxt/(bgn+nw))*100
+    #portfolio = ((customers_this_month-bgn)/bgn)*100
+    #churn = round(churn, 1)
+    #portfolio = round(portfolio, 1)
+    #self.churn.text = "   "+str(churn)+"%"
+    #self.portfolio.text = "   "+str(portfolio)+"%"
     dt = {
       "data": 'GET'
     }
@@ -49,45 +49,49 @@ class Home(HomeTemplate):
     my_array = json.loads(text)
     dev_total = len(my_array)
     self.range = 3
-    self.plot_dt()
-    customer_table = app_tables.customers
+    #self.plot_dt()
+    #customer_table = app_tables.customers
 
 # Count the number of rows in the table
-    customer_count = len(customer_table.search())
+    #customer_count = len(customer_table.search())
+    rt = anvil.server.call('getcustomers')
+    rt = rt.get_bytes().decode('utf-8')
+    rt = json.loads(rt)
+    leng = len(rt)
     self.product_no.text = dev_total
-    self.customers_no.text = customer_count
+    self.customers_no.text = str(leng)
     # Any code you write here will run before the form opens.
 
 
-  def plot_dt(self, **event_args):
-    today = datetime.utcnow().date()
-    date_counts = {}
+#  def plot_dt(self, **event_args):
+#    today = datetime.utcnow().date()
+#    date_counts = {}
   
-    for i in range(self.range):
-      date = today - timedelta(days=i)
-      start = datetime.combine(date, datetime.min.time())
-      end = datetime.combine(date, datetime.max.time())
-      query = app_tables.customers.search(active_date=q.between(start, end))
-      count = len(query)
-      date_counts[date] = count
+#    for i in range(self.range):
+#      date = today - timedelta(days=i)
+#      start = datetime.combine(date, datetime.min.time())
+#      end = datetime.combine(date, datetime.max.time())
+#      query = app_tables.customers.search(active_date=q.between(start, end))
+#      count = len(query)
+#      date_counts[date] = count
   
-    x = list(date_counts.keys())
-    y = list(date_counts.values())
+#    x = list(date_counts.keys())
+#    y = list(date_counts.values())
 
-    primary_color = '#8fce00'
-    self.plot_1.data = go.Bar(x=x, y=y, marker=dict(color=primary_color),
-                              hovertemplate='<b>%{x}</b><br>' + 'New Customers: %{y}')
+#    primary_color = '#8fce00'
+#    self.plot_1.data = go.Bar(x=x, y=y, marker=dict(color=primary_color),
+#                              hovertemplate='<b>%{x}</b><br>' + 'New Customers: %{y}')
     # Configure the plot layout
-    self.plot_1.layout = {
-      'title': 'NEW CUSTOMERS PER DAY',
-      'xaxis': {
-        'title': 'TIME'
-      },
-      'yaxis': {
-        'title': 'CUSTOMERS'
-      }
-    }
-    self.plot_1.layout.yaxis.title = 'CUSTOMERS'
+#    self.plot_1.layout = {
+#      'title': 'NEW CUSTOMERS PER DAY',
+#      'xaxis': {
+#        'title': 'TIME'
+#      },
+#      'yaxis': {
+#        'title': 'CUSTOMERS'
+#      }
+#    } 
+#    self.plot_1.layout.yaxis.title = 'CUSTOMERS' 
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""

@@ -5,13 +5,29 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import json
 
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.refresh_data_bindings()
-    self.repeating_panel_1.items = app_tables.customers.search(tables.order_by('name'))
+    #self.repeating_panel_1.items = app_tables.customers.search(tables.order_by('name'))
+    rxt = anvil.server.call('getcustomers')
+    rxt = rxt.get_bytes().decode('utf-8')
+    rxt = json.loads(rxt)
+    my_arr = []
+    for g in rxt:
+      data = {
+        'id' : g['id'],
+        'email' : g['email'],
+        'name' : g['name'],
+        'contact' : g['contact'],
+        'age' : g['age']
+      }
+      my_arr.append(data)
+    self.repeating_panel_1.items = my_arr 
+    self.item = my_arr   
 
     # Any code you write here will run before the form opens.
 
@@ -26,7 +42,9 @@ class Customers(CustomersTemplate):
   def search_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     search_text = self.search.text
-    self.repeating_panel_1.items = app_tables.customers.search(name=q.ilike(search_text+'%'))
+    leng = len(search_text)
+    filtered_objects = [obj for obj in self.item if obj['name'][:leng].lower() == search_text.lower()]
+    self.repeating_panel_1.items = filtered_objects
 
   def addcustomer_click(self, **event_args):
     """This method is called when the button is clicked"""
