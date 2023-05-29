@@ -1,32 +1,18 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"ZMSJYA":25,"NXTDUP":35,"CCEEZP":25,"TXTATV":35,"WAXFDB":25,"LOMIWV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35}'}
+  properties: {col_widths: '{"ZMSJYA":25,"NXTDUP":35,"CCEEZP":25,"TXTATV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35,"HAFYKA":25,"JZKPUH":35}'}
 components:
-- type: Image
-  properties: {height: 221}
-  name: image_1
-  layout_properties: {grid_position: 'ZECFJP,EGTCFE ZFASFO,GMLWDB'}
-  data_bindings:
-  - {property: source, code: 'self.item[''image'']'}
-- type: Button
-  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: EDIT, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-      Container', bold: true, underline: false, icon: 'fa:pencil'}
-  name: edit
-  layout_properties: {grid_position: 'ZECFJP,EGTCFE TRWYOP,HFSYHG'}
-  event_bindings: {click: edit_click}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Name:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
   name: label_5
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO BZZXEV,ZMSJYA'}
+  layout_properties: {grid_position: 'BZZXEV,ZMSJYA'}
 - type: Label
   properties: {}
   name: cname
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO BZZXEV,NXTDUP'}
+  layout_properties: {grid_position: 'BZZXEV,NXTDUP'}
   data_bindings:
   - {property: text, code: 'self.item[''name'']'}
 - type: Label
@@ -35,65 +21,51 @@ components:
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
   name: label_2
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO LSJQIO,CCEEZP'}
+  layout_properties: {grid_position: 'LSJQIO,CCEEZP'}
 - type: Label
   properties: {}
   name: contact
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO LSJQIO,TXTATV'}
+  layout_properties: {grid_position: 'LSJQIO,TXTATV'}
   data_bindings:
   - {property: text, code: 'self.item[''contact'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'ID Number:', font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: true, underline: false,
-    icon: ''}
-  name: label_4
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO OMWFEW,WAXFDB'}
-- type: Label
-  properties: {}
-  name: id_num
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO OMWFEW,LOMIWV'}
-  data_bindings:
-  - {property: text, code: 'self.item[''id_num'']'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Date of Birth:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    text: 'Age:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
   name: label_3
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO ZFCCDD,EIZLZE'}
+  layout_properties: {grid_position: 'ZFCCDD,EIZLZE'}
 - type: Label
   properties: {}
   name: dob
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO ZFCCDD,JAFFQG'}
+  layout_properties: {grid_position: 'ZFCCDD,JAFFQG'}
   data_bindings: []
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Device ID:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    text: 'Customer ID:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
   name: label_6
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO LCTYHB,VEVNTC'}
+  layout_properties: {grid_position: 'LCTYHB,VEVNTC'}
 - type: Label
   properties: {}
   name: device
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO LCTYHB,ALSXDZ'}
+  layout_properties: {grid_position: 'LCTYHB,ALSXDZ'}
   data_bindings:
   - {property: text, code: 'self.item[''device_id'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Email:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'VNSBVX,HAFYKA'}
+- type: Label
+  properties: {}
+  name: email
+  layout_properties: {grid_position: 'VNSBVX,JZKPUH'}
 - type: Spacer
-  properties: {height: 2}
-  name: spacer_1
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO VNSBVX,ZKPOAH'}
-- type: Button
-  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: DELETE, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: 'theme:orange',
-    bold: true, underline: false, icon: 'fa:trash'}
-  name: delete
-  layout_properties: {grid_position: 'ZECFJP,VUYTLO SEGKYF,PLSHUH'}
-  event_bindings: {click: delete_click}
-- type: Spacer
-  properties: {height: 50}
+  properties: {height: 35}
   name: spacer_2
   layout_properties: {grid_position: 'DWLCRX,MHFGHV'}
 is_package: true
