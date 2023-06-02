@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"ZMSJYA":25,"NXTDUP":35,"CCEEZP":25,"TXTATV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35,"HAFYKA":25,"JZKPUH":35}'}
+  properties: {col_widths: '{"ZMSJYA":25,"NXTDUP":35,"CCEEZP":25,"TXTATV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35,"HAFYKA":25,"JZKPUH":35,"VOJHMM":25,"XDSAQH":35}'}
 components:
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
@@ -67,6 +67,19 @@ components:
   layout_properties: {grid_position: 'VNSBVX,JZKPUH'}
   data_bindings:
   - {property: text, code: 'self.item[''email'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Signup Date:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_7
+  layout_properties: {grid_position: 'EUNLUC,VOJHMM'}
+- type: Label
+  properties: {}
+  name: date
+  layout_properties: {grid_position: 'EUNLUC,XDSAQH'}
+  data_bindings:
+  - {property: text, code: 'self.item[''date'']'}
 - type: Spacer
   properties: {height: 35}
   name: spacer_2

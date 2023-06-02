@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import json
+from datetime import datetime
 
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
@@ -18,12 +19,16 @@ class Customers(CustomersTemplate):
     rxt = json.loads(rxt)
     my_arr = []
     for g in rxt:
+      dat = g['date']
+      datetime_obj = datetime.strptime(dat, "%Y-%m-%d %H:%M:%S")
+      formatted_date = datetime_obj.strftime("%d %B %Y %I:%M %p")
       data = {
         'id' : g['id'],
         'email' : g['email'],
         'name' : g['name'],
         'contact' : g['contact'],
-        'age' : g['age']
+        'age' : g['age'],
+        'date' : formatted_date
       }
       my_arr.append(data)
     self.repeating_panel_1.items = my_arr 
