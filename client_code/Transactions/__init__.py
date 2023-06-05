@@ -140,9 +140,14 @@ class Transactions(TransactionsTemplate):
         large=False,
         title='ENTER PIN',
         dismissible=False,
-        buttons=None
+        buttons=[('Cancel', 0)],
+        role='outlined'
       )
-      self.seecash = False
+      if(alert_instance==0):
+        self.hide_cash()
+        self.seecash = True
+      else:
+        self.seecash = False
     else:
       self.hide_cash()
       
