@@ -23,16 +23,23 @@ class Customers(CustomersTemplate):
       datetime_obj = datetime.strptime(dat, "%Y-%m-%d %H:%M:%S")
       formatted_date = datetime_obj.strftime("%d %B %Y %I:%M %p")
       data = {
-        'id' : g['id'],
+        'id' : int(g['id']),
         'email' : g['email'],
         'name' : g['name'],
         'contact' : g['contact'],
         'age' : g['age'],
-        'date' : formatted_date
+        'date' : formatted_date,
+        'county': g['county'],
+        'sub_county': g['sub_county'],
+        'gender' : g['gender'],
+        'salary' : g['salary'],
+        'kplc_meter' : g['kplc_meter']
       }
       my_arr.append(data)
-    self.repeating_panel_1.items = my_arr 
-    self.item = my_arr   
+    # Sort the my_arr list by the 'id' field
+    sorted_arr = sorted(my_arr, key=lambda item: item['id'])
+    self.repeating_panel_1.items = sorted_arr
+    self.item = sorted_arr  
 
     # Any code you write here will run before the form opens.
 

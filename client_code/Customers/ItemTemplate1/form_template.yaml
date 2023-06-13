@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"ZMSJYA":25,"NXTDUP":35,"CCEEZP":25,"TXTATV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35,"HAFYKA":25,"JZKPUH":35,"VOJHMM":25,"XDSAQH":35}'}
+  properties: {col_widths: '{"ZMSJYA":25,"NXTDUP":35,"CCEEZP":25,"TXTATV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35,"HAFYKA":25,"JZKPUH":35,"VOJHMM":25,"XDSAQH":35,"YASFDF":25,"WRSMHT":35,"KPRBDU":25,"WXKLUQ":35,"CMVXSF":25,"IRZIOJ":35,"SRBORC":25,"AYYTHO":35,"NEBKDQ":25,"YQTKBX":35}'}
 components:
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
@@ -30,6 +30,19 @@ components:
   - {property: text, code: 'self.item[''contact'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Gender:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_4
+  layout_properties: {grid_position: 'QNLPMC,YASFDF'}
+- type: Label
+  properties: {}
+  name: gender
+  layout_properties: {grid_position: 'QNLPMC,WRSMHT'}
+  data_bindings:
+  - {property: text, code: 'self.item[''gender'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Age:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
@@ -41,6 +54,19 @@ components:
   layout_properties: {grid_position: 'ZFCCDD,JAFFQG'}
   data_bindings:
   - {property: text, code: 'self.item[''age'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Salary Range:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_11
+  layout_properties: {grid_position: 'NTIUJL,SRBORC'}
+- type: Label
+  properties: {}
+  name: salary
+  layout_properties: {grid_position: 'NTIUJL,AYYTHO'}
+  data_bindings:
+  - {property: text, code: 'self.item[''salary'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Customer ID:', font_size: null, font: '', spacing_above: small, icon_align: left,
@@ -56,6 +82,19 @@ components:
   - {property: text, code: 'self.item[''id'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'KPLC Meter No:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_12
+  layout_properties: {grid_position: 'YNJZFO,NEBKDQ'}
+- type: Label
+  properties: {}
+  name: kplc_meter
+  layout_properties: {grid_position: 'YNJZFO,YQTKBX'}
+  data_bindings:
+  - {property: text, code: 'self.item[''kplc_meter'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Email:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
@@ -67,6 +106,32 @@ components:
   layout_properties: {grid_position: 'VNSBVX,JZKPUH'}
   data_bindings:
   - {property: text, code: 'self.item[''email'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'County:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_9
+  layout_properties: {grid_position: 'PUHNNF,KPRBDU'}
+- type: Label
+  properties: {}
+  name: county
+  layout_properties: {grid_position: 'PUHNNF,WXKLUQ'}
+  data_bindings:
+  - {property: text, code: 'self.item[''county'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Sub County:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_10
+  layout_properties: {grid_position: 'HJOMZU,CMVXSF'}
+- type: Label
+  properties: {}
+  name: sub_county
+  layout_properties: {grid_position: 'HJOMZU,IRZIOJ'}
+  data_bindings:
+  - {property: text, code: 'self.item[''sub_county'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Signup Date:', font_size: null, font: '', spacing_above: small, icon_align: left,
