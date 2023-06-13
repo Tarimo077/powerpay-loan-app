@@ -34,10 +34,20 @@ components:
     layout_properties: {grid_position: 'GQJSMI,SYOERX'}
     components:
     - type: RepeatingPanel
-      properties: {item_template: Customers.ItemTemplate1}
+      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: small, spacing_below: small, item_template: Customers.ItemTemplate1,
+        background: ''}
       name: repeating_panel_1
       layout_properties: {grid_position: 'JNIJOC,DHERTS'}
       data_bindings: []
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_8
+      layout_properties: {grid_position: 'TGTGCF,DRLHJF'}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_7
+      layout_properties: {grid_position: 'LEKFBB,QTKFBO'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
