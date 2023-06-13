@@ -38,6 +38,9 @@ class Login(LoginTemplate):
       return
     else:
       self.item = username
+      #anvil.server.session['usr'] = username
+      #print(anvil.server.session.get('usr'))
+      anvil.server.call('strusr', username)
       open_form('Home', username)
       alert('Hi '+username+', welcome to Powerpay Loan App')
 

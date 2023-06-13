@@ -155,8 +155,19 @@ color: %color:On Primary Container%;
 }
 
 .anvil-role-bot {
-  font-size: 16px;
-  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #8fce00;
+  border-radius: 80%;
+  color: white;
+  font-size: 20px;
+  border: 3px solid #ffa500;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .anvil-role-sticky {

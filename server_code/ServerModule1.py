@@ -127,4 +127,13 @@ def getcustomers():
   response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#')
   return response
 
+@anvil.server.callable
+def strusr(dt):
+  anvil.server.session['usr'] = dt
+
+@anvil.server.callable
+def getusername():
+  usrn = anvil.server.session.get('usr', 0)
+  return usrn
+
   

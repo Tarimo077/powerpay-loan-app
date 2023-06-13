@@ -13,6 +13,8 @@ class Customers(CustomersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.refresh_data_bindings()
+    usr = anvil.server.call('getusername')
+    print('Logged in as '+usr)
     #self.repeating_panel_1.items = app_tables.customers.search(tables.order_by('name'))
     rxt = anvil.server.call('getcustomers')
     rxt = rxt.get_bytes().decode('utf-8')
