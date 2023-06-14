@@ -1,9 +1,38 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"DDKZQT":16,"TBZDHT":44}'}
 components:
+- type: Label
+  properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: CUSTOMER REACH, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
+      Container', bold: true, underline: false, icon: 'fa:map-marker'}
+  name: label_1
+  layout_properties: {grid_position: 'TSWJMF,IRROCP'}
+- type: GoogleMap
+  properties: {height: 571.8000106811523}
+  name: map_1
+  layout_properties: {grid_position: 'KSTTTE,ZNHCSF'}
+- type: Button
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: BACK TO CUSTOMERS, font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
+      Container', bold: true, underline: false, icon: 'fa:users'}
+  name: button_1
+  layout_properties: {grid_position: 'IRRGME,DDKZQT'}
+  event_bindings: {click: button_1_click}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_2
+  layout_properties: {grid_position: 'IRRGME,TBZDHT'}
+- type: Spacer
+  properties: {height: 67.20000076293945}
+  name: spacer_1_copy_3
+  layout_properties:
+    col_widths: {}
+    grid_position: CBJWWU,TZYPPL
 - type: Plot
-  properties: {height: 525}
+  properties: {height: 540.1999969482422}
   name: plot_1
   layout_properties: {grid_position: 'VJFEOU,HMTXSP'}
 - type: Spacer
@@ -11,9 +40,25 @@ components:
   name: spacer_1
   layout_properties: {grid_position: 'CRHLPT,SDXFQZ'}
 - type: Plot
-  properties: {height: 525}
+  properties: {height: 467.20001220703125}
   name: plot_2
   layout_properties:
     col_widths: {}
     grid_position: SIYCZD,WEYNLW
+- type: Spacer
+  properties: {height: 62}
+  name: spacer_1_copy
+  layout_properties:
+    col_widths: {}
+    grid_position: GNJDRW,TKYGEC
+- type: Plot
+  properties: {height: 467}
+  name: plot_3
+  layout_properties: {grid_position: 'MYUUGL,KYGIXR'}
+- type: Spacer
+  properties: {height: 62}
+  name: spacer_1_copy_2
+  layout_properties:
+    col_widths: {}
+    grid_position: VMBYGS,RBZNMD
 is_package: true
