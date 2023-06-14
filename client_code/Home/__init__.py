@@ -180,29 +180,6 @@ class Home(HomeTemplate):
     self.last_7_days.background = '#ffa500'
     self.plot_dt()
 
-  def timer_1_tick(self, **event_args):
-    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    if(self.boo==0):
-      self.timer_1.interval=0
-      pass
-    else:
-      c = app_tables.users.get(username=self.boo)
-      intr = c['intro']
-      if(intr==True):
-        #show intro message
-        new_form = Intro(self.boo)
-        alert(
-          content = new_form,
-          large=True,
-          title='POWERPAY TUTORIAL'
-        )
-        self.boo = 0
-        self.timer_1.interval = 0
-      else:
-        self.boo = 0
-        self.timer_1.interval = 0
-        pass
-
   def home_link_copy_2_click(self, **event_args):
     """This method is called when the link is clicked"""
     c = confirm('Are you sure you want to logout?')
