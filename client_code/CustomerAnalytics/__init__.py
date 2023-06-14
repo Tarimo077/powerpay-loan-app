@@ -36,7 +36,6 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       else:
         counties[kaunty] = 1
 
-    print(counties)
     dates = list(counts.keys())
     countz = list(counts.values())
     county_names = list(counties.keys())
@@ -80,7 +79,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
 
   def mapping_func(self, geos, **event_args):
     self.map_1.center = GoogleMap.LatLng(0.007488702331643685, 37.074308299465)
-    self.map_1.zoom = 7
+    self.map_1.zoom = 8
     self.map_1.disable_double_click_zoom = True
     self.map_1.zoom_control = False
     self.map_1.draggable = False
