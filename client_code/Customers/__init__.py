@@ -19,6 +19,7 @@ class Customers(CustomersTemplate):
     rxt = rxt.get_bytes().decode('utf-8')
     rxt = json.loads(rxt)
     leng = len(rxt)
+    self.customers_no.text = str(leng)
     my_arr = []
     for g in rxt:
       dat = g['date']

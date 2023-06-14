@@ -4,18 +4,31 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"BNEMFK":30,"JWNTPA":30}'}
+  properties: {col_widths: '{"JWNTPA":30}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
+  - type: Label
+    properties: {role: headline, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: 'theme:Primary Container',
+      bold: true, underline: false, icon: 'fa:users'}
+    name: customers_no
+    layout_properties:
+      col_widths: {}
+      grid_position: ZGMEBT,BQZOUS
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: TOTAL CUSTOMERS, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'TWLUCI,KCCAAX'}
   - type: Spacer
-    properties: {height: 32}
-    name: spacer_3
-    layout_properties: {grid_position: 'PSXPPK,DIGBNB'}
-  - type: Spacer
-    properties: {height: 32}
+    properties: {visible: false, spacing_above: small, spacing_below: small, height: 32,
+      tooltip: ''}
     name: spacer_6
-    layout_properties: {grid_position: 'VKYJVN,BNEMFK'}
+    layout_properties: {grid_position: 'VKYJVN,SDRCNK'}
   - type: TextBox
     properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: search customers...,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
@@ -25,7 +38,8 @@ components:
     layout_properties: {grid_position: 'VKYJVN,JWNTPA'}
     event_bindings: {change: search_change}
   - type: Spacer
-    properties: {height: 32}
+    properties: {visible: false, spacing_above: small, spacing_below: small, height: 32,
+      tooltip: ''}
     name: spacer_2
     layout_properties: {grid_position: 'AIZYNB,WQIZAG'}
   - type: ColumnPanel

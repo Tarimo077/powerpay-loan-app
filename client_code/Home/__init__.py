@@ -50,25 +50,25 @@ class Home(HomeTemplate):
     #portfolio = round(portfolio, 1)
     #self.churn.text = "   "+str(churn)+"%"
     #self.portfolio.text = "   "+str(portfolio)+"%"
-    dt = {
-      "data": 'GET'
-    }
-    response = anvil.server.call('req', dt)
-    text = response.get_bytes().decode('utf-8')
-    my_array = json.loads(text)
-    dev_total = len(my_array)
-    self.range = 3
+    #dt = {
+     # "data": 'GET'
+    #}
+    #response = anvil.server.call('req', dt)
+    #text = response.get_bytes().decode('utf-8')
+    #my_array = json.loads(text)
+    #dev_total = len(my_array)
+    #self.range = 3
     #self.plot_dt()
     #customer_table = app_tables.customers
 
 # Count the number of rows in the table
     #customer_count = len(customer_table.search())
-    rt = anvil.server.call('getcustomers')
-    rt = rt.get_bytes().decode('utf-8')
-    rt = json.loads(rt)
-    leng = len(rt)
-    self.product_no.text = dev_total
-    self.customers_no.text = str(leng)
+    #rt = anvil.server.call('getcustomers')
+    #rt = rt.get_bytes().decode('utf-8')
+    #rt = json.loads(rt)
+    #leng = len(rt)
+    #self.product_no.text = dev_total
+    #self.customers_no.text = str(leng)
     # Any code you write here will run before the form opens.
 
 
