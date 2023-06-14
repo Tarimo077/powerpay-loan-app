@@ -18,6 +18,7 @@ class Customers(CustomersTemplate):
     rxt = anvil.server.call('getcustomers')
     rxt = rxt.get_bytes().decode('utf-8')
     rxt = json.loads(rxt)
+    print(rxt)
     leng = len(rxt)
     self.customers_no.text = str(leng)
     my_arr = []

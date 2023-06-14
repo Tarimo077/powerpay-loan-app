@@ -9,7 +9,7 @@ import anvil.users
 from datetime import datetime, timedelta
 import json
 import anvil.js
-from ..Intro import Intro
+
 
 class Home(HomeTemplate):
   def __init__(self, boo, **properties):
