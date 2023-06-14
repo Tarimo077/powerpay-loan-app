@@ -18,7 +18,6 @@ class Customers(CustomersTemplate):
     rxt = anvil.server.call('getcustomers')
     rxt = rxt.get_bytes().decode('utf-8')
     rxt = json.loads(rxt)
-    print(rxt)
     leng = len(rxt)
     self.customers_no.text = str(leng)
     my_arr = []
@@ -40,6 +39,7 @@ class Customers(CustomersTemplate):
         'kplc_meter' : g['kplc_meter']
       }
       my_arr.append(data)
+      
     # Sort the my_arr list by the 'id' field
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
     self.repeating_panel_1.items = sorted_arr
@@ -85,6 +85,11 @@ class Customers(CustomersTemplate):
       open_form('Login')
     else:
       pass
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('CustomerAnalytics', self.item)
+
 
 
 
