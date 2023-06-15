@@ -8,6 +8,9 @@ services:
     confirm_email: true, require_secure_passwords: true, allow_remember_me: true,
     remember_me_days: 30}
   server_config: {user_table: users}
+- source: /runtime/services/google.yml
+  client_config: {api_key: AIzaSyAJRUccXQaN3rL9HeFe0JqQp67VRAoFUmM}
+  server_config: {}
 startup: {type: form, module: Login}
 package_name: Powerpay_Loan_App
 allow_embedding: false

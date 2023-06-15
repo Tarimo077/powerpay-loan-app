@@ -117,3 +117,7 @@ components:
       grid_position: MRTINL,XOTUPE
     event_bindings: {click: home_link_copy_2_click}
     components: []
+- type: ColumnPanel
+  properties: {}
+  name: column_panel_1
+  layout_properties: {slot: default}
