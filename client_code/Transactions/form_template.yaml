@@ -155,6 +155,14 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components:
+  - type: Label
+    properties: {role: bot, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: username_label
+    layout_properties: {}
 - type: ColumnPanel
   properties: {col_widths: '{}'}
   name: column_panel_1

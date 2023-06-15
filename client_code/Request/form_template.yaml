@@ -158,3 +158,15 @@ components:
       grid_position: PCCQXW,MZKKQK
     components: []
     event_bindings: {click: link_1_copy_click}
+- type: FlowPanel
+  properties: {}
+  name: flow_panel_1
+  layout_properties: {slot: nav-right}
+  components:
+  - type: Label
+    properties: {role: bot, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: username_label
+    layout_properties: {}

@@ -16,6 +16,14 @@ class Customers(CustomersTemplate):
     self.init_components(**properties)
     self.refresh_data_bindings()
     usr = anvil.server.call('getusername')
+    words = usr.split()
+
+# Extract the first character of each word and convert it to uppercase
+    initials = [word[0].upper() for word in words]
+
+# Join the initials together
+    initials_string = ''.join(initials)
+    self.username_label.text = initials_string
     #self.repeating_panel_1.items = app_tables.customers.search(tables.order_by('name'))
     rxt = anvil.server.call('getcustomers')
     rxt = rxt.get_bytes().decode('utf-8')
