@@ -76,6 +76,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       }
     }
     self.mapping_func(county_names)
+    print(county_names)
 
     # Any code you write here will run before the form opens.
 
@@ -89,10 +90,21 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     self.map_1.disable_default_ui = True
     self.map_1.rotate_control = False
     self.map_1.street_view_control = False
-    Naks = GoogleMap.Point(-0.29726907778613565, 36.11320027767494)
-    Kiambu = GoogleMap.Point(-1.1731848164507699, 36.83101474225459)
-    self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-0.29726907778613565, 36.11320027767494))))
-    self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-1.1731848164507699, 36.83101474225459))))
+    for x in geos:
+      if x == 'N/A':
+        pass
+      else:
+        results = GoogleMap.geocode(address=x)
+        print(results)
+        #m = Marker(position=results[0].geometry.location)
+        self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=))
+        
+    
+    
+    #Naks = GoogleMap.Point(-0.29726907778613565, 36.11320027767494)
+    #Kiambu = GoogleMap.Point(-1.1731848164507699, 36.83101474225459)
+    #self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-0.29726907778613565, 36.11320027767494))))
+    #self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-1.1731848164507699, 36.83101474225459))))
     self.map_1.map_data.style = GoogleMap.Data.StyleOptions(icon=GoogleMap.Symbol(path=GoogleMap.SymbolPath.CIRCLE,
           scale=20,
           fill_color='#ffa500',
