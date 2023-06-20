@@ -76,8 +76,6 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       }
     }
     self.mapping_func(county_names)
-    print(county_names)
-
     # Any code you write here will run before the form opens.
 
   def mapping_func(self, geos, **event_args):
@@ -94,15 +92,12 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       if x == 'N/A':
         pass
       else:
-        results = GoogleMap.geocode(address=x)
-        print(results)
-        #m = Marker(position=results[0].geometry.location)
-        self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=))
-        
-    
-    
-    #Naks = GoogleMap.Point(-0.29726907778613565, 36.11320027767494)
-    #Kiambu = GoogleMap.Point(-1.1731848164507699, 36.83101474225459)
+        results = GoogleMap.geocode(address=x+', Kenya')
+        #m = GoogleMap.Marker(position=results[0].geometry.location)
+        print(results[0].geometry.location)
+        q = GoogleMap.Circle(center=results[0].geometry.location, radius=100)
+        s = GoogleMap.Circle(center=GoogleMap.LatLng(results[0].geometry.location), radius=100)
+        self.map_1.add_component(s)
     #self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-0.29726907778613565, 36.11320027767494))))
     #self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-1.1731848164507699, 36.83101474225459))))
     self.map_1.map_data.style = GoogleMap.Data.StyleOptions(icon=GoogleMap.Symbol(path=GoogleMap.SymbolPath.CIRCLE,
@@ -117,7 +112,10 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Customers')
+    
 
+
+  
 
 
     
