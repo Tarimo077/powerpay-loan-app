@@ -95,7 +95,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
         results = GoogleMap.geocode(address=x+', Kenya')
         #m = GoogleMap.Marker(position=results[0].geometry.location)
         s = GoogleMap.Circle(center=GoogleMap.LatLng(results[0].geometry.location), radius=10000,
-                             fill_color='#ffa500', fill_opacity=0.7, stroke_color='##ffa500',
+                             fill_color='#FF0000', fill_opacity=0.7, stroke_color='#FF0000',
                             stroke_opacity=0.5, stroke_weight=0.5)
         self.map_1.add_component(s)
     #self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-0.29726907778613565, 36.11320027767494))))
