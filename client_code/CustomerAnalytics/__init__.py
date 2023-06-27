@@ -19,10 +19,19 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     otherscount = 0
     counties = {}
     counts = {}
+    sals = []
     for x in data:
       date_obj = datetime.strptime(x['date'], "%d %B %Y %I:%M %p")
       date = date_obj.date()
       kaunty = x['county']
+      salary = x['salary']
+      if salary is not 'N/A':  
+        range_values = salary.split(' - ')
+        start_value = int(range_values[0].replace('K', ''))
+        end_value = int(range_values[1].replace('K', ''))
+        median_approximation = (start_value + end_value) / 2
+        median_str = str(int(median_approximation)) + 'K'
+        sals.append(median_str)        
       if x['gender'] == 'male':
           malecount = malecount + 1
       elif x['gender'] == 'female':
@@ -43,14 +52,15 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     county_names = list(counties.keys())
     county_no = list(counties.values())
     primary_color = '#8fce00'
-    self.plot_1.data = go.Bar(y=[malecount, femalecount, otherscount], x=['Male', 'Female', 'Others'], marker=dict(color=primary_color),width=0.1)
+    self.plot_1.data = go.Bar(x=[malecount, femalecount, otherscount], y=['Male', 'Female', 'Others'],
+                              marker=dict(color=primary_color),width=0.4, orientation='h')
     #Configure the plot layout
     self.plot_1.layout = {
       'title': 'CUSTOMERS BY GENDER',
-      'xaxis': {
+      'yaxis': {
         'title': ''
       },
-      'yaxis': {
+      'xaxis': {
         'title': 'NUMBER OF CUSTOMERS'
       }
     }
@@ -65,13 +75,14 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
         'title': 'NUMBER OF CUSTOMERS'
       }
     }
-    self.plot_3.data = go.Bar(x=county_names, y=county_no, marker=dict(color=primary_color), width=0.5)
+    self.plot_3.data = go.Bar(y=county_names, x=county_no, marker=dict(color=primary_color),
+                              width=0.4, orientation='h')
     self.plot_3.layout = {
       'title': 'CUSTOMERS BY COUNTY',
-      'xaxis': {
+      'yaxis': {
         'title': 'COUNTY'
       },
-      'yaxis': {
+      'xaxis': {
         'title': 'NUMBER OF CUSTOMERS'
       }
     }

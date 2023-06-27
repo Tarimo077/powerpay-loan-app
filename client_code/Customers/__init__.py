@@ -15,6 +15,8 @@ class Customers(CustomersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.refresh_data_bindings()
+    self.drop_down_1.items = ['name', 'date']
+    self.drop_down_1.selected_value = self.drop_down_1.items[0]
     usr = anvil.server.call('getusername')
     words = usr.split()
 
@@ -54,6 +56,7 @@ class Customers(CustomersTemplate):
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
     self.repeating_panel_1.items = sorted_arr
     self.item = sorted_arr  
+    print(self.item)
 
     # Any code you write here will run before the form opens.
 
@@ -99,6 +102,66 @@ class Customers(CustomersTemplate):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('CustomerAnalytics', self.item)
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    x = self.drop_down_1.selected_value
+    if x == 'date':
+      self.repeating_panel_1.items = self.item
+      self.search.visible = False
+      self.from_date.visible = True
+      self.to_date.visible = True
+      self.calender_from.visible = True
+      self.calender_to.visible = True
+      
+    else:
+      self.repeating_panel_1.items = self.item
+      self.search.visible = True
+      self.from_date.visible = False
+      self.to_date.visible = False
+      self.calender_from.visible = False
+      self.calender_to.visible = False
+      self.query.visible = False
+      self.calender_from.date = None
+      self.calender_to.date = None
+
+  def calender_to_change(self, **event_args):
+    """This method is called when the selected date changes"""
+    if self.calender_to.date and self.calender_from.date is not None:
+      self.query.visible = True
+    else:
+      self.query.visible = False
+
+  def query_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    frm = str(self.calender_from.date)
+    to = str(self.calender_to.date)
+    frm = datetime.strptime(frm, "%Y-%m-%d")
+    to = datetime.strptime(to, "%Y-%m-%d")
+    nw_arr = []
+    for z in self.item:
+      dt = datetime.strptime(z['date'], "%d %B %Y %I:%M %p")
+      if dt <= to and dt >= frm:
+        nw_arr.append(z)
+      else:
+        pass
+    self.repeating_panel_1.items = nw_arr
+
+  def calender_from_change(self, **event_args):
+    """This method is called when the selected date changes"""
+    if self.calender_to.date and self.calender_from.date is not None:
+      self.query.visible = True
+    else:
+      self.query.visible = False
+
+        
+    
+
+
+      
+      
+      
+
 
 
 

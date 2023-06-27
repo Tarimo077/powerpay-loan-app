@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"JWNTPA":30,"WQIZAG":43,"ITIDSS":17}'}
+  properties: {col_widths: '{"JWNTPA":27,"WQIZAG":43,"ITIDSS":17,"SDRCNK":33,"QUEVUT":9,"WVCGRU":5,"OAFOFQ":45,"YUKRST":25,"TNHHPI":5,"XFRGHY":25,"ZSAWTR":30,"KUOHCR":20,"UANLNN":6}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -37,6 +37,36 @@ components:
     name: search
     layout_properties: {grid_position: 'VKYJVN,JWNTPA'}
     event_bindings: {change: search_change}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Filter by:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_2
+    layout_properties: {grid_position: 'VKYJVN,UANLNN'}
+  - type: DropDown
+    properties:
+      role: outlined
+      align: full
+      tooltip: ''
+      placeholder: ''
+      border: ''
+      enabled: true
+      foreground: ''
+      items: []
+      visible: true
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: false
+    name: drop_down_1
+    layout_properties: {grid_position: 'VKYJVN,QUEVUT'}
+    event_bindings: {change: drop_down_1_change}
   - type: Spacer
     properties: {visible: false, spacing_above: small, spacing_below: small, height: 32,
       tooltip: ''}
@@ -50,6 +80,48 @@ components:
     name: button_1
     layout_properties: {grid_position: 'AIZYNB,ITIDSS'}
     event_bindings: {click: button_1_click}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_3
+    layout_properties: {grid_position: 'CHKJEU,ZSAWTR'}
+  - type: Label
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: false, text: 'From:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: from_date
+    layout_properties: {grid_position: 'CHKJEU,WVCGRU'}
+  - type: DatePicker
+    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '',
+      placeholder: '', border: '', enabled: true, foreground: '', visible: false,
+      font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+      date: '', min_date: '', background: '', bold: true, underline: false, format: ''}
+    name: calender_from
+    layout_properties: {grid_position: 'CHKJEU,OAFOFQ RQQFQS,YUKRST'}
+    event_bindings: {change: calender_from_change}
+  - type: Label
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: false, text: 'To:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: to_date
+    layout_properties: {grid_position: 'CHKJEU,OAFOFQ RQQFQS,TNHHPI'}
+  - type: DatePicker
+    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '',
+      placeholder: '', border: '', enabled: true, foreground: '', visible: false,
+      font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+      date: '', min_date: '', background: '', bold: false, underline: false, format: ''}
+    name: calender_to
+    layout_properties: {grid_position: 'CHKJEU,OAFOFQ RQQFQS,XFRGHY'}
+    event_bindings: {change: calender_to_change}
+  - type: Button
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: false, text: QUERY, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
+        Container', bold: true, underline: false, icon: 'fa:search'}
+    name: query
+    layout_properties: {grid_position: 'CHKJEU,OAFOFQ RQQFQS,KUOHCR'}
+    event_bindings: {click: query_click}
   - type: ColumnPanel
     properties: {col_widths: '{}'}
     name: column_panel_2
