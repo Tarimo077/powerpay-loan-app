@@ -61,4 +61,8 @@ components:
   layout_properties:
     col_widths: {}
     grid_position: VMBYGS,RBZNMD
+- type: Plot
+  properties: {}
+  name: plot_4
+  layout_properties: {grid_position: 'ORDIDF,MRYXQV'}
 is_package: true

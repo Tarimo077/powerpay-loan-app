@@ -25,12 +25,13 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       date = date_obj.date()
       kaunty = x['county']
       salary = x['salary']
-      if salary is not 'N/A':  
+      if salary is not 'N/A' and salary is not '80766K':  
         range_values = salary.split(' - ')
+        print(range_values)
         start_value = int(range_values[0].replace('K', ''))
         end_value = int(range_values[1].replace('K', ''))
         median_approximation = (start_value + end_value) / 2
-        median_str = str(int(median_approximation)) + 'K'
+        median_str = int(median_approximation)
         sals.append(median_str)        
       if x['gender'] == 'male':
           malecount = malecount + 1
@@ -84,6 +85,41 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       },
       'xaxis': {
         'title': 'NUMBER OF CUSTOMERS'
+      }
+    }
+    salaries = {
+      'under20k': 0,
+      '20to40k': 0,
+      '40to60k': 0,
+      '60to80k': 0,
+      '80to100k': 0,
+      'over100k' : 0
+    }
+    for r in sals:
+      if r <= 20:
+        salaries['under20k'] += 1
+      elif r > 20 and r <= 40:
+        salaries['20to40k'] += 1
+      elif r > 40 and r <= 60:
+        salaries['40to60k'] += 1
+      elif r > 60 and r <= 80:
+        salaries['60to80k'] += 1
+      elif r > 80 and r <= 100:
+        salaries['80to100k'] += 1
+      elif r > 100:
+        salaries['over100k'] += 1
+      else:
+        pass
+    salkeys = list(salaries.keys())
+    salvals = list(salaries.values())
+    self.plot_4.data = go.Bar(x=salkeys, y=salvals, marker=dict(color=primary_color))
+    self.plot_4.layout = {
+      'title': 'CUSTOMERS BY INCOME',
+      'yaxis': {
+        'title': 'INCOME'
+      },
+      'xaxis': {
+        'title': 'SALARY RANGES'
       }
     }
     self.mapping_func(county_names)

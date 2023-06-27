@@ -55,8 +55,7 @@ class Customers(CustomersTemplate):
     # Sort the my_arr list by the 'id' field
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
     self.repeating_panel_1.items = sorted_arr
-    self.item = sorted_arr  
-    print(self.item)
+    self.item = sorted_arr
 
     # Any code you write here will run before the form opens.
 
