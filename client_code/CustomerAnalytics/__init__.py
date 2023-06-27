@@ -88,26 +88,26 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       }
     }
     salaries = {
-      'under20k': 0,
-      '20to40k': 0,
-      '40to60k': 0,
-      '60to80k': 0,
-      '80to100k': 0,
-      'over100k' : 0
+      'Under 20k': 0,
+      '20-40k': 0,
+      '40-60k': 0,
+      '60-80k': 0,
+      '80-100k': 0,
+      'Over 100k' : 0
     }
     for r in sals:
       if r <= 20:
-        salaries['under20k'] += 1
+        salaries['Under 20k'] += 1
       elif r > 20 and r <= 40:
-        salaries['20to40k'] += 1
+        salaries['20-40k'] += 1
       elif r > 40 and r <= 60:
-        salaries['40to60k'] += 1
+        salaries['40-60k'] += 1
       elif r > 60 and r <= 80:
-        salaries['60to80k'] += 1
+        salaries['60-80k'] += 1
       elif r > 80 and r <= 100:
-        salaries['80to100k'] += 1
+        salaries['80-100k'] += 1
       elif r > 100:
-        salaries['over100k'] += 1
+        salaries['Over 100k'] += 1
       else:
         pass
     salkeys = list(salaries.keys())
