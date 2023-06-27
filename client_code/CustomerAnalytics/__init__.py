@@ -27,7 +27,6 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       salary = x['salary']
       if salary is not 'N/A' and salary is not '80766K':  
         range_values = salary.split(' - ')
-        print(range_values)
         start_value = int(range_values[0].replace('K', ''))
         end_value = int(range_values[1].replace('K', ''))
         median_approximation = (start_value + end_value) / 2
