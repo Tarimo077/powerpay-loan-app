@@ -118,6 +118,11 @@ components:
     event_bindings: {click: home_link_copy_2_click}
     components: []
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: column_panel_1
   layout_properties: {slot: default}
+  components:
+  - type: RichText
+    properties: {}
+    name: rich_text_1
+    layout_properties: {grid_position: 'UTYMVZ,IDXBHZ'}
