@@ -1,7 +1,7 @@
+properties: []
 is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
+events: []
+custom_component: false
 components:
 - type: FlowPanel
   properties: {}
@@ -145,7 +145,7 @@ components:
         spacing_below: small, background: 'theme:Primary Container', horizontal_align: left}
       name: home_customer_img
       layout_properties: {slot: image, width: 83.10000000000002}
-      event_bindings: {}
+      event_bindings: {mouse_enter: home_customer_img_mouse_enter}
   - type: Spacer
     properties: {height: 32}
     name: spacer_2
@@ -231,3 +231,6 @@ components:
   properties: {interval: 30}
   name: timer_1
   event_bindings: {tick: timer_1_tick}
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}

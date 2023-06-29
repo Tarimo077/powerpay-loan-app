@@ -14,6 +14,7 @@ class Support(SupportTemplate):
     self.init_components(**properties)
     usr = anvil.server.call('getusername')
     words = usr.split()
+    self.username_label.tooltip = "Logged in as "+usr
 
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]

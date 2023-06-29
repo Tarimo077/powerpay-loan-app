@@ -71,7 +71,7 @@ class ItemTemplate6(ItemTemplate6Template):
                   buttons=[("Yes", True),("No", False)])
       if(c==True):
         res = anvil.server.call('changeStatus', data)
-        alert('Device '+ str(self.devid.text) + ' has been activated')
+        alert('Device '+ str(self.devid.text) + ' has been activated', buttons=None)
         open_form('Request')
       else:
         self.refresh_data_bindings()

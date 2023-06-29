@@ -24,8 +24,8 @@ class Home(HomeTemplate):
     #old_customers = json.loads(text)
     self.boo = boo
     usr = anvil.server.call('getusername')
+    self.username_label.tooltip = "Logged in as "+usr
     words = usr.split()
-    self.username_label.add_event_handler('x-mouse_enter', self.label_hovered)
 
 
 # Extract the first character of each word and convert it to uppercase
@@ -40,9 +40,6 @@ class Home(HomeTemplate):
     animate(self.home_customer_img, shake, duration=5000)
     animate(self.image_2, bounce, duration=5000)
     animate(self.image_3, bounce, duration=5000)  
-
-  def label_hovered(self, **event_args):
-    alert('Working', buttons=None)
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -96,6 +93,7 @@ class Home(HomeTemplate):
     animate(self.home_customer_img, shake, duration=5000)
     animate(self.image_2, bounce, duration=5000)
     animate(self.image_3, bounce, duration=5000)
+
       
     
 

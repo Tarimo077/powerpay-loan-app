@@ -19,6 +19,7 @@ class Customers(CustomersTemplate):
     self.drop_down_1.selected_value = self.drop_down_1.items[0]
     usr = anvil.server.call('getusername')
     words = usr.split()
+    self.username_label.tooltip = "Logged in as "+usr
 
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
@@ -55,6 +56,8 @@ class Customers(CustomersTemplate):
     # Sort the my_arr list by the 'id' field
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
     self.repeating_panel_1.items = sorted_arr
+    nm = len(self.repeating_panel_1.items)
+    self.result_label.text = 'showing '+str(nm)+' results'
     self.item = sorted_arr
 
     # Any code you write here will run before the form opens.
@@ -73,6 +76,9 @@ class Customers(CustomersTemplate):
     leng = len(search_text)
     filtered_objects = [obj for obj in self.item if obj['name'][:leng].lower() == search_text.lower()]
     self.repeating_panel_1.items = filtered_objects
+    nm = len(self.repeating_panel_1.items)
+    self.result_label.text = 'showing '+str(nm)+' results'
+    
 
   def addcustomer_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -105,8 +111,13 @@ class Customers(CustomersTemplate):
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
     x = self.drop_down_1.selected_value
+    nm = len(self.repeating_panel_1.items)
+    self.result_label.text = 'showing '+str(nm)+' results'
     if x == 'date':
       self.repeating_panel_1.items = self.item
+      nm = len(self.repeating_panel_1.items)
+      self.result_label.text = 'showing '+str(nm)+' results'
+      self.search.text = ''
       self.search.visible = False
       self.from_date.visible = True
       self.to_date.visible = True
@@ -115,6 +126,8 @@ class Customers(CustomersTemplate):
       
     else:
       self.repeating_panel_1.items = self.item
+      nm = len(self.repeating_panel_1.items)
+      self.result_label.text = 'showing '+str(nm)+' results'
       self.search.visible = True
       self.from_date.visible = False
       self.to_date.visible = False
@@ -145,6 +158,9 @@ class Customers(CustomersTemplate):
       else:
         pass
     self.repeating_panel_1.items = nw_arr
+    nm = len(self.repeating_panel_1.items)
+    self.result_label.text = 'showing '+str(nm)+' results'
+    
 
   def calender_from_change(self, **event_args):
     """This method is called when the selected date changes"""

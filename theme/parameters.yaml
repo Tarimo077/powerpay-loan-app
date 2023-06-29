@@ -52,6 +52,7 @@ roles:
 - {name: usr, components: null}
 - {name: bot}
 - {name: sticky}
+- {name: linkstick}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

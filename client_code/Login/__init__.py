@@ -7,7 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from anvil_extras.animation import animate, fade_in, Transition
+from anvil_extras.animation import animate, Transition
 
 class Login(LoginTemplate):
   def __init__(self, **properties):
@@ -16,14 +16,20 @@ class Login(LoginTemplate):
     self.password.hide_text = True
     self.eye.tooltip = 'view password'
     self.pass_state = False
-
+    slide_in_up = Transition(translateY=["100%", 0])
+    slide_in_down = Transition(translateY=["-100%", 0])
+    zoom_in = Transition(scale=[.3, 1])
+    fade_in = Transition(opacity=[0, 1])
+    fly_in_down = slide_in_down | zoom_in | fade_in
+    animate(self.image_1, fly_in_down, duration=5000)
     # Any code you write here will run before the form opens.
 
   def login_click(self, **event_args):
     """This method is called when the button is clicked"""
     bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
     shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
-    animate(self.image_1, bounce, duration=5000)    
+    animate(self.image_1, bounce, duration=5000)  
+    self.link_1.role = 'linkstick'
     self.login.background = '#ffa500'
     username = self.username.text
     password = self.password.text
@@ -48,7 +54,7 @@ class Login(LoginTemplate):
       #print(anvil.server.session.get('usr'))
       anvil.server.call('strusr', username)
       open_form('Home', username)
-      alert('Hi '+username+', welcome to Powerpay Loan App', buttons=None)
+      alert('\t\tHi '+username+' \n\nWelcome to Powerpay Loan App', buttons=None)
 
   def eye_click(self, **event_args):
     """This method is called when the button is clicked"""

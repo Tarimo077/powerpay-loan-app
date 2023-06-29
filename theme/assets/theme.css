@@ -154,6 +154,20 @@ color: %color:On Primary Container%;
   border-radius: 10px 10px 10px 10px;
 }
 
+.anvil-role-linkstick {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  background-color: #FFFFFF;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  margin-left: 40%;
+  margin-right: 40%;
+  display: block;
+  text-align: center
+}
+
 .anvil-role-bot {
   display: flex;
   align-items: center;
