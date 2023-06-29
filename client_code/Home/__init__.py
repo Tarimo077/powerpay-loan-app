@@ -11,6 +11,9 @@ import anvil.users
 from datetime import datetime, timedelta
 import json
 import anvil.js
+from anvil.extras.animate import animate
+import time
+import anvil.media
 
 
 class Home(HomeTemplate):
@@ -213,6 +216,24 @@ class Home(HomeTemplate):
   def outlined_button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Transactions', True)
+
+  def home_customer_img_mouse_enter(self, x, y, **event_args):
+    """This method is called when the mouse cursor enters this component"""
+     # Define the bounce animation
+    bounce_animation = animate(self.home_customer_img, duration=2.0, top=50, easing="ease-in-out")
+
+    # Play the bounce animation
+    bounce_animation.start()
+
+    # Wait for 2 seconds (duration of bounce animation)
+    time.sleep(2)
+
+    # Define the flip animation
+    flip_animation = animate(image, duration=0.5, rotateZ=180)
+
+    # Play the flip animation
+    flip_animation.start()
+
 
 
 

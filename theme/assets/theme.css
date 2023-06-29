@@ -1099,6 +1099,34 @@ div.plot-container.plotly svg.main-svg {
   100% { transform: rotate(360deg); }
 }
 
+/* Define the initial position of the image */
+/* Define the animation keyframes for the bounce effect */
+@keyframes bounce-animation {
+  0% { top: 0; }
+  50% { top: 50px; }
+  100% { top: 0; }
+}
+
+/* Define the animation keyframes for the flip effect */
+@keyframes flip-animation {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+/* Apply the bounce animation when the image is hovered */
+#home_customer_img:hover {
+  animation: bounce-animation 2s ease-in-out;
+}
+
+/* Apply the flip animation after the bounce animation finishes */
+#home_customer_img:hover::after {
+  content: "";
+  animation: flip-animation 0.5s ease-in-out;
+  animation-delay: 2s; /* Delay the flip animation by 2 seconds */
+  animation-fill-mode: forwards;
+}
+
+
 
 
 
