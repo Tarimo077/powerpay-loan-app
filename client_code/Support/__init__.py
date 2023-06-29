@@ -30,13 +30,13 @@ class Support(SupportTemplate):
     email = self.email.text
     feedback = self.feedback.text
     if(name==''):
-      alert('Name is empty')
+      alert('Name is empty', buttons=None)
       return
     if(email==''):
-      alert('Email is empty')
+      alert('Email is empty', buttons=None)
       return
     if(feedback==''):
-      alert('Feedback is empty')
+      alert('Feedback is empty', buttons=None)
       return
     data = {
       'name': name,
@@ -44,7 +44,7 @@ class Support(SupportTemplate):
       'feedback': feedback
     }
     anvil.server.call('getSupport', data)
-    alert('Thank you for your feedback')
+    alert('Thank you for your feedback', buttons=None)
     self.name.text = ''
     self.email.text = ''
     self.feedback.text = ''
@@ -71,7 +71,7 @@ class Support(SupportTemplate):
 
   def home_link_copy_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    c = confirm('Are you sure you want to logout?')
+    c = confirm('Are you sure you want to logout?', buttons=[("Yes", True),("No", False)])
     if(c==True):
       open_form('Login')
     else:

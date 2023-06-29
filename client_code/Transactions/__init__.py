@@ -107,7 +107,7 @@ class Transactions(TransactionsTemplate):
 
   def home_link_copy_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    c = confirm('Are you sure you want to logout?')
+    c = confirm('Are you sure you want to logout?', buttons=[("Yes", True),("No", False)])
     if(c==True):
       open_form('Login')
     else:

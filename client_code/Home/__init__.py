@@ -25,6 +25,8 @@ class Home(HomeTemplate):
     self.boo = boo
     usr = anvil.server.call('getusername')
     words = usr.split()
+    self.username_label.add_event_handler('x-mouse_enter', self.label_hovered)
+
 
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
@@ -37,7 +39,10 @@ class Home(HomeTemplate):
     animate(self.image_4, shake, duration=5000)
     animate(self.home_customer_img, shake, duration=5000)
     animate(self.image_2, bounce, duration=5000)
-    animate(self.image_3, bounce, duration=5000)    
+    animate(self.image_3, bounce, duration=5000)  
+
+  def label_hovered(self, **event_args):
+    alert('Working', buttons=None)
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -53,7 +58,7 @@ class Home(HomeTemplate):
 
   def home_link_copy_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    c = confirm('Are you sure you want to logout?')
+    c = confirm('Are you sure you want to logout?', buttons=[("Yes", True),("No", False)])
     if(c==True):
       open_form('Login')
     else:

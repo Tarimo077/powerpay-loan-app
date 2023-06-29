@@ -92,7 +92,7 @@ class Customers(CustomersTemplate):
 
   def link_1_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    c = confirm('Are you sure you want to logout?')
+    c = confirm('Are you sure you want to logout?', buttons=[("Yes", True),("No", False)])
     if(c==True):
       open_form('Login')
     else:

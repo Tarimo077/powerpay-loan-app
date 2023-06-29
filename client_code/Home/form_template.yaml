@@ -124,7 +124,7 @@ components:
   components:
   - type: RichText
     properties: {role: usr, align: center, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: 60, content: "Customers {image}\n\
+      foreground: '', visible: true, font_size: 36, content: "Customers\n {image}\n\
         ## View customer details and customer analytics\n {button}", font: '', spacing_above: small,
       spacing_below: small, data: null, background: 'theme:Primary Container', format: markdown}
     name: home_rich_customers
@@ -152,7 +152,7 @@ components:
     layout_properties: {grid_position: 'GVTRDZ,TJQOVY XYMULC,CFLLKH'}
   - type: RichText
     properties: {role: usr, align: center, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: 60, content: "Support {image}\n##\
+      foreground: '', visible: true, font_size: 36, content: "Support\n{image}\n##\
         \ Need Help? Talk to us through our support page \n{button}", font: '', spacing_above: small,
       spacing_below: small, data: null, background: 'theme:orange', format: markdown}
     name: rich_text_4
@@ -176,8 +176,8 @@ components:
       event_bindings: {}
   - type: RichText
     properties: {role: usr, align: center, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: 60, content: "Devices {image}\n##\
-        \ Manage customer devices with a click of a button\n\n {button}", font: '',
+      foreground: '', visible: true, font_size: 36, content: "Devices \n{image}\n\
+        ## Manage customer devices with a click of a button\n\n {button}", font: '',
       spacing_above: small, spacing_below: small, data: null, background: 'theme:orange',
       format: markdown}
     name: rich_text_2
@@ -205,7 +205,7 @@ components:
     layout_properties: {grid_position: 'GVTRDZ,MMOPMG BMVCPQ,HMSPVN'}
   - type: RichText
     properties: {role: usr, align: center, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: 60, content: "Transactions {image}\n\
+      foreground: '', visible: true, font_size: 36, content: "Transactions \n{image}\n\
         ## View transactions and financial analytics\n {button}", font: '', spacing_above: small,
       spacing_below: small, data: null, background: 'theme:Primary Container', format: markdown}
     name: rich_text_3
@@ -228,6 +228,6 @@ components:
       layout_properties: {slot: image, width: 54}
       event_bindings: {}
 - type: Timer
-  properties: {interval: 6}
+  properties: {interval: 30}
   name: timer_1
   event_bindings: {tick: timer_1_tick}

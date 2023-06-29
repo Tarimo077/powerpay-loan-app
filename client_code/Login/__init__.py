@@ -23,7 +23,7 @@ class Login(LoginTemplate):
     """This method is called when the button is clicked"""
     bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
     shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
-    animate(self.image_1, bounce, duration=10000)    
+    animate(self.image_1, bounce, duration=5000)    
     self.login.background = '#ffa500'
     username = self.username.text
     password = self.password.text
@@ -48,7 +48,7 @@ class Login(LoginTemplate):
       #print(anvil.server.session.get('usr'))
       anvil.server.call('strusr', username)
       open_form('Home', username)
-      alert('Hi '+username+', welcome to Powerpay Loan App')
+      alert('Hi '+username+', welcome to Powerpay Loan App', buttons=None)
 
   def eye_click(self, **event_args):
     """This method is called when the button is clicked"""
