@@ -32,7 +32,7 @@ class Home(HomeTemplate):
 # Join the initials together
     initials_string = ''.join(initials)
     self.username_label.text = initials_string
-    bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+    bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
     shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
     animate(self.image_4, shake, duration=5000)
     animate(self.home_customer_img, shake, duration=5000)
