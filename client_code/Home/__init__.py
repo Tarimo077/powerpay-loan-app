@@ -11,9 +11,7 @@ import anvil.users
 from datetime import datetime, timedelta
 import json
 import anvil.js
-from anvil.extras.animate import animate
-import time
-import anvil.media
+from anvil_extras.animation import animate, fade_in, Transition
 
 
 class Home(HomeTemplate):
@@ -219,20 +217,32 @@ class Home(HomeTemplate):
 
   def home_customer_img_mouse_enter(self, x, y, **event_args):
     """This method is called when the mouse cursor enters this component"""
-     # Define the bounce animation
-    bounce_animation = animate(self.home_customer_img, duration=2.0, top=50, easing="ease-in-out")
+    bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+    shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+    animate(self.home_customer_img, shake, duration=2000)
 
-    # Play the bounce animation
-    bounce_animation.start()
+  def image_2_mouse_enter(self, x, y, **event_args):
+    """This method is called when the mouse cursor enters this component"""
+    bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+    shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+    animate(self.image_2, shake, duration=2000)
 
-    # Wait for 2 seconds (duration of bounce animation)
-    time.sleep(2)
+  def image_3_mouse_enter(self, x, y, **event_args):
+    """This method is called when the mouse cursor enters this component"""
+    bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+    shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+    animate(self.image_3, shake, duration=2000)
 
-    # Define the flip animation
-    flip_animation = animate(image, duration=0.5, rotateZ=180)
+  def image_4_mouse_enter(self, x, y, **event_args):
+    """This method is called when the mouse cursor enters this component"""
+    bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+    shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+    animate(self.image_4, shake, duration=2000)
 
-    # Play the flip animation
-    flip_animation.start()
+
+
+
+
 
 
 

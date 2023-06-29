@@ -7,6 +7,7 @@ from anvil.tables import app_tables
 import anvil.server
 import anvil.http
 
+
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
@@ -137,5 +138,7 @@ def strusr(dt):
 def getusername():
   usrn = anvil.server.session.get('usr', 0)
   return usrn
+
+
 
   
