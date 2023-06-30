@@ -170,3 +170,10 @@ components:
       icon: ''}
     name: username_label
     layout_properties: {}
+- type: Label
+  properties: {role: footer, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: 10,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+    background: '', bold: true, underline: false, icon: ''}
+  name: label_1_copy_2
+  layout_properties: {grid_position: 'UFPNQR,QXNCNH'}

@@ -260,3 +260,12 @@ components:
     properties: {height: 6}
     name: spacer_5
     layout_properties: {grid_position: 'QMVHXZ,QUHBNO'}
+  - type: Label
+    properties: {role: footer, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: 10,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: true, underline: false, icon: ''}
+    name: label_1_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: SKJSEH,TNPKHL
