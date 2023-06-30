@@ -30,6 +30,11 @@ metadata: {title: Powerpay, description: 'Manage your borrowed devices with ease
     trends. With Powerpay Loan App, you can streamline your device loan process and
     ensure all your devices are accounted for.', logo_img: 'asset:apple-touch-icon.png'}
 startup_form: null
+native_deps: {head_html: '<link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">'}
 db_schema:
   customers:
     client: full
