@@ -32,6 +32,7 @@ class Customers(CustomersTemplate):
     rxt = rxt.get_bytes().decode('utf-8')
     rxt = json.loads(rxt)
     leng = len(rxt)
+    print('Length: '+str(leng))
     self.customers_no.text = str(leng)
     my_arr = []
     for g in rxt:
@@ -54,6 +55,8 @@ class Customers(CustomersTemplate):
       my_arr.append(data)
       
     # Sort the my_arr list by the 'id' field
+    ld = len(my_arr)
+    print('Repeating panel: '+str(ld))
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
     self.repeating_panel_1.items = sorted_arr
     nm = len(self.repeating_panel_1.items)

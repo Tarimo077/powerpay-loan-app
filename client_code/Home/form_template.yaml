@@ -145,7 +145,7 @@ components:
         spacing_below: small, background: 'theme:Primary Container', horizontal_align: left}
       name: home_customer_img
       layout_properties: {slot: image, width: 83.10000000000002}
-      event_bindings: {mouse_enter: home_customer_img_mouse_enter}
+      event_bindings: {}
   - type: Spacer
     properties: {height: 32}
     name: spacer_2

@@ -26,6 +26,7 @@ class Login(LoginTemplate):
 
   def login_click(self, **event_args):
     """This method is called when the button is clicked"""
+    self.timer_1.interval = 0
     bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
     shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
     animate(self.image_1, bounce, duration=5000)  

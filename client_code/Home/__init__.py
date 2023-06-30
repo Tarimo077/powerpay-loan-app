@@ -94,6 +94,8 @@ class Home(HomeTemplate):
     animate(self.image_2, bounce, duration=5000)
     animate(self.image_3, bounce, duration=5000)
 
+
+
       
     
 
