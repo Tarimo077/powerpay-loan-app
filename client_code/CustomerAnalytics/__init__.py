@@ -25,7 +25,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       date = date_obj.date()
       kaunty = x['county']
       salary = x['salary']
-      if salary is not 'N/A' and salary is not '80766K':  
+      if salary is not 'N/A' and salary is not '80766K' and salary is not '200000K':  
         range_values = salary.split(' - ')
         start_value = int(range_values[0].replace('K', ''))
         end_value = int(range_values[1].replace('K', ''))
@@ -64,7 +64,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
         'title': 'NUMBER OF CUSTOMERS'
       }
     }
-    self.plot_1.layout.template = "rally_light"
+    self.plot_1.layout
     self.plot_2.data = go.Bar(x=dates, y=countz, marker=dict(color=primary_color))
     self.plot_2.layout = {
       'title': 'NEW CUSTOMERS BY DAY',

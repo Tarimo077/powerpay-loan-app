@@ -162,9 +162,19 @@ color: %color:On Primary Container%;
   background-color: #FFFFFF;
   border-left: 2px solid black;
   border-right: 2px solid black;
-  margin-left: 40%;
+  margin-left: 25%;
   margin-right: 40%;
   display: block;
+  text-align: center;
+}
+
+.anvil-role-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  margin-left: 1%;
+  margin-right: 55%;
   text-align: center
 }
 

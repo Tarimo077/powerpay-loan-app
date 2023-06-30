@@ -53,6 +53,7 @@ roles:
 - {name: bot}
 - {name: sticky}
 - {name: linkstick}
+- {name: footer}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

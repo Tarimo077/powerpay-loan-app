@@ -227,10 +227,6 @@ components:
       name: image_4
       layout_properties: {slot: image, width: 54}
       event_bindings: {}
-- type: Timer
-  properties: {interval: 30}
-  name: timer_1
-  event_bindings: {tick: timer_1_tick}
 container:
   type: HtmlTemplate
   properties: {html: '@theme:standard-page.html'}

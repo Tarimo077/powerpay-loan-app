@@ -21,7 +21,10 @@ class Home(HomeTemplate):
   def __init__(self, boo, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    augment.set_event_handler(self.home_rich_customers, 'hover', self.mouse_hover())
+    augment.set_event_handler(self.home_rich_customers, 'hover', self.mouse_hover_customers)
+    augment.set_event_handler(self.rich_text_2, 'hover', self.mouse_hover_devices)
+    augment.set_event_handler(self.rich_text_4, 'hover', self.mouse_hover_support)
+    augment.set_event_handler(self.rich_text_3, 'hover', self.mouse_hover_transactions)
     #res = anvil.server.call('getoldcustomers')
     #text = res.get_bytes().decode('utf-8')
     #old_customers = json.loads(text)
@@ -37,19 +40,53 @@ class Home(HomeTemplate):
 # Join the initials together
     initials_string = ''.join(initials)
     self.username_label.text = initials_string
-    bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
-    shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
-    animate(self.image_4, shake, duration=5000)
-    animate(self.home_customer_img, shake, duration=5000)
-    animate(self.image_2, bounce, duration=5000)
-    animate(self.image_3, bounce, duration=5000) 
+    #bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+    #shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+    #animate(self.image_4, shake, duration=5000)
+    #animate(self.home_customer_img, shake, duration=5000)
+    #animate(self.image_2, bounce, duration=5000)
+    #animate(self.image_3, bounce, duration=5000) 
     
 
-  def mouse_hover(self, **event_args):
+  def mouse_hover_customers(self, **event_args):
     if 'enter' in event_args['event_type']:
-      print('Hover works and is on')
+      bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+      shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+      rotate = Transition(rotate=[0, "360deg"])
+      animate(self.home_customer_img, shake, duration=4000)
     else: 
-      print('Still working')
+      pass
+
+  def mouse_hover_devices(self, **event_args):
+    if 'enter' in event_args['event_type']:
+      bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+      shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+      rotate = Transition(rotate=[0, "360deg"])
+      animate(self.image_2, bounce, duration=2000)
+      time.sleep(2)
+      animate(self.image_2, rotate, duration=2000)
+    else: 
+      pass
+
+  def mouse_hover_support(self, **event_args):
+    if 'enter' in event_args['event_type']:
+      bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+      shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+      rotate = Transition(rotate=[0, "360deg"])
+      animate(self.image_3, bounce, duration=2000)
+      time.sleep(2)
+      animate(self.image_3, rotate, duration=2000)
+    else: 
+      pass
+
+  def mouse_hover_transactions(self, **event_args):
+    if 'enter' in event_args['event_type']:
+      bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
+      shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
+      rotate = Transition(rotate=[0, "360deg"])
+      animate(self.image_4, shake, duration=4000)
+    else: 
+      pass
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -95,14 +132,6 @@ class Home(HomeTemplate):
     """This method is called when the button is clicked"""
     open_form('Transactions', True)
 
-  def timer_1_tick(self, **event_args):
-    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    bounce = Transition(translateY=[0, 0, "-30px", "-30px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
-    shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
-    animate(self.image_4, shake, duration=5000)
-    animate(self.home_customer_img, shake, duration=5000)
-    animate(self.image_2, bounce, duration=5000)
-    animate(self.image_3, bounce, duration=5000)
 
 
 
