@@ -13,12 +13,15 @@ import json
 import anvil.js
 from anvil_extras.animation import animate, fade_in, Transition
 import time
+from AnvilAugment import augment
+import anvil.js.window as js_window
 
 
 class Home(HomeTemplate):
   def __init__(self, boo, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    augment.set_event_handler(self.home_rich_customers, 'hover', self.mouse_hover())
     #res = anvil.server.call('getoldcustomers')
     #text = res.get_bytes().decode('utf-8')
     #old_customers = json.loads(text)
@@ -39,7 +42,14 @@ class Home(HomeTemplate):
     animate(self.image_4, shake, duration=5000)
     animate(self.home_customer_img, shake, duration=5000)
     animate(self.image_2, bounce, duration=5000)
-    animate(self.image_3, bounce, duration=5000)  
+    animate(self.image_3, bounce, duration=5000) 
+    
+
+  def mouse_hover(self, **event_args):
+    if 'enter' in event_args['event_type']:
+      print('Hover works and is on')
+    else: 
+      print('Still working')
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
