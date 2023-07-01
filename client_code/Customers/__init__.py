@@ -50,19 +50,23 @@ class Customers(CustomersTemplate):
         'sub_county': g['sub_county'],
         'gender' : g['gender'],
         'salary' : g['salary'],
-        'kplc_meter' : g['kplc_meter']
+        'kplc_meter' : g['kplc_meter'],
+        'index': 0
       }
       my_arr.append(data)
       
     # Sort the my_arr list by the 'id' field
-    ld = len(my_arr)
-    print('Repeating panel: '+str(ld))
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
+    index = 1
+    for m in sorted_arr:
+      m['index'] = index
+      index = index + 1
+    for e in sorted_arr:
+      e['index'] = str(e['index'])
     self.repeating_panel_1.items = sorted_arr
     nm = len(self.repeating_panel_1.items)
     self.result_label.text = 'showing '+str(nm)+' results'
     self.item = sorted_arr
-
     # Any code you write here will run before the form opens.
 
   def link_1_click(self, **event_args):
@@ -78,6 +82,12 @@ class Customers(CustomersTemplate):
     search_text = self.search.text
     leng = len(search_text)
     filtered_objects = [obj for obj in self.item if obj['name'][:leng].lower() == search_text.lower()]
+    index = 1
+    for w in filtered_objects:
+      w['index'] = index
+      index = index + 1
+    for e in filtered_objects:
+      e['index'] = str(e['index'])
     self.repeating_panel_1.items = filtered_objects
     nm = len(self.repeating_panel_1.items)
     self.result_label.text = 'showing '+str(nm)+' results'
@@ -117,6 +127,8 @@ class Customers(CustomersTemplate):
     nm = len(self.repeating_panel_1.items)
     self.result_label.text = 'showing '+str(nm)+' results'
     if x == 'date':
+      for e in self.item:
+        e['index'] = str(e['index'])
       self.repeating_panel_1.items = self.item
       nm = len(self.repeating_panel_1.items)
       self.result_label.text = 'showing '+str(nm)+' results'
@@ -128,6 +140,8 @@ class Customers(CustomersTemplate):
       self.calender_to.visible = True
       
     else:
+      for e in self.item:
+        e['index'] = str(e['index'])
       self.repeating_panel_1.items = self.item
       nm = len(self.repeating_panel_1.items)
       self.result_label.text = 'showing '+str(nm)+' results'
@@ -160,6 +174,12 @@ class Customers(CustomersTemplate):
         nw_arr.append(z)
       else:
         pass
+    index = 1
+    for y in nw_arr:
+      y['index'] = index
+      index = index + 1
+    for e in nw_arr:
+      e['index'] = str(e['index'])
     self.repeating_panel_1.items = nw_arr
     nm = len(self.repeating_panel_1.items)
     self.result_label.text = 'showing '+str(nm)+' results'

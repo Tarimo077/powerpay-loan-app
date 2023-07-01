@@ -1,20 +1,37 @@
 container:
   type: ColumnPanel
   properties: {role: usr, tooltip: '', border: '5px solid #8fce00', foreground: '',
-    visible: true, wrap_on: mobile, col_spacing: none, spacing_above: large, col_widths: '{"ZMSJYA":25,"NXTDUP":35,"CCEEZP":25,"TXTATV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35,"HAFYKA":25,"JZKPUH":35,"VOJHMM":25,"XDSAQH":35,"YASFDF":25,"WRSMHT":35,"KPRBDU":25,"WXKLUQ":35,"CMVXSF":25,"IRZIOJ":35,"SRBORC":25,"AYYTHO":35,"NEBKDQ":25,"YQTKBX":35}',
+    visible: true, wrap_on: mobile, col_spacing: none, spacing_above: large, col_widths: '{"CCEEZP":25,"TXTATV":35,"EIZLZE":25,"JAFFQG":35,"VEVNTC":25,"ALSXDZ":35,"HAFYKA":25,"JZKPUH":35,"VOJHMM":25,"XDSAQH":35,"YASFDF":25,"WRSMHT":35,"KPRBDU":25,"WXKLUQ":35,"CMVXSF":25,"IRZIOJ":35,"SRBORC":25,"AYYTHO":35,"NEBKDQ":25,"YQTKBX":35,"WFJSLG":25,"CVRYPX":35,"QJRTVU":54,"NHXGOV":3,"UEYFFV":3}',
     spacing_below: large, background: ''}
 components:
+- type: Spacer
+  properties: {height: 36}
+  name: spacer_1
+  layout_properties: {grid_position: 'UYRHGK,QJRTVU'}
+- type: Label
+  properties: {role: usr, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: 'theme:orange', bold: true, underline: false,
+    icon: ''}
+  name: index
+  layout_properties: {grid_position: 'UYRHGK,NHXGOV'}
+  data_bindings:
+  - {property: text, code: 'self.item[''index'']'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_2
+  layout_properties: {grid_position: 'UYRHGK,UEYFFV'}
 - type: Label
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: 'Name:', font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
     underline: false, icon: ''}
   name: label_5
-  layout_properties: {grid_position: 'BZZXEV,ZMSJYA'}
+  layout_properties: {grid_position: 'KTCMST,WFJSLG'}
 - type: Label
   properties: {}
   name: name
-  layout_properties: {grid_position: 'BZZXEV,NXTDUP'}
+  layout_properties: {grid_position: 'KTCMST,CVRYPX'}
   data_bindings:
   - {property: text, code: 'self.item[''name'']'}
 - type: Label
