@@ -73,7 +73,7 @@ components:
     name: spacer_2
     layout_properties: {grid_position: 'AIZYNB,WQIZAG'}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#89CFEF',
       visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
       spacing_below: small, italic: true, background: '', bold: false, underline: false,
       icon: ''}

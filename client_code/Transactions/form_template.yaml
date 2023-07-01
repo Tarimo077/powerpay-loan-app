@@ -77,10 +77,30 @@ components:
     properties: {height: 46}
     name: spacer_4
     layout_properties: {grid_position: 'XJKPZC,POVAPT'}
-  - type: Plot
-    properties: {}
-    name: plot_1
-    layout_properties: {grid_position: 'NIGARY,RCHWTS'}
+  - type: RichText
+    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+      foreground: '', visible: true, font_size: null, content: "{spacer} {button}\
+        \ \n{plot}", font: '', spacing_above: small, spacing_below: small, data: null,
+      background: '', format: markdown}
+    name: rich_text_1
+    layout_properties: {grid_position: 'PWUTLQ,XHVTMZ'}
+    components:
+    - type: Plot
+      properties: {height: 483}
+      name: plot_1
+      layout_properties: {grid_position: 'NIGARY,RCHWTS', slot: plot, width: 889.6}
+    - type: Button
+      properties: {role: outlined-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: SWITCH TO BAR GRAPH, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:orange', bold: true, underline: false, icon: ''}
+      name: bar_graph
+      layout_properties: {slot: button}
+      event_bindings: {click: bar_graph_click}
+    - type: Spacer
+      properties: {height: 28}
+      name: spacer_8
+      layout_properties: {slot: spacer, width: 333}
   - type: Spacer
     properties: {height: 36}
     name: spacer_5

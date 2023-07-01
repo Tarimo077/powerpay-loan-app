@@ -18,6 +18,7 @@ class Transactions(TransactionsTemplate):
   def __init__(self, csh, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.graph = False
     usr = anvil.server.call('getusername')
     words = usr.split()
     self.username_label.tooltip = "Logged in as "+usr
@@ -75,10 +76,36 @@ class Transactions(TransactionsTemplate):
     else:
       self.view_cash()
     reversed = my_array[::-1]
-    self.repeating_panel_1.items = reversed
+    self.repeating_panel_1.items = reversed    
+    names = [obj['name'] for obj in my_array]
+    name_counter = Counter(names)
+    self.plot_data_line(dates, totals)
+    self.dates = dates
+    self.totals = totals
+# Get the top 5 most frequent transactors
+    top_transactors = [{'name': name, 'frequency': count} for name, count in name_counter.most_common()]
+    self.repeating_panel_2.items = top_transactors
+    self.repeating_panel_3.items = output
+
+  def plot_data_line(self, dates, totals, **event_args):
+    primary_color = '#8fce00'
+    self.plot_1.data = go.Scatter(x=dates, y=totals, marker=dict(color=primary_color), mode='lines',
+                        line=dict(shape='spline',smoothing=0.7,width=3), hovertemplate='<b>%{x}</b><br>' + 'Amount: %{y}')
+    # Configure the plot layout
+    self.plot_1.layout = {
+      'title': 'AMOUNT RECEIVED PER DAY',
+      'xaxis': {
+        'title': 'TIME'
+      },
+      'yaxis': {
+        'title': 'AMOUNT'
+      }
+    }
+
+  def plot_data_bar(self, dates, totals, **event_args):
     primary_color = '#8fce00'
     self.plot_1.data = go.Bar(x=dates, y=totals, marker=dict(color=primary_color),
-                              hovertemplate='<b>%{x}</b><br>' + 'Amount: %{y}')
+                        hovertemplate='<b>%{x}</b><br>' + 'Amount: %{y}')
     # Configure the plot layout
     self.plot_1.layout = {
       'title': 'AMOUNT RECEIVED PER DAY',
@@ -90,13 +117,6 @@ class Transactions(TransactionsTemplate):
       }
     }
     
-    names = [obj['name'] for obj in my_array]
-    name_counter = Counter(names)
-
-# Get the top 5 most frequent transactors
-    top_transactors = [{'name': name, 'frequency': count} for name, count in name_counter.most_common()]
-    self.repeating_panel_2.items = top_transactors
-    self.repeating_panel_3.items = output
 
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -162,6 +182,20 @@ class Transactions(TransactionsTemplate):
         self.seecash = False
     else:
       self.hide_cash()
+
+  def bar_graph_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.graph == True:
+      self.plot_data_line(self.dates, self.totals)
+      self.bar_graph.background = '#ffa500'
+      self.bar_graph.text = 'SWITCH TO BAR GRAPH'
+      self.graph = False
+    else:
+      self.plot_data_bar(self.dates, self.totals)
+      self.bar_graph.background = '#8fce00'
+      self.bar_graph.text = 'SWITCH TO LINE GRAPH'
+      self.graph = True
+
       
       
 

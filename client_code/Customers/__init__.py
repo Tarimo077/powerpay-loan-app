@@ -92,7 +92,10 @@ class Customers(CustomersTemplate):
       e['index'] = str(e['index'])
     self.repeating_panel_1.items = filtered_objects
     nm = len(self.repeating_panel_1.items)
-    self.result_label.text = 'showing '+str(nm)+' results'
+    if nm == 1:
+      self.result_label.text = 'showing '+str(nm)+' result'
+    else:
+      self.result_label.text = 'showing '+str(nm)+' results'
     
 
   def addcustomer_click(self, **event_args):
@@ -133,7 +136,10 @@ class Customers(CustomersTemplate):
         e['index'] = str(e['index'])
       self.repeating_panel_1.items = self.item
       nm = len(self.repeating_panel_1.items)
-      self.result_label.text = 'showing '+str(nm)+' results'
+      if nm == 1:
+        elf.result_label.text = 'showing '+str(nm)+' result'
+      else:
+        self.result_label.text = 'showing '+str(nm)+' results'
       self.search.text = ''
       self.search.visible = False
       self.from_date.visible = True
@@ -146,7 +152,10 @@ class Customers(CustomersTemplate):
         e['index'] = str(e['index'])
       self.repeating_panel_1.items = self.item
       nm = len(self.repeating_panel_1.items)
-      self.result_label.text = 'showing '+str(nm)+' results'
+      if nm == 1:
+        self.result_label.text = 'showing '+str(nm)+' result'
+      else:
+        self.result_label.text = 'showing '+str(nm)+' results'
       self.search.visible = True
       self.from_date.visible = False
       self.to_date.visible = False
