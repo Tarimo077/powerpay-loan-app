@@ -193,7 +193,10 @@ class Customers(CustomersTemplate):
       e['index'] = str(e['index'])
     self.repeating_panel_1.items = nw_arr
     nm = len(self.repeating_panel_1.items)
-    self.result_label.text = 'showing '+str(nm)+' results'
+    if nm == 1:
+      self.result_label.text = 'showing '+str(nm)+' result'
+    else:
+      self.result_label.text = 'showing '+str(nm)+' result'
     
 
   def calender_from_change(self, **event_args):
