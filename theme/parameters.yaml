@@ -54,6 +54,9 @@ roles:
 - {name: sticky}
 - {name: linkstick}
 - {name: footer}
+- {name: logout}
+- {name: logout1}
+- {name: logout2}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

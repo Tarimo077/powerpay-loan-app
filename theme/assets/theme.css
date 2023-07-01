@@ -168,6 +168,20 @@ color: %color:On Primary Container%;
   text-align: center;
 }
 
+.anvil-role-logout {
+  border-bottom: 1px solid black;
+  padding-bottom: 2px 
+}
+
+.anvil-role-logout1 {
+  border-bottom: 1px solid black;
+  padding-bottom: 2px
+}
+
+.anvil-role-logout2 {
+  padding-top: 5px
+}
+
 .anvil-role-footer {
   position: fixed;
   left: 0;

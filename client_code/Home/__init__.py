@@ -12,25 +12,35 @@ from datetime import datetime, timedelta
 import json
 import anvil.js
 from anvil_extras.animation import animate, fade_in, Transition
+from anvil_extras import popover
 import time
 from AnvilAugment import augment
 import anvil.js.window as js_window
+from ..UserPopover import UserPopover
+
+popover.dismiss_on_outside_click(True)
 
 
 class Home(HomeTemplate):
   def __init__(self, boo, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.index_side_panel.visible = False
     augment.set_event_handler(self.home_rich_customers, 'hover', self.mouse_hover_customers)
     augment.set_event_handler(self.rich_text_2, 'hover', self.mouse_hover_devices)
     augment.set_event_handler(self.rich_text_4, 'hover', self.mouse_hover_support)
     augment.set_event_handler(self.rich_text_3, 'hover', self.mouse_hover_transactions)
+    self.username_label.popover(UserPopover(), 
+                          placement = 'bottom', 
+                          trigger='stickyhover', 
+                          delay={ "show": 100, "hide": 100 },
+                          max_width='700px'
+                         )
     #res = anvil.server.call('getoldcustomers')
     #text = res.get_bytes().decode('utf-8')
     #old_customers = json.loads(text)
     self.boo = boo
     usr = anvil.server.call('getusername')
-    self.username_label.tooltip = "Logged in as "+usr
     words = usr.split()
 
 
@@ -73,9 +83,7 @@ class Home(HomeTemplate):
       bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
       shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
       rotate = Transition(rotate=[0, "360deg"])
-      animate(self.image_3, bounce, duration=2000)
-      time.sleep(2)
-      animate(self.image_3, rotate, duration=2000)
+      animate(self.image_3, bounce, duration=4000)
     else: 
       pass
 

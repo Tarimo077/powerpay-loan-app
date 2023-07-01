@@ -170,7 +170,7 @@ class Transactions(TransactionsTemplate):
       alert_instance = alert(
         content=nw_frm,
         large=False,
-        title='ENTER PIN',
+        title=None,
         dismissible=False,
         buttons=[('Cancel', 0)],
         role='outlined'

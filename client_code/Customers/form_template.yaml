@@ -1,7 +1,8 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
   properties: {col_widths: '{"JWNTPA":27,"WQIZAG":35,"ITIDSS":25,"SDRCNK":33,"QUEVUT":9,"WVCGRU":5,"OAFOFQ":45,"YUKRST":25,"TNHHPI":5,"XFRGHY":25,"ZSAWTR":30,"KUOHCR":20,"UANLNN":6,"RPUODQ":20}'}
