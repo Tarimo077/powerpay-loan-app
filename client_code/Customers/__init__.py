@@ -32,7 +32,6 @@ class Customers(CustomersTemplate):
     rxt = rxt.get_bytes().decode('utf-8')
     rxt = json.loads(rxt)
     leng = len(rxt)
-    print('Length: '+str(leng))
     self.customers_no.text = str(leng)
     my_arr = []
     for g in rxt:
@@ -65,7 +64,10 @@ class Customers(CustomersTemplate):
       e['index'] = str(e['index'])
     self.repeating_panel_1.items = sorted_arr
     nm = len(self.repeating_panel_1.items)
-    self.result_label.text = 'showing '+str(nm)+' results'
+    if nm == 1:
+      self.result_label.text = 'showing '+str(nm)+' result'
+    else:      
+      self.result_label.text = 'showing '+str(nm)+' results'
     self.item = sorted_arr
     # Any code you write here will run before the form opens.
 
