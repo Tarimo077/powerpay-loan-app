@@ -57,6 +57,7 @@ roles:
 - {name: logout}
 - {name: logout1}
 - {name: logout2}
+- {name: footerSupport}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

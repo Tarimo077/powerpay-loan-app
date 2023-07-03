@@ -68,7 +68,7 @@ components:
     name: feedback
     layout_properties: {grid_position: 'GKXEBP,VCACWY'}
   - type: Spacer
-    properties: {height: 58}
+    properties: {height: 51}
     name: spacer_3
     layout_properties: {grid_position: 'DWBRUG,LXBQPH'}
   - type: Button
@@ -79,6 +79,67 @@ components:
     name: button_1
     layout_properties: {grid_position: 'JXEOKS,ROJDXT'}
     event_bindings: {click: button_1_click}
+  - type: DataRowPanel
+    properties: {role: footerSupport, align: left, tooltip: '', border: '', foreground: '',
+      auto_display_data: true, visible: true, item: null, font_size: null, font: '',
+      spacing_above: none, spacing_below: none, italic: false, background: '', bold: false,
+      underline: false}
+    name: data_row_panel_1
+    layout_properties: {grid_position: 'PREBZG,BQXHLS'}
+    components:
+    - type: RichText
+      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+        foreground: '', visible: true, font_size: null, content: '{image} **Email:**
+          admin@powerpayafrica.com', font: '', spacing_above: small, spacing_below: small,
+        data: null, background: '', format: markdown}
+      name: rich_text_2
+      layout_properties: {}
+      components:
+      - type: Image
+        properties: {role: null, vertical_align: center, height: 15, tooltip: '',
+          border: '', foreground: '', visible: true, display_mode: fill_width, spacing_above: small,
+          source: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABUlJREFUaEPtmG1sU1UYx//ntrddt7ZCu83JJGkbXeJA/UKQb0bHUECjkM3AiiGKBLMsoIhRSQz4kqAJukxeDEE0RFgXQMAoLiDT+M0QSDRhmDUxa2A1KG1X+7atd73H3NtlY7v3tD1dx4tZv/Z5+f+e5znnnnMI7vIfucv1YxbgdndwtgN3TQfmb44vpAa8AshLCSUuEFSUVDxFkhIaAITzJIMvrn1mu1xI/LwjVL+TmuKJWDsoXgUhQiFBp29DM4Dwuc1qfePKTpLOFS8ngCI+lox3E0KenL4o/ggUco+93L4iF0ROgPnb4/tA0cqfunQeBNhzdZdtMysiE2D+9vhCKuA3gBhKJ6eYSDQjEDx69QNbr543E+D+HYkOUDDJi5FSrA8B2q+9b93KB/BeQiGuLzZpKf0ocDm4w/owH8CHyTgAaymFFB2LkvjAu+V2PoBdSVp0whlwHHinQnfc2WvgYwaAnIE8EgOoXFqZRIBgtgOC/p4x8BYvwO6UtgNyBlSW4KpI4fi6SjjL834HC4IMpyiaj4QQSJaDCKIuxMA2/WTsDnyqBZCHBuG2UwTiIurmSDi6dvoQinivLwR/VITLJqE/RiBY5mrAB7byAnToACRCuNhaBe+xsJrQY5PgW+NEVUVxJ4xwSh6LZYTHNgrf2kos3v8PBGulFmALL8BefYD+1++FmvhEGP5/xyCa+SEmYoyJf6ESVeUE7va/9QHaeAH2D2nWgJwIoX9LtVodVcDJyAREk1MVUMgvl6+7g9GBVgvnLnSAAdCWBVAhhmR4T0Xgj4nwWCX4VueHyOfj3ssA2MQLcJAB0DoBMA5xOgJ/XISnQoJvFRtCFX+zrQI8RZebtQY28gJ8yQDYNBlAhRim8H4bhj8hos4q4ehzTjjLJne8EBsllvsAowMvcwLUHh7WroF4CIGNVZoxV8S1fB+BP2ECKEVtmYS3H7NiyX0m1fbXv9L46EICwWERIAR11jQ6n3FoIBVb18EbEGzaXSi4fkpFxlQwV13t1wyADZMBVPFnFPHZ6ttNAi6GlbAUNJNR0xCD8nUlWOSkiKXlcdvOlVoI1yEGwIu8AJ06ALEQAi9NAKjiuyPwJ0XUVUjoXO6A3URwzD+Eb/4cxh+RLMBDDgOaHihD84MWxNJan5vHzfXVDQh2nQ608AJ0jWhHSAFYnw0eHpbhPRtFX1KEx5JG13IHqvRz6IzcZF/f0w5Uj42463BIH2CNmW8brT3OAFhXmRX/YxR9KSM8FgldywoXP74Fj8fIFsC3zIHqMgLXEQZAMy/ASX2AS6sc8PZE0TdkhMcsoauRX/wkCDWWCI85DV+jA4tPhfU7sJoX4LQOQGIQbouMQNqEujIJnQ1z4dSPW8gHOTuKIxQtPYPwD4twmdLoHxIgWLWHueDzvADfpfWP06MSXMYUTjwxZ9rixzsxQtH0cxSB0XIQo/5xOvisiXMNnNEBUDIqF5pUDBjbIgsudT5DgwGCcmtkXGiCK3kBuhkA+YTM0P/B5bwAZ5V7I7HNkB6usAQ0NvCU+R49J/aN7JzUS8md8awC5VmlUeR7VqntkdoBvMZVqpkz/iTYIG7j6kDNTyMLBEJ+vxOeFuUMfeT6UvMVLgDFeN4vo3sA2jZzhc0fmQAdwcdF5iTkfl7vpaZIRPpBAGnIn6r0FhT0/DyLuOLSIiKxoue9xNb3UlM0mtkN0NZbN050lAD7aszGN3OJV4/qhdat5sLIApIRNggQGilkF0BK/G5KEwRCQJblc9RgPHR9CdGd+al6CwYoFPRW280C3OqKz47Q7a74/64D/wEnWFVPJY6TjAAAAABJRU5ErkJggg==',
+          spacing_below: small, background: '', horizontal_align: center}
+        name: image_1
+        layout_properties: {slot: image, width: 22}
+    - type: RichText
+      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+        foreground: '', visible: true, font_size: null, content: '{image} **Contact:**
+          +254 787 418707', font: '', spacing_above: small, spacing_below: small,
+        data: null, background: '', format: markdown}
+      name: rich_text_3
+      layout_properties: {column: null}
+      components:
+      - type: Image
+        properties: {role: null, vertical_align: center, height: 15, tooltip: '',
+          border: '', foreground: '', visible: true, display_mode: fill_width, spacing_above: small,
+          source: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAA3RJREFUaEPtmknITlEYx38fmceyIBshQmY2iuzNswVlQVFKSkKizGOKJbEwZxY2NsqGEDJGGTbmhTHz1L/Oq/te995z7veec72+vqe+zXfPfc7/d899znme57411BGrqSMc1INU20q6rkhjYAIwDhgEdASaB4L5CDwBrgLHzd9X21wuIJOAjUBnm7NA1x8CC4FjWf6zQBoCG4AFgQTmdbsJWAz8TLoxC2RzFUGUtOvNWJQHZCJwJO8jK2i8YlWxU2ZJK6LAvgN0LUhY3mkeAT2BL9Ebk0CmAgfzei94/BTgsA1EEIKpZtsPTLOB3AO6O1C8B7aYJ6N9vxOwB+jjcG+lQ6Sxhw1EAltaZnoDDAVux8Z1AW4GPCxL00ljaxvIL4fHNR3YlzJO54627tBWFt9Jwe4C0gz4nKJUB+klYGBgkopBBNrAInK8LaXwAFkxiDS0Bd5miOkAPPMgNsuFF5ABwPWMWbTraWcJaV5AZgPbM1QuB1aEpIDyorC2wX4o49DsDVwGmv4PICp+2gMfYmK1Y6kg6hsYQu69vFpyNAvYGRM8DDhfAIRXkAcmTfgeEa6sVJlzEeZtRSR2JrArpvo0MLIAEq8grwAF98uIcCWNVwDVNSHNK4iEqlpT1Ra1ecDWkBQ+gz2qMynw16fV154Ava+IdH0DRgFnE1ZGDYMmsf8r4VwLHACUkg8BluVMNIOASKcEDQeuxUQrhtYZUF26Yaq7W7FxOoPmAysd65lgINL1HBiRAKNr2prbAReAHxmvl4qzEw6VZlCQ0sqoOxl/zfKERv+UhxH1ERykFDNzgR151EfGqkx4bbm3EJCSBr0ic4AXOYH6WcoEuSsURBPq0FwC7Da7mwvTamBpNa1IVIu66jpb1DfTDpdmygy0IbSoFOQd0MrlsdVyzCdA+dg54CLw2MSD6hd1ELcBbSy+ndpBrg26WnJ4ue0u0Ct1CzMX9sbbkV6m9utE8TbDBjIZUClbzaZz6qgNpJFphXarUpL7pnRQfvfH0r5YjTXpucs3xiJ51RwcYzaLsnmzhCo71f5fTabzRVnyX5YForboKgPzr1dGK7EGUL8ssTftInC06a67fDMJsXo6DtThP5Pl3AVE92sDUOGkHwwMNj8YUGIXwvTt5alp8p0ETgHRTk3inK4gIQR79VkP4vVxenBWZ1bkN6ZJnTNUr836AAAAAElFTkSuQmCC',
+          spacing_below: small, background: '', horizontal_align: center}
+        name: image_2
+        layout_properties: {slot: image, width: 20}
+    - type: RichText
+      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+        foreground: '', visible: true, font_size: null, content: '{image} **LinkedIn:**
+          {link}', font: '', spacing_above: small, spacing_below: small, data: null,
+        background: '', format: markdown}
+      name: rich_text_1
+      layout_properties: {column: null}
+      components:
+      - type: Image
+        properties: {role: null, vertical_align: center, height: 19.800003051757812,
+          tooltip: '', border: '', foreground: '', visible: true, display_mode: fill_width,
+          spacing_above: small, source: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAyZJREFUaEPtmUtIVFEYx3/H8W3jKwksapGgRRoWRRFGYlALlba1aRHVJkKLYMYigihnbCHUxuixCqJaRWmLFmkvwhEMUqOcQkIJkdJyJnVwZk7cRs3HnTsqc70zcM/mLs6Zc/6/7/uf7557RhDnTcS5fkwAozNoZiD2M2DrOYTgDMgdQMYKCf4DdCBppKH4qdaa2haydzsB2wqJVl9GiHocWy6E0xAe4F/k5WNDxU8vLmQ1jpJmNS3hAew9bSD3xQSApJWG4oqlAdi6PAixKiYAkB6cJZlLA7B3S1XxwQBMjoPyTLBAUlroqXdzFqu6RcNCKgDBAIXWCe4cLmT7Bivv+z0cu9+L25uqP0RUAHxeXp8qoqwgeybeL92/KG/6DCk6uy0qAOO/8V7bRUbyf8t4fQGstnZIy9LXRFEBiPsMTO2Bu0cK2bbeSse3UU48cPMlbvaAYpK4rkITnhDA/KaU0VQraPWnZIDfBwH/VAkWICyQmAyWJIj0aRKVPTA2grxetkC/qHkD6Tmg0b8uM4lzFWs5sCmXjXlp+PxBur57edg5xO32YXyWdO1SbCRAab2L56dLWWNNVq1Unf0eKm99ZHAyHUSCejUzEuDrj3EK8tI0y2ybe4SKpk/IFNUTAxgJsNgXROXNLp71SXUrGQkQlJIbbQM094yQl5HIyT35VBTlLOC65xrk6KOB0PlqfjMS4FJLH5dbf0JiCkiJxT9Gy/FCDm7OnSOzd2iMIseHUEWLJYDVde8YRhE1dXYMBtibH+RVbekcmaMTfrLsLvVjiVEZkIqla6fK7IxcSbb0MuLcPQcgNPYtpP8/LM4MMApAESBqVERFeqfEkoVMACUbpoWUKETybdh+cw+YFgoVNdNCs4p7pGDo8h6YGNX4IsuESP2zRS1l7LLKaCxdLUo5SkOJ6r2N1s1cK1C+2LO8vuOCL3Bu3a+2hsb1enc1gif6Clvk7FJW0VDSsjQAZXRdz1WkPL/IZfQZJriCo/hiuMkj/8lX11VFUJwFuXPFrtul9CKkCykaw0V+GigygD5xjdqsJkDUQrnMicwMLDNwUftZ3GfgL4ZrBU8m5Ek7AAAAAElFTkSuQmCC',
+          spacing_below: small, background: '', horizontal_align: center}
+        name: image_3
+        layout_properties: {slot: image, width: 20}
+      - type: Link
+        properties: {role: null, url: 'https://www.linkedin.com/company/green-innovation-ventures-enterprises-ltd/mycompany/',
+          align: left, tooltip: '', border: '', foreground: 'theme:orange', visible: true,
+          text: click here, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+          spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+          italic: true, background: '', bold: false, underline: false, icon: ''}
+        name: link_1
+        layout_properties: {slot: link}
 - type: FlowPanel
   properties: {}
   name: navbar_links

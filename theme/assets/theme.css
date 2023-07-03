@@ -192,6 +192,17 @@ color: %color:On Primary Container%;
   text-align: center
 }
 
+.anvil-role-footerSupport {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  margin-left: 80%;
+  margin-right: 0%;
+  text-align: right;
+  border-top: 2px solid black;
+}
+
 .anvil-role-bot {
   display: flex;
   align-items: center;
