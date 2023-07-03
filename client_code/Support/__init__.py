@@ -7,6 +7,8 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..UserPopover import UserPopover
+from anvil_extras import popover
 
 class Support(SupportTemplate):
   def __init__(self, **properties):
@@ -14,15 +16,17 @@ class Support(SupportTemplate):
     self.init_components(**properties)
     usr = anvil.server.call('getusername')
     words = usr.split()
-    self.username_label.tooltip = "Logged in as "+usr
-
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
-
 # Join the initials together
     initials_string = ''.join(initials)
     self.username_label.text = initials_string
-
+    self.username_label.popover(UserPopover(), 
+                          placement = 'bottom', 
+                          trigger='stickyhover', 
+                          delay={ "show": 100, "hide": 100 },
+                          max_width='700px'
+                         )
     # Any code you write here will run before the form opens.
 
   def button_1_click(self, **event_args):

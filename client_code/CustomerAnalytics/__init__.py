@@ -14,6 +14,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
   def __init__(self, data, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.graph = False 
     malecount = 0
     femalecount = 0
     otherscount = 0
@@ -49,6 +50,10 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
 
     dates = list(counts.keys())
     countz = list(counts.values())
+    self.dates = dates
+    self.countz = countz
+    mx = max(countz)
+    self.mx = mx
     county_names = list(counties.keys())
     county_no = list(counties.values())
     primary_color = '#8fce00'
@@ -64,17 +69,21 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
         'title': 'NUMBER OF CUSTOMERS'
       }
     }
-    self.plot_1.layout
-    self.plot_2.data = go.Bar(x=dates, y=countz, marker=dict(color=primary_color))
+    ##Plot here
+    primary_color = '#8fce00'
+    self.plot_2.data = go.Bar(x=self.dates, y=self.countz, marker=dict(color=primary_color),
+                        hovertemplate='<b>%{x}</b><br>' + 'Customers: %{y}')
+    # Configure the plot layout
     self.plot_2.layout = {
       'title': 'NEW CUSTOMERS BY DAY',
       'xaxis': {
         'title': 'TIME'
       },
       'yaxis': {
-        'title': 'NUMBER OF CUSTOMERS'
+        'title': 'NUMBER OF CUSTOMERS',
+        'range': [0, self.mx]
       }
-    }
+    }    
     self.plot_3.data = go.Bar(y=county_names, x=county_no, marker=dict(color=primary_color),
                               width=0.4, orientation='h')
     self.plot_3.layout = {
@@ -124,6 +133,36 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     self.mapping_func(county_names)
     # Any code you write here will run before the form opens.
 
+  def plot_data_line(self, **event_args):
+    primary_color = '#8fce00'
+    self.plot_2.data = go.Scatter(x=self.dates, y=self.countz, marker=dict(color=primary_color), mode='lines',
+                        line=dict(shape='spline',smoothing=0.7,width=3), hovertemplate='<b>%{x}</b><br>' + 'Customers: %{y}')
+    self.plot_2.layout = {
+      'title': 'NEW CUSTOMERS BY DAY',
+      'xaxis': {
+        'title': 'TIME'
+      },
+      'yaxis': {
+        'title': 'NUMBER OF CUSTOMERS'
+      }
+    }
+
+  def plot_data_bar(self, **event_args):
+    primary_color = '#8fce00'
+    self.plot_2.data = go.Bar(x=self.dates, y=self.countz, marker=dict(color=primary_color),
+                        hovertemplate='<b>%{x}</b><br>' + 'Customers: %{y}')
+    # Configure the plot layout
+    self.plot_2.layout = {
+      'title': 'NEW CUSTOMERS BY DAY',
+      'xaxis': {
+        'title': 'TIME'
+      },
+      'yaxis': {
+        'title': 'NUMBER OF CUSTOMERS',
+        'range': [0, self.mx]
+      }
+    }
+
   def mapping_func(self, geos, **event_args):
     self.map_1.center = GoogleMap.LatLng(0.007488702331643685, 37.074308299465)
     self.map_1.zoom = 8
@@ -158,6 +197,20 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Customers')
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.graph == True:
+      self.plot_data_bar()
+      self.button_2.background = '#ffa500'
+      self.button_2.text = 'SWITCH TO LINE GRAPH'
+      self.graph = False
+    else:
+      self.plot_data_line()
+      self.button_2.background = '#8fce00'
+      self.button_2.text = 'SWITCH TO BAR GRAPH'
+      self.graph = True
+
     
 
 

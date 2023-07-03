@@ -9,6 +9,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import json
 from datetime import datetime
+from ..UserPopover import UserPopover
+from anvil_extras import popover
 
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
@@ -19,11 +21,8 @@ class Customers(CustomersTemplate):
     self.drop_down_1.selected_value = self.drop_down_1.items[0]
     usr = anvil.server.call('getusername')
     words = usr.split()
-    self.username_label.tooltip = "Logged in as "+usr
-
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
-
 # Join the initials together
     initials_string = ''.join(initials)
     self.username_label.text = initials_string
@@ -70,6 +69,12 @@ class Customers(CustomersTemplate):
       self.result_label.text = 'showing '+str(nm)+' results'
     self.item = sorted_arr
     # Any code you write here will run before the form opens.
+    self.username_label.popover(UserPopover(), 
+                          placement = 'bottom', 
+                          trigger='stickyhover', 
+                          delay={ "show": 100, "hide": 100 },
+                          max_width='700px'
+                         )
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""

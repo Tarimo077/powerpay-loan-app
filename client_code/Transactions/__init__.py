@@ -13,6 +13,8 @@ from datetime import datetime
 from collections import Counter
 import anvil.js
 from ..Password import Password
+from ..UserPopover import UserPopover
+from anvil_extras import popover
 
 class Transactions(TransactionsTemplate):
   def __init__(self, csh, **properties):
@@ -21,11 +23,8 @@ class Transactions(TransactionsTemplate):
     self.graph = False
     usr = anvil.server.call('getusername')
     words = usr.split()
-    self.username_label.tooltip = "Logged in as "+usr
-
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
-
 # Join the initials together
     initials_string = ''.join(initials)
     self.username_label.text = initials_string
@@ -86,6 +85,12 @@ class Transactions(TransactionsTemplate):
     top_transactors = [{'name': name, 'frequency': count} for name, count in name_counter.most_common()]
     self.repeating_panel_2.items = top_transactors
     self.repeating_panel_3.items = output
+    self.username_label.popover(UserPopover(), 
+                          placement = 'bottom', 
+                          trigger='stickyhover', 
+                          delay={ "show": 100, "hide": 100 },
+                          max_width='700px'
+                         )
 
   def plot_data_line(self, dates, totals, **event_args):
     primary_color = '#8fce00'

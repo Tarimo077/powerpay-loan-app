@@ -42,11 +42,8 @@ class Home(HomeTemplate):
     self.boo = boo
     usr = anvil.server.call('getusername')
     words = usr.split()
-
-
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
-
 # Join the initials together
     initials_string = ''.join(initials)
     self.username_label.text = initials_string

@@ -580,7 +580,7 @@ color: %color:On Primary Container%;
   border-radius: 28px;
   background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
   box-shadow: none;
-  border: none;
+  border: 5px solid #ffa500;
 }
 
 .modal-header {

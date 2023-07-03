@@ -9,6 +9,8 @@ from anvil.tables import app_tables
 import anvil.server
 import json
 from .ItemTemplate6 import ItemTemplate6
+from ..UserPopover import UserPopover
+from anvil_extras import popover
 
 class Request(RequestTemplate):
   def __init__(self, **properties):
@@ -16,15 +18,11 @@ class Request(RequestTemplate):
     self.init_components(**properties)
     usr = anvil.server.call('getusername')
     words = usr.split()
-    self.username_label.tooltip = "Logged in as "+usr
-
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
-
 # Join the initials together
     initials_string = ''.join(initials)
-    self.username_label.text = initials_string
-    
+    self.username_label.text = initials_string    
     dt = {
       "data": 'GET'
     }
@@ -43,6 +41,12 @@ class Request(RequestTemplate):
 
     self.activeDevs.text = "   "+str(active_devs)
     self.inactiveDevs.text = "   "+str(inactive_devs)
+    self.username_label.popover(UserPopover(), 
+                          placement = 'bottom', 
+                          trigger='stickyhover', 
+                          delay={ "show": 100, "hide": 100 },
+                          max_width='700px'
+                         )
     #my_obj = ItemTemplate6()
     #usr = self.item
     #my_obj.getItem(usr)
