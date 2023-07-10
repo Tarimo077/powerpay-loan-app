@@ -26,13 +26,8 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       date = date_obj.date()
       kaunty = x['county']
       salary = x['salary']
-      if salary is not 'N/A' and salary is not '80766K' and salary is not '200000K':  
-        range_values = salary.split(' - ')
-        start_value = int(range_values[0].replace('K', ''))
-        end_value = int(range_values[1].replace('K', ''))
-        median_approximation = (start_value + end_value) / 2
-        median_str = int(median_approximation)
-        sals.append(median_str)        
+      if salary is not 'N/A':  
+        sals.append(int(salary))        
       if x['gender'] == 'male':
           malecount = malecount + 1
       elif x['gender'] == 'female':
@@ -104,17 +99,17 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       'Over 100k' : 0
     }
     for r in sals:
-      if r <= 20:
+      if r < 20000:
         salaries['Under 20k'] += 1
-      elif r > 20 and r <= 40:
+      elif r >= 20000 and r < 40000:
         salaries['20-40k'] += 1
-      elif r > 40 and r <= 60:
+      elif r >= 40000 and r < 60000:
         salaries['40-60k'] += 1
-      elif r > 60 and r <= 80:
+      elif r >= 60000 and r < 80000:
         salaries['60-80k'] += 1
-      elif r > 80 and r <= 100:
+      elif r >= 80000 and r < 100000:
         salaries['80-100k'] += 1
-      elif r > 100:
+      elif r >= 100000:
         salaries['Over 100k'] += 1
       else:
         pass
