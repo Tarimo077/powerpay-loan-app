@@ -5,7 +5,7 @@ container:
     role: null, html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"JWNTPA":27,"WQIZAG":35,"ITIDSS":25,"SDRCNK":33,"QUEVUT":9,"WVCGRU":5,"OAFOFQ":45,"YUKRST":25,"TNHHPI":5,"XFRGHY":25,"ZSAWTR":30,"KUOHCR":20,"UANLNN":6,"RPUODQ":20,"DKMMGB":55}'}
+  properties: {col_widths: '{"JWNTPA":27,"WQIZAG":35,"ITIDSS":25,"SDRCNK":33,"QUEVUT":9,"WVCGRU":5,"OAFOFQ":45,"YUKRST":25,"TNHHPI":5,"XFRGHY":25,"ZSAWTR":30,"KUOHCR":20,"UANLNN":6,"RPUODQ":20,"DKMMGB":55,"SYOERX":57,"ATSZAO":3}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -146,14 +146,13 @@ components:
       name: repeating_panel_1
       layout_properties: {grid_position: 'JNIJOC,DHERTS'}
       data_bindings: []
-    - type: Spacer
-      properties: {height: 32}
-      name: spacer_8
-      layout_properties: {grid_position: 'TGTGCF,DRLHJF'}
-    - type: Spacer
-      properties: {height: 32}
-      name: spacer_7
-      layout_properties: {grid_position: 'LEKFBB,QTKFBO'}
+  - type: Button
+    properties: {role: toTopButton, align: left, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:arrow-up'}
+    name: toTop
+    layout_properties: {grid_position: 'GQJSMI,ATSZAO'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

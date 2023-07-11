@@ -11,11 +11,17 @@ import json
 from datetime import datetime
 from ..UserPopover import UserPopover
 from anvil_extras import popover
+import anvil.js
 
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    # Add an event handler for the button click
+    self.toTop.set_event_handler('click', self.toTop_click)    
+        # Add an event handler for the window scroll event
+    self.call_js('window.addEventListener("scroll", function(){ anvil.call("scroll_handler"); })')
+    self.toTop.visible = False
     self.refresh_data_bindings()
     self.drop_down_1.items = ['name', 'date']
     self.drop_down_1.selected_value = self.drop_down_1.items[0]
@@ -75,6 +81,20 @@ class Customers(CustomersTemplate):
                           delay={ "show": 100, "hide": 100 },
                           max_width='700px'
                          )
+
+  def scroll_handler(self, **event_args):
+        # Get the current scroll position
+    scroll_position = self.call_js('window.pageYOffset')
+        
+        # Show or hide the button based on the scroll position
+    if scroll_position > 20:
+      self.toTop.visible = True
+    else:
+      self.toTop.visible = False
+        
+  def toTop_click(self, **event_args):
+        # Scroll to the top of the page
+    self.call_js('window.scrollTo(0, 0)')
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""

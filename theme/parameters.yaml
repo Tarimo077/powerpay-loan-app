@@ -58,6 +58,7 @@ roles:
 - {name: logout1}
 - {name: logout2}
 - {name: footerSupport}
+- {name: toTopButton}
 color_scheme:
   preset_groups:
   - name: Colour Scheme
