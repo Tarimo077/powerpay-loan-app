@@ -6,6 +6,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import anvil.http
+import anvil.media
+import pandas as pd
 
 
 # This is a server module. It runs on the Anvil server,
@@ -138,6 +140,13 @@ def strusr(dt):
 def getusername():
   usrn = anvil.server.session.get('usr', 0)
   return usrn
+
+@anvil.server.callable
+def download_excel(arr):
+  array = arr
+  df = pd.DataFrame(array)
+  df.to
+  return media
 
 
 

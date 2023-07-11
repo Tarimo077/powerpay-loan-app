@@ -23,7 +23,7 @@ runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-sandbox
-  server_spec: {base: python310-minimal}
+  server_spec: {base: python310-standard}
 metadata: {title: Powerpay, description: 'Manage your borrowed devices with ease using
     Powerpay Loan App! Keep track of all your loaned devices, their condition, and
     who they''re loaned to, all in one place. Powerpay Loan App allows you to set

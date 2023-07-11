@@ -12,6 +12,7 @@ from datetime import datetime
 from ..UserPopover import UserPopover
 from anvil_extras import popover
 import anvil.js
+import anvil.media
 
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
@@ -69,6 +70,7 @@ class Customers(CustomersTemplate):
     else:      
       self.result_label.text = 'showing '+str(nm)+' results'
     self.item = sorted_arr
+    self.arr = sorted_arr
     # Any code you write here will run before the form opens.
     self.username_label.popover(UserPopover(), 
                           placement = 'bottom', 
@@ -211,6 +213,12 @@ class Customers(CustomersTemplate):
       self.query.visible = True
     else:
       self.query.visible = False
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    sheet = anvil.server.call('download_excel', self.arr)
+    anvil.media.download(sheet)
+
 
         
     
