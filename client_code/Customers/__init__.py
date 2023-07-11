@@ -216,7 +216,7 @@ class Customers(CustomersTemplate):
 
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
-    sheet = anvil.server.call('download_excel', self.arr)
+    sheet = anvil.server.call('download_customers', self.arr)
     anvil.media.download(sheet)
 
 

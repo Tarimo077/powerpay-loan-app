@@ -75,6 +75,7 @@ class Transactions(TransactionsTemplate):
     else:
       self.view_cash()
     reversed = my_array[::-1]
+    self.arr = reversed
     self.repeating_panel_1.items = reversed    
     names = [obj['name'] for obj in my_array]
     name_counter = Counter(names)
@@ -200,6 +201,12 @@ class Transactions(TransactionsTemplate):
       self.bar_graph.background = '#8fce00'
       self.bar_graph.text = 'SWITCH TO LINE GRAPH'
       self.graph = True
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    sheet = anvil.server.call('download_transactions', self.arr)
+    anvil.media.download(sheet)
+
 
       
       

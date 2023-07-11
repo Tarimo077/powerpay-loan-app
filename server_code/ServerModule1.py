@@ -142,11 +142,20 @@ def getusername():
   return usrn
 
 @anvil.server.callable
-def download_excel(arr):
+def download_customers(arr):
   array = arr
   df = pd.DataFrame(array)
-  df.to
-  return media
+  df.to_excel('/tmp/output.xlsx', index=False)
+  X_media = anvil.media.from_file('/tmp/output.xlsx', 'xlsx', 'customers.xlsx')
+  return X_media
+
+@anvil.server.callable
+def download_transactions(arr):
+  array = arr
+  df = pd.DataFrame(array)
+  df.to_excel('/tmp/output.xlsx', index=False)
+  X_media = anvil.media.from_file('/tmp/output.xlsx', 'xlsx', 'transactions.xlsx')
+  return X_media
 
 
 
