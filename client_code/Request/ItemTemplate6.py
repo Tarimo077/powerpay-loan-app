@@ -58,20 +58,20 @@ class ItemTemplate6(ItemTemplate6Template):
       "status": act
     }
     if(self.item['active']==True):
-      c = confirm(title='Deactivate Device', large=True, content='Do you wish to deactivate device '+str(self.devid.text),
+      c = confirm(title='Deactivate Device', large=True, content='Do you wish to deactivate '+str(self.devid.text),
                   buttons=[("Yes", True),("No", False)])
       if(c==True):
         res = anvil.server.call('changeStatus', data)
-        alert('Device '+ str(self.devid.text) + ' has been deactivated', buttons=None) 
+        alert(str(self.devid.text) + ' has been deactivated', buttons=None) 
         open_form('Request')        
       else:
         self.refresh_data_bindings()
     else:
-      c = confirm(title='Activate Device', large=True, content='Do you wish to activate device '+str(self.devid.text),
+      c = confirm(title='Activate Device', large=True, content='Do you wish to activate '+str(self.devid.text),
                   buttons=[("Yes", True),("No", False)])
       if(c==True):
         res = anvil.server.call('changeStatus', data)
-        alert('Device '+ str(self.devid.text) + ' has been activated', buttons=None)
+        alert(str(self.devid.text) + ' has been activated', buttons=None)
         open_form('Request')
       else:
         self.refresh_data_bindings()
