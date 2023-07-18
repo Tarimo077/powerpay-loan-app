@@ -119,7 +119,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     self.plot_4.layout = {
       'title': 'CUSTOMERS BY INCOME',
       'yaxis': {
-        'title': 'INCOME'
+        'title': 'NO. OF CUSTOMERS'
       },
       'xaxis': {
         'title': 'SALARY RANGES'

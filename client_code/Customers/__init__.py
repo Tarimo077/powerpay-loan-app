@@ -204,7 +204,7 @@ class Customers(CustomersTemplate):
     if nm == 1:
       self.result_label.text = 'showing '+str(nm)+' result'
     else:
-      self.result_label.text = 'showing '+str(nm)+' result'
+      self.result_label.text = 'showing '+str(nm)+' results'
     
 
   def calender_from_change(self, **event_args):
