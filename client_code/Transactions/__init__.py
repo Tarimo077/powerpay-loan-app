@@ -13,6 +13,7 @@ from datetime import datetime
 from collections import Counter
 import anvil.js
 from ..Password import Password
+from ..DownloadPassword import DownloadPassword
 from ..UserPopover import UserPopover
 from anvil_extras import popover
 
@@ -204,8 +205,14 @@ class Transactions(TransactionsTemplate):
 
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
-    sheet = anvil.server.call('download_transactions', self.arr)
-    anvil.media.download(sheet)
+    nw_frm = DownloadPassword(self.arr)
+    alert_instance = alert(
+        content=nw_frm,
+        large=False,
+        title=None,
+        dismissible=False,
+        buttons=[('Cancel', 0)],
+        role='outlined')
 
 
       
