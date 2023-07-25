@@ -23,7 +23,7 @@ components:
     name: label_3
     layout_properties: {grid_position: 'ZRBUOO,FCIGMI'}
   - type: ColumnPanel
-    properties: {col_widths: '{"EVISRY":20,"YOKDCM":35,"ZTXJIS":5,"IJZGEB":20,"KIBLEX":40}'}
+    properties: {col_widths: '{"EVISRY":25,"YOKDCM":43,"IJZGEB":20,"KIBLEX":40,"LAAYIV":7}'}
     name: column_panel_1
     layout_properties: {grid_position: 'SXWIUV,MTGCMN'}
     components:
@@ -71,7 +71,7 @@ components:
       name: eye
       layout_properties:
         col_widths: {}
-        grid_position: PIBHUR,ZTXJIS
+        grid_position: PIBHUR,LAAYIV
       event_bindings: {click: eye_click}
   - type: Spacer
     properties: {height: 32}
