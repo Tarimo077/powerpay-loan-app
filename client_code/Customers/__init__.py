@@ -98,6 +98,9 @@ class Customers(CustomersTemplate):
 
   def search_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
+    self.prev_page.visible = False
+    self.next_page.visible = False
+    self.pages_title.visible = False
     search_text = self.search.text
     leng = len(search_text)
     filtered_objects = [obj for obj in self.item if obj['name'][:leng].lower() == search_text.lower()]
@@ -107,8 +110,17 @@ class Customers(CustomersTemplate):
       index = index + 1
     for e in filtered_objects:
       e['index'] = str(e['index'])
-    self.repeating_panel_1.items = filtered_objects
-    nm = len(self.repeating_panel_1.items)
+    if len(search_text) == 0:
+      self.prev_page.visible = True
+      self.next_page.visible = True
+      self.pages_title.visible = True
+      self.start = 0
+      self.stop = 10
+      self.repeating_panel_1.items = self.item[self.start:self.stop]
+      nm = len(self.item)
+    else:
+      self.repeating_panel_1.items = filtered_objects
+      nm = len(self.repeating_panel_1.items)
     if nm == 1:
       self.result_label.text = 'showing '+str(nm)+' result'
     else:
@@ -191,6 +203,9 @@ class Customers(CustomersTemplate):
 
   def query_click(self, **event_args):
     """This method is called when the button is clicked"""
+    self.prev_page.visible = False
+    self.next_page.visible = False
+    self.pages_title.visible = False
     frm = str(self.calender_from.date)
     to = str(self.calender_to.date)
     frm = datetime.strptime(frm, "%Y-%m-%d")
