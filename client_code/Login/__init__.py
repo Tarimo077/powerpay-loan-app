@@ -80,9 +80,5 @@ class Login(LoginTemplate):
     fade_in = Transition(opacity=[0, 1])
     fly_in_down = slide_in_down | zoom_in | fade_in
     animate(self.image_1, fly_in_down, duration=5000)
-    
-
-
-      
 
       
