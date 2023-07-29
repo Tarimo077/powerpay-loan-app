@@ -14,6 +14,7 @@ from anvil_extras import popover
 import anvil.js
 import anvil.media
 
+
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -54,10 +55,41 @@ class Customers(CustomersTemplate):
         'index': 0
       }
       my_arr.append(data)
+    r = anvil.server.call('getloans')
+    r = r.get_bytes().decode('utf-8')
+    r = json.loads(r)
+    thearray = []
+    for h in r:
+      original_datetime_str = h['last_payment']
+      # Parse the original datetime string into a datetime object
+      original_datetime_obj = datetime.strptime(original_datetime_str, '%Y-%m-%dT%H:%M:%S.%f%z')
+# Format the datetime object back to the desired string format
+      formatted_datetime_str = original_datetime_obj.strftime('%Y-%m-%dT%H:%M:%S')
+      datetime_obj = datetime.strptime(dat, "%Y-%m-%d %H:%M:%S")
+      formatted_date = datetime_obj.strftime("%d %B %Y %I:%M %p")
+      madata = {
+        'id': int(h['id']),
+        'status': h['status'],
+        'vendor': h['vendor'],
+        'last_payment': formatted_date,
+        'installments' : h['installments'],
+        'payment_period': h['payment_period'],
+        'deposit': h['deposit'],
+        'product': h['product']
+      }
+      thearray.append(madata)
       
     # Sort the my_arr list by the 'id' field
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
+    anotherOne = []
+    for obj2 in thearray:
+      id_to_check = obj2['id']
+    # Check if the id exists in arr1
+      if any(obj1['id'] == id_to_check for obj1 in sorted_arr):
+        # Append the matching id to arr3
+        anotherOne.append(id_to_check)
     index = 1
+    self.loans = anotherOne
     for m in sorted_arr:
       m['index'] = index
       index = index + 1

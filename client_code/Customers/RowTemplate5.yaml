@@ -18,4 +18,4 @@ components:
     icon: ''}
   name: status
   layout_properties: {column: BHJYWO}
-is_package: true
+is_package: false

@@ -129,8 +129,23 @@ def getcashin():
 @anvil.server.callable
 def getcustomers():
   url = "https://appliapay.com/customers"
-  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', timeout=None)
+  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#')
   return response
+
+@anvil.server.callable
+def getloans():
+  url = "https://appliapay.com/loans"
+  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#')
+  return response
+
+@anvil.server.callable
+def strloans(dt):
+  anvil.server.session['loans'] = dt
+
+@anvil.server.callable
+def getloansstored():
+  loans = anvil.server.session.get('loans')
+  return loans
 
 @anvil.server.callable
 def strusr(dt):
