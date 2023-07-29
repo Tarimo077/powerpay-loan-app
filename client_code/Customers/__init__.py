@@ -58,28 +58,19 @@ class Customers(CustomersTemplate):
     # Sort the my_arr list by the 'id' field
     sorted_arr = sorted(my_arr, key=lambda item: item['id'])
     index = 1
-    self.start = 0
-    self.stop = 10
-    self.page = 1
-    if self.start == 0:
-      self.prev_page.visible = False
     for m in sorted_arr:
       m['index'] = index
       index = index + 1
     for e in sorted_arr:
       e['index'] = str(e['index'])
-    self.repeating_panel_1.items = sorted_arr[self.start:self.stop]
+    self.repeating_panel_1.items = sorted_arr
     nm = len(sorted_arr)
-    self.total_pages = int(nm/10)
-    if nm % 10 != 0:
-      self.total_pages = self.total_pages + 1
     if nm == 1:
       self.result_label.text = 'showing '+str(nm)+' result'
     else:      
       self.result_label.text = 'showing '+str(nm)+' results'
     self.item = sorted_arr
     self.arr = sorted_arr
-    self.pages_title.text = "page " + str(self.page) + " of " + str(self.total_pages)
     # Any code you write here will run before the form opens.
     self.username_label.popover(UserPopover(), 
                           placement = 'bottom', 
@@ -98,9 +89,6 @@ class Customers(CustomersTemplate):
 
   def search_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
-    self.prev_page.visible = False
-    self.next_page.visible = False
-    self.pages_title.visible = False
     search_text = self.search.text
     leng = len(search_text)
     filtered_objects = [obj for obj in self.item if obj['name'][:leng].lower() == search_text.lower()]
@@ -110,17 +98,8 @@ class Customers(CustomersTemplate):
       index = index + 1
     for e in filtered_objects:
       e['index'] = str(e['index'])
-    if len(search_text) == 0:
-      self.prev_page.visible = True
-      self.next_page.visible = True
-      self.pages_title.visible = True
-      self.start = 0
-      self.stop = 10
-      self.repeating_panel_1.items = self.item[self.start:self.stop]
-      nm = len(self.item)
-    else:
-      self.repeating_panel_1.items = filtered_objects
-      nm = len(self.repeating_panel_1.items)
+    self.repeating_panel_1.items = filtered_objects
+    nm = len(self.repeating_panel_1.items)
     if nm == 1:
       self.result_label.text = 'showing '+str(nm)+' result'
     else:
@@ -203,9 +182,6 @@ class Customers(CustomersTemplate):
 
   def query_click(self, **event_args):
     """This method is called when the button is clicked"""
-    self.prev_page.visible = False
-    self.next_page.visible = False
-    self.pages_title.visible = False
     frm = str(self.calender_from.date)
     to = str(self.calender_to.date)
     frm = datetime.strptime(frm, "%Y-%m-%d")
@@ -242,28 +218,6 @@ class Customers(CustomersTemplate):
     """This method is called when the button is clicked"""
     sheet = anvil.server.call('download_customers', self.arr)
     anvil.media.download(sheet)
-
-  def next_page_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.page = self.page + 1
-    self.prev_page.visible = True
-    if self.page == self.total_pages:
-      self.next_page.visible = False
-    self.start = self.start + 10
-    self.stop = self.stop + 10
-    self.repeating_panel_1.items = self.item[self.start:self.stop]
-    self.pages_title.text = "page " + str(self.page) + " of " + str(self.total_pages)
-
-  def prev_page_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.page = self.page - 1
-    self.next_page.visible = True
-    if self.page == 1:
-      self.prev_page.visible = False
-    self.start = self.start - 10
-    self.stop = self.stop - 10
-    self.repeating_panel_1.items = self.item[self.start:self.stop]
-    self.pages_title.text = "page " + str(self.page) + " of " + str(self.total_pages)
 
     
 
