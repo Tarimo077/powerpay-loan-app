@@ -1,0 +1,21 @@
+container:
+  type: DataRowPanel
+  data_bindings:
+  - {property: tag, code: self.item}
+components:
+- type: Button
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: see more, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: true, background: 'theme:Primary
+      Container', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  name: see_more
+  layout_properties: {column: YEVOMJ}
+  event_bindings: {click: see_more_click}
+- type: Label
+  properties: {role: loanStatus, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: status
+  layout_properties: {column: BHJYWO}
+is_package: true

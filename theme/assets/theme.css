@@ -245,6 +245,22 @@ color: %color:On Primary Container%;
   overflow: hidden;
 }
 
+.anvil-role-loanStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #8fce00;
+  border-radius: 80%;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
+  margin-left: 40%;
+}
+
 .anvil-role-sticky {
   position: -webkit-sticky;
   position: sticky;

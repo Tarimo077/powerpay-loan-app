@@ -5,7 +5,7 @@ container:
     role: null, html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"JWNTPA":29,"WQIZAG":5,"ITIDSS":40,"SDRCNK":30,"QUEVUT":17,"WVCGRU":5,"OAFOFQ":47,"YUKRST":24,"TNHHPI":6,"XFRGHY":24,"ZSAWTR":28,"KUOHCR":26,"UANLNN":7,"RPUODQ":29,"DKMMGB":55,"SYOERX":57,"ATSZAO":3,"CHXBCJ":37,"XOOAUQ":40,"ZAQBXK":11,"MMCLYV":11,"OWLYFT":4,"PXOQIG":21,"HIDGTI":7,"LYLAER":4,"BQZOUS":57,"OJUICJ":3}'}
+  properties: {col_widths: '{"JWNTPA":29,"ITIDSS":40,"SDRCNK":30,"QUEVUT":17,"WVCGRU":5,"OAFOFQ":47,"YUKRST":24,"TNHHPI":6,"XFRGHY":24,"ZSAWTR":28,"KUOHCR":26,"UANLNN":7,"RPUODQ":29,"DKMMGB":55,"ATSZAO":3,"CHXBCJ":37,"BQZOUS":57,"OJUICJ":3}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -72,15 +72,6 @@ components:
     name: drop_down_1
     layout_properties: {grid_position: 'VKYJVN,QUEVUT'}
     event_bindings: {change: drop_down_1_change}
-  - type: Spacer
-    properties: {height: 32}
-    name: spacer_12
-    layout_properties: {grid_position: 'VKYJVN,LYLAER'}
-  - type: Spacer
-    properties: {visible: false, spacing_above: small, spacing_below: small, height: 32,
-      tooltip: ''}
-    name: spacer_2
-    layout_properties: {grid_position: 'AIZYNB,WQIZAG'}
   - type: Button
     properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: DOWNLOAD CUSTOMER DATA, font_size: null,
@@ -148,24 +139,36 @@ components:
     event_bindings: {click: query_click}
   - type: Spacer
     properties: {height: 32}
-    name: spacer_10
-    layout_properties: {grid_position: 'CHKJEU,OAFOFQ RQQFQS,HIDGTI'}
-  - type: Spacer
-    properties: {height: 32}
     name: spacer_9
     layout_properties: {grid_position: 'BGRHSO,DKMMGB'}
-  - type: ColumnPanel
-    properties: {col_widths: '{}'}
-    name: column_panel_2
-    layout_properties: {grid_position: 'GQJSMI,SYOERX'}
+  - type: DataGrid
+    properties:
+      role: tonal-data-grid
+      columns:
+      - {id: WSCCGS, title: Customer ID, data_key: id, $$hashKey: 'object:5124'}
+      - {id: LWWSVQ, title: Customer Name, data_key: name, $$hashKey: 'object:5125'}
+      - {id: NJTSUW, title: Phone Number, data_key: contact, $$hashKey: 'object:5126'}
+      - {id: BHJYWO, title: Loan Status, data_key: status, $$hashKey: 'object:6723'}
+      - {id: YEVOMJ, title: Show More, data_key: more, $$hashKey: 'object:6725'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 10
+      visible: true
+      wrap_on: mobile
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'WEUBAP,FLUCVJ'}
     components:
     - type: RepeatingPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
-        visible: true, spacing_above: small, spacing_below: small, item_template: Customers.ItemTemplate1,
-        background: ''}
+      properties: {spacing_above: none, spacing_below: none, item_template: Customers.RowTemplate5}
       name: repeating_panel_1
-      layout_properties: {grid_position: 'JNIJOC,DHERTS'}
-      data_bindings: []
+      layout_properties: {}
+    data_bindings: []
   - type: Button
     properties: {role: toTopButton, align: left, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
@@ -173,37 +176,6 @@ components:
       underline: false, icon: 'fa:arrow-up'}
     name: toTop
     layout_properties: {grid_position: 'GQJSMI,ATSZAO'}
-  - type: Spacer
-    properties: {height: 32}
-    name: spacer_7
-    layout_properties: {grid_position: 'MFLUUP,XOOAUQ'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#89CFEF',
-      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-      spacing_below: small, italic: true, background: '', bold: false, underline: false,
-      icon: ''}
-    name: pages_title
-    layout_properties: {grid_position: 'MFLUUP,PXOQIG'}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: previous page, border: '',
-      enabled: true, foreground: '', visible: true, text: prev, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: 'theme:orange', bold: true, underline: false, icon: 'fa:angle-double-left'}
-    name: prev_page
-    layout_properties: {grid_position: 'MFLUUP,ZAQBXK'}
-    event_bindings: {click: prev_page_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: next page, border: '',
-      enabled: true, foreground: '', visible: true, text: next, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: 'theme:Primary Container', bold: true, underline: false, icon: 'fa:angle-double-right'}
-    name: next_page
-    layout_properties: {grid_position: 'MFLUUP,MMCLYV'}
-    event_bindings: {click: next_page_click}
-  - type: Spacer
-    properties: {height: 32}
-    name: spacer_8
-    layout_properties: {grid_position: 'MFLUUP,OWLYFT'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
