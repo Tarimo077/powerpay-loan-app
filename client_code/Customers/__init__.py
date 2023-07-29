@@ -14,7 +14,6 @@ from anvil_extras import popover
 import anvil.js
 import anvil.media
 
-
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -52,7 +51,8 @@ class Customers(CustomersTemplate):
         'gender' : g['gender'],
         'salary' : g['salary'],
         'kplc_meter' : g['kplc_meter'],
-        'index': 0
+        'index': 0,
+        'status': 'None'
       }
       my_arr.append(data)
     r = anvil.server.call('getloans')
@@ -95,6 +95,8 @@ class Customers(CustomersTemplate):
       index = index + 1
     for e in sorted_arr:
       e['index'] = str(e['index'])
+      if (e['id'] in anotherOne):
+        e['status'] = 'Active'
     self.repeating_panel_1.items = sorted_arr
     nm = len(sorted_arr)
     if nm == 1:

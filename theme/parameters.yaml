@@ -61,6 +61,7 @@ roles:
 - {name: toTopButton}
 - {name: footerSupportleft}
 - {name: loanStatus}
+- {name: label1}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

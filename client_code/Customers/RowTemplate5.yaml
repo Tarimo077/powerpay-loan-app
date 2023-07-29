@@ -11,11 +11,28 @@ components:
   name: see_more
   layout_properties: {column: YEVOMJ}
   event_bindings: {click: see_more_click}
-- type: Label
-  properties: {role: loanStatus, align: center, tooltip: '', border: '', foreground: '',
-    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
-  name: status
+- type: RichText
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: '{label1} {label2}',
+    font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+    format: markdown}
+  name: rich_text_1
   layout_properties: {column: BHJYWO}
+  components:
+  - type: Label
+    properties: {role: label1, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_1
+    layout_properties: {slot: label2}
+    data_bindings:
+    - {property: text, code: 'self.item[''status'']'}
+  - type: Label
+    properties: {role: loanStatus, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: status
+    layout_properties: {column: BHJYWO, slot: label1}
 is_package: false
