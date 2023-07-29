@@ -52,7 +52,10 @@ class Customers(CustomersTemplate):
         'salary' : g['salary'],
         'kplc_meter' : g['kplc_meter'],
         'index': 0,
-        'status': 'None'
+        'status': 'None',
+        'last_payment': 'N/A',
+        'product': 'N/A',
+        'vendor': 'N/A'
       }
       my_arr.append(data)
     r = anvil.server.call('getloans')
@@ -96,6 +99,13 @@ class Customers(CustomersTemplate):
     for e in sorted_arr:
       e['index'] = str(e['index'])
       if (e['id'] in anotherOne):
+        matching_c = next((c for c in thearray if c['id'] == e['id']), None)
+        if matching_c:
+          e['last_payment'] = matching_c['last_payment']
+          e['product'] = matching_c['product']
+          e['vendor'] = matching_c['vendor']
+          e['status'] = matching_c['status']
+      if e['status'] == 'On Track':
         e['status'] = 'Active'
     self.repeating_panel_1.items = sorted_arr
     nm = len(sorted_arr)

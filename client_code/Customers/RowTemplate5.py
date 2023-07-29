@@ -13,12 +13,18 @@ class RowTemplate5(RowTemplate5Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.see_more.tooltip = "click here to see more details about " + str(self.item['name'])
     # Any code you write here will run before the form opens.
     if self.label_1.text == 'Active':
       self.status.background = "#8cfe00"
-    else:
+      self.label_1.tooltip = str(self.item['name'] + " is on track with payments")
+      self.status.tooltip = str(self.item['name'] + " is on track with payments")
+    elif self.label_1.text == 'None':
       self.status.background = "#79747E"
-
+      self.label_1.tooltip = str(self.item['name'] + " has no active loans")
+      self.status.tooltip = str(self.item['name'] + " has no active loans")
+    else:
+      self.status.background = "#ffa500"
 
   def see_more_click(self, **event_args):
     """This method is called when the button is clicked"""

@@ -51,6 +51,14 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     self.mx = mx
     county_names = list(counties.keys())
     county_no = list(counties.values())
+    totals = 0
+    counties_by_percentage = []
+    for t in county_no:
+      totals = totals + t
+    for d in county_no:
+      d = (d/totals) * 100
+      d = round(d, 1)
+      counties_by_percentage.append(d)
     primary_color = '#8fce00'
     self.plot_1.data = go.Bar(x=[malecount, femalecount, otherscount], y=['Male', 'Female', 'Others'],
                               marker=dict(color=primary_color),width=0.4, orientation='h')
@@ -79,7 +87,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
         'range': [0, self.mx]
       }
     }    
-    self.plot_3.data = go.Bar(y=county_names, x=county_no, marker=dict(color=primary_color),
+    self.plot_3.data = go.Bar(y=county_names, x=counties_by_percentage, marker=dict(color=primary_color),
                               width=0.4, orientation='h')
     self.plot_3.layout = {
       'title': 'CUSTOMERS BY COUNTY',
@@ -87,7 +95,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
         'title': 'COUNTY'
       },
       'xaxis': {
-        'title': 'NUMBER OF CUSTOMERS'
+        'title': 'PERCENTAGE OF CUSTOMERS'
       }
     }
     salaries = {
