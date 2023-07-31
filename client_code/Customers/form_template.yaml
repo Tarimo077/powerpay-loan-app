@@ -5,7 +5,7 @@ container:
     role: null, html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"JWNTPA":29,"ITIDSS":40,"SDRCNK":30,"QUEVUT":17,"WVCGRU":5,"OAFOFQ":47,"YUKRST":24,"TNHHPI":6,"XFRGHY":24,"ZSAWTR":28,"KUOHCR":26,"UANLNN":7,"RPUODQ":29,"DKMMGB":55,"ATSZAO":3,"CHXBCJ":37,"BQZOUS":57,"OJUICJ":3}'}
+  properties: {col_widths: '{"JWNTPA":27,"ITIDSS":40,"SDRCNK":30,"QUEVUT":17,"WVCGRU":5,"OAFOFQ":47,"YUKRST":24,"TNHHPI":6,"XFRGHY":24,"ZSAWTR":28,"KUOHCR":26,"UANLNN":9,"RPUODQ":29,"DKMMGB":55,"ATSZAO":3,"CHXBCJ":37,"BQZOUS":57,"OJUICJ":3}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -44,7 +44,7 @@ components:
     event_bindings: {change: search_change}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Filter by:', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Search by:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_2

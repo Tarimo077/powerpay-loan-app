@@ -22,6 +22,9 @@ class Transactions(TransactionsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.graph = False
+    self.drop_down_1.items = ['name', 'reference', 'date']
+    self.drop_down_1.selected_value = self.drop_down_1.items[0]
+    self.search.placeholder = 'search transactions by name'
     usr = anvil.server.call('getusername')
     words = usr.split()
 # Extract the first character of each word and convert it to uppercase
@@ -213,6 +216,95 @@ class Transactions(TransactionsTemplate):
         dismissible=False,
         buttons=[('Cancel', 0)],
         role='outlined')
+
+  def query_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    frm = str(self.calender_from.date)
+    to = str(self.calender_to.date)
+    frm = datetime.strptime(frm, "%Y-%m-%d")
+    to = datetime.strptime(to, "%Y-%m-%d")
+    nw_arr = []
+    for z in self.arr:
+      dt = datetime.strptime(z['transtime'], "%d %B %Y %I:%M:%S %p")
+      if dt <= to and dt >= frm:
+        nw_arr.append(z)
+      else:
+        pass
+    index = 1
+    for y in nw_arr:
+      y['index'] = index
+      index = index + 1
+    for e in nw_arr:
+      e['index'] = str(e['index'])
+    self.repeating_panel_1.items = nw_arr
+
+  def calender_to_change(self, **event_args):
+    """This method is called when the selected date changes"""
+    if self.calender_to.date and self.calender_from.date is not None:
+      self.query.visible = True
+    else:
+      self.query.visible = False
+
+  def search_change(self, **event_args):
+    """This method is called when the text in this text box is edited"""
+    x = self.drop_down_1.selected_value
+    if(x == 'name'):
+      search_text = self.search.text
+      leng = len(search_text)
+      filtered_objects = [obj for obj in self.arr if obj['name'][:leng].lower() == search_text.lower()]
+      index = 1
+      for w in filtered_objects:
+        w['index'] = index
+        index = index + 1
+      for e in filtered_objects:
+        e['index'] = str(e['index'])
+      self.repeating_panel_1.items = filtered_objects
+    else:
+      search_text = self.search.text
+      leng = len(search_text)
+      filtered_objects = [obj for obj in self.arr if obj['ref'][:leng].lower() == search_text.lower()]
+      index = 1
+      for w in filtered_objects:
+        w['index'] = index
+        index = index + 1
+      for e in filtered_objects:
+        e['index'] = str(e['index'])
+      self.repeating_panel_1.items = filtered_objects      
+    
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    x = self.drop_down_1.selected_value
+    self.repeating_panel_1.items = self.arr
+    self.search.text = ''
+    if(x == 'name'):
+      self.search.placeholder = 'search transactions by name'
+      self.from_date.visible = False
+      self.to_date.visible = False
+      self.calender_from.visible = False
+      self.calender_to.visible = False
+      self.search.visible = True
+      self.query.visible = False
+    elif(x == 'reference'):
+      self.search.placeholder = 'search transactions by reference'
+      self.from_date.visible = False
+      self.to_date.visible = False
+      self.calender_from.visible = False
+      self.calender_to.visible = False
+      self.search.visible = True
+      self.query.visible = False
+    else:
+      self.from_date.visible = True
+      self.to_date.visible = True
+      self.calender_from.visible = True
+      self.calender_to.visible = True
+      self.search.visible = False
+      self.query.visible = False
+      
+
+
+
+
 
 
       
