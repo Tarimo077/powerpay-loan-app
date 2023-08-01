@@ -22,7 +22,7 @@ class Transactions(TransactionsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.graph = False
-    self.drop_down_1.items = ['name', 'reference', 'date']
+    self.drop_down_1.items = ['name', 'reference', 'date', 'transaction ID']
     self.drop_down_1.selected_value = self.drop_down_1.items[0]
     self.search.placeholder = 'search transactions by name'
     usr = anvil.server.call('getusername')
@@ -259,7 +259,7 @@ class Transactions(TransactionsTemplate):
       for e in filtered_objects:
         e['index'] = str(e['index'])
       self.repeating_panel_1.items = filtered_objects
-    else:
+    elif(x == 'reference'):
       search_text = self.search.text
       leng = len(search_text)
       filtered_objects = [obj for obj in self.arr if obj['ref'][:leng].lower() == search_text.lower()]
@@ -269,7 +269,18 @@ class Transactions(TransactionsTemplate):
         index = index + 1
       for e in filtered_objects:
         e['index'] = str(e['index'])
-      self.repeating_panel_1.items = filtered_objects      
+      self.repeating_panel_1.items = filtered_objects    
+    elif(x == 'transaction ID'):
+      search_text = self.search.text
+      leng = len(search_text)
+      filtered_objects = [obj for obj in self.arr if obj['id'][:leng].lower() == search_text.lower()]
+      index = 1
+      for w in filtered_objects:
+        w['index'] = index
+        index = index + 1
+      for e in filtered_objects:
+        e['index'] = str(e['index'])
+      self.repeating_panel_1.items = filtered_objects  
     
 
   def drop_down_1_change(self, **event_args):
@@ -287,6 +298,14 @@ class Transactions(TransactionsTemplate):
       self.query.visible = False
     elif(x == 'reference'):
       self.search.placeholder = 'search transactions by reference'
+      self.from_date.visible = False
+      self.to_date.visible = False
+      self.calender_from.visible = False
+      self.calender_to.visible = False
+      self.search.visible = True
+      self.query.visible = False
+    elif(x == 'transaction ID'):
+      self.search.placeholder = 'search transactions by transaction ID'
       self.from_date.visible = False
       self.to_date.visible = False
       self.calender_from.visible = False
