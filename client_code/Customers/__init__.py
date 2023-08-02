@@ -13,6 +13,7 @@ from ..UserPopover import UserPopover
 from anvil_extras import popover
 import anvil.js
 import anvil.media
+from ..DownloadCustomers import DownloadCustomers
 
 class Customers(CustomersTemplate):
   def __init__(self, **properties):
@@ -260,8 +261,14 @@ class Customers(CustomersTemplate):
 
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
-    sheet = anvil.server.call('download_customers', self.arr)
-    anvil.media.download(sheet)
+    nw_frm = DownloadCustomers(self.arr)
+    alert_instance = alert(
+        content=nw_frm,
+        large=False,
+        title=None,
+        dismissible=False,
+        buttons=[('Cancel', 0)],
+        role='outlined')
 
     
 
