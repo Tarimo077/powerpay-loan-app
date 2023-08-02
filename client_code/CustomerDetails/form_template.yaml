@@ -10,7 +10,7 @@ components:
   name: label_4
   layout_properties: {grid_position: 'ZJAGJJ,TNFCBO'}
 - type: Spacer
-  properties: {height: 50}
+  properties: {height: 24}
   name: spacer_1
   layout_properties: {grid_position: 'BVWBYH,FIJUAC'}
 - type: Label
@@ -158,10 +158,6 @@ components:
   layout_properties: {grid_position: 'YYZWFL,KAVYUN'}
   data_bindings:
   - {property: text, code: 'self.item[''date'']'}
-- type: Spacer
-  properties: {height: 32}
-  name: spacer_2
-  layout_properties: {grid_position: 'AFKVJD,PXEAQJ'}
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: BACK TO CUSTOMERS, font_size: null, font: '',
