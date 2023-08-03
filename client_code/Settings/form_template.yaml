@@ -165,10 +165,10 @@ components:
       name: spacer_17
       layout_properties: {slot: spacer18, width: 354}
     - type: Button
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-          Container', bold: true, underline: false, icon: ''}
+      properties: {role: outlined-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: SAVE, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:Primary Container', bold: true, underline: false, icon: ''}
       name: save
       layout_properties: {slot: button_save}
     - type: Spacer
@@ -264,7 +264,7 @@ components:
       properties: {role: outlined-button, align: center, tooltip: '', border: '',
         enabled: true, foreground: '', visible: true, text: CHANGE, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: 'theme:orange', bold: false, underline: false, icon: ''}
+        background: 'theme:orange', bold: true, underline: false, icon: ''}
       name: button_1
       layout_properties: {slot: button_change}
     - type: Spacer
