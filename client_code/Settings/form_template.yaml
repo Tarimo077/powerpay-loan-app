@@ -4,9 +4,112 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
+  components:
+  - type: RichText
+    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+      foreground: '', visible: true, font_size: null, content: "{label_f_name} {label_star}\n\
+        \ {textbox_f_name} \n{spacer_1}\n{label_s_name}{label_star1}\n {textbox_s_name}\n\
+        {spacer_2}\n{label_mail} {label_star2}\n{textbox_mail}\n{spacer_3}", font: '',
+      spacing_above: small, spacing_below: small, data: null, background: '', format: markdown}
+    name: rich_text_2
+    layout_properties: {grid_position: 'DIZYCK,AOSOGI'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'First Name:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_1
+      layout_properties: {slot: label_f_name}
+    - type: TextBox
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_1
+      layout_properties: {slot: textbox_f_name, width: 361}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
+        visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_2
+      layout_properties: {slot: label_star}
+    - type: Spacer
+      properties: {height: 6}
+      name: spacer_2
+      layout_properties: {slot: spacer_1, width: 360}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Second Name:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3
+      layout_properties: {slot: label_s_name}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
+        visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_2_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: FTZOBK,OQEALU
+        slot: label_star1
+    - type: TextBox
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_2
+      layout_properties: {slot: textbox_s_name, width: 360}
+    - type: Spacer
+      properties: {height: 6}
+      name: spacer_2_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: FRMGYA,SZFVMY
+        slot: spacer_2
+        width: 359
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Email:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties: {slot: label_mail}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
+        visible: true, text: '*', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_2_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: FQQAFM,VCCXCW
+        slot: label_star2
+    - type: TextBox
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_3
+      layout_properties: {slot: textbox_mail, width: 362}
+    - type: Spacer
+      properties: {height: 6}
+      name: spacer_2_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: JVFVWY,GGCJFS
+        slot: spacer_3
+        width: 355
+  - type: RichText
+    properties: {}
+    name: rich_text_1
+    layout_properties: {grid_position: 'DIZYCK,EIOTZR'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

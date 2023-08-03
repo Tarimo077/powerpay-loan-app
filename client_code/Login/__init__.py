@@ -33,7 +33,7 @@ class Login(LoginTemplate):
     self.login.background = '#ffa500'
     username = self.username.text
     password = self.password.text
-    d = app_tables.users.get(username=username,password=password)
+    d = app_tables.users.get(email=username,password=password)
     if username == '':
       alert('Fill in username')
       self.password.text = ''
@@ -49,12 +49,12 @@ class Login(LoginTemplate):
       self.password.text = ''
       return
     else:
-      self.item = username
+      self.item = d['username']
       #anvil.server.session['usr'] = username
       #print(anvil.server.session.get('usr'))
-      anvil.server.call('strusr', username)
-      open_form('Home', username)
-      alert('\t\tHi '+username+' \n\nWelcome to Powerpay Loan \n\t\tApplication', buttons=None)
+      anvil.server.call('strusr', d['username'])
+      open_form('Home', d['username'])
+      alert('\t\tHi '+d['username']+' \n\nWelcome to Powerpay Loan \n\t\tApplication', buttons=None)
 
   def eye_click(self, **event_args):
     """This method is called when the button is clicked"""
