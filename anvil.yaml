@@ -51,5 +51,8 @@ db_schema:
     - name: email
       admin_ui: {order: 2, width: 200}
       type: string
+    - name: phone
+      admin_ui: {order: 3, width: 200}
+      type: number
     title: Users
 renamed: true
