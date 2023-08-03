@@ -29,7 +29,7 @@ components:
     layout_properties: {slot: link}
     event_bindings: {}
 - type: RichText
-  properties: {role: null, align: center, tooltip: '', enable_slots: true, border: '',
+  properties: {role: logout1, align: center, tooltip: '', enable_slots: true, border: '',
     foreground: '', visible: true, font_size: 14, content: '{link}', font: '', spacing_above: small,
     spacing_below: small, data: null, background: '', format: markdown}
   name: rich_text_2
@@ -43,6 +43,22 @@ components:
       bold: false, underline: false, icon: ''}
     name: link_2
     layout_properties: {slot: link}
+- type: RichText
+  properties: {role: null, align: center, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: '{link}', font: '', spacing_above: small,
+    spacing_below: small, data: null, background: '', format: markdown}
+  name: rich_text_3
+  layout_properties: {grid_position: 'FGWVOW,BDYBSY'}
+  components:
+  - type: Link
+    properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On
+        Surface', visible: true, text: Settings, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: link_3
+    layout_properties: {slot: link}
+    event_bindings: {click: link_3_click}
 - type: Button
   properties: {role: logout2, align: left, tooltip: Log out, border: '', enabled: true,
     foreground: '', visible: true, text: LOGOUT, font_size: 12, font: '', spacing_above: small,

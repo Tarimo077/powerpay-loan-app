@@ -14,9 +14,10 @@ components:
       foreground: '', visible: true, font_size: null, content: "{spacer6}{label_f_name}\
         \ {label_star}\n{spacer7}{textbox_f_name} \n{spacer_1}\n{spacer8}{label_s_name}{label_star1}\n\
         \ {spacer9}{textbox_s_name}\n{spacer_2}\n{spacer10}{label_mail} {label_star2}\n\
-        {spacer11}{textbox_mail}\n{spacer_3}\n{spacer12}{label_phone}\n{spacer13}{textbox_name}\n\
-        {spacer18}\n{spacer19}{button_save}", font: '', spacing_above: small, spacing_below: small,
-      data: null, background: 'theme:On Primary', format: markdown}
+        {spacer11}{textbox_mail}\n{spacer_3}\n{spacer12}{label_phone}{label_star4}\n\
+        {spacer13}{textbox_name}\n{spacer18}\n{spacer19}{button_save}", font: '',
+      spacing_above: small, spacing_below: small, data: null, background: 'theme:On
+        Primary', format: markdown}
     name: rich_text_2
     layout_properties: {grid_position: 'DIZYCK,AOSOGI'}
     components:
@@ -174,6 +175,16 @@ components:
       properties: {height: 32}
       name: spacer_18
       layout_properties: {slot: spacer19, width: 151}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
+        visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_2_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: PXRGHY,ROOQRW
+        slot: label_star4
   - type: RichText
     properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
       foreground: '', visible: true, font_size: null, content: '{spacer14}{label_currentpwd}

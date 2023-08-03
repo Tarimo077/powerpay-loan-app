@@ -25,4 +25,9 @@ class UserPopover(UserPopoverTemplate):
     else:
       pass
 
+  def link_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Settings')
+
+
 
