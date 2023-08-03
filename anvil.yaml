@@ -48,8 +48,8 @@ db_schema:
     - name: password
       admin_ui: {order: 1, width: 200}
       type: string
-    - name: intro
+    - name: email
       admin_ui: {order: 2, width: 200}
-      type: bool
+      type: string
     title: Users
 renamed: true
