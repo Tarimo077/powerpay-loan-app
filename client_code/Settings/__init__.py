@@ -16,6 +16,8 @@ class Settings(SettingsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.current_pwd.text = ""
+    self.new_pwd.text = ""
     usr = anvil.server.call('getusername')
     self.usr = usr
     words = usr.split()
@@ -109,7 +111,7 @@ class Settings(SettingsTemplate):
       }
       anvil.server.call('sendsms', data)
       new_pwd = self.new_pwd.text 
-      nw_frm = OTP(otp, self.phone_num, r['password'])
+      nw_frm = OTP(otp, self.phone_num, new_pwd)
       alert_instance = alert(
         content=nw_frm,
         large=False,

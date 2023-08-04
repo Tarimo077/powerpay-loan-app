@@ -190,13 +190,13 @@ components:
     properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
       foreground: '', visible: true, font_size: null, content: '{spacer14}{label_currentpwd}
 
-        {spacer11}{textbox_currentpwd}
+        {spacer11}{textbox_currentpwd}{button1}
 
         {spacer5}
 
         {spacer16}{label_newpwd}
 
-        {spacer17}{textbox_newpwd}
+        {spacer17}{textbox_newpwd}{button2}
 
         {spacer20}
 
@@ -218,7 +218,7 @@ components:
         font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: current_pwd
-      layout_properties: {slot: textbox_currentpwd, width: 351}
+      layout_properties: {slot: textbox_currentpwd, width: 285}
     - type: Spacer
       properties: {height: 6}
       name: spacer_2_copy_3
@@ -273,6 +273,13 @@ components:
       properties: {height: 31}
       name: spacer_13
       layout_properties: {slot: spacer21, width: 120}
+    - type: Button
+      properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:eye'}
+      name: button_2
+      layout_properties: {slot: button1}
 - type: FlowPanel
   properties: {}
   name: navbar_links

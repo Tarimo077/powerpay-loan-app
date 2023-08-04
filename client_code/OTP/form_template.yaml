@@ -8,8 +8,7 @@ components:
   layout_properties: {grid_position: 'MBYNMQ,ARCRSG'}
 - type: RichText
   properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: null, content: '{spacer2}{label_message}
-      {label_number}
+    foreground: '', visible: true, font_size: null, content: '{spacer2}{label_message}{label_number}
 
 
       {spacer1}{textbox_otp}
@@ -21,8 +20,8 @@ components:
   components:
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'An OTP SMS has been sent to the phone number ', font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      visible: true, text: 'An OTP SMS has been sent to  ', font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: label_1
     layout_properties: {slot: label_message}
@@ -30,10 +29,6 @@ components:
     properties: {height: 32}
     name: spacer_1
     layout_properties: {slot: spacer2, width: 3}
-  - type: Label
-    properties: {}
-    name: phone
-    layout_properties: {slot: label_number}
   - type: Spacer
     properties: {height: 32}
     name: spacer_3
@@ -57,4 +52,8 @@ components:
       icon: ''}
     name: error
     layout_properties: {slot: label_error}
+  - type: Label
+    properties: {}
+    name: phone
+    layout_properties: {slot: label_number}
 is_package: true
