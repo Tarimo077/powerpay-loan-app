@@ -172,6 +172,13 @@ def download_transactions(arr):
   X_media = anvil.media.from_file('/tmp/output.xlsx', 'xlsx', 'transactions.xlsx')
   return X_media
 
+@anvil.server.callable
+def sendsms(dt):
+  url = "https://appliapay.com/smsintegrate"
+  response = anvil.http.request(url, method="POST", username='admin', password='123Give!@#', data=dt)
+  return response
+  
+
 
 
   

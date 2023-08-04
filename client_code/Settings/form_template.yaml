@@ -111,7 +111,7 @@ components:
       name: label_5
       layout_properties: {slot: label_phone}
     - type: TextBox
-      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: 254XXXXXXXXX,
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
@@ -171,6 +171,7 @@ components:
         background: 'theme:Primary Container', bold: true, underline: false, icon: ''}
       name: save
       layout_properties: {slot: button_save}
+      event_bindings: {click: save_click}
     - type: Spacer
       properties: {height: 32}
       name: spacer_18
@@ -267,6 +268,7 @@ components:
         background: 'theme:orange', bold: true, underline: false, icon: ''}
       name: button_1
       layout_properties: {slot: button_change}
+      event_bindings: {click: button_1_click}
     - type: Spacer
       properties: {height: 31}
       name: spacer_13

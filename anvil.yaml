@@ -39,7 +39,7 @@ native_deps: {head_html: '<link rel="preconnect" href="https://fonts.googleapis.
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">'}
 db_schema:
   users:
-    client: search
+    client: full
     server: search
     columns:
     - name: username
