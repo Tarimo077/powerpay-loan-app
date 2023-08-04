@@ -218,7 +218,7 @@ components:
         font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: current_pwd
-      layout_properties: {slot: textbox_currentpwd, width: 285}
+      layout_properties: {slot: textbox_currentpwd, width: 303}
     - type: Spacer
       properties: {height: 6}
       name: spacer_2_copy_3
@@ -240,7 +240,7 @@ components:
         font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: new_pwd
-      layout_properties: {slot: textbox_newpwd, width: 348}
+      layout_properties: {slot: textbox_newpwd, width: 305}
     - type: Spacer
       properties: {height: 32}
       name: spacer_12
@@ -276,10 +276,22 @@ components:
     - type: Button
       properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: 'fa:eye'}
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
+          Container', bold: false, underline: false, icon: 'fa:eye'}
       name: button_2
       layout_properties: {slot: button1}
+      event_bindings: {click: button_2_click}
+    - type: Button
+      properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
+          Container', bold: false, underline: false, icon: 'fa:eye'}
+      name: button_2_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: MCIHPW,UZEOAL
+        slot: button2
+      event_bindings: {click: button_2_copy_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links

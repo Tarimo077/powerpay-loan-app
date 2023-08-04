@@ -18,6 +18,8 @@ class Settings(SettingsTemplate):
     self.init_components(**properties)
     self.current_pwd.text = ""
     self.new_pwd.text = ""
+    self.see_curr = False
+    self.see_new = False
     usr = anvil.server.call('getusername')
     self.usr = usr
     words = usr.split()
@@ -104,7 +106,6 @@ class Settings(SettingsTemplate):
       #lets open OTP page
       # Generate a random 4-digit OTP
       otp = "{:04d}".format(random.randint(0, 9999))
-      print("OTP IS: "+ str(otp))
       data = {
         "mobile": str(self.phone_num),
         "message": "Greetings " + self.usr + ". Your OTP is " + str(otp)
@@ -123,6 +124,35 @@ class Settings(SettingsTemplate):
       alert("Wrong current password")
       self.current_pwd.text = ""
       self.new_pwd.text = ""
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.see_curr == False:
+      self.button_2.background = "#ffa500"
+      self.button_2.icon = 'fa:eye-slash'
+      self.see_curr = True
+      self.current_pwd.hide_text = False
+    else:
+      self.button_2.background = '#8fce00'
+      self.button_2.icon = 'fa:eye'
+      self.see_curr = False
+      self.current_pwd.hide_text = True
+
+  def button_2_copy_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.see_new == False:
+      self.button_2_copy.background = "#ffa500"
+      self.button_2_copy.icon = 'fa:eye-slash'
+      self.see_new = True
+      self.new_pwd.hide_text = False
+    else:
+      self.button_2_copy.background = '#8fce00'
+      self.button_2_copy.icon = 'fa:eye'
+      self.see_new = False
+      self.new_pwd.hide_text = True
+
+      
+
 
       
 

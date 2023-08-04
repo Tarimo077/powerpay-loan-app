@@ -29,6 +29,7 @@ class OTP(OTPTemplate):
         z.delete()
         app_tables.users.add_row(email=email, username=username, phone=self.phone_nm, password=self.pwd)
         self.raise_event("x-close-alert")
+        alert("\t\tSuccess\n\n\t  Password updated")
       else:
         self.error.text = "Wrong OTP. Enter OTP again"
         self.otp.text = ""
