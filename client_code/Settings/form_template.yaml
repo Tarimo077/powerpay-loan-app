@@ -120,7 +120,7 @@ components:
     - type: Spacer
       properties: {height: 32}
       name: spacer_3
-      layout_properties: {slot: spacer7, width: 6}
+      layout_properties: {slot: spacer7, width: 19}
     - type: Spacer
       properties: {height: 32}
       name: spacer_3_copy
@@ -128,7 +128,7 @@ components:
         col_widths: {}
         grid_position: GXYSJG,BBCDVB
         slot: spacer6
-        width: 7
+        width: 20
     - type: TextBox
       properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
@@ -139,27 +139,27 @@ components:
     - type: Spacer
       properties: {height: 32}
       name: spacer_6
-      layout_properties: {slot: spacer8, width: 6}
+      layout_properties: {slot: spacer8, width: 17}
     - type: Spacer
       properties: {height: 32}
       name: spacer_7
-      layout_properties: {slot: spacer9, width: 5}
+      layout_properties: {slot: spacer9, width: 16}
     - type: Spacer
       properties: {height: 32}
       name: spacer_8
-      layout_properties: {slot: spacer10, width: 8}
+      layout_properties: {slot: spacer10, width: 13}
     - type: Spacer
       properties: {height: 32}
       name: spacer_9
-      layout_properties: {slot: spacer11, width: 6}
+      layout_properties: {slot: spacer11, width: 13}
     - type: Spacer
       properties: {height: 32}
       name: spacer_10
-      layout_properties: {slot: spacer12, width: 5}
+      layout_properties: {slot: spacer12, width: 12}
     - type: Spacer
       properties: {height: 32}
       name: spacer_11
-      layout_properties: {slot: spacer13, width: 5}
+      layout_properties: {slot: spacer13, width: 11}
     - type: Spacer
       properties: {height: 23}
       name: spacer_17
@@ -175,7 +175,7 @@ components:
     - type: Spacer
       properties: {height: 32}
       name: spacer_18
-      layout_properties: {slot: spacer19, width: 151}
+      layout_properties: {slot: spacer19, width: 158}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
         visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
@@ -190,13 +190,13 @@ components:
     properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
       foreground: '', visible: true, font_size: null, content: '{spacer14}{label_currentpwd}
 
-        {spacer11}{textbox_currentpwd}{button1}
+        {spacer11}{textbox_currentpwd}{spacer22}{button1}
 
         {spacer5}
 
         {spacer16}{label_newpwd}
 
-        {spacer17}{textbox_newpwd}{button2}
+        {spacer17}{textbox_newpwd}{spacer23}{button2}
 
         {spacer20}
 
@@ -244,19 +244,19 @@ components:
     - type: Spacer
       properties: {height: 32}
       name: spacer_12
-      layout_properties: {slot: spacer14, width: 5}
+      layout_properties: {slot: spacer14, width: 14}
     - type: Spacer
       properties: {height: 32}
       name: spacer_14
-      layout_properties: {slot: spacer11, width: 6}
+      layout_properties: {slot: spacer11, width: 13}
     - type: Spacer
       properties: {height: 32}
       name: spacer_15
-      layout_properties: {slot: spacer16, width: 6}
+      layout_properties: {slot: spacer16, width: 12}
     - type: Spacer
       properties: {height: 32}
       name: spacer_16
-      layout_properties: {slot: spacer17, width: 5}
+      layout_properties: {slot: spacer17, width: 12}
     - type: Spacer
       properties: {height: 32}
       name: spacer_19
@@ -272,7 +272,7 @@ components:
     - type: Spacer
       properties: {height: 31}
       name: spacer_13
-      layout_properties: {slot: spacer21, width: 120}
+      layout_properties: {slot: spacer21, width: 153}
     - type: Button
       properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
@@ -292,6 +292,14 @@ components:
         grid_position: MCIHPW,UZEOAL
         slot: button2
       event_bindings: {click: button_2_copy_click}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_20
+      layout_properties: {slot: spacer22, width: 11}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_21
+      layout_properties: {slot: spacer23, width: 9}
 - type: FlowPanel
   properties: {}
   name: navbar_links
