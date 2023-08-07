@@ -24,10 +24,10 @@ runtime_options:
   client_version: '3'
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
-metadata: {title: Powerpay, description: 'Manage your borrowed devices with ease using
-    Powerpay Loan App! Keep track of all your loaned devices, their condition, and
-    who they''re loaned to, all in one place. Powerpay Loan App allows you to set
-    due dates, send reminders, and receive notifications when a device is overdue.
+metadata: {title: Powerpay Loan App, description: 'Manage your borrowed devices with
+    ease using Powerpay Loan App! Keep track of all your loaned devices, their condition,
+    and who they''re loaned to, all in one place. Powerpay Loan App allows you to
+    set due dates, send reminders, and receive notifications when a device is overdue.
     You can also quickly view device histories and generate reports to analyze usage
     trends. With Powerpay Loan App, you can streamline your device loan process and
     ensure all your devices are accounted for.', logo_img: 'asset:apple-touch-icon.png'}
