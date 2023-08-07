@@ -175,7 +175,7 @@ components:
     - type: Spacer
       properties: {height: 32}
       name: spacer_18
-      layout_properties: {slot: spacer19, width: 158}
+      layout_properties: {slot: spacer19, width: 179}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
         visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
