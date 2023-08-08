@@ -8,12 +8,16 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil_extras.animation import animate, Transition
+import anvil.js
 
 class Login(LoginTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.password.hide_text = True
+    dom_node = anvil.js.get_dom_node(self)
+    dom_node.style.background = f"url('_/theme/background_loan_app.jpg')"
+    self.column_panel_1.background = "white"
     self.eye.tooltip = 'view password'
     self.pass_state = False
     slide_in_up = Transition(translateY=["100%", 0])

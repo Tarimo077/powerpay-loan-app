@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"MHNFJH":10,"VKRJWA":50,"ZIFVWT":45,"KECMTK":15}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -14,19 +14,33 @@ components:
       source: _/theme/powerpay_logo.png, spacing_below: small, background: '#ffffff',
       horizontal_align: left}
     name: image_1
-    layout_properties: {grid_position: 'DERIOJ,GHSMTI'}
-  - type: Label
-    properties: {role: display, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: USER LOGIN, font_size: 16, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    name: label_3
-    layout_properties: {grid_position: 'ZRBUOO,FCIGMI'}
-  - type: ColumnPanel
-    properties: {col_widths: '{"EVISRY":25,"YOKDCM":43,"IJZGEB":20,"KIBLEX":40,"LAAYIV":7}'}
-    name: column_panel_1
-    layout_properties: {grid_position: 'SXWIUV,MTGCMN'}
+    layout_properties: {grid_position: 'NEEANF,CJGHVB'}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_3
+    layout_properties: {grid_position: 'HMBMUN,MHNFJH'}
+  - type: RichText
+    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+      foreground: '', visible: true, font_size: null, content: '{spacer3}{label1}
+
+        {label2}{spacer4}{textbox1}
+
+        {label3}{spacer5}{textbox2}{spacer2}{button2}
+
+        {spacer1}
+
+        {spacer6}{button1}', font: '', spacing_above: small, spacing_below: small,
+      data: null, background: '', format: markdown}
+    name: rich_text_1
+    layout_properties: {grid_position: 'HMBMUN,VKRJWA UHOHTV,ZIFVWT'}
     components:
+    - type: Label
+      properties: {role: display, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: USER LOGIN, font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'ZRBUOO,FCIGMI', slot: label1}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Username:', font_size: null, font: '', spacing_above: small,
@@ -36,6 +50,7 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: HRTGMX,IJZGEB
+        slot: label2
     - type: TextBox
       properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: username,
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
@@ -45,6 +60,8 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: HRTGMX,KIBLEX
+        slot: textbox1
+        width: 301
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Password:', font_size: null, font: '', spacing_above: small,
@@ -54,6 +71,7 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: PIBHUR,EVISRY
+        slot: label3
     - type: TextBox
       properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: password,
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
@@ -63,6 +81,8 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: PIBHUR,YOKDCM
+        slot: textbox2
+        width: 304
     - type: Button
       properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
@@ -72,26 +92,52 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: PIBHUR,LAAYIV
+        slot: button2
       event_bindings: {click: eye_click}
+    - type: ColumnPanel
+      properties: {col_widths: '{}'}
+      name: column_panel_1
+      layout_properties: {grid_position: 'SXWIUV,MTGCMN', slot: spacer2, width: 11}
+      components: []
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_2
+      layout_properties: {grid_position: 'IENDQK,SXLTHN', slot: spacer1, width: 484}
+    - type: Button
+      properties: {role: outlined-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: LOG IN, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:Primary Container', bold: true, underline: false, icon: 'fa:sign-in'}
+      name: login
+      layout_properties: {grid_position: 'MXGHRR,LZNGMR', slot: button1}
+      event_bindings: {click: login_click}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_1
+      layout_properties: {slot: spacer3, width: 196}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_4
+      layout_properties: {slot: spacer4, width: 19}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_5
+      layout_properties: {slot: spacer5, width: 24}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_6
+      layout_properties: {slot: spacer6, width: 196}
   - type: Spacer
     properties: {height: 32}
-    name: spacer_2
-    layout_properties: {grid_position: 'YIAPBL,TVRQVV'}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: LOG IN, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-        Container', bold: true, underline: false, icon: 'fa:sign-in'}
-    name: login
-    layout_properties: {grid_position: 'MXGHRR,LZNGMR'}
-    event_bindings: {click: login_click}
+    name: spacer_7
+    layout_properties: {grid_position: 'HMBMUN,VKRJWA UHOHTV,KECMTK'}
   - type: Label
     properties: {role: footer, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: true, underline: false, icon: ''}
     name: label_4
-    layout_properties: {grid_position: 'CBVXSA,BKSUZL'}
+    layout_properties: {grid_position: 'HMBMUN,VKRJWA CBVXSA,BKSUZL'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
