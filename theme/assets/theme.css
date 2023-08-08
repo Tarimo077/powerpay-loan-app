@@ -182,6 +182,13 @@ color: %color:On Primary Container%;
   padding-top: 5px
 }
 
+.anvil-role-rich{
+  border-radius: 12px;
+}
+.anvil-role-pwdbtn{
+  width: 10px;
+}
+
 .anvil-role-footer {
   position: fixed;
   left: 0;

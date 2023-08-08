@@ -62,6 +62,8 @@ roles:
 - {name: footerSupportleft}
 - {name: loanStatus}
 - {name: label1}
+- {name: rich}
+- {name: pwdbtn}
 color_scheme:
   preset_groups:
   - name: Colour Scheme
