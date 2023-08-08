@@ -7,10 +7,11 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+fro
 class GrafanaEmbed(GrafanaEmbedTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.i_frame_1.url = "http://appliatrix.com/d-solo/c37c9493-5301-4cdf-86aa-9d4ee3d22a10/device-9?"#orgId=1&panelId=2"
 
     # Any code you write here will run before the form opens.
