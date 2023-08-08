@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"MHNFJH":15,"VKRJWA":45,"ZIFVWT":42,"KECMTK":18}'}
+  properties: {col_widths: '{"MHNFJH":15,"VKRJWA":45,"ZIFVWT":45,"KECMTK":15}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -49,7 +49,7 @@ components:
         col_widths: {}
         grid_position: HRTGMX,KIBLEX
         slot: textbox1
-        width: 314
+        width: 294
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Password:', font_size: null, font: '', spacing_above: small,
@@ -70,7 +70,7 @@ components:
         col_widths: {}
         grid_position: PIBHUR,YOKDCM
         slot: textbox2
-        width: 270
+        width: 292
     - type: Button
       properties: {role: pwdbtn, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
@@ -107,13 +107,6 @@ components:
       properties: {height: 32}
       name: spacer_6
       layout_properties: {slot: spacer6, width: 196}
-    - type: Image
-      properties: {role: null, vertical_align: center, height: 86, tooltip: '', border: '',
-        foreground: '', visible: true, display_mode: zoom_to_fill, spacing_above: large,
-        source: _/theme/powerpay_logo.png, spacing_below: small, background: '#ffffff',
-        horizontal_align: left}
-      name: image_1
-      layout_properties: {grid_position: 'NEEANF,CJGHVB', slot: image1, width: 424}
     - type: Spacer
       properties: {height: 32}
       name: spacer_1
@@ -122,6 +115,13 @@ components:
       properties: {height: 32}
       name: spacer_2
       layout_properties: {slot: spacer8, width: 8}
+    - type: Image
+      properties: {role: null, vertical_align: center, height: 86, tooltip: '', border: '',
+        foreground: '', visible: true, display_mode: zoom_to_fill, spacing_above: large,
+        source: _/theme/powerpay_logo.png, spacing_below: small, background: '#ffffff',
+        horizontal_align: left}
+      name: image_1
+      layout_properties: {grid_position: 'NEEANF,CJGHVB', slot: image1, width: 485}
   - type: Spacer
     properties: {height: 32}
     name: spacer_7
