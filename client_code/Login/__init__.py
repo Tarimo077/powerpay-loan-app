@@ -17,7 +17,8 @@ class Login(LoginTemplate):
     self.password.hide_text = True
     dom_node = anvil.js.get_dom_node(self)
     dom_node.style.background = f"url('_/theme/background_loan_app.jpg')"
-    self.rich_text_1.background = "white"
+    self.rich_text_1.background = "white"#"#C7B8B4"
+    self.image_1.background = None
     self.eye.tooltip = 'view password'
     self.pass_state = False
     slide_in_up = Transition(translateY=["100%", 0])
