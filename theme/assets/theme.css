@@ -186,7 +186,8 @@ color: %color:On Primary Container%;
   border-radius: 12px;
 }
 .anvil-role-pwdbtn{
-  width: 10px;
+  width: 15px;
+  text-align: center;
 }
 
 .anvil-role-footer {
