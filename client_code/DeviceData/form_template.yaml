@@ -1,13 +1,85 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"FZJEPR":32,"DJQIEK":28}'}
 components:
+- type: RichText
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: '{spacer2}{label4} {label1}
+      {spacer1}{label2} {label3}', font: '', spacing_above: small, spacing_below: small,
+    data: null, background: 'theme:Primary Container', format: markdown}
+  name: rich_text_1
+  layout_properties: {grid_position: 'UNVHPI,HGJGWN'}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: 'theme:On
+        Primary', visible: true, text: '', font_size: 16, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: deviceLabel
+    layout_properties: {slot: label1}
+  - type: Spacer
+    properties: {height: 14}
+    name: spacer_1
+    layout_properties: {slot: spacer1, width: 102}
+  - type: Spacer
+    properties: {height: 15}
+    name: spacer_2
+    layout_properties: {slot: spacer2, width: 140}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Device Name:', font_size: 16, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {slot: label4}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Last Time of Operation:', font_size: 16, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_2
+    layout_properties: {slot: label2}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: 'theme:On
+        Primary', visible: true, text: '', font_size: 16, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: lastTime
+    layout_properties: {slot: label3}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_3
+  layout_properties: {grid_position: 'IVKNII,CWQLQQ'}
 - type: Plot
-  properties: {}
+  properties: {height: 360}
   name: plotTime
-  layout_properties: {grid_position: 'GTKERF,FZJEPR'}
+  layout_properties: {grid_position: 'GTKERF,FZJEPR XVLJYN,PUEBSF'}
 - type: Plot
-  properties: {}
+  properties: {height: 365}
+  name: energyCost
+  layout_properties: {grid_position: 'GTKERF,FZJEPR TTRFCW,GOUUNE'}
+- type: Plot
+  properties: {height: 359}
   name: plot_1
-  layout_properties: {grid_position: 'GTKERF,DJQIEK'}
+  layout_properties: {grid_position: 'GTKERF,DJQIEK XFLAXC,EODFMG'}
+- type: Plot
+  properties: {height: 366}
+  name: carbonEmissions
+  layout_properties: {grid_position: 'GTKERF,DJQIEK CNCNGE,KOUGUB'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_4
+  layout_properties: {grid_position: 'VTGRLW,DTYLMV'}
+- type: GoogleMap
+  properties: {height: 453}
+  name: map_1
+  layout_properties: {grid_position: 'PXHXOE,KULJEG'}
+- type: Button
+  properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: BACK TO DEVICES, font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:orange',
+    bold: true, underline: false, icon: 'fa:angle-double-left'}
+  name: button_1
+  layout_properties: {grid_position: 'LSZJMR,MGHTDR'}
+  event_bindings: {click: button_1_click}
 is_package: true
