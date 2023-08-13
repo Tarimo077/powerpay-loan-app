@@ -181,7 +181,7 @@ def sendsms(dt):
 @anvil.server.callable
 def getdevicedata(dt):
   url = "https://appliapay.com/devicedata"
-  response = anvil.http.request(url, method="GETT", username='admin', password='123Give!@#', data=dt)
+  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', data=dt)
   return response
   
 

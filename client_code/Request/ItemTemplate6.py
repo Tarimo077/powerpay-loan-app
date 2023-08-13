@@ -75,6 +75,11 @@ class ItemTemplate6(ItemTemplate6Template):
         open_form('Request')
       else:
         self.refresh_data_bindings()
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('DeviceData', self.item['deviceID'])
+
     
         
       

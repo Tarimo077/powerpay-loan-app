@@ -4,6 +4,10 @@ container:
 components:
 - type: Plot
   properties: {}
+  name: plotTime
+  layout_properties: {grid_position: 'GTKERF,FZJEPR'}
+- type: Plot
+  properties: {}
   name: plot_1
   layout_properties: {grid_position: 'GTKERF,DJQIEK'}
 is_package: true

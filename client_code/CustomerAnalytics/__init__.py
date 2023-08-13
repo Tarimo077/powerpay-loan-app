@@ -72,8 +72,6 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
         'title': 'NUMBER OF CUSTOMERS'
       }
     }
-    ##Plot here
-    primary_color = '#8fce00'
     self.plot_2.data = go.Bar(x=self.dates, y=self.countz, marker=dict(color=primary_color),
                         hovertemplate='<b>%{x}</b><br>' + 'Customers: %{y}')
     # Configure the plot layout
