@@ -109,7 +109,7 @@ components:
       name: spacer_5
       layout_properties: {slot: spacer5, width: 11}
     - type: Spacer
-      properties: {height: 68}
+      properties: {height: 64}
       name: spacer_6
       layout_properties: {slot: spacer6, width: 196}
     - type: Spacer
@@ -117,7 +117,7 @@ components:
       name: spacer_1
       layout_properties: {slot: spacer7, width: 7}
     - type: Spacer
-      properties: {height: 32}
+      properties: {height: 25}
       name: spacer_2
       layout_properties: {slot: spacer8, width: 8}
     - type: Image

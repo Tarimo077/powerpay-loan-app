@@ -1,9 +1,0 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
-components:
-- type: form:dep_a73nl49vm3si9j:IFrame
-  properties: {url: ''}
-  name: i_frame_1
-  layout_properties: {grid_position: 'JPOPHL,BMWAFL'}
-is_package: true
