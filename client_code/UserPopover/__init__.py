@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import datetime
 
 class UserPopover(UserPopoverTemplate):
   def __init__(self, **properties):
@@ -14,6 +15,10 @@ class UserPopover(UserPopoverTemplate):
     self.init_components(**properties)
     usr = anvil.server.call('getusername')
     self.user.text = usr
+    current_time = datetime.datetime.now().strftime("%I:%M:%S %p")
+    self.timeLabel.text = current_time
+    
+    
 
     # Any code you write here will run before the form opens.
 
@@ -28,6 +33,12 @@ class UserPopover(UserPopoverTemplate):
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Settings')
+
+  def timer_1_tick(self, **event_args):
+    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+    current_time = datetime.datetime.now().strftime("%I:%M:%S %p")
+    self.timeLabel.text = current_time
+
 
 
 

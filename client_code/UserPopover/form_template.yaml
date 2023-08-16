@@ -44,7 +44,7 @@ components:
     name: link_2
     layout_properties: {slot: link}
 - type: RichText
-  properties: {role: null, align: center, tooltip: '', enable_slots: true, border: '',
+  properties: {role: logout, align: center, tooltip: '', enable_slots: true, border: '',
     foreground: '', visible: true, font_size: null, content: '{link}', font: '', spacing_above: small,
     spacing_below: small, data: null, background: '', format: markdown}
   name: rich_text_3
@@ -59,6 +59,13 @@ components:
     name: link_3
     layout_properties: {slot: link}
     event_bindings: {click: link_3_click}
+- type: Label
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: 'fa:clock-o'}
+  name: timeLabel
+  layout_properties: {grid_position: 'GVOLKM,CEPORU'}
 - type: Button
   properties: {role: logout2, align: left, tooltip: Log out, border: '', enabled: true,
     foreground: '', visible: true, text: LOGOUT, font_size: 12, font: '', spacing_above: small,
@@ -67,4 +74,8 @@ components:
   name: button_1
   layout_properties: {grid_position: 'OWTNKH,ECCPQN'}
   event_bindings: {click: button_1_click}
+- type: Timer
+  properties: {interval: 1}
+  name: timer_1
+  event_bindings: {tick: timer_1_tick}
 is_package: true
