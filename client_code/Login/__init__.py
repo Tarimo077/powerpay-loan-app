@@ -26,7 +26,7 @@ class Login(LoginTemplate):
     zoom_in = Transition(scale=[.3, 1])
     fade_in = Transition(opacity=[0, 1])
     fly_in_down = slide_in_down | zoom_in | fade_in
-    animate(self.image_1, fly_in_down, duration=5000)
+    animate(self.image_1, fly_in_down, duration=3000)
     # Any code you write here will run before the form opens.
 
   def login_click(self, **event_args):
