@@ -30,8 +30,8 @@ components:
     event_bindings: {}
 - type: RichText
   properties: {role: logout1, align: center, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: 14, content: '{link}', font: '', spacing_above: small,
-    spacing_below: small, data: null, background: '', format: markdown}
+    foreground: '', visible: true, font_size: 14, content: '{label2}{link}', font: '',
+    spacing_above: small, spacing_below: small, data: null, background: '', format: markdown}
   name: rich_text_2
   layout_properties: {grid_position: 'HYUERN,WUXDUH'}
   components:
@@ -43,10 +43,17 @@ components:
       bold: false, underline: false, icon: ''}
     name: link_2
     layout_properties: {slot: link}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: 'fa:info-circle'}
+    name: label_2
+    layout_properties: {slot: label2}
 - type: RichText
   properties: {role: logout, align: center, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: null, content: '{link}', font: '', spacing_above: small,
-    spacing_below: small, data: null, background: '', format: markdown}
+    foreground: '', visible: true, font_size: null, content: '{label1}{link}', font: '',
+    spacing_above: small, spacing_below: small, data: null, background: '', format: markdown}
   name: rich_text_3
   layout_properties: {grid_position: 'FGWVOW,BDYBSY'}
   components:
@@ -59,6 +66,13 @@ components:
     name: link_3
     layout_properties: {slot: link}
     event_bindings: {click: link_3_click}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: 'fa:cog'}
+    name: label_1
+    layout_properties: {slot: label1}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: '', font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,

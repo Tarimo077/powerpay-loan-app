@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"MHNFJH":15,"VKRJWA":45,"ZIFVWT":45,"KECMTK":15}'}
+  properties: {col_widths: '{"MHNFJH":16,"VKRJWA":44,"ZIFVWT":43,"KECMTK":17}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -53,7 +53,7 @@ components:
         col_widths: {}
         grid_position: HRTGMX,KIBLEX
         slot: textbox1
-        width: 386
+        width: 362
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Password:', font_size: null, font: '', spacing_above: small,
@@ -74,7 +74,7 @@ components:
         col_widths: {}
         grid_position: PIBHUR,YOKDCM
         slot: textbox2
-        width: 390
+        width: 366
     - type: Button
       properties: {role: pwdbtn, align: full, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
@@ -105,23 +105,23 @@ components:
     - type: Spacer
       properties: {height: 17}
       name: spacer_4
-      layout_properties: {slot: spacer4, width: 26}
+      layout_properties: {slot: spacer4, width: 32}
     - type: Spacer
       properties: {height: 13}
       name: spacer_5
-      layout_properties: {slot: spacer5, width: 24}
+      layout_properties: {slot: spacer5, width: 29}
     - type: Spacer
       properties: {height: 64}
       name: spacer_6
-      layout_properties: {slot: spacer6, width: 196}
+      layout_properties: {slot: spacer6, width: 176}
     - type: Spacer
       properties: {height: 23}
       name: spacer_1
-      layout_properties: {slot: spacer7, width: 28}
+      layout_properties: {slot: spacer7, width: 34}
     - type: Spacer
       properties: {height: 25}
       name: spacer_2
-      layout_properties: {slot: spacer8, width: 27}
+      layout_properties: {slot: spacer8, width: 31}
     - type: Image
       properties: {role: null, vertical_align: center, height: 86, tooltip: '', border: '',
         foreground: '', visible: true, display_mode: zoom_to_fill, spacing_above: large,
