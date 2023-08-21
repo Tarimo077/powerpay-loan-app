@@ -60,6 +60,12 @@ components:
     layout_properties: {slot: link}
     event_bindings: {click: link_3_click}
 - type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: 'fa:calendar'}
+  name: dateLabel
+  layout_properties: {grid_position: 'JUTKKX,DETCJD'}
+- type: Label
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,

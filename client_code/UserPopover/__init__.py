@@ -17,6 +17,9 @@ class UserPopover(UserPopoverTemplate):
     self.user.text = usr
     current_time = datetime.datetime.now().strftime("%I:%M:%S %p")
     self.timeLabel.text = current_time
+    current_date = datetime.datetime.now()
+    formatted_date = current_date.strftime("%B %d, %Y")
+    self.dateLabel.text = formatted_date
     
     
 
@@ -38,6 +41,9 @@ class UserPopover(UserPopoverTemplate):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
     current_time = datetime.datetime.now().strftime("%I:%M:%S %p")
     self.timeLabel.text = current_time
+    current_date = datetime.datetime.now()
+    formatted_date = current_date.strftime("%B %d, %Y")
+    self.dateLabel.text = formatted_date
 
 
 
