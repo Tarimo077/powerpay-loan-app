@@ -128,7 +128,7 @@ def getcashin():
 
 @anvil.server.callable
 def getcustomers():
-  url = "https://appliapay.com/customers"
+  url = "https://appliapay.com/customerRequest"
   response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#')
   return response
 
