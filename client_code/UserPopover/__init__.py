@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
+from anvil_extras.animation import animate, fade_in, Transition
 
 class UserPopover(UserPopoverTemplate):
   def __init__(self, **properties):
@@ -20,6 +21,8 @@ class UserPopover(UserPopoverTemplate):
     current_date = datetime.datetime.now()
     formatted_date = current_date.strftime("%B %d, %Y")
     self.dateLabel.text = formatted_date
+    shake = Transition(translateX=[0] + ["4px", "-4px"] * 3 + [0])
+    animate(self.image_1, shake, duration=3000)
     
     
 
@@ -44,6 +47,12 @@ class UserPopover(UserPopoverTemplate):
     current_date = datetime.datetime.now()
     formatted_date = current_date.strftime("%B %d, %Y")
     self.dateLabel.text = formatted_date
+
+  def timer_2_tick(self, **event_args):
+    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+    shake = Transition(translateX=[0] + ["4px", "-4px"] * 3 + [0])
+    animate(self.image_1, shake, duration=3000)
+
 
 
 

@@ -29,6 +29,41 @@ components:
     layout_properties: {slot: link}
     event_bindings: {}
 - type: RichText
+  properties: {role: logout1, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: '{label_carbon}
+
+      {spacer_carbon}{link_carbon}{image_carbon} ', font: '', spacing_above: small,
+    spacing_below: small, data: null, background: '', format: markdown}
+  name: rich_text_4
+  layout_properties: {grid_position: 'SMEBBY,KPNZCU'}
+  components:
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Carbon credit calculator, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_3
+    layout_properties: {slot: label_carbon}
+  - type: Link
+    properties: {role: null, url: 'https://carbon.anvil.app/', align: left, tooltip: '',
+      border: '', foreground: '', visible: true, text: here, font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: link_4
+    layout_properties: {slot: link_carbon}
+  - type: Image
+    properties: {role: null, vertical_align: center, height: 24, tooltip: '', border: '',
+      foreground: '', visible: true, display_mode: fill_width, spacing_above: small,
+      source: 'data:image/png;base64,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',
+      spacing_below: small, background: '', horizontal_align: center}
+    name: image_1
+    layout_properties: {slot: image_carbon, width: 32}
+  - type: Spacer
+    properties: {height: 20}
+    name: spacer_1
+    layout_properties: {slot: spacer_carbon, width: 31}
+- type: RichText
   properties: {role: logout1, align: center, tooltip: '', enable_slots: true, border: '',
     foreground: '', visible: true, font_size: 14, content: '{label2}{link}', font: '',
     spacing_above: small, spacing_below: small, data: null, background: '', format: markdown}
@@ -98,4 +133,8 @@ components:
   properties: {interval: 1}
   name: timer_1
   event_bindings: {tick: timer_1_tick}
+- name: timer_2
+  type: Timer
+  properties: {interval: 5}
+  event_bindings: {tick: timer_2_tick}
 is_package: true
