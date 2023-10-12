@@ -10,6 +10,7 @@ from anvil.tables import app_tables
 import anvil.server
 import json
 from datetime import datetime, timezone, timedelta
+from ..RowTemplate7 import RowTemplate7
 
 
 class ItemTemplate6(ItemTemplate6Template):
@@ -31,21 +32,17 @@ class ItemTemplate6(ItemTemplate6Template):
 # Format the datetime object as a string in the desired format
     formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
     formatted_time_str = formatted_time_str.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
-    self.time.text = formatted_time_str
-    self.devid.text = self.item['deviceID']
+    #self.time.text = formatted_time_str
+    #self.devid.text = self.item['deviceID']
+    self.item['last status change'] = formatted_time_str
+    myobj = RowTemplate7(self.item)
+    #myobj.item = self.item
     if(self.item['active']==True):
-      self.active.text = 'Yes'
+      self.item['active'] = 'Yes'
     else:
-      self.active.text = 'No'
-    if(self.item['active']==True):
-      self.change_state.text = "Deactivate"
-      self.change_state.background = "#ffa500"
-      self.change_state.tooltip = "Turn Device Off"
-    else:
-      self.change_state.text = "Activate"
-      self.change_state.background = "#8fce00"
-      self.change_state.tooltip = "Turn Device On"
+      self.item['active'] = 'No'
     # Any code you write here will run before the form opens.
+  
 
   def change_state_click(self, **event_args):
     """This method is called when the button is clicked"""

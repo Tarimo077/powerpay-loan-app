@@ -1,0 +1,17 @@
+container: {type: DataRowPanel}
+components:
+- type: Button
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: button_1, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: statusChange
+  layout_properties: {column: EDJPNX}
+- type: Button
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: Device Data, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
+      Container', bold: false, underline: false, icon: ''}
+  name: button_2
+  layout_properties: {column: JNNYUS}
+is_package: true

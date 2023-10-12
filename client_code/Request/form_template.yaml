@@ -42,15 +42,33 @@ components:
     properties: {height: 32}
     name: spacer_2
     layout_properties: {grid_position: 'FVAKVH,FIVTWB'}
-  - type: RepeatingPanel
-    properties: {item_template: Request.ItemTemplate6}
-    name: repeating_panel_1
-    layout_properties: {grid_position: 'IPSDVD,TNUTIQ'}
-    event_bindings: {show: repeating_panel_1_show}
-  - type: Spacer
-    properties: {height: 32}
-    name: spacer_1
-    layout_properties: {grid_position: 'WOOWQB,MGQHHG'}
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: OSFTJW, title: Device ID, data_key: deviceID, $$hashKey: 'object:25979'}
+      - {id: HMHTVO, title: Active, data_key: active, $$hashKey: 'object:25980'}
+      - {id: LPNYIR, title: Last status change, data_key: last status change, $$hashKey: 'object:25981'}
+      - {id: EDJPNX, title: Activate/Deactivate, data_key: status change, $$hashKey: 'object:26038'}
+      - {id: JNNYUS, title: Device Data, data_key: see data, $$hashKey: 'object:26040'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'KDWAHQ,AZWIUA'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Request.RowTemplate8}
+      name: repeating_panel_1
+      layout_properties: {}
   - type: Label
     properties: {}
     name: label_1_copy

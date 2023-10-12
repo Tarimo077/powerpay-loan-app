@@ -8,9 +8,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import json
-from .ItemTemplate6 import ItemTemplate6
 from ..UserPopover import UserPopover
 from anvil_extras import popover
+from .RowTemplate8 import RowTemplate8
 
 class Request(RequestTemplate):
   def __init__(self, **properties):
@@ -30,7 +30,8 @@ class Request(RequestTemplate):
     text = response.get_bytes().decode('utf-8')
     my_array = json.loads(text)
     sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
-    self.repeating_panel_1.items = sorted_items
+    #self.repeating_panel_1.items = sorted_items
+    self.item = sorted_items
     active_devs = 0
     inactive_devs = 0
     for obj in my_array:
@@ -48,9 +49,11 @@ class Request(RequestTemplate):
                           max_width='700px'
                          )
     #my_obj = ItemTemplate6()
+  
     #usr = self.item
     #my_obj.getItem(usr)
       #ItemTemplate6.get_rws(self,actve,dev)
+    RowTemplate8(self.item)
       
 
     # Any code you write here will run before the form opens.
