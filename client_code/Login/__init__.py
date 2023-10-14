@@ -17,7 +17,7 @@ class Login(LoginTemplate):
     self.password.hide_text = True
     dom_node = anvil.js.get_dom_node(self)
     dom_node.style.background = f"url('_/theme/background_loan_app.jpg')"
-    self.rich_text_1.background = "white"#"#C7B8B4"
+    self.rich_text_1.background = "white" #"#C7B8B4"
     self.image_1.background = None
     self.eye.tooltip = 'view password'
     self.pass_state = False
@@ -32,22 +32,22 @@ class Login(LoginTemplate):
   def login_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.timer_1.interval = 0
-    self.login.background = '#ffa500'
+    self.login.background = '#DB4437'
     username = self.username.text
     password = self.password.text
     d = app_tables.users.get(email=username,password=password)
     if username == '':
       alert('Fill in username')
       self.password.text = ''
-      self.login.background = '#8fce00'
+      self.login.background = '#0080FF'
       return
     if password == '':
       alert('Fill in password')
-      self.login.background = '#8fce00'
+      self.login.background = '#0080FF'
       return
     if d is None:
       alert('Wrong username or password.\n If the problem persists contact \n\tPowerpay Support team.', buttons=None)
-      self.login.background = '#8fce00'
+      self.login.background = '#0080FF'
       self.password.text = ''
       return
     else:
@@ -64,14 +64,14 @@ class Login(LoginTemplate):
       self.password.hide_text = False
       self.eye.icon = 'fa:eye-slash'
       self.pass_state = True
-      self.eye.background = '#ffa500'
+      self.eye.background = '#DB4437'
       self.eye.tooltip = 'hide password'
       
     else:
       self.password.hide_text = True
       self.eye.icon = 'fa:eye'
       self.pass_state = False
-      self.eye.background = '#8fce00'
+      self.eye.background = '#0080FF'
       self.eye.tooltip = 'view password'
 
   def timer_1_tick(self, **event_args):
