@@ -1,4 +1,6 @@
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  data_bindings: []
 components:
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
@@ -7,6 +9,7 @@ components:
     underline: false, icon: ''}
   name: statusChange
   layout_properties: {column: EDJPNX}
+  event_bindings: {click: statusChange_click}
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: Device Data, font_size: null, font: '', spacing_above: small,
@@ -14,4 +17,5 @@ components:
       Container', bold: false, underline: false, icon: ''}
   name: button_2
   layout_properties: {column: JNNYUS}
+  event_bindings: {click: button_2_click}
 is_package: true
