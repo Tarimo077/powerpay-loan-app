@@ -59,7 +59,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       d = (d/totals) * 100
       d = round(d, 1)
       counties_by_percentage.append(d)
-    primary_color = '#8fce00'
+    primary_color = '#0080FF'
     self.plot_1.data = go.Bar(x=[malecount, femalecount, otherscount], y=['Male', 'Female', 'Others'],
                               marker=dict(color=primary_color),width=0.4, orientation='h')
     #Configure the plot layout
@@ -135,7 +135,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     # Any code you write here will run before the form opens.
 
   def plot_data_line(self, **event_args):
-    primary_color = '#8fce00'
+    primary_color = '#0080FF'
     self.plot_2.data = go.Scatter(x=self.dates, y=self.countz, marker=dict(color=primary_color), mode='lines',
                         line=dict(shape='spline',smoothing=0.7,width=3), hovertemplate='<b>%{x}</b><br>' + 'Customers: %{y}')
     self.plot_2.layout = {
@@ -149,7 +149,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     }
 
   def plot_data_bar(self, **event_args):
-    primary_color = '#8fce00'
+    primary_color = '#0080FF'
     self.plot_2.data = go.Bar(x=self.dates, y=self.countz, marker=dict(color=primary_color),
                         hovertemplate='<b>%{x}</b><br>' + 'Customers: %{y}')
     # Configure the plot layout
@@ -188,7 +188,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     #self.map_1.map_data.add(GoogleMap.Data.Feature(geometry=GoogleMap.Data.Point(GoogleMap.LatLng(-1.1731848164507699, 36.83101474225459))))
     self.map_1.map_data.style = GoogleMap.Data.StyleOptions(icon=GoogleMap.Symbol(path=GoogleMap.SymbolPath.CIRCLE,
           scale=40,
-          fill_color='#ffa500',
+          fill_color='#DB4437',
           fill_opacity=0.6,
           stroke_opacity=1,
           stroke_weight=1
@@ -203,12 +203,12 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
     """This method is called when the button is clicked"""
     if self.graph == True:
       self.plot_data_bar()
-      self.button_2.background = '#ffa500'
+      self.button_2.background = '#DB4437'
       self.button_2.text = 'SWITCH TO LINE GRAPH'
       self.graph = False
     else:
       self.plot_data_line()
-      self.button_2.background = '#8fce00'
+      self.button_2.background = '#0080FF'
       self.button_2.text = 'SWITCH TO BAR GRAPH'
       self.graph = True
 

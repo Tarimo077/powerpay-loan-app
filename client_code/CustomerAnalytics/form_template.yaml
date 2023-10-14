@@ -5,8 +5,8 @@ components:
 - type: Label
   properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: CUSTOMER REACH, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-      Container', bold: true, underline: false, icon: 'fa:map-marker'}
+    icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
+    bold: true, underline: false, icon: 'fa:map-marker'}
   name: label_1
   layout_properties: {grid_position: 'TSWJMF,IRROCP'}
 - type: GoogleMap
@@ -16,8 +16,8 @@ components:
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: BACK TO CUSTOMERS, font_size: null, font: '',
-    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-      Container', bold: true, underline: false, icon: 'fa:users'}
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
+    bold: true, underline: false, icon: 'fa:users'}
   name: button_1
   layout_properties: {grid_position: 'IRRGME,DDKZQT'}
   event_bindings: {click: button_1_click}
@@ -60,7 +60,7 @@ components:
     properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: SWITCH TO LINE GRAPH, font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: 'theme:orange', bold: true, underline: false, icon: ''}
+      background: '#DB4437', bold: true, underline: false, icon: ''}
     name: button_2
     layout_properties: {slot: button}
     event_bindings: {click: button_2_click}

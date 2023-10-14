@@ -243,11 +243,11 @@ color: %color:On Primary Container%;
   justify-content: center;
   width: 50px;
   height: 50px;
-  background-color: #8fce00;
+  background-color: #0080FF;
   border-radius: 80%;
-  color: white;
+  color: #DB4437;
   font-size: 20px;
-  border: 3px solid #ffa500;
+  border: 3px #DB4437;
   text-align: center;
   word-wrap: break-word;
   overflow: hidden;
@@ -318,7 +318,7 @@ color: %color:On Primary Container%;
   top: %anvil-banner-height%;
   right: 0;
   left: 0;
-  background-image: url('_/theme/background_loan_app.jpg');
+  /*background-image: url('_/theme/background_loan_app.jpg');
 /*   flex: 0 0;
   flex-basis: auto;
   flex-basis: content; */
@@ -646,9 +646,9 @@ color: %color:On Primary Container%;
 /* Component: Dialog (alert), Notification */
 .modal-content, body>div[data-notify="container"] {
   border-radius: 28px;
-  background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
+  background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:white_n_color%;
   box-shadow: none;
-  border: 5px solid #ffa500;
+  border: 5px solid #DB4437;
 }
 
 .modal-header {
@@ -1192,8 +1192,8 @@ div.plot-container.plotly svg.main-svg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 7px solid #8fce00; /* Green color */
-  border-top: 7px solid #ffa500;  /* Yellow color */
+  border: 7px solid #0080FF; /* Blue color */
+  border-top: 7px solid #DB4437;  /* Red color */
   animation: spin 1s linear infinite;
 }
 

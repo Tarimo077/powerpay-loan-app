@@ -61,19 +61,21 @@ class Home(HomeTemplate):
       shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
       rotate = Transition(rotate=[0, "360deg"])
       animate(self.home_customer_img, shake, duration=4000)
+      self.home_rich_customers.background = '#DB4437'
     else: 
-      pass
+      self.home_rich_customers.background = '#0080FF'
 
   def mouse_hover_devices(self, **event_args):
     if 'enter' in event_args['event_type']:
       bounce = Transition(translateY=[0, 0, "-15px", "-15px", 0, "-15px", 0, "-15px", 0], offset=[0, 0.2, 0.4, 0.43, 0.53, 0.7, 0.8, 0.9, 1])
       shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
       rotate = Transition(rotate=[0, "360deg"])
+      self.rich_text_2.background = '#DB4437'
       animate(self.image_2, bounce, duration=2000)
       time.sleep(2)
       animate(self.image_2, rotate, duration=2000)
     else: 
-      pass
+      self.rich_text_2.background = '#0080FF'
 
   def mouse_hover_support(self, **event_args):
     if 'enter' in event_args['event_type']:
@@ -81,8 +83,9 @@ class Home(HomeTemplate):
       shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
       rotate = Transition(rotate=[0, "360deg"])
       animate(self.image_3, bounce, duration=4000)
+      self.rich_text_4.background = '#DB4437'
     else: 
-      pass
+      self.rich_text_4.background = '#0080FF'
 
   def mouse_hover_transactions(self, **event_args):
     if 'enter' in event_args['event_type']:
@@ -90,8 +93,9 @@ class Home(HomeTemplate):
       shake = Transition(translateX=[0] + ["10px", "-10px"] * 4 + [0])
       rotate = Transition(rotate=[0, "360deg"])
       animate(self.image_4, shake, duration=4000)
+      self.rich_text_3.background = '#DB4437'
     else: 
-      pass
+      self.rich_text_3.background = '#0080FF'
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""

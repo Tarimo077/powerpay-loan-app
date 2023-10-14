@@ -98,7 +98,7 @@ class Transactions(TransactionsTemplate):
                          )
 
   def plot_data_line(self, dates, totals, **event_args):
-    primary_color = '#8fce00'
+    primary_color = '#0080FF'
     self.plot_1.data = go.Scatter(x=dates, y=totals, marker=dict(color=primary_color), mode='lines',
                         line=dict(shape='spline',smoothing=0.7,width=3), hovertemplate='<b>%{x}</b><br>' + 'Amount: %{y}')
     # Configure the plot layout
@@ -113,7 +113,7 @@ class Transactions(TransactionsTemplate):
     }
 
   def plot_data_bar(self, dates, totals, **event_args):
-    primary_color = '#8fce00'
+    primary_color = '#0080FF'
     self.plot_1.data = go.Bar(x=dates, y=totals, marker=dict(color=primary_color),
                         hovertemplate='<b>%{x}</b><br>' + 'Amount: %{y}')
     # Configure the plot layout
@@ -157,7 +157,7 @@ class Transactions(TransactionsTemplate):
     open_form('Request')
 
   def view_cash(self, **event_args):
-    self.button_1.background = '#ffa500'
+    self.button_1.background = '#DB4437'
     self.button_1.icon = 'fa:eye-slash'
     self.button_1.tooltip = 'hide cash in'
     label_element = anvil.js.get_dom_node(self.moneyin)
@@ -165,7 +165,7 @@ class Transactions(TransactionsTemplate):
     self.seecash = False
 
   def hide_cash(self, **event_args):
-    self.button_1.background = '#8fce00'
+    self.button_1.background = '#0080FF'
     self.button_1.icon = 'fa:eye'
     self.button_1.tooltip = 'view cash in'
     label_element = anvil.js.get_dom_node(self.moneyin)
@@ -197,12 +197,12 @@ class Transactions(TransactionsTemplate):
     """This method is called when the button is clicked"""
     if self.graph == True:
       self.plot_data_line(self.dates, self.totals)
-      self.bar_graph.background = '#ffa500'
+      self.bar_graph.background = '#DB4437'
       self.bar_graph.text = 'SWITCH TO BAR GRAPH'
       self.graph = False
     else:
       self.plot_data_bar(self.dates, self.totals)
-      self.bar_graph.background = '#8fce00'
+      self.bar_graph.background = '#0080FF'
       self.bar_graph.text = 'SWITCH TO LINE GRAPH'
       self.graph = True
 

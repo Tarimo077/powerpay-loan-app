@@ -37,12 +37,12 @@ class RowTemplate8(RowTemplate8Template):
     if(self.item['active']==True):
       self.item['active'] = 'Yes'
       self.statusChange.text = 'Deactivate'
-      self.statusChange.background = '#ffa500'
+      self.statusChange.background = '#DB4437'
       self.statusChange.tooltip = 'Deactivate ' + self.item['deviceID']
     else:
       self.item['active'] = 'No'
       self.statusChange.text = 'Activate'
-      self.statusChange.background = '#8fce00'
+      self.statusChange.background = '#0080FF'
       self.statusChange.tooltip = 'Activate ' + self.item['deviceID']
     # Any code you write here will run before the form opens.
 

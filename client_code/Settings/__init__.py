@@ -128,12 +128,12 @@ class Settings(SettingsTemplate):
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
     if self.see_curr == False:
-      self.button_2.background = "#ffa500"
+      self.button_2.background = "#DB4437"
       self.button_2.icon = 'fa:eye-slash'
       self.see_curr = True
       self.current_pwd.hide_text = False
     else:
-      self.button_2.background = '#8fce00'
+      self.button_2.background = '#0080FF'
       self.button_2.icon = 'fa:eye'
       self.see_curr = False
       self.current_pwd.hide_text = True
@@ -141,12 +141,12 @@ class Settings(SettingsTemplate):
   def button_2_copy_click(self, **event_args):
     """This method is called when the button is clicked"""
     if self.see_new == False:
-      self.button_2_copy.background = "#ffa500"
+      self.button_2_copy.background = "#DB4437"
       self.button_2_copy.icon = 'fa:eye-slash'
       self.see_new = True
       self.new_pwd.hide_text = False
     else:
-      self.button_2_copy.background = '#8fce00'
+      self.button_2_copy.background = '#0080FF'
       self.button_2_copy.icon = 'fa:eye'
       self.see_new = False
       self.new_pwd.hide_text = True

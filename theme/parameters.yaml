@@ -343,3 +343,4 @@ color_scheme:
   - {name: Primary Overlay 2, color: 'rgba(103, 80, 164, 0.08)'}
   - {name: Primary Overlay 3, color: 'rgba(103, 80, 164, 0.11)'}
   - {name: orange, color: '#ffa500'}
+  - {name: white_n_color, color: '#ffffff'}

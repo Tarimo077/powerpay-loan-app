@@ -168,7 +168,7 @@ components:
       properties: {role: outlined-button, align: center, tooltip: '', border: '',
         enabled: true, foreground: '', visible: true, text: SAVE, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: 'theme:Primary Container', bold: true, underline: false, icon: ''}
+        background: '#0080FF', bold: true, underline: false, icon: ''}
       name: save
       layout_properties: {slot: button_save}
       event_bindings: {click: save_click}
@@ -265,7 +265,7 @@ components:
       properties: {role: outlined-button, align: center, tooltip: '', border: '',
         enabled: true, foreground: '', visible: true, text: CHANGE, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: 'theme:orange', bold: true, underline: false, icon: ''}
+        background: '#DB4437', bold: true, underline: false, icon: ''}
       name: button_1
       layout_properties: {slot: button_change}
       event_bindings: {click: button_1_click}
@@ -276,16 +276,16 @@ components:
     - type: Button
       properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-          Container', bold: false, underline: false, icon: 'fa:eye'}
+        icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
+        bold: false, underline: false, icon: 'fa:eye'}
       name: button_2
       layout_properties: {slot: button1}
       event_bindings: {click: button_2_click}
     - type: Button
       properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-          Container', bold: false, underline: false, icon: 'fa:eye'}
+        icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
+        bold: false, underline: false, icon: 'fa:eye'}
       name: button_2_copy
       layout_properties:
         col_widths: {}
@@ -321,8 +321,8 @@ components:
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
       foreground: '', visible: true, text: HOME, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}',
-      spacing_below: small, italic: false, background: 'theme:Primary Container',
-      bold: true, underline: false, icon: 'fa:home'}
+      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
+      icon: 'fa:home'}
     name: link_1
     layout_properties: {grid_position: 'ITIFQS,MDXMWY'}
     components: []
@@ -335,7 +335,7 @@ components:
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
       foreground: '', visible: true, text: CUSTOMERS, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
       icon: 'fa:users'}
     name: link_3
     layout_properties: {grid_position: 'YCSMHF,LVKWNE'}
@@ -350,7 +350,7 @@ components:
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
       foreground: '', visible: true, text: DEVICE MANAGEMENT, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
       icon: 'fa:cogs'}
     name: request
     layout_properties:
@@ -367,7 +367,7 @@ components:
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
       foreground: '', visible: true, text: TRANSACTIONS, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
       icon: 'fa:money'}
     name: home_link_copy
     layout_properties:
@@ -384,8 +384,8 @@ components:
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
       foreground: '', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: 'theme:Primary Container',
-      bold: true, underline: false, icon: 'fa:chain-broken'}
+      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
+      icon: 'fa:chain-broken'}
     name: home_link_copy_2
     layout_properties:
       col_widths: {}
@@ -399,8 +399,8 @@ components:
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
       foreground: '', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile,
       font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}',
-      spacing_below: small, italic: false, background: 'theme:orange', bold: true,
-      underline: false, icon: 'fa:sign-out'}
+      spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false,
+      icon: 'fa:sign-out'}
     name: link_1_copy
     layout_properties:
       col_widths: {}

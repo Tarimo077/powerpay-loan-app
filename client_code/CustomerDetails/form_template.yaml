@@ -5,8 +5,8 @@ components:
 - type: Label
   properties: {role: headline, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: CUSTOMER INFORMATION, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-      Container', bold: true, underline: false, icon: 'fa:info-circle'}
+    icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
+    bold: true, underline: false, icon: 'fa:info-circle'}
   name: label_4
   layout_properties: {grid_position: 'ZJAGJJ,TNFCBO'}
 - type: Spacer
@@ -161,8 +161,8 @@ components:
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: BACK TO CUSTOMERS, font_size: null, font: '',
-    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-      Container', bold: true, underline: false, icon: 'fa:users'}
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
+    bold: true, underline: false, icon: 'fa:users'}
   name: button_1
   layout_properties:
     col_widths: {}
