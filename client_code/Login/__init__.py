@@ -16,9 +16,9 @@ class Login(LoginTemplate):
     self.init_components(**properties)
     self.password.hide_text = True
     dom_node = anvil.js.get_dom_node(self)
+    dom_node.style.background = f"url('_/theme/background_loan_app.jpg')"
     dom_app_bar = anvil.js.get_dom_node(self).querySelector(".app-bar")
     dom_app_bar.style.background = f"url('_/theme/background_loan_app.jpg')"
-    dom_node.style.background = f"url('_/theme/background_loan_app.jpg')"
     self.rich_text_1.background = "white" #"#C7B8B4"
     self.image_1.background = None
     self.eye.tooltip = 'view password'
