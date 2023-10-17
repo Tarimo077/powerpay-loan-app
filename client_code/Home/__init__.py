@@ -52,7 +52,7 @@ class Home(HomeTemplate):
     #animate(self.image_4, shake, duration=5000)
     #animate(self.home_customer_img, shake, duration=5000)
     #animate(self.image_2, bounce, duration=5000)
-    #animate(self.image_3, bounce, duration=5000) 
+    #animate(self.image_3, bounce, duration=5000)   
     
 
   def mouse_hover_customers(self, **event_args):
