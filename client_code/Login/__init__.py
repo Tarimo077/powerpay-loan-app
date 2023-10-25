@@ -58,7 +58,7 @@ class Login(LoginTemplate):
       #print(anvil.server.session.get('usr'))
       anvil.server.call('strusr', d['username'])
       open_form('Home', d['username'])
-      alert('\t\tHi '+d['username']+' \n\nWelcome to Powerpay Loan \n\t\tApplication', buttons=None)
+      alert('\t\tHi '+d['username']+' \n\nWelcome to Powerpay Loan App', buttons=None)
 
   def eye_click(self, **event_args):
     """This method is called when the button is clicked"""
