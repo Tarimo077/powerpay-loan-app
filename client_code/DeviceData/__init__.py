@@ -76,7 +76,7 @@ class DeviceData(DeviceDataTemplate):
 )]
     self.carbonEmissions.data = [go.Indicator(
     mode="gauge+number",
-    value=(value)*0.4999,
+    value=(value)*0.4999*0,
     title=f"CARBON EMISSIONS",
     number={'suffix': f" {utz}"},
     gauge={
