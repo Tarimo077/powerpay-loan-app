@@ -1195,6 +1195,7 @@ div.plot-container.plotly svg.main-svg {
   border: 7px solid #0080FF; /* Blue color */
   border-top: 7px solid #DB4437;  /* Red color */
   animation: spin 1s linear infinite;
+  background-color: solid white;
 }
 
 @keyframes spin {
