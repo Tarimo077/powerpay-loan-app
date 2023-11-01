@@ -33,10 +33,8 @@ class Request(RequestTemplate):
     self.item = sorted_items
     active_devs = 0
     inactive_devs = 0
-    print(my_array)
-    print(sorted_items)
     for obj in my_array:
-      if obj["active"]:
+      if obj["active"] == 'Yes':
         active_devs += 1
       else:
         inactive_devs += 1
