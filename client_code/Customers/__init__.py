@@ -108,6 +108,8 @@ class Customers(CustomersTemplate):
           e['status'] = matching_c['status']
       if e['status'] == 'On Track':
         e['status'] = 'Active'
+      elif e['status'] == None:
+        e['status'] = 'None'
     self.repeating_panel_1.items = sorted_arr
     nm = len(sorted_arr)
     if nm == 1:
