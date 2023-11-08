@@ -86,7 +86,7 @@ class CustomerAnalytics(CustomerAnalyticsTemplate):
       }
     }    
     self.plot_3.data = go.Bar(y=county_names, x=counties_by_percentage, marker=dict(color=primary_color),
-                              width=0.4, orientation='h')
+                              width=0.4, orientation='h', hovertemplate='%{y}: %{x}'+'%')
     self.plot_3.layout = {
       'title': 'CUSTOMERS BY COUNTY',
       'yaxis': {
