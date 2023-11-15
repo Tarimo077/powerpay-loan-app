@@ -110,6 +110,8 @@ class Customers(CustomersTemplate):
         e['status'] = 'Active'
       elif e['status'] == None:
         e['status'] = 'None'
+      elif e['status'] == 'Complete':
+        e['status'] = 'Complete'
     self.repeating_panel_1.items = sorted_arr
     nm = len(sorted_arr)
     if nm == 1:
