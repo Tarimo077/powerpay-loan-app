@@ -15,7 +15,7 @@ class RowTemplate5(RowTemplate5Template):
     self.init_components(**properties)
     self.see_more.tooltip = "click here to see more details about " + str(self.item['name'])
     # Any code you write here will run before the form opens.
-    if self.label_1.text == 'Active':
+    if self.label_1.text == 'On Track':
       self.status.background = "#8cfe00"
       self.label_1.tooltip = str(self.item['name'] + " is on track with payments")
       self.status.tooltip = str(self.item['name'] + " is on track with payments")
