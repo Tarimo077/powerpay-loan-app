@@ -25,6 +25,8 @@ class RowTemplate5(RowTemplate5Template):
       self.status.tooltip = str(self.item['name'] + " has no active loans")
     else:
       self.status.background = "#ffa500"
+      self.label_1.tooltip = str(self.item['name'] + " has initiated a loan process")
+      self.status.tooltip = str(self.item['name'] + " has initiated a loan process")
 
   def see_more_click(self, **event_args):
     """This method is called when the button is clicked"""
