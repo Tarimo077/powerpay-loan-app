@@ -1,7 +1,7 @@
 container:
   type: DataRowPanel
   data_bindings: []
-  properties: {spacing_below: large, spacing_above: none}
+  properties: {spacing_below: small, spacing_above: small, align: center}
 components:
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
