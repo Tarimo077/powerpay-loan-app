@@ -30,3 +30,7 @@ class DownloadCustomers(DownloadCustomersTemplate):
         self.pin.text = ''
     else:
       pass
+
+  def pin_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
