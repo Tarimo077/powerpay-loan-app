@@ -64,13 +64,16 @@ class Customers(CustomersTemplate):
     r = json.loads(r)
     thearray = []
     for h in r:
-      original_datetime_str = h['last_payment']
+      if h['last_payment'] is None:
+        formatted_date = "N/A"
+      else:
+        original_datetime_str = h['last_payment']
       # Parse the original datetime string into a datetime object
-      original_datetime_obj = datetime.strptime(original_datetime_str, '%Y-%m-%dT%H:%M:%S.%f%z')
+        original_datetime_obj = datetime.strptime(original_datetime_str, '%Y-%m-%dT%H:%M:%S.%f%z')
 # Format the datetime object back to the desired string format
-      formatted_datetime_str = original_datetime_obj.strftime('%Y-%m-%dT%H:%M:%S')
-      datetime_obj = datetime.strptime(dat, "%Y-%m-%d %H:%M:%S")
-      formatted_date = datetime_obj.strftime("%d %B %Y %I:%M %p")
+        formatted_datetime_str = original_datetime_obj.strftime('%Y-%m-%dT%H:%M:%S')
+        datetime_obj = datetime.strptime(dat, "%Y-%m-%d %H:%M:%S")
+        formatted_date = datetime_obj.strftime("%d %B %Y %I:%M %p")
       madata = {
         'id': int(h['id']),
         'status': h['status'],
