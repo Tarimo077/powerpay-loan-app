@@ -21,6 +21,7 @@ class DeviceData(DeviceDataTemplate):
     res = anvil.server.call('getdevicedata', dt)
     res = res.get_bytes().decode('utf-8')
     res = json.loads(res)
+    print(res)
     lat = res['lat']
     long = res['long']
     self.map_1.center = GoogleMap.LatLng(lat, long) 

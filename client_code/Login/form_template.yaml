@@ -54,6 +54,8 @@ components:
         grid_position: HRTGMX,KIBLEX
         slot: textbox1
         width: 362
+      data_bindings:
+      - {property: border, code: '', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Password:', font_size: null, font: '', spacing_above: small,
