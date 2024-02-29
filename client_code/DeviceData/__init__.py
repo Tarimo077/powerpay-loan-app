@@ -15,6 +15,7 @@ class DeviceData(DeviceDataTemplate):
   def __init__(self, dev, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.lastLabel.visible = False
     self.drop_down_1.items = ["All Time", "5 min", "30 min", "1 hr", "3 hrs", "12 hrs", "24 hrs", "3 days", "7 days", "2 weeks", "1 month", "3 months",
                               "6 months", "1 year", "3 years"]
     self.timeMap = [5, 30, 60, 180, 720, 1440, 4320, 10080, 20160, 40320, 120960, 241920, 483840, 1451520]
@@ -139,9 +140,10 @@ class DeviceData(DeviceDataTemplate):
     selectedRange = self.drop_down_1.selected_value
     index = self.drop_down_1.items.index(selectedRange)
     if(index == 0):
-      self.lastLabel
+      self.lastLabel.visible = False
       self.adjVal = self.totalKwh
     else:
+      self.lastLabel.visible = True
       self.adjVal = self.timeMap[index-1]
       dt = {
         "range": self.adjVal,
