@@ -183,3 +183,9 @@ def getdevicedata(dt):
   url = "https://appliapay.com/devicedata"
   response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', data=dt)
   return response
+@anvil.server.callable
+def changeRange(dt):
+  url = "https://appliapay.com/dynamicTs"
+  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', data=dt)
+  return response
+  
