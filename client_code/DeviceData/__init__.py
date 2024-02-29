@@ -46,6 +46,7 @@ class DeviceData(DeviceDataTemplate):
     formatted_timestamp = datetime.strptime(last_time, "%Y%m%d%H%M%S").strftime("%Y-%m-%d %H:%M:%S")
     self.lastTime.text = " " + str(formatted_timestamp)
     value = res['totalkwh']  # Replace with your actual value
+    self.totalRuntime = res['runtime']
     self.totalKwh = value
     units = "kWh"  # Replace with your desired units
     uts = "HOURS"
@@ -74,7 +75,7 @@ class DeviceData(DeviceDataTemplate):
 )]
     self.energyCost.data = [go.Indicator(
     mode="gauge+number",
-    value=(value)*31,
+    value=(value)*33,
     title=f"ENERGY COST",
     number={'suffix': f" {unitz}"},
     gauge={
@@ -116,7 +117,7 @@ class DeviceData(DeviceDataTemplate):
         )]
     self.energyCost.data = [go.Indicator(
     mode="gauge+number",
-    value=(self.adjsum)*31,
+    value=(self.adjsum)*33,
     title=f"ENERGY COST",
     number={'suffix': f" {unitz}"},
     gauge={
@@ -134,6 +135,16 @@ class DeviceData(DeviceDataTemplate):
         'bar': {'color': 'blue'}
       }
         )]
+    self.plotTime.data = [go.Indicator(
+    mode="gauge+number",
+    value=self.runtime,
+    title=f"TOTAL RUNTIME",
+    number={'suffix': f" {uts}"},
+    gauge={
+        'axis': {'range': [None, 50]},
+        'bar': {'color': 'orange'}
+    }
+)]
     
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
@@ -141,7 +152,9 @@ class DeviceData(DeviceDataTemplate):
     index = self.drop_down_1.items.index(selectedRange)
     if(index == 0):
       self.lastLabel.visible = False
-      self.adjVal = self.totalKwh
+      self.adjsum = self.totalKwh
+      self.runtime = self.totalRuntime
+      self.remapGauges()
     else:
       self.lastLabel.visible = True
       self.adjVal = self.timeMap[index-1]
@@ -152,7 +165,9 @@ class DeviceData(DeviceDataTemplate):
       dataTs = anvil.server.call('changeRange', dt)
       res = dataTs.get_bytes().decode('utf-8')
       res = json.loads(res)
-      sum_value = res[0]['sum']
+      print(res)
+      sum_value = res['sum']
+      self.runtime = res['runtime']
       self.adjsum = sum_value
       self.remapGauges()
       
