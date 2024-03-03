@@ -1,6 +1,7 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"FZJEPR":32,"DJQIEK":28,"DMMIPD":40,"VPMSBS":20}', role: outlined}
+  properties: {col_widths: '{"FZJEPR":32,"DJQIEK":28,"DMMIPD":32,"VPMSBS":20,"MORULN":23,"CHNKBM":15,"WXXWWB":12}',
+    role: outlined}
 components:
 - type: RichText
   properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
@@ -46,6 +47,15 @@ components:
       icon: ''}
     name: lastTime
     layout_properties: {slot: label3}
+- name: label_3
+  properties: {text: 'DEVICE:', align: right}
+  type: Label
+  layout_properties: {grid_position: 'LYVYPQ,WXXWWB'}
+- name: devList
+  properties: {}
+  type: DropDown
+  layout_properties: {grid_position: 'LYVYPQ,MORULN'}
+  event_bindings: {change: devList_change}
 - name: spacer_5
   properties: {height: 32}
   type: Spacer

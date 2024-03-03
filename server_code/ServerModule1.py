@@ -148,6 +148,15 @@ def getloansstored():
   return loans
 
 @anvil.server.callable
+def strDevArr(dt):
+  anvil.server.session['devList'] = dt
+
+@anvil.server.callable
+def getDevList():
+  devs = anvil.server.session.get('devList', 0)
+  return devs
+
+@anvil.server.callable
 def strusr(dt):
   anvil.server.session['usr'] = dt
 

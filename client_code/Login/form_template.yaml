@@ -78,7 +78,7 @@ components:
         slot: textbox2
         width: 366
     - type: Button
-      properties: {role: pwdbtn, align: full, tooltip: '', border: '', enabled: true,
+      properties: {role: pwdbtn, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
         bold: false, underline: false, icon: 'fa:eye'}

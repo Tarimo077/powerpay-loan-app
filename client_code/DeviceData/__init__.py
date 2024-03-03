@@ -15,6 +15,12 @@ class DeviceData(DeviceDataTemplate):
   def __init__(self, dev, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    devList = anvil.server.call('getDevList')
+    devArr = []
+    for x in devList:
+      devArr.append(x['deviceID'])
+    self.devList.items = devArr
+    self.devList.selected_value = dev
     self.lastLabel.visible = False
     self.drop_down_1.items = ["All Time", "5 min", "30 min", "1 hr", "3 hrs", "12 hrs", "24 hrs", "3 days", "7 days", "2 weeks", "1 month", "3 months",
                               "6 months", "1 year", "3 years"]
@@ -27,7 +33,6 @@ class DeviceData(DeviceDataTemplate):
     res = anvil.server.call('getdevicedata', dt)
     res = res.get_bytes().decode('utf-8')
     res = json.loads(res)
-    print(res)
     lat = res['lat']
     long = res['long']
     self.map_1.center = GoogleMap.LatLng(lat, long) 
@@ -170,5 +175,9 @@ class DeviceData(DeviceDataTemplate):
       self.runtime = res['runtime']
       self.adjsum = sum_value
       self.remapGauges()
+
+  def devList_change(self, **event_args):
+    """This method is called when an item is selected"""
+    self.__init__(self.devList.selected_value)
       
     
