@@ -9,7 +9,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import json
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 class DeviceData(DeviceDataTemplate):
   def __init__(self, dev, **properties):
@@ -19,8 +19,38 @@ class DeviceData(DeviceDataTemplate):
     devArr = []
     for x in devList:
       devArr.append(x['deviceID'])
+      if x['deviceID'] == dev:
+        devData = x
+      else:
+        pass
+    if(devData['active']=='Yes'):
+      self.statusChange.text = 'Deactivate'
+      self.statusChange.background = '#DB4437'
+      self.statusChange.tooltip = 'Deactivate ' + devData['deviceID']
+    else:
+      self.statusChange.text = 'Activate'
+      self.statusChange.background = '#0080FF'
+      self.statusChange.tooltip = 'Activate ' + devData['deviceID']
     self.devList.items = devArr
     self.devList.selected_value = dev
+    self.activity.text = devData['active']
+    if 'time' in devData:
+      time_obj_utc = datetime.fromisoformat(devData['time'].replace("Z", "+00:00"))
+
+# Convert the datetime object to the server's timezone
+      time_obj_server_tz = time_obj_utc.astimezone(timezone.utc).astimezone()
+
+# Convert the datetime object to Kenyan time
+      tz_offset = timedelta(hours=3)
+      time_obj_kenya = time_obj_server_tz # + tz_offset
+
+# Format the datetime object as a string in the desired format
+      formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
+      formatted_time_str = formatted_time_str.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
+      self.statusTime.text = formatted_time_str
+    else:
+      self.statusTime.text = devData['last status change']
+    self.devData = devData
     self.lastLabel.visible = False
     self.drop_down_1.items = ["All Time", "5 min", "30 min", "1 hr", "3 hrs", "12 hrs", "24 hrs", "3 days", "7 days", "2 weeks", "1 month", "3 months",
                               "6 months", "1 year", "3 years"]
@@ -179,5 +209,34 @@ class DeviceData(DeviceDataTemplate):
   def devList_change(self, **event_args):
     """This method is called when an item is selected"""
     self.__init__(self.devList.selected_value)
+
+  def statusChange_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    status = self.devData['active']
+    if(status == 'Yes'):
+      status = True
+      strconc = 'deactivate'
+    else:
+      status = False
+      strconc = 'activate'
+    dt = {
+      'selectedDev' : self.devData['deviceID'],
+      'status' : status
+    }
+    c = confirm('Are you sure you want to ' + strconc + ' ' + self.devData['deviceID'], buttons=[("Yes", True),("No", False)])
+    if(c==True):
+      anvil.server.call('changeStatus', dt)
+      dt = {
+      "data": 'GET'
+      }
+      response = anvil.server.call('req', dt)
+      text = response.get_bytes().decode('utf-8')
+      my_array = json.loads(text)
+      sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
+      anvil.server.call('strDevArr', sorted_items)
+      alert(self.devData['deviceID'] + ' ' + strconc + 'd', buttons=None)
+      open_form('DeviceData', self.devData['deviceID'])
+    else:
+      pass
       
     

@@ -1,13 +1,15 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"FZJEPR":32,"DJQIEK":28,"DMMIPD":32,"VPMSBS":20,"MORULN":23,"CHNKBM":15,"WXXWWB":12}',
+  properties: {col_widths: '{"FZJEPR":32,"DJQIEK":28,"DMMIPD":15,"VPMSBS":20,"MORULN":23,"CHNKBM":17,"WXXWWB":12,"JLUWSC":25}',
     role: outlined}
 components:
 - type: RichText
   properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
     foreground: '', visible: true, font_size: null, content: '{spacer2}{label4} {label1}
-      {spacer1}{label2} {label3}', font: '', spacing_above: small, spacing_below: small,
-    data: null, background: '#0080FF', format: markdown}
+      {spacer1}{label2} {label3}
+
+      {spacer3}{label5} {label6} {spacer4}{label7} {label8}', font: '', spacing_above: small,
+    spacing_below: small, data: null, background: '#0080FF', format: markdown}
   name: rich_text_1
   layout_properties: {grid_position: 'UNVHPI,HGJGWN'}
   components:
@@ -47,6 +49,30 @@ components:
       icon: ''}
     name: lastTime
     layout_properties: {slot: label3}
+  - name: spacer_6
+    properties: {height: 9.399993896484375}
+    type: Spacer
+    layout_properties: {slot: spacer3, width: 142.8}
+  - name: label_4
+    properties: {text: 'Active:', bold: true, font_size: 16}
+    type: Label
+    layout_properties: {slot: label5}
+  - name: activity
+    properties: {bold: true, font_size: 16, foreground: 'theme:white_n_color'}
+    type: Label
+    layout_properties: {slot: label6}
+  - name: spacer_7
+    properties: {height: 7.600006103515625}
+    type: Spacer
+    layout_properties: {slot: spacer4, width: 195.98798779296874}
+  - name: label_6
+    properties: {text: 'Last status change:', bold: true, font_size: 16}
+    type: Label
+    layout_properties: {slot: label7}
+  - name: statusTime
+    properties: {foreground: 'theme:white_n_color', bold: true, font_size: 16, text: ''}
+    type: Label
+    layout_properties: {slot: label8}
 - name: label_3
   properties: {text: 'DEVICE:', align: right}
   type: Label
@@ -60,6 +86,11 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'LYVYPQ,DMMIPD'}
+- name: statusChange
+  properties: {text: button_2, role: outlined-button}
+  type: Button
+  layout_properties: {grid_position: 'LYVYPQ,JLUWSC'}
+  event_bindings: {click: statusChange_click}
 - name: lastLabel
   properties: {text: 'LAST:', align: right}
   type: Label
