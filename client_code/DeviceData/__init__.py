@@ -23,6 +23,10 @@ class DeviceData(DeviceDataTemplate):
         devData = x
       else:
         pass
+    if(devData['active']== True):
+      devData['active'] = 'Yes'
+    if(devData['active']== False):
+      devData['active'] = 'No'
     if(devData['active']=='Yes'):
       self.statusChange.text = 'Deactivate'
       self.statusChange.background = '#DB4437'
@@ -200,7 +204,6 @@ class DeviceData(DeviceDataTemplate):
       dataTs = anvil.server.call('changeRange', dt)
       res = dataTs.get_bytes().decode('utf-8')
       res = json.loads(res)
-      print(res)
       sum_value = res['sum']
       self.runtime = res['runtime']
       self.adjsum = sum_value
