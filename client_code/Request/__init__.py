@@ -32,6 +32,7 @@ class Request(RequestTemplate):
     self.repeating_panel_1.items = sorted_items
     anvil.server.call('strDevArr', sorted_items)
     self.item = sorted_items
+    print(sorted_items)
     active_devs = 0
     inactive_devs = 0
     for obj in my_array:
