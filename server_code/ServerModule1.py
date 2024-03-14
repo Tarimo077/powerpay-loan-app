@@ -24,7 +24,7 @@ import pandas as pd
 #
 @anvil.server.callable
 def req(data):
-  url = "https://appliapay.com/command"
+  url = "http://appliapay.com/command"
   headers = {
     "Content-Type": "application/json"
   }
