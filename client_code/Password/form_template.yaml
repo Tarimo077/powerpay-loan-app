@@ -22,3 +22,4 @@ components:
   layout_properties: {grid_position: 'WTABHT,IPQIZI'}
   event_bindings: {change: pin_change}
 is_package: true
+custom_component: false
