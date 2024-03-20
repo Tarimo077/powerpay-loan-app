@@ -16,10 +16,10 @@ components:
     name: label_1
     layout_properties: {grid_position: 'VBGXUM,WPFRWB'}
   - type: Label
-    properties: {role: display, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:money'}
+    properties: {role: display, align: center, tooltip: '', border: '', foreground: 'theme:On
+        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:money'}
     name: moneyin
     layout_properties: {grid_position: 'FPPKOT,HHCRYA'}
   - type: Spacer
@@ -28,9 +28,9 @@ components:
     layout_properties: {grid_position: 'FPPKOT,VCOCKL LIYLDU,QWDKRA'}
   - type: Button
     properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
-      bold: false, underline: false, icon: 'fa:eye'}
+      foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
     name: button_1
     layout_properties: {grid_position: 'FPPKOT,VCOCKL ZNPXNM,YIXRCU'}
     event_bindings: {click: button_1_click}
@@ -82,9 +82,9 @@ components:
     event_bindings: {change: drop_down_1_change}
   - type: Button
     properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: DOWNLOAD TRANSACTION DATA, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#0080FF', bold: true, underline: false, icon: 'fa:download'}
+      foreground: 'theme:On Primary', visible: true, text: DOWNLOAD TRANSACTION DATA,
+      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:download'}
     name: button_2
     layout_properties: {grid_position: 'XEVLPI,DAPTTN'}
     event_bindings: {click: button_2_click}
@@ -123,9 +123,9 @@ components:
     event_bindings: {change: calender_to_change}
   - type: Button
     properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: false, text: QUERY, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:search'}
+      foreground: 'theme:On Primary', visible: false, text: QUERY, font_size: null,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '#0080FF', bold: true, underline: false, icon: 'fa:search'}
     name: query
     layout_properties: {grid_position: 'SDFMPE,UUARUP'}
     event_bindings: {click: query_click}
@@ -182,9 +182,9 @@ components:
       layout_properties: {grid_position: 'NIGARY,RCHWTS', slot: plot, width: 902.6}
     - type: Button
       properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: '', visible: true, text: SWITCH TO BAR GRAPH, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#DB4437', bold: true, underline: false, icon: ''}
+        enabled: true, foreground: 'theme:On Primary', visible: true, text: SWITCH TO BAR GRAPH,
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '#DB4437', bold: true, underline: false, icon: ''}
       name: bar_graph
       layout_properties: {slot: button}
       event_bindings: {click: bar_graph_click}
@@ -268,10 +268,10 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - type: Label
-    properties: {role: bot, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-      spacing_below: small, italic: false, background: '', bold: false, underline: false,
-      icon: ''}
+    properties: {role: bot, align: center, tooltip: '', border: '', foreground: 'theme:On
+        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
     name: username_label
     layout_properties: {}
 - type: ColumnPanel
@@ -281,10 +281,10 @@ components:
   components:
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: HOME, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:home'}
+      foreground: 'theme:On Primary', visible: true, text: HOME, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:home'}
     name: home_link
     layout_properties:
       col_widths: {}
@@ -298,10 +298,10 @@ components:
       grid_position: KNWVCR,ONELES
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: CUSTOMERS, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:users'}
+      foreground: 'theme:On Primary', visible: true, text: CUSTOMERS, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:users'}
     name: customers
     layout_properties:
       col_widths: {}
@@ -315,10 +315,10 @@ components:
       grid_position: AAWDWK,LIPDCK
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: DEVICE MANAGEMENT, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:cogs'}
+      foreground: 'theme:On Primary', visible: true, text: DEVICE MANAGEMENT, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:cogs'}
     name: request
     layout_properties:
       col_widths: {}
@@ -332,10 +332,10 @@ components:
       grid_position: CYKOSU,NKZGQI
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: TRANSACTIONS, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:money'}
+      foreground: 'theme:On Primary', visible: true, text: TRANSACTIONS, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:money'}
     name: home_link_copy
     layout_properties:
       col_widths: {}
@@ -349,10 +349,10 @@ components:
       grid_position: WPJSPE,GJNIEE
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:chain-broken'}
+      foreground: 'theme:On Primary', visible: true, text: SUPPORT, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:chain-broken'}
     name: home_link_copy_2
     layout_properties:
       col_widths: {}
@@ -364,10 +364,10 @@ components:
     layout_properties: {grid_position: 'BRPEYG,RVMHKC'}
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false,
-      icon: 'fa:sign-out'}
+      foreground: 'theme:On Primary', visible: true, text: LOG OUT, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#DB4437',
+      bold: true, underline: false, icon: 'fa:sign-out'}
     name: home_link_copy_3
     layout_properties:
       col_widths: {}
