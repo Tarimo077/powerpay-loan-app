@@ -8,6 +8,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime, timezone, timedelta
+from anvil_extras.MessagePill import MessagePill
+from .. import Request
 
 class RowTemplate8(RowTemplate8Template):
   def __init__(self, **properties):
