@@ -215,7 +215,7 @@ components:
   - type: RichText
     properties: {role: usr, align: center, tooltip: '', enable_slots: true, border: '',
       foreground: 'theme:On Primary', visible: true, font_size: 36, content: "**Transactions**\n\
-        {image}\n## View transactions and financial analytics\n {button}", font: '',
+        {image}\n## View transactions and financial analytics\n\n {button}", font: '',
       spacing_above: small, spacing_below: small, data: null, background: '#0080FF',
       format: markdown}
     name: rich_text_3
