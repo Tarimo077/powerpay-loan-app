@@ -36,6 +36,8 @@ class CookingSummary(CookingSummaryTemplate):
     self.plotCookingTimePerDevice(keyDevs2, countHrs)
     self.cookingTimeValue.text = str(round(self.timeHrs,1)) + " HOURS"
     self.totalMealsValue.text = str(self.mealNum) + " MEALS"
+    self.cookingTimeValue.tooltip = self.cookingTimeValue.text + " represents amount of cooking time for all devices"
+    self.totalMealsValue.tooltip = self.totalMealsValue.text + " represents the number of meals prepared by all devices"
     mls = self.classify_meals(rawData)
     meal_counts_per_day = {}
     datesMeals = []
@@ -116,7 +118,7 @@ class CookingSummary(CookingSummaryTemplate):
     self.plot_3.layout = {
       'title': 'MEALS PREPARED PER DAY',
       'xaxis': {
-        'title': 'TIME'
+        'title': 'DAYS'
       },
       'yaxis': {
         'title': 'MEALS'
@@ -132,7 +134,7 @@ class CookingSummary(CookingSummaryTemplate):
     self.plot_3.layout = {
       'title': 'MEALS PREPARED PER DAY',
       'xaxis': {
-        'title': 'TIME'
+        'title': 'DAYS'
       },
       'yaxis': {
         'title': 'MEALS'

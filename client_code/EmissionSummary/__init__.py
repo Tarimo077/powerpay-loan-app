@@ -45,6 +45,8 @@ class EmissionSummary(EmissionSummaryTemplate):
     self.plotKwhPerMeal(morning, afternoon, night)
     self.totalEmissions.text = str(round((totalKwh*0.4999*0.28),2)) + " KGS"
     self.emissionsPerDevice.text = str(round((totalKwh*0.4999*0.28),2)/len(dt)) + " KGS/DEVICE"
+    self.totalEmissions.tooltip = self.totalEmissions.text + " represents the amount of carbon released by all devices"
+    self.emissionsPerDevice.tooltip = self.emissionsPerDevice.text + " represents the average amount of carbon released by all devices"
   
 
   def plot_data_bar(self, dates, totals, **event_args):
@@ -56,7 +58,7 @@ class EmissionSummary(EmissionSummaryTemplate):
     self.plot_3.layout = {
       'title': 'EMISSIONS PER DAY',
       'xaxis': {
-        'title': 'TIME'
+        'title': 'DAYS'
       },
       'yaxis': {
         'title': 'KGS'
@@ -72,7 +74,7 @@ class EmissionSummary(EmissionSummaryTemplate):
     self.plot_3.layout = {
       'title': 'EMISSIONS PER DAY',
       'xaxis': {
-        'title': 'TIME'
+        'title': 'DAYS'
       },
       'yaxis': {
         'title': 'KGS'

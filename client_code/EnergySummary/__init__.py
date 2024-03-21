@@ -23,7 +23,10 @@ class EnergySummary(EnergySummaryTemplate):
     rawData = res['rawData']
     totalKwh = res['totalkwh']
     self.kwhValue.text = str(round(totalKwh,2)) + " kWh"
-    self.costValue.text = "KSH. "+ str(round(totalKwh*33))
+    formatted_number = "{:,}".format(round((totalKwh*33)))
+    self.costValue.text = "KSH. "+ str(formatted_number)
+    self.kwhValue.tooltip = self.kwhValue.text + " represents the total kwh used by all devices"
+    self.costValue.tooltip = self.costValue.text + " represens the amount spent on energy for all devices"
   # Create a dictionary to store cumulative kWh values for each date
     daily_kwh_totals = {}
   # Iterate over the rawData and calculate cumulative kWh values for each date
@@ -57,7 +60,7 @@ class EnergySummary(EnergySummaryTemplate):
     self.plot_1.layout = {
       'title': 'ENERGY ACTIVITY PER DAY',
       'xaxis': {
-        'title': 'TIME'
+        'title': 'DAYS'
       },
       'yaxis': {
         'title': 'KWH'
@@ -73,7 +76,7 @@ class EnergySummary(EnergySummaryTemplate):
     self.plot_1.layout = {
       'title': 'ENERGY ACTIVITY PER DAY',
       'xaxis': {
-        'title': 'TIME'
+        'title': 'DAYS'
       },
       'yaxis': {
         'title': 'KWH'

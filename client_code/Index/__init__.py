@@ -10,11 +10,28 @@ from anvil.tables import app_tables
 from ..EnergySummary import EnergySummary
 from ..CookingSummary import CookingSummary
 from ..EmissionSummary import EmissionSummary
+from ..UserPopover import UserPopover
+from anvil_extras import popover
+
+popover.dismiss_on_outside_click(True)
 
 class Index(IndexTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.username_label.popover(UserPopover(), 
+                          placement = 'bottom', 
+                          trigger='stickyhover', 
+                          delay={ "show": 100, "hide": 100 },
+                          max_width='700px'
+                         )
+    usr = anvil.server.call('getusername')
+    words = usr.split()
+# Extract the first character of each word and convert it to uppercase
+    initials = [word[0].upper() for word in words]
+# Join the initials together
+    initials_string = ''.join(initials)
+    self.username_label.text = initials_string
     e = EnergySummary()
     self.containerHolder.add_component(e, full_width_row=True)
 
@@ -73,4 +90,8 @@ class Index(IndexTemplate):
     self.energyTab.foreground = "#0800FF"
     self.containerHolder.clear()
     d = EmissionSummary()
-    self.containerHolder.add_component(d)
+    self.containerHolder.add_component(d, full_width_row=True)
+
+  def actionPanel_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Home', 0)

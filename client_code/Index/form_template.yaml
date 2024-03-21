@@ -1,5 +1,15 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"VGIMQS":56,"BJPIGC":4,"MYJOKA":49,"YTUBZI":11}'}
 components:
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'MHCSDU,VGIMQS', full_width_row: true}
+- name: username_label
+  properties: {align: left, role: bot, foreground: 'theme:On Primary'}
+  type: Label
+  layout_properties: {grid_position: 'MHCSDU,BJPIGC', full_width_row: false}
 - name: energyTab
   properties:
     tab_titles: [ENERGY SUMMARY]
@@ -33,6 +43,16 @@ components:
   type: form:C6ZZPAPN4YYF5NVJ:Tabs
   layout_properties: {grid_position: 'BHKTIU,CWZNQH'}
   event_bindings: {tab_click: deviceTab_tab_click}
+- name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'NQHQXI,MYJOKA'}
+- name: actionPanel
+  properties: {text: ACTION PANEL, align: full, role: outlined-button, bold: true,
+    font_size: 12, background: '#DB4437', foreground: 'theme:On Primary', icon: 'fa:sign-in'}
+  type: Button
+  layout_properties: {grid_position: 'NQHQXI,YTUBZI', full_width_row: false}
+  event_bindings: {click: actionPanel_click}
 - name: containerHolder
   properties: {role: outlined-card, spacing_above: large}
   type: ColumnPanel
