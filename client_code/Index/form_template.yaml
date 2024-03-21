@@ -26,14 +26,14 @@ components:
   event_bindings: {tab_click: cookingTab_tab_click}
 - name: deviceTab
   properties:
-    tab_titles: [DEVICE SUMMARY]
+    tab_titles: [EMISSIONS SUMMARY]
     align: center
     foreground: '#0800FF'
     spacing_below: large
   type: form:C6ZZPAPN4YYF5NVJ:Tabs
   layout_properties: {grid_position: 'BHKTIU,CWZNQH'}
   event_bindings: {tab_click: deviceTab_tab_click}
-- name: outlined_card_1
+- name: containerHolder
   properties: {role: outlined-card, spacing_above: large}
   type: ColumnPanel
   layout_properties: {grid_position: 'NUNFPX,TXJJGN', full_width_row: true}
