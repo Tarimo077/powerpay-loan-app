@@ -32,6 +32,15 @@ def req(data):
   return response
 
 @anvil.server.callable
+def getAllDeviceData():
+  url = "https://appliapay.com/allDeviceData"
+  headers = {
+    "Content-Type": "application/json"
+  }
+  response = anvil.http.request(url, method="GET", headers=headers, username='admin', password='123Give!@#')
+  return response
+
+@anvil.server.callable
 def changeStatus(data):
   url = "https://appliapay.com/changeStatus"
   headers = {

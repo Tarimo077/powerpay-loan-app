@@ -64,6 +64,8 @@ roles:
 - {name: label1}
 - {name: rich}
 - {name: pwdbtn}
+- {name: tabs-special, components: null, display_in_toolbox: false}
+- {name: tabs-basic}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

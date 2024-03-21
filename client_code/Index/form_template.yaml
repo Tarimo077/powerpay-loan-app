@@ -1,0 +1,40 @@
+container: {type: ColumnPanel}
+components:
+- name: energyTab
+  properties:
+    tab_titles: [ENERGY SUMMARY]
+    background: '#0800FF'
+    foreground: theme:On Primary
+    align: center
+    bold: true
+    role: ''
+    spacing_below: large
+  type: form:C6ZZPAPN4YYF5NVJ:Tabs
+  layout_properties: {grid_position: 'BHKTIU,TOTWJS'}
+  event_bindings: {tab_click: energyTab_tab_click}
+- name: cookingTab
+  properties:
+    tab_titles: [COOKING SUMMARY]
+    bold: false
+    align: center
+    foreground: '#0800FF'
+    active_background: ''
+    background: theme:On Primary
+    spacing_below: large
+  type: form:C6ZZPAPN4YYF5NVJ:Tabs
+  layout_properties: {grid_position: 'BHKTIU,WLERCC'}
+  event_bindings: {tab_click: cookingTab_tab_click}
+- name: deviceTab
+  properties:
+    tab_titles: [DEVICE SUMMARY]
+    align: center
+    foreground: '#0800FF'
+    spacing_below: large
+  type: form:C6ZZPAPN4YYF5NVJ:Tabs
+  layout_properties: {grid_position: 'BHKTIU,CWZNQH'}
+  event_bindings: {tab_click: deviceTab_tab_click}
+- name: outlined_card_1
+  properties: {role: outlined-card, spacing_above: large}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'NUNFPX,TXJJGN', full_width_row: true}
+is_package: true
