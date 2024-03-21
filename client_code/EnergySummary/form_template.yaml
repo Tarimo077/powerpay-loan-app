@@ -1,3 +1,15 @@
 container: {type: ColumnPanel}
-components: []
+components:
+- name: label_1
+  properties: {align: center, bold: true}
+  type: Label
+  layout_properties: {grid_position: 'CUHCGR,VUHKYU', full_width_row: true}
+- name: label_2
+  properties: {bold: true, align: center, spacing_below: large}
+  type: Label
+  layout_properties: {grid_position: 'CUHCGR,XDARXP', full_width_row: true}
+- name: plot_1
+  properties: {}
+  type: Plot
+  layout_properties: {grid_position: 'MODPJX,NLACFX', full_width_row: true}
 is_package: true
