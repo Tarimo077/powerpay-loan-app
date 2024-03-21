@@ -8,6 +8,7 @@ import anvil.server
 import anvil.http
 import anvil.media
 import pandas as pd
+import anvil.js
 
 
 # This is a server module. It runs on the Anvil server,
@@ -207,4 +208,16 @@ def changeRange(dt):
   url = "https://appliapay.com/dynamicTs"
   response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', data=dt)
   return response
+
+@anvil.server.callable
+def animate_label(label, val):
+  # Initialize count
+  count = 0
+  # Loop to animate the label
+  for i in range(val+1):
+  # Update label text
+    anvil.js.call_js_function(label, 'setText', str(i))
+        # Wait for 1 second (1000 milliseconds)
+    anvil.js.call_js_function(js.window, 'setTimeout', lambda: None, i * 1000)
+  
   

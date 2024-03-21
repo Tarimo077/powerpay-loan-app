@@ -1,15 +1,39 @@
 container: {type: ColumnPanel}
 components:
-- name: label_1
-  properties: {align: center, bold: true}
+- name: kwhValue
+  properties: {role: special-label, align: center, bold: true, font_size: 24, spacing_below: large,
+    icon: 'fa:bolt', foreground: 'theme:On Primary'}
   type: Label
-  layout_properties: {grid_position: 'CUHCGR,VUHKYU', full_width_row: true}
-- name: label_2
-  properties: {bold: true, align: center, spacing_below: large}
+  layout_properties: {grid_position: 'GVVVQD,PNWWJT', full_width_row: true}
+- name: costValue
+  properties: {bold: true, align: center, spacing_below: large, role: special-label,
+    font_size: 24, icon: 'fa:money', foreground: 'theme:On Primary'}
   type: Label
-  layout_properties: {grid_position: 'CUHCGR,XDARXP', full_width_row: true}
-- name: plot_1
-  properties: {}
+  layout_properties: {grid_position: 'GVVVQD,HARCWD', full_width_row: true}
+- name: plot_2
+  properties: {spacing_above: large, spacing_below: large}
   type: Plot
-  layout_properties: {grid_position: 'MODPJX,NLACFX', full_width_row: true}
+  layout_properties: {grid_position: 'WAFAVE,PQNZHZ', full_width_row: true}
+- name: plot_3
+  properties: {spacing_above: large, spacing_below: large}
+  type: Plot
+  layout_properties: {grid_position: 'WAFAVE,OGKBKV', full_width_row: true}
+- name: rich_text_1
+  properties: {align: center, content: '{btnSwitch}
+
+      {plot1}', spacing_above: large}
+  type: RichText
+  layout_properties: {grid_position: 'XSDTWC,OMXNRH', full_width_row: true}
+  components:
+  - name: switchGraph
+    properties: {role: outlined-button, align: center, foreground: 'theme:On Secondary',
+      text: SWITCH TO LINE GRAPH, spacing_above: none, spacing_below: small, background: '#0800FF',
+      bold: true, icon: 'fa:line-chart'}
+    type: Button
+    layout_properties: {slot: btnSwitch}
+    event_bindings: {click: switchGraph_click}
+  - name: plot_1
+    properties: {spacing_above: none}
+    type: Plot
+    layout_properties: {slot: plot1, width: 1062.7599755859376}
 is_package: true
