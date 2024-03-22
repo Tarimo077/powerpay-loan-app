@@ -17,11 +17,21 @@ class EnergySummary(EnergySummaryTemplate):
         # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    res = anvil.server.call('getAllDeviceData')
-    res = res.get_bytes().decode('utf-8')
-    res = json.loads(res)
-    rawData = res['rawData']
-    totalKwh = res['totalkwh']
+    initDt = anvil.server.call('getInit')
+    if(initDt):
+      #get raw data
+      rawData = anvil.server.call('getRawData')
+      totalKwh = anvil.server.call('getKwh')
+    else:
+      res = anvil.server.call('getAllDeviceData')
+      res = res.get_bytes().decode('utf-8')
+      res = json.loads(res)
+      anvil.server.call('strInit', True)
+      rawData = res['rawData']
+      anvil.server.call('strRawData', rawData)
+      totalKwh = res['totalkwh']
+      anvil.server.call("strKwh", totalKwh)
+      anvil.server.call('strRuntime', res['runtime'])
     self.kwhValue.text = str(round(totalKwh,2)) + " kWh"
     formatted_number = "{:,}".format(round((totalKwh*33)))
     self.costValue.text = "KSH. "+ str(formatted_number)

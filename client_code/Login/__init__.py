@@ -57,6 +57,7 @@ class Login(LoginTemplate):
       #anvil.server.session['usr'] = username
       #print(anvil.server.session.get('usr'))
       anvil.server.call('strusr', d['username'])
+      anvil.server.call('strInit', False)
       open_form('Index')
       alert('\t\t\tHi '+d['username']+' \n\n\tWelcome To The Powerpay \n\t\t\t\t\t\tApp', buttons=None)
 

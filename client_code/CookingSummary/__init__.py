@@ -16,11 +16,8 @@ class CookingSummary(CookingSummaryTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    res = anvil.server.call('getAllDeviceData')
-    res = res.get_bytes().decode('utf-8')
-    res = json.loads(res)
-    rawData = res['rawData']
-    runtime = (res['runtime'])
+    rawData = anvil.server.call('getRawData')
+    runtime = anvil.server.call('getRuntime')
     meals = self.count_meals(rawData)
     keyDevs = []
     countMeals = []

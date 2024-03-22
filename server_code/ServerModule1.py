@@ -176,6 +176,42 @@ def getusername():
   return usrn
 
 @anvil.server.callable
+def strRawData(dt):
+  anvil.server.session['rawData'] = dt
+
+@anvil.server.callable
+def getRawData():
+  rwDt = anvil.server.session.get('rawData')
+  return rwDt
+
+@anvil.server.callable
+def strInit(dt):
+  anvil.server.session['init'] = dt
+
+@anvil.server.callable
+def getInit():
+  init = anvil.server.session.get('init')
+  return init
+
+@anvil.server.callable
+def strKwh(dt):
+  anvil.server.session['totalKwh'] = dt
+
+@anvil.server.callable
+def getKwh():
+  kwh = anvil.server.session.get('totalKwh')
+  return kwh
+
+@anvil.server.callable
+def strRuntime(dt):
+  anvil.server.session['runtime'] = dt
+
+@anvil.server.callable
+def getRuntime():
+  runtime = anvil.server.session.get('runtime')
+  return runtime
+
+@anvil.server.callable
 def download_customers(arr):
   array = arr
   df = pd.DataFrame(array)

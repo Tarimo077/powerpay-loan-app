@@ -16,11 +16,8 @@ class EmissionSummary(EmissionSummaryTemplate):
         # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    res = anvil.server.call('getAllDeviceData')
-    res = res.get_bytes().decode('utf-8')
-    res = json.loads(res)
-    rawData = res['rawData']
-    totalKwh = res['totalkwh']
+    rawData = anvil.server.call('getRawData')
+    totalKwh = anvil.server.call('getKwh')
   # Create a dictionary to store cumulative kWh values for each date
     daily_kwh_totals = {}
   # Iterate over the rawData and calculate cumulative kWh values for each date
