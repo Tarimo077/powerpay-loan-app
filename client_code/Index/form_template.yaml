@@ -1,13 +1,18 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"VGIMQS":56,"BJPIGC":4,"MYJOKA":49,"YTUBZI":11}'}
+  properties: {col_widths: '{"VGIMQS":62,"BJPIGC":4,"MYJOKA":49,"YTUBZI":11,"ZAOZRI":14}'}
 components:
+- name: image_1
+  properties: {height: 33.000030517578125, spacing_above: none, source: _/theme/pplogo.png,
+    display_mode: shrink_to_fit, horizontal_align: left, vertical_align: top}
+  type: Image
+  layout_properties: {grid_position: 'MHCSDU,ZAOZRI', full_width_row: true}
 - name: spacer_1
-  properties: {height: 32}
+  properties: {height: 32, spacing_above: none}
   type: Spacer
   layout_properties: {grid_position: 'MHCSDU,VGIMQS', full_width_row: true}
 - name: username_label
-  properties: {align: right, role: bot, foreground: 'theme:On Primary'}
+  properties: {align: right, role: bot, foreground: 'theme:On Primary', spacing_above: none}
   type: Label
   layout_properties: {grid_position: 'MHCSDU,BJPIGC', full_width_row: true}
 - name: energyTab
@@ -20,7 +25,7 @@ components:
     role: ''
     spacing_below: large
   type: form:C6ZZPAPN4YYF5NVJ:Tabs
-  layout_properties: {grid_position: 'BHKTIU,TOTWJS'}
+  layout_properties: {grid_position: 'BHKTIU,TOTWJS', full_width_row: true}
   event_bindings: {tab_click: energyTab_tab_click}
 - name: cookingTab
   properties:
@@ -32,7 +37,7 @@ components:
     background: theme:On Primary
     spacing_below: large
   type: form:C6ZZPAPN4YYF5NVJ:Tabs
-  layout_properties: {grid_position: 'BHKTIU,WLERCC'}
+  layout_properties: {grid_position: 'BHKTIU,WLERCC', full_width_row: true}
   event_bindings: {tab_click: cookingTab_tab_click}
 - name: deviceTab
   properties:
@@ -41,17 +46,17 @@ components:
     foreground: '#0800FF'
     spacing_below: large
   type: form:C6ZZPAPN4YYF5NVJ:Tabs
-  layout_properties: {grid_position: 'BHKTIU,CWZNQH'}
+  layout_properties: {grid_position: 'BHKTIU,CWZNQH', full_width_row: true}
   event_bindings: {tab_click: deviceTab_tab_click}
 - name: spacer_2
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'NQHQXI,MYJOKA'}
+  layout_properties: {grid_position: 'NQHQXI,MYJOKA', full_width_row: true}
 - name: actionPanel
-  properties: {text: ACTION PANEL, align: full, role: outlined-button, bold: true,
+  properties: {text: ACTION PANEL, align: right, role: outlined-button, bold: true,
     font_size: 12, background: '#DB4437', foreground: 'theme:On Primary', icon: 'fa:sign-in'}
   type: Button
-  layout_properties: {grid_position: 'NQHQXI,YTUBZI', full_width_row: false}
+  layout_properties: {grid_position: 'NQHQXI,YTUBZI', full_width_row: true}
   event_bindings: {click: actionPanel_click}
 - name: containerHolder
   properties: {role: outlined-card, spacing_above: large}
