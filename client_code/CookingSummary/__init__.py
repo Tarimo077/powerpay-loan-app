@@ -16,8 +16,15 @@ class CookingSummary(CookingSummaryTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    rawData = anvil.server.call('getRawData')
-    runtime = anvil.server.call('getRuntime')
+    self.drop_down_1.items = ["All Time", "5 min", "30 min", "1 hr", "3 hrs", "12 hrs", "24 hrs", "3 days", "7 days", "2 weeks", "1 month", "3 months",
+                              "6 months", "1 year", "3 years"]
+    self.timeMap = [5, 30, 60, 180, 720, 1440, 4320, 10080, 20160, 40320, 120960, 241920, 483840, 1451520]
+    res = anvil.server.call('getAllDeviceData')
+    res = res.get_bytes().decode('utf-8')
+    res = json.loads(res)
+    rawData = res['rawData']
+    runtime = res['runtime']
+    self.rawData = rawData
     meals = self.count_meals(rawData)
     keyDevs = []
     countMeals = []
@@ -150,4 +157,45 @@ class CookingSummary(CookingSummaryTemplate):
       self.switchGraph.text = "SWITCH TO LINE GRAPH"
       self.switchGraph.icon = "fa:line-chart"
       self.plot_data_bar(self.mlzDate, self.cntz)
-   
+
+  def dataParseAndPlot(self, rawData, runtime):
+    meals = self.count_meals(rawData)
+    keyDevs = []
+    countMeals = []
+    for device_id, info in meals.items():
+      keyDevs.append(device_id)
+      countMeals.append(info['count'])
+    self.plotMealsPerDevice(keyDevs, countMeals)
+    keyDevs2 = []
+    countHrs = []
+    for dev, hrs in runtime.items():
+      keyDevs2.append(dev)
+      countHrs.append(hrs)
+    self.plotCookingTimePerDevice(keyDevs2, countHrs)
+    mls = self.classify_meals(rawData)
+    meal_counts_per_day = {}
+    datesMeals = []
+    mlsCounts = []
+    for date, info in mls.items():
+      meal_counts_per_day[date] = info['meal_count']
+    for date, count in meal_counts_per_day.items():
+      datesMeals.append(date)
+      mlsCounts.append(count)
+    self.cntz = mlsCounts
+    self.mlzDate = datesMeals
+    self.plot_data_bar(self.mlzDate, self.cntz)
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    selectedRange = self.drop_down_1.selected_value
+    index = self.drop_down_1.items.index(selectedRange)
+    if index == 0:  # All Time
+  # No filtering needed, use the stored raw data directly
+      self.dataParseAndPlot(self.rawData)
+    else:
+  # Filter the stored raw data based on the selected time range
+      time_range = self.timeMap[index - 1]
+      start_time = datetime.now() - timedelta(minutes=time_range)
+      filtered_data = [entry for entry in self.rawData if datetime.strptime(str(entry['txtime']), '%Y%m%d%H%M%S') >= start_time]
+      self.dataParseAndPlot(filtered_data)
+    

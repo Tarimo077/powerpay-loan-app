@@ -17,27 +17,24 @@ class EnergySummary(EnergySummaryTemplate):
         # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    initDt = anvil.server.call('getInit')
-    if(initDt):
-      #get raw data
-      rawData = anvil.server.call('getRawData')
-      totalKwh = anvil.server.call('getKwh')
-    else:
-      res = anvil.server.call('getAllDeviceData')
-      res = res.get_bytes().decode('utf-8')
-      res = json.loads(res)
-      anvil.server.call('strInit', True)
-      rawData = res['rawData']
-      anvil.server.call('strRawData', rawData)
-      totalKwh = res['totalkwh']
-      anvil.server.call("strKwh", totalKwh)
-      anvil.server.call('strRuntime', res['runtime'])
+    self.drop_down_1.items = ["All Time", "5 min", "30 min", "1 hr", "3 hrs", "12 hrs", "24 hrs", "3 days", "7 days", "2 weeks", "1 month", "3 months",
+                              "6 months", "1 year", "3 years"]
+    self.timeMap = [5, 30, 60, 180, 720, 1440, 4320, 10080, 20160, 40320, 120960, 241920, 483840, 1451520]
+    res = anvil.server.call('getAllDeviceData')
+    res = res.get_bytes().decode('utf-8')
+    res = json.loads(res)
+    rawData = res['rawData']
+    totalKwh = res['totalkwh']
     self.kwhValue.text = str(round(totalKwh,2)) + " kWh"
     formatted_number = "{:,}".format(round((totalKwh*33)))
     self.costValue.text = "KSH. "+ str(formatted_number)
     self.kwhValue.tooltip = self.kwhValue.text + " represents the total kwh used by all devices"
     self.costValue.tooltip = self.costValue.text + " represens the amount spent on energy for all devices"
-  # Create a dictionary to store cumulative kWh values for each date
+    self.rawData = rawData
+    self.dataParseAndPlot(rawData)
+
+  def dataParseAndPlot(self, rawData):
+    # Create a dictionary to store cumulative kWh values for each date
     daily_kwh_totals = {}
   # Iterate over the rawData and calculate cumulative kWh values for each date
     for entry in rawData:
@@ -58,7 +55,7 @@ class EnergySummary(EnergySummaryTemplate):
     dt = self.getKwhPwerDevice(rawData)
     self.plotKwhPerDevice(dt)
     morning, afternoon, night = self.categorize_kwh(rawData)
-    self.plotKwhPerMeal(morning, afternoon, night)
+    self.plotKwhPerMeal(morning, afternoon, night)   
   
 
   def plot_data_bar(self, dates, totals, **event_args):
@@ -152,9 +149,17 @@ class EnergySummary(EnergySummaryTemplate):
       self.switchGraph.icon = "fa:line-chart"
       self.plot_data_bar(self.dates, self.totals)
 
-
-
-      
-      
-      
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    selectedRange = self.drop_down_1.selected_value
+    index = self.drop_down_1.items.index(selectedRange)
+    if index == 0:  # All Time
+  # No filtering needed, use the stored raw data directly
+      self.dataParseAndPlot(self.rawData)
+    else:
+  # Filter the stored raw data based on the selected time range
+      time_range = self.timeMap[index - 1]
+      start_time = datetime.now() - timedelta(minutes=time_range)
+      filtered_data = [entry for entry in self.rawData if datetime.strptime(str(entry['txtime']), '%Y%m%d%H%M%S') >= start_time]
+      self.dataParseAndPlot(filtered_data)
     
