@@ -18,7 +18,7 @@ class EnergySummary(EnergySummaryTemplate):
     self.init_components(**properties)
     self.bar = False
     self.drop_down_1.items = ["All Time", "Last 5 min", "Last 30 min", "Last 1 hr", "Last 3 hrs", "Last 12 hrs", "Last 24 hrs", "Last 3 days", "Last 7 days", "Last 2 weeks",
-                              "Last 1 month", "3 months", "Last 6 months", "Last 1 year", "Last 3 years"]
+                              "Last 1 month", "Last 3 months", "Last 6 months", "Last 1 year", "Last 3 years"]
     self.timeMap = [5, 30, 60, 180, 720, 1440, 4320, 10080, 20160, 40320, 120960, 241920, 483840, 1451520]
     res = anvil.server.call('getAllDeviceData')
     res = res.get_bytes().decode('utf-8')
@@ -29,7 +29,7 @@ class EnergySummary(EnergySummaryTemplate):
     formatted_number = "{:,}".format(round((totalKwh*33)))
     self.costValue.text = "KSH. "+ str(formatted_number)
     self.kwhValue.tooltip = self.kwhValue.text + " represents the total kwh used by all devices"
-    self.costValue.tooltip = self.costValue.text + " represens the amount spent on energy for all devices"
+    self.costValue.tooltip = self.costValue.text + " represents the amount spent on energy for all devices"
     self.rawData = rawData
     self.dataParseAndPlot(rawData)
 

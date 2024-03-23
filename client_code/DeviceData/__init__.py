@@ -31,10 +31,12 @@ class DeviceData(DeviceDataTemplate):
       self.statusChange.text = 'Deactivate'
       self.statusChange.background = '#DB4437'
       self.statusChange.tooltip = 'Deactivate ' + devData['deviceID']
+      self.statusChange.foreground = '#FFFFFF'
     else:
       self.statusChange.text = 'Activate'
       self.statusChange.background = '#0080FF'
       self.statusChange.tooltip = 'Activate ' + devData['deviceID']
+      self.statusChange.foreground = '#FFFFFF'
     self.devList.items = devArr
     self.devList.selected_value = dev
     self.activity.text = devData['active']
@@ -105,7 +107,7 @@ class DeviceData(DeviceDataTemplate):
     self.plotTime.data = [go.Indicator(
     mode="gauge+number",
     value=res['runtime'],
-    title=f"TOTAL RUNTIME",
+    title=f"TOTAL COOKING TIME",
     number={'suffix': f" {uts}"},
     gauge={
         'axis': {'range': [None, 50]},
@@ -177,7 +179,7 @@ class DeviceData(DeviceDataTemplate):
     self.plotTime.data = [go.Indicator(
     mode="gauge+number",
     value=self.runtime,
-    title=f"TOTAL RUNTIME",
+    title=f"TOTAL COOKING TIME",
     number={'suffix': f" {uts}"},
     gauge={
         'axis': {'range': [None, 50]},
