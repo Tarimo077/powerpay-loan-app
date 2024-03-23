@@ -204,7 +204,7 @@ class CookingSummary(CookingSummaryTemplate):
       self.plot_2.visible = False
       self.plot_3.visible = False
       self.plot_1.visible = False
-      self.noData.text = 'NO DATA AVAILABLE FOR THE LAST ' + str(self.drop_down_1.selected_value)
+      self.noData.text = 'NO DATA AVAILABLE FOR THE ' + str(self.drop_down_1.selected_value)
       self.noData.visible = True
     else:
       for device_info in runtime:  # Iterate over each dictionary in the list
