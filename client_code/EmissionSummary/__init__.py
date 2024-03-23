@@ -16,9 +16,24 @@ class EmissionSummary(EmissionSummaryTemplate):
         # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    rawData = anvil.server.call('getRawData')
-    totalKwh = anvil.server.call('getKwh')
-  # Create a dictionary to store cumulative kWh values for each date
+    self.drop_down_1.items = ["All Time", "Last 5 min", "Last 30 min", "Last 1 hr", "Last 3 hrs", "Last 12 hrs", "Last 24 hrs", "Last 3 days", "Last 7 days", "Last 2 weeks",
+                              "Last 1 month", "3 months", "Last 6 months", "Last 1 year", "Last 3 years"]
+    self.timeMap = [5, 30, 60, 180, 720, 1440, 4320, 10080, 20160, 40320, 120960, 241920, 483840, 1451520]
+    res = anvil.server.call('getAllDeviceData')
+    res = res.get_bytes().decode('utf-8')
+    res = json.loads(res)
+    rawData = res['rawData']
+    totalKwh = res['totalkwh']
+    self.rawData = rawData
+    self.dataParseAndPlot(rawData)
+    self.totalEmissions.text = str(round((totalKwh*0.4999*0.28),2)) + " KGS"
+    self.emissionsPerDevice.text = str(round((totalKwh*0.4999*0.28),2)/len(self.dt)) + " KGS/DEVICE"
+    self.totalEmissions.tooltip = self.totalEmissions.text + " represents the amount of carbon released by all devices"
+    self.emissionsPerDevice.tooltip = self.emissionsPerDevice.text + " represents the average amount of carbon released by all devices"    
+    
+
+  def dataParseAndPlot(self, rawData):
+    # Create a dictionary to store cumulative kWh values for each date
     daily_kwh_totals = {}
   # Iterate over the rawData and calculate cumulative kWh values for each date
     for entry in rawData:
@@ -38,12 +53,9 @@ class EmissionSummary(EmissionSummaryTemplate):
     self.totals = kwh_totals
     dt = self.getKwhPwerDevice(rawData)
     self.plotKwhPerDevice(dt)
+    self.dt = dt
     morning, afternoon, night = self.categorize_kwh(rawData)
     self.plotKwhPerMeal(morning, afternoon, night)
-    self.totalEmissions.text = str(round((totalKwh*0.4999*0.28),2)) + " KGS"
-    self.emissionsPerDevice.text = str(round((totalKwh*0.4999*0.28),2)/len(dt)) + " KGS/DEVICE"
-    self.totalEmissions.tooltip = self.totalEmissions.text + " represents the amount of carbon released by all devices"
-    self.emissionsPerDevice.tooltip = self.emissionsPerDevice.text + " represents the average amount of carbon released by all devices"
   
 
   def plot_data_bar(self, dates, totals, **event_args):
@@ -139,3 +151,17 @@ class EmissionSummary(EmissionSummaryTemplate):
     
 
     # Any code you write here will run before the form opens.
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    selectedRange = self.drop_down_1.selected_value
+    index = self.drop_down_1.items.index(selectedRange)
+    if index == 0:  # All Time
+  # No filtering needed, use the stored raw data directly
+      self.dataParseAndPlot(self.rawData)
+    else:
+  # Filter the stored raw data based on the selected time range
+      time_range = self.timeMap[index - 1]
+      start_time = datetime.now() - timedelta(minutes=time_range)
+      filtered_data = [entry for entry in self.rawData if datetime.strptime(str(entry['txtime']), '%Y%m%d%H%M%S') >= start_time]
+      self.dataParseAndPlot(filtered_data)

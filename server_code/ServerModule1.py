@@ -246,6 +246,12 @@ def changeRange(dt):
   return response
 
 @anvil.server.callable
+def changeRangeIndex(dt):
+  url = "https://appliapay.com/dynamicTsIndex"
+  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', data=dt)
+  return response
+
+@anvil.server.callable
 def animate_label(label, val):
   # Initialize count
   count = 0

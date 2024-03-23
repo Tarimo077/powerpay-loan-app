@@ -17,8 +17,8 @@ class EnergySummary(EnergySummaryTemplate):
         # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    self.drop_down_1.items = ["All Time", "5 min", "30 min", "1 hr", "3 hrs", "12 hrs", "24 hrs", "3 days", "7 days", "2 weeks", "1 month", "3 months",
-                              "6 months", "1 year", "3 years"]
+    self.drop_down_1.items = ["All Time", "Last 5 min", "Last 30 min", "Last 1 hr", "Last 3 hrs", "Last 12 hrs", "Last 24 hrs", "Last 3 days", "Last 7 days", "Last 2 weeks",
+                              "Last 1 month", "3 months", "Last 6 months", "Last 1 year", "Last 3 years"]
     self.timeMap = [5, 30, 60, 180, 720, 1440, 4320, 10080, 20160, 40320, 120960, 241920, 483840, 1451520]
     res = anvil.server.call('getAllDeviceData')
     res = res.get_bytes().decode('utf-8')

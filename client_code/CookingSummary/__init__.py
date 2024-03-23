@@ -16,8 +16,13 @@ class CookingSummary(CookingSummaryTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.bar = False
-    self.drop_down_1.items = ["All Time", "5 min", "30 min", "1 hr", "3 hrs", "12 hrs", "24 hrs", "3 days", "7 days", "2 weeks", "1 month", "3 months",
-                              "6 months", "1 year", "3 years"]
+    self.noData.visible = False
+    self.plot_2.visible = True
+    self.plot_3.visible = True
+    self.plot_1.visible = True
+    self.switchGraph.visible = True
+    self.drop_down_1.items = ["All Time", "Last 5 min", "Last 30 min", "Last 1 hr", "Last 3 hrs", "Last 12 hrs", "Last 24 hrs", "Last 3 days", "Last 7 days", "Last 2 weeks",
+                              "Last 1 month", "3 months", "Last 6 months", "Last 1 year", "Last 3 years"]
     self.timeMap = [5, 30, 60, 180, 720, 1440, 4320, 10080, 20160, 40320, 120960, 241920, 483840, 1451520]
     res = anvil.server.call('getAllDeviceData')
     res = res.get_bytes().decode('utf-8')
@@ -25,7 +30,7 @@ class CookingSummary(CookingSummaryTemplate):
     rawData = res['rawData']
     runtime = res['runtime']
     self.rawData = rawData
-    meals = self.count_meals(rawData)
+    meals, mls = self.classify_and_count_meals(rawData)
     keyDevs = []
     countMeals = []
     for device_id, info in meals.items():
@@ -42,38 +47,65 @@ class CookingSummary(CookingSummaryTemplate):
     self.totalMealsValue.text = str(self.mealNum) + " MEALS"
     self.cookingTimeValue.tooltip = self.cookingTimeValue.text + " represents amount of cooking time for all devices"
     self.totalMealsValue.tooltip = self.totalMealsValue.text + " represents the number of meals prepared by all devices"
-    mls = self.classify_meals(rawData)
     meal_counts_per_day = {}
     datesMeals = []
     mlsCounts = []
-    for date, info in mls.items():
-      meal_counts_per_day[date] = info['meal_count']
     for date, count in meal_counts_per_day.items():
       datesMeals.append(date)
       mlsCounts.append(count)
-    self.cntz = mlsCounts
-    self.mlzDate = datesMeals
+    self.cntz = list(mls.values())
+    self.mlzDate = list(mls.keys())
     self.plot_data_bar(self.mlzDate, self.cntz)
       
      # Any code you write here will run before the form opens.
-    
-  
-  def count_meals(self, data):
-    meals_cooked = {}
-    for record in data:
-      device_id = record['deviceID']
-      txtime = datetime.strptime(str(record['txtime']), '%Y%m%d%H%M%S') 
-      if device_id not in meals_cooked:
-        meals_cooked[device_id] = {'count': 0, 'last_txtime': None}  
-      last_txtime = meals_cooked[device_id]['last_txtime'] 
-      if last_txtime is not None:
-        time_diff = txtime - last_txtime
-        if time_diff > timedelta(minutes=20):
-          meals_cooked[device_id]['count'] += 1
+
+  def classify_and_count_meals(self, data):
+    # Sort the data by device ID and timestamp
+    sorted_data = sorted(data, key=lambda x: (x['deviceID'], x['txtime']))
+
+    # Initialize variables to store meal counts for each device and each day
+    device_meal_counts = {}
+    day_meal_counts = {}
+
+    for entry in sorted_data:
+        device_id = entry['deviceID']
+        txtime = datetime.strptime(str(entry['txtime']), "%Y%m%d%H%M%S")
+
+        # Update device meal counts
+        if device_id not in device_meal_counts:
+            device_meal_counts[device_id] = {'count': 0, 'last_txtime': None}
+        if device_meal_counts[device_id]['last_txtime'] is not None:
+            time_diff = txtime - device_meal_counts[device_id]['last_txtime']
+            if time_diff > timedelta(minutes=20):
+                device_meal_counts[device_id]['count'] += 1
+        else:
+            device_meal_counts[device_id]['count'] += 1
+
+        # Update day meal counts
+        date = txtime.strftime('%Y-%m-%d')
+        if date not in day_meal_counts:
+            day_meal_counts[date] = {}
+        if device_id not in day_meal_counts[date]:
+            day_meal_counts[date][device_id] = 0
+        if 'last_txtime' in day_meal_counts[date]:
+            time_diff = txtime - day_meal_counts[date]['last_txtime']
+            if time_diff > timedelta(minutes=20):
+                day_meal_counts[date][device_id] += 1
+        else:
+            day_meal_counts[date][device_id] += 1
         
-      meals_cooked[device_id]['last_txtime'] = txtime
+        device_meal_counts[device_id]['last_txtime'] = txtime
+        day_meal_counts[date]['last_txtime'] = txtime
     
-    return meals_cooked
+    total_meals_per_day = {}
+  # Iterate through each day's meal counts
+    for date, counts in day_meal_counts.items():
+  # Sum up the meal counts for the day
+      total_meals = sum(count for device, count in counts.items() if device != 'last_txtime')
+  # Store the total meals for the day
+      total_meals_per_day[date] = total_meals
+    return device_meal_counts, total_meals_per_day
+    
 
   def plotMealsPerDevice(self, devs, counts):
     countr = 0
@@ -96,21 +128,6 @@ class CookingSummary(CookingSummaryTemplate):
                               labels=devs, title=countr)
     self.plot_2.layout = {
       'title': 'COOKING TIME PER DEVICE' }
-
-  def classify_meals(self, records):
-    meals_cooked_per_day = {}
-  # Group records by date
-    for record in records:
-      txtime = datetime.strptime(record['time'], '%Y-%m-%dT%H:%M:%S.%fZ')
-      date = txtime.date()
-      if date not in meals_cooked_per_day:
-        meals_cooked_per_day[date] = {'meal_count': 0, 'last_txtime': None}
-      if meals_cooked_per_day[date]['last_txtime'] is not None:
-        time_diff = txtime - meals_cooked_per_day[date]['last_txtime']
-        if time_diff > timedelta(minutes=20):
-          meals_cooked_per_day[date]['meal_count'] += 1        
-      meals_cooked_per_day[date]['last_txtime'] = txtime   
-    return meals_cooked_per_day
 
   
   def plot_data_bar(self, dates, totals, **event_args):
@@ -158,8 +175,13 @@ class CookingSummary(CookingSummaryTemplate):
       self.switchGraph.icon = "fa:line-chart"
       self.plot_data_bar(self.mlzDate, self.cntz)
 
-  def dataParseAndPlot(self, rawData, runtime):
-    meals = self.count_meals(rawData)
+  def dataParseAndPlot(self, rawData):
+    self.noData.visible = False
+    self.plot_2.visible = True
+    self.plot_3.visible = True
+    self.plot_1.visible = True
+    self.switchGraph.visible = True
+    meals, mls = self.classify_and_count_meals(rawData)
     keyDevs = []
     countMeals = []
     for device_id, info in meals.items():
@@ -168,22 +190,32 @@ class CookingSummary(CookingSummaryTemplate):
     self.plotMealsPerDevice(keyDevs, countMeals)
     keyDevs2 = []
     countHrs = []
-    for dev, hrs in runtime.items():
-      keyDevs2.append(dev)
-      countHrs.append(hrs)
-    self.plotCookingTimePerDevice(keyDevs2, countHrs)
-    mls = self.classify_meals(rawData)
-    meal_counts_per_day = {}
-    datesMeals = []
-    mlsCounts = []
-    for date, info in mls.items():
-      meal_counts_per_day[date] = info['meal_count']
-    for date, count in meal_counts_per_day.items():
-      datesMeals.append(date)
-      mlsCounts.append(count)
-    self.cntz = mlsCounts
-    self.mlzDate = datesMeals
-    self.plot_data_bar(self.mlzDate, self.cntz)
+    selectedRange = self.drop_down_1.selected_value
+    index = self.drop_down_1.items.index(selectedRange)
+    range = self.timeMap[index-1]
+    dt = {
+      "range": range
+    }
+    runtime = anvil.server.call('changeRangeIndex', dt)
+    runtime = runtime.get_bytes().decode('utf-8')
+    runtime = json.loads(runtime)
+    if runtime == 0:
+      self.switchGraph.visible = False
+      self.plot_2.visible = False
+      self.plot_3.visible = False
+      self.plot_1.visible = False
+      self.noData.text = 'NO DATA AVAILABLE FOR THE LAST ' + str(self.drop_down_1.selected_value)
+      self.noData.visible = True
+    else:
+      for device_info in runtime:  # Iterate over each dictionary in the list
+        for dev, hrs in device_info.items():  # Extract key-value pairs from each dictionary
+          keyDevs2.append(dev)
+          hrs = hrs/3600
+          countHrs.append(hrs)
+      self.plotCookingTimePerDevice(keyDevs2, countHrs)
+      self.cntz = list(mls.values())
+      self.mlzDate = list(mls.keys())
+      self.plot_data_bar(self.mlzDate, self.cntz)
 
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
@@ -191,7 +223,7 @@ class CookingSummary(CookingSummaryTemplate):
     index = self.drop_down_1.items.index(selectedRange)
     if index == 0:  # All Time
   # No filtering needed, use the stored raw data directly
-      self.dataParseAndPlot(self.rawData)
+      self.__init__()
     else:
   # Filter the stored raw data based on the selected time range
       time_range = self.timeMap[index - 1]
