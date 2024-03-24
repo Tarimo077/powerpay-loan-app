@@ -124,6 +124,14 @@ components:
   properties: {height: 32}
   name: spacer_4
   layout_properties: {grid_position: 'VTGRLW,DTYLMV', full_width_row: true}
+- name: plot_2
+  properties: {}
+  type: Plot
+  layout_properties: {grid_position: 'NXVECA,OPYGAI', full_width_row: true}
+- name: spacer_8
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'UAKTES,EJMDNG', full_width_row: true}
 - type: GoogleMap
   properties: {height: 453}
   name: map_1

@@ -71,6 +71,8 @@ class DeviceData(DeviceDataTemplate):
     res = json.loads(res)
     lat = res['lat']
     long = res['long']
+    rawData = res['rawData']
+    self.rawData = rawData
     self.map_1.center = GoogleMap.LatLng(lat, long) 
     self.map_1.zoom = 15
     self.map_1.disable_double_click_zoom = True
@@ -134,11 +136,46 @@ class DeviceData(DeviceDataTemplate):
         'bar': {'color': 'blue'}
     }
 )]
+    self.dataParseAndPlot(rawData)
     # Any code you write here will run before the form opens.
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form("Request")
+
+  def dataParseAndPlot(self, rawData):
+    # Create a dictionary to store cumulative kWh values for each date
+    daily_kwh_totals = {}
+  # Iterate over the rawData and calculate cumulative kWh values for each date
+    for entry in rawData:
+  # Extract txtime and convert to date format
+      txtime_str = str(entry['txtime'])
+      txtime_date = datetime.strptime(txtime_str, '%Y%m%d%H%M%S').strftime('%d-%b-%y')
+  # Extract kWh value
+      kwh_value = entry['kwh']
+  # Add kWh value to the cumulative total for the corresponding date
+      daily_kwh_totals[txtime_date] = daily_kwh_totals.get(txtime_date, 0) + kwh_value
+  # Extract dates and total kWh values from the dictionary
+    dates = list(daily_kwh_totals.keys())
+    kwh_totals = list(daily_kwh_totals.values())
+    self.plotTS(dates, kwh_totals)
+
+
+  def plotTS(self, dates, totals):
+    # Plot the data
+    primary_color = '#0080FF'
+    self.plot_2.data = go.Bar(x=dates, y=totals, marker=dict(color=primary_color),
+                        hovertemplate='<b>%{x}</b><br>' + 'kwh: %{y}')
+    # Configure the plot layout
+    self.plot_2.layout = {
+      'title': 'ENERGY ACTIVITY ',
+      'xaxis': {
+        'title': 'TIME'
+      },
+      'yaxis': {
+        'title': 'KWH'
+      }
+    }
 
   def remapGauges(self, **event_args):
     units = "kWh"  # Replace with your desired units
@@ -196,6 +233,7 @@ class DeviceData(DeviceDataTemplate):
       self.adjsum = self.totalKwh
       self.runtime = self.totalRuntime
       self.remapGauges()
+      self.dataParseAndPlot(self.rawData)
     else:
       self.lastLabel.visible = True
       self.adjVal = self.timeMap[index-1]
@@ -209,6 +247,10 @@ class DeviceData(DeviceDataTemplate):
       sum_value = res['sum']
       self.runtime = res['runtime']
       self.adjsum = sum_value
+      time_range = self.timeMap[index - 1]
+      start_time = datetime.now() - timedelta(minutes=time_range)
+      filtered_data = [entry for entry in self.rawData if datetime.strptime(str(entry['txtime']), '%Y%m%d%H%M%S') >= start_time]
+      self.dataParseAndPlot(filtered_data)
       self.remapGauges()
 
   def devList_change(self, **event_args):
