@@ -26,7 +26,7 @@ class EnergySummary(EnergySummaryTemplate):
     rawData = res['rawData']
     totalKwh = res['totalkwh']
     self.kwhValue.text = str(round(totalKwh,2)) + " kWh"
-    formatted_number = "{:,}".format(round((totalKwh*33)))
+    formatted_number = "{:,}".format(round((totalKwh*23)))
     self.costValue.text = "KSH. "+ str(formatted_number)
     self.kwhValue.tooltip = self.kwhValue.text + " represents the total kwh used by all devices"
     self.costValue.tooltip = self.costValue.text + " represents the amount spent on energy for all devices"

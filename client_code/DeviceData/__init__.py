@@ -118,7 +118,7 @@ class DeviceData(DeviceDataTemplate):
 )]
     self.energyCost.data = [go.Indicator(
     mode="gauge+number",
-    value=(value)*33,
+    value=(value)*23,
     title=f"ENERGY COST",
     number={'suffix': f" {unitz}"},
     gauge={
@@ -195,7 +195,7 @@ class DeviceData(DeviceDataTemplate):
         )]
     self.energyCost.data = [go.Indicator(
     mode="gauge+number",
-    value=(self.adjsum)*33,
+    value=(self.adjsum)*23,
     title=f"ENERGY COST",
     number={'suffix': f" {unitz}"},
     gauge={
