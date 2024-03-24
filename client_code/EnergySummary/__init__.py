@@ -10,6 +10,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import json
 from datetime import datetime, timedelta
+from anvil_extras.storage import local_storage
 
 
 class EnergySummary(EnergySummaryTemplate):
@@ -23,8 +24,9 @@ class EnergySummary(EnergySummaryTemplate):
     res = anvil.server.call('getAllDeviceData')
     res = res.get_bytes().decode('utf-8')
     res = json.loads(res)
-    rawData = res['rawData']
-    totalKwh = res['totalkwh']
+    if local_storage.get('energySummaryDates') is None:
+      rawData = res['rawData']
+      totalKwh = res['totalkwh']
     self.kwhValue.text = str(round(totalKwh,2)) + " kWh"
     formatted_number = "{:,}".format(round((totalKwh*33)))
     self.costValue.text = "KSH. "+ str(formatted_number)
