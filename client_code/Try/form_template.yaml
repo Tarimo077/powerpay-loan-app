@@ -1,7 +1,0 @@
-container: {type: ColumnPanel}
-components:
-- name: switch_1
-  properties: {}
-  type: form:C6ZZPAPN4YYF5NVJ:Switch
-  layout_properties: {grid_position: 'VWOYVM,BGLJJQ'}
-is_package: true
