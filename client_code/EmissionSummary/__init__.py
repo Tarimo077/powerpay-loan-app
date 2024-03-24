@@ -118,7 +118,7 @@ class EmissionSummary(EmissionSummaryTemplate):
     night_kwh = 0
     for record in data:
       txtime = str(record['txtime'])
-      hour = str(txtime[11:13])  # Extracting the hour component
+      hour = str(txtime[8:10])  # Extracting the hour component
   # Categorizing based on the hour
       if 4 <= int(hour) < 11:  # Morning: 4am - 11:29am
         morning_kwh += (record['kwh'])*(0.4999*0.28)
