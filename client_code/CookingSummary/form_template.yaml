@@ -34,13 +34,10 @@ components:
   properties: {height: '450', spacing_above: large}
   type: Plot
   layout_properties: {grid_position: 'RIQQHV,ZQGGXH', full_width_row: true}
-- name: switchGraph
-  properties: {text: SWITCH TO LINE GRAPH, role: outlined-button, background: '#0800FF',
-    foreground: 'theme:On Secondary', icon: 'fa:line-chart', spacing_above: large,
-    bold: true, visible: false}
-  type: Button
-  layout_properties: {grid_position: 'BZPURS,ATZDWL'}
-  event_bindings: {click: switchGraph_click}
+- name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'QEEREI,BCSRSI'}
 - name: plot_3
   properties: {height: '500'}
   type: Plot
