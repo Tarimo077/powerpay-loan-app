@@ -84,6 +84,8 @@ class DeviceData(DeviceDataTemplate):
     self.map_1.street_view_control = False
     m = GoogleMap.Marker(position=GoogleMap.LatLng(lat, long), animation=GoogleMap.Animation.DROP)
     self.map_1.add_component(m)
+    z = GoogleMap.Circle(center=GoogleMap.LatLng(lat, long), radius=550, fill_color="#0800FF")
+    self.map_1.add_component(z)
     self.deviceLabel.text = " " + dev
     last_time = str(res['time'])
     formatted_timestamp = datetime.strptime(last_time, "%Y%m%d%H%M%S").strftime("%Y-%m-%d %H:%M:%S")
