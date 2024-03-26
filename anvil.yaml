@@ -3,9 +3,6 @@ dependencies:
   version: {dev: false}
 - app_id: INBK26FL6OGC5NLO
   version: {dev: false}
-- dep_id: dep_a73nl49vm3si9j
-  version: {dev: false}
-  resolution_hints: {app_id: OMOSQIHL4IYMIFWA, name: Clone of IFrame component, package_name: IFrames}
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
