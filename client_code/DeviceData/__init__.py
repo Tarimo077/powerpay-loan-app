@@ -274,7 +274,9 @@ class DeviceData(DeviceDataTemplate):
       'selectedDev' : self.devData['deviceID'],
       'status' : status
     }
-    c = confirm('Are you sure you want to ' + strconc + ' ' + self.devData['deviceID'], buttons=[("Yes", True),("No", False)])
+    em = ':eyes:'
+    e = anvil.server.call('emojiPass', em)
+    c = confirm('Are you sure you want to ' + strconc + ' ' + self.devData['deviceID'] +' '+ e , buttons=[("Yes", True),("No", False)])
     if(c==True):
       anvil.server.call('changeStatus', dt)
       dt = {
@@ -285,7 +287,12 @@ class DeviceData(DeviceDataTemplate):
       my_array = json.loads(text)
       sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
       anvil.server.call('strDevArr', sorted_items)
-      alert(self.devData['deviceID'] + ' ' + strconc + 'd', buttons=None)
+      if(strconc=='deactivate'):
+        ef = ':red_circle:'
+      else:
+        ef = ':blue_circle:'
+      et = anvil.server.call('emojiPass', ef)
+      alert(et + ' '+self.devData['deviceID'] + ' ' + strconc + 'd', buttons=None)
       open_form('DeviceData', self.devData['deviceID'])
     else:
       pass

@@ -28,7 +28,6 @@ class Request(RequestTemplate):
     response = anvil.server.call('req', dt)
     text = response.get_bytes().decode('utf-8')
     my_array = json.loads(text)
-    print(my_array)
     sorted_items = sorted(my_array, key=lambda x: int(x['deviceID'].split('device')[-1]))
     #sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
     self.repeating_panel_1.items = sorted_items

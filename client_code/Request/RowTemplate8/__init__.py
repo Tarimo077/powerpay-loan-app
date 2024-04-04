@@ -63,12 +63,18 @@ class RowTemplate8(RowTemplate8Template):
       'selectedDev' : self.item['deviceID'],
       'status' : status
     }
-
-    c = confirm('Are you sure you want to ' + strconc + ' ' + self.item['deviceID'], buttons=[("Yes", True),("No", False)])
+    em = ':eyes:'
+    e = anvil.server.call('emojiPass', em)
+    c = confirm('Are you sure you want to ' + strconc + ' ' + self.item['deviceID'] +' '+ e , buttons=[("Yes", True),("No", False)])
     if(c==True):
       anvil.server.call('changeStatus', dt)
       open_form('Request')
-      alert(self.item['deviceID'] + ' ' + strconc + 'd', buttons=None)
+      if(strconc=='deactivate'):
+        ef = ':red_circle:'
+      else:
+        ef = ':blue_circle:'
+      et = anvil.server.call('emojiPass', ef)
+      alert(et + ' ' + self.item['deviceID'] + ' ' + strconc + 'd', buttons=None)
     else:
       pass
 
