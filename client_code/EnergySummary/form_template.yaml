@@ -46,5 +46,5 @@ components:
   - name: plot_1
     properties: {spacing_above: none}
     type: Plot
-    layout_properties: {slot: plot1, width: 1085.939951171875}
+    layout_properties: {slot: plot1, width: 737.938}
 is_package: true

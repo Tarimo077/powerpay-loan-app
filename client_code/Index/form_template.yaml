@@ -11,13 +11,13 @@ components:
   properties: {spacing_below: none, spacing_above: none, align: left, bold: true,
     font: '', font_size: 20, icon_align: right}
   type: Label
-  layout_properties: {grid_position: 'MHCSDU,XRBECB', full_width_row: false}
+  layout_properties: {grid_position: 'MHCSDU,XRBECB', full_width_row: true}
 - name: spacer_1
   properties: {height: 32, spacing_above: none}
   type: Spacer
   layout_properties: {grid_position: 'MHCSDU,VGIMQS', full_width_row: true}
 - name: username_label
-  properties: {align: right, role: bot, foreground: 'theme:On Primary', spacing_above: none}
+  properties: {align: left, role: bot, foreground: 'theme:On Primary', spacing_above: none}
   type: Label
   layout_properties: {grid_position: 'MHCSDU,BJPIGC', full_width_row: true}
 - name: energyTab
