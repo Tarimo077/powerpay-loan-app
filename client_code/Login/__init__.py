@@ -59,7 +59,10 @@ class Login(LoginTemplate):
       anvil.server.call('strusr', d['username'])
       anvil.server.call('strInit', False)
       open_form('Index')
-      alert('\t\t\tHi '+d['username']+' \n\n\tWelcome To The Powerpay \n\t\t\t\t\t\tApp', buttons=None)
+      e = ':slightly_smiling_face:'
+      em = anvil.server.call('emojiPass', e)
+      tx = '\t\t\tHi '+d['username']+em+' \n\n\tWelcome To The Powerpay \n\t\t\t\t\t\tApp'
+      alert(tx, buttons=None)
 
   def eye_click(self, **event_args):
     """This method is called when the button is clicked"""
