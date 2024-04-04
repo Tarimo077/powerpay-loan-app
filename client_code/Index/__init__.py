@@ -19,6 +19,9 @@ class Index(IndexTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    em = ':Kenya:'
+    emo = anvil.server.call('emojiPass', em)
+    self.flag.text = emo
     self.username_label.popover(UserPopover(), 
                           placement = 'bottom', 
                           trigger='stickyhover', 

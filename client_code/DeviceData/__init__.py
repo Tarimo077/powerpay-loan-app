@@ -32,11 +32,13 @@ class DeviceData(DeviceDataTemplate):
       self.statusChange.background = '#DB4437'
       self.statusChange.tooltip = 'Deactivate ' + devData['deviceID']
       self.statusChange.foreground = '#FFFFFF'
+      self.label_6.text = "Last Activation Time:"
     else:
       self.statusChange.text = 'Activate'
       self.statusChange.background = '#0080FF'
       self.statusChange.tooltip = 'Activate ' + devData['deviceID']
       self.statusChange.foreground = '#FFFFFF'
+      self.label_6.text = "Last Deactivation Time:"
     self.devList.items = devArr
     self.devList.selected_value = dev
     self.activity.text = devData['active']

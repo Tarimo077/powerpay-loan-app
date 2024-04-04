@@ -9,7 +9,7 @@ import anvil.http
 import anvil.media
 import pandas as pd
 import anvil.js
-import
+import emoji
 
 
 # This is a server module. It runs on the Anvil server,
@@ -24,6 +24,12 @@ import
 #   print("Hello, " + name + "!")
 #   return 42
 #
+
+@anvil.server.callable
+def emojiPass(e):
+  emo = emoji.emojize(e)
+  return emo
+  
 @anvil.server.callable
 def req(data):
   url = "https://appliapay.com/command"

@@ -37,7 +37,7 @@ components:
     layout_properties: {slot: label4}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Last Telemetry Time:', font_size: 16, font: '', spacing_above: small,
+      visible: true, text: 'Last Cooking Time:', font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_2

@@ -4,13 +4,14 @@ container:
 components:
 - name: image_1
   properties: {height: 33.000030517578125, spacing_above: none, source: _/theme/pplogo.png,
-    display_mode: shrink_to_fit, horizontal_align: left, vertical_align: top}
+    display_mode: shrink_to_fit, horizontal_align: right, vertical_align: top}
   type: Image
   layout_properties: {grid_position: 'MHCSDU,ZAOZRI', full_width_row: true}
 - name: flag
-  properties: {spacing_below: none, spacing_above: none, align: center}
+  properties: {spacing_below: none, spacing_above: none, align: left, bold: true,
+    font: '', font_size: 20, icon_align: right}
   type: Label
-  layout_properties: {grid_position: 'MHCSDU,XRBECB'}
+  layout_properties: {grid_position: 'MHCSDU,XRBECB', full_width_row: false}
 - name: spacer_1
   properties: {height: 32, spacing_above: none}
   type: Spacer
