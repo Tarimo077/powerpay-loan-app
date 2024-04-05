@@ -26,8 +26,12 @@ class EmissionSummary(EmissionSummaryTemplate):
     totalKwh = res['totalkwh']
     self.rawData = rawData
     self.dataParseAndPlot(rawData)
-    self.totalEmissions.text = str(round((totalKwh*0.4999*0.28),2)) + " KGS"
-    self.emissionsPerDevice.text = str(round((totalKwh*0.4999*0.28),2)/len(self.dt)) + " KGS/DEVICE"
+    ems = totalKwh*0.4999*0.28
+    emsperdev = ems/len(self.dt)
+    emsperdev = round(emsperdev, 2)
+    ems = round(ems, 2)
+    self.totalEmissions.text = str(ems) + " KGS"
+    self.emissionsPerDevice.text = str(emsperdev) + " KGS/DEVICE"
     self.totalEmissions.tooltip = self.totalEmissions.text + " represents the amount of carbon released by all devices"
     self.emissionsPerDevice.tooltip = self.emissionsPerDevice.text + " represents the average amount of carbon released by all devices"    
     
