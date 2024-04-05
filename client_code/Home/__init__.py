@@ -117,10 +117,6 @@ class Home(HomeTemplate):
     else:
       pass
 
-  def home_link_copy_3_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('Support')
-
   def transactions_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Transactions', True)
