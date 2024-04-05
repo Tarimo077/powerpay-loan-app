@@ -25,7 +25,8 @@ class EnergySummary(EnergySummaryTemplate):
     res = json.loads(res)
     rawData = res['rawData']
     totalKwh = res['totalkwh']
-    self.kwhValue.text = str(round(totalKwh,2)) + " kWh"
+    totalKwh = round(totalKwh,2)
+    self.kwhValue.text = str(totalKwh) + " kWh"
     formatted_number = "{:,}".format(round((totalKwh*23)))
     self.costValue.text = "KSH. "+ str(formatted_number)
     self.kwhValue.tooltip = self.kwhValue.text + " represents the total kwh used by all devices"
