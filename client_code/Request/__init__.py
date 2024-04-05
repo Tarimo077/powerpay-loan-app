@@ -31,7 +31,6 @@ class Request(RequestTemplate):
     sorted_items = sorted(my_array, key=lambda x: int(x['deviceID'].split('device')[-1]) if x['deviceID'] != 'OfficeFridge1' else float('inf'))
     #sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
     self.repeating_panel_1.items = sorted_items
-    print(sorted_items)
     anvil.server.call('strDevArr', sorted_items)
     self.item = sorted_items
     active_devs = 0

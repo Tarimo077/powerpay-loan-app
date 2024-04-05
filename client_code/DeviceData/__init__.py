@@ -217,9 +217,17 @@ class DeviceData(DeviceDataTemplate):
         'bar': {'color': 'yellow'}
       }
         )]
+    if self.dev == 'OfficeFridge1':
+      vl = self.adjsum*0.4999*0.1
+      self.label_2.text = 'Last Operation Time'
+      titl = f"TOTAL OPERATION TIME"
+    else:
+      vl = self.adjsum*0.4999*0.28
+      titl = f"TOTAL COOKING TIME"
+      
     self.carbonEmissions.data = [go.Indicator(
     mode="gauge+number",
-    value=(self.adjsum)*0.4999*0.28,
+    value=vl,
     title=f"CARBON EMISSIONS",
     number={'suffix': f" {utz}"},
     gauge={
@@ -230,7 +238,7 @@ class DeviceData(DeviceDataTemplate):
     self.plotTime.data = [go.Indicator(
     mode="gauge+number",
     value=self.runtime,
-    title=f"TOTAL COOKING TIME",
+    title=titl,
     number={'suffix': f" {uts}"},
     gauge={
         'axis': {'range': [None, 50]},
