@@ -75,6 +75,7 @@ class DeviceData(DeviceDataTemplate):
     long = res['long']
     rawData = res['rawData']
     self.rawData = rawData
+    self.map_1.clear()
     self.map_1.center = GoogleMap.LatLng(lat, long) 
     self.map_1.zoom = 15
     self.map_1.disable_double_click_zoom = True
@@ -92,6 +93,11 @@ class DeviceData(DeviceDataTemplate):
     last_time = str(res['time'])
     formatted_timestamp = datetime.strptime(last_time, "%Y%m%d%H%M%S").strftime("%Y-%m-%d %H:%M:%S")
     self.lastTime.text = " " + str(formatted_timestamp)
+    if dev == 'OfficeFridge1':
+      self.label_2.text = "Last Operation Time"
+      lb = f"TOTAL OPERATION TIME"
+    else:
+      lb = f"TOTAL COOKING TIME"
     value = res['totalkwh']  # Replace with your actual value
     self.totalRuntime = res['runtime']
     self.totalKwh = value
@@ -113,7 +119,7 @@ class DeviceData(DeviceDataTemplate):
     self.plotTime.data = [go.Indicator(
     mode="gauge+number",
     value=res['runtime'],
-    title=f"TOTAL COOKING TIME",
+    title=lb,
     number={'suffix': f" {uts}"},
     gauge={
         'axis': {'range': [None, 50]},
