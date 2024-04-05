@@ -136,9 +136,13 @@ class DeviceData(DeviceDataTemplate):
         'bar': {'color': 'yellow'}
     }
 )]
+    if dev == 'OfficeFridge1':
+      val = value*0.4999*0.1
+    else:
+      val = value*0.4999*0.28
     self.carbonEmissions.data = [go.Indicator(
     mode="gauge+number",
-    value=(value)*0.4999*0.28,
+    value=val,
     title=f"CARBON EMISSIONS",
     number={'suffix': f" {utz}"},
     gauge={
