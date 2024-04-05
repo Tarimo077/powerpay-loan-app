@@ -1229,6 +1229,13 @@ div.plot-container.plotly svg.main-svg {
   box-shadow: 10px 10px 10px #DB4437;
 }
 
+.anvil-role-roundedLink {
+  border-radius: 20px;
+  width: 150px;
+  border-color: #FFFFFF;
+  border: none;
+}
+
 
 
 

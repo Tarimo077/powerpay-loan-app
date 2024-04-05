@@ -67,6 +67,7 @@ roles:
 - {name: tabs-special, components: null, display_in_toolbox: false}
 - {name: tabs-basic}
 - {name: special-label}
+- {name: roundedLink}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

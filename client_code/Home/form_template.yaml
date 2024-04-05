@@ -155,14 +155,6 @@ components:
     name: rich_text_4
     layout_properties: {grid_position: 'GVTRDZ,TJQOVY SETAFH,FLBFTS', full_width_row: false}
     components:
-    - type: Button
-      properties: {role: usr, align: center, tooltip: talk to us, border: '', enabled: true,
-        foreground: '', visible: true, text: Open Support, font_size: 16, font: '',
-        spacing_above: small, icon_align: top, spacing_below: small, italic: false,
-        background: 'theme:On Primary', bold: true, underline: false, icon: ''}
-      name: outlined_button_4
-      layout_properties: {slot: button}
-      event_bindings: {click: outlined_button_4_click}
     - type: Image
       properties: {role: usr, vertical_align: bottom, height: '50', tooltip: '', border: '',
         foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
@@ -175,6 +167,12 @@ components:
       properties: {text: 'Need Help?', align: center, font_size: 24}
       type: Label
       layout_properties: {slot: lblSupport}
+    - name: link_1
+      properties: {role: roundedLink, text: Open Support, font_size: 16, foreground: 'theme:On
+          Secondary Container', background: 'theme:On Primary', align: center, bold: true,
+        url: 'https://dev-tickett.pantheonsite.io/new-ticket/'}
+      type: Link
+      layout_properties: {slot: button}
   - type: RichText
     properties: {role: usr, align: center, tooltip: '', enable_slots: true, border: '',
       foreground: 'theme:On Primary', visible: true, font_size: 36, content: "**Devices**\
