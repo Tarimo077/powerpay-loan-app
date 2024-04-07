@@ -74,8 +74,42 @@ class DeviceData(DeviceDataTemplate):
     lat = res['lat']
     long = res['long']
     rawData = res['rawData']
+    # Filter out coordinates with 0 latitude and longitude
+    filtered_data = [d for d in rawData if d['lat'] != 0 and d['long'] != 0]
+    # Assuming data is your provided list of dictionaries
+    sorted_data = sorted(filtered_data, key=lambda x: x['txtime'])  # Sort data based on txtime
+
+# Calculate the number of points in each third
+    third_length = len(sorted_data) // 3
+
+# Divide the sorted data into three equal parts
+    first_third = sorted_data[-third_length:]
+    second_third = sorted_data[third_length:2*third_length]
+    third_third = sorted_data[:third_length]
+
+# Define colors for each third
+    color_first_third = 'blue'
+    color_second_third = 'orange'
+    color_third_third = 'red'
+# Convert each third of data to polyline with respective color
+    polyline_first_third = self.data_to_polyline(first_third, color_first_third)
+    polyline_second_third = self.data_to_polyline(second_third, color_second_third)
+    polyline_third_third = self.data_to_polyline(third_third, color_third_third)
+    self.map_2.clear()
+    self.map_2.add_component(polyline_first_third)
+    self.map_2.add_component(polyline_second_third)
+    self.map_2.add_component(polyline_third_third)
     self.rawData = rawData
     self.map_1.clear()
+    self.map_2.center = GoogleMap.LatLng(lat, long) 
+    self.map_2.zoom = 15
+    self.map_2.disable_double_click_zoom = True
+    self.map_2.zoom_control = True
+    self.map_2.draggable = True
+    self.map_2.fullscreen_control = False
+    self.map_2.disable_default_ui = True
+    self.map_2.rotate_control = False
+    self.map_2.street_view_control = False
     self.map_1.center = GoogleMap.LatLng(lat, long) 
     self.map_1.zoom = 15
     self.map_1.disable_double_click_zoom = True
@@ -278,6 +312,23 @@ class DeviceData(DeviceDataTemplate):
   def devList_change(self, **event_args):
     """This method is called when an item is selected"""
     self.__init__(self.devList.selected_value)
+
+  def data_to_polyline(self, data, color):
+    coordinates = [(d['lat'], d['long']) for d in data]
+    path = [GoogleMap.LatLng(lat, long) for lat, long in coordinates]
+    return GoogleMap.Polyline(
+        path=path,
+        stroke_color=color,
+        stroke_weight=2,
+        icons=[
+            GoogleMap.IconSequence(
+                icon=GoogleMap.Symbol(
+                    path=GoogleMap.SymbolPath.FORWARD_OPEN_ARROW,
+                    scale=5
+                )
+            )
+        ]
+    )
 
   def statusChange_click(self, **event_args):
     """This method is called when the button is clicked"""

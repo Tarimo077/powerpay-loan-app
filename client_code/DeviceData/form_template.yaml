@@ -132,10 +132,24 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'UAKTES,EJMDNG', full_width_row: true}
+- name: label_5
+  properties: {align: center, text: LAST LOCATION, bold: true, icon: 'fa:map-pin',
+    spacing_below: none, font_size: 18}
+  type: Label
+  layout_properties: {grid_position: 'NBDASR,WWIJOX', full_width_row: true}
+- name: label_7
+  properties: {spacing_above: none, align: center, bold: true, text: LOCATION HISTORY,
+    icon: 'fa:location-arrow', font_size: 18}
+  type: Label
+  layout_properties: {grid_position: 'NBDASR,CUZSAP', full_width_row: true}
 - type: GoogleMap
-  properties: {height: 453}
+  properties: {height: '450', spacing_below: medium, spacing_above: none}
   name: map_1
   layout_properties: {grid_position: 'PXHXOE,KULJEG', full_width_row: true}
+- name: map_2
+  properties: {height: '450', spacing_above: none}
+  type: GoogleMap
+  layout_properties: {grid_position: 'PXHXOE,OLPYQL'}
 - type: Button
   properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
     foreground: 'theme:On Primary', visible: true, text: BACK TO DEVICES, font_size: null,
