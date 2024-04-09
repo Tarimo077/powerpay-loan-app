@@ -75,7 +75,7 @@ class DeviceData(DeviceDataTemplate):
     long = res['long']
     rawData = res['rawData']
     # Filter out coordinates with 0 latitude and longitude
-    filtered_data = [d for d in rawData if d['lat'] != 0 and d['long'] != 0]
+    filtered_data = [d for d in rawData if d['lat'] != 0 and d['long'] != 0 and d['long'] > 10]
     # Assuming data is your provided list of dictionaries
     sorted_data = sorted(filtered_data, key=lambda x: x['txtime'])  # Sort data based on txtime
 
