@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"KOPVYR":3,"GTKGZA":26,"EBYGSC":57,"NOTDJW":4,"PVTXQW":30,"FASIXZ":13,"LDIUQS":24,"QRIGXA":55,"PMXMYO":3,"XUCRSH":40,"BIHVYY":20}'}
+  properties: {col_widths: '{"KOPVYR":3,"GTKGZA":26,"EBYGSC":57,"NOTDJW":4,"PVTXQW":30,"FASIXZ":27,"QRIGXA":41,"PMXMYO":3,"XUCRSH":40,"BIHVYY":20}'}
 components:
 - name: spacer_1
   properties: {height: 32, spacing_above: large}
@@ -8,7 +8,7 @@ components:
   layout_properties: {grid_position: 'TJYJQQ,KOPVYR', full_width_row: true}
 - name: label_1
   properties: {font_size: 24, bold: true, text: PowerPay Africa Limited, spacing_above: large,
-    align: left, spacing_below: none}
+    align: center, spacing_below: none}
   type: Label
   layout_properties: {grid_position: 'TJYJQQ,GTKGZA NDMPHQ,ZEZHUI', full_width_row: true}
 - name: image_1
@@ -21,7 +21,7 @@ components:
 
       2nd Floor, Ridgeways Milestone Business Centre,
 
-      Kiambu Road.', bold: true, align: left}
+      Kiambu Road.', bold: true, align: center}
   type: Label
   layout_properties: {grid_position: 'TJYJQQ,GTKGZA BHMWUG,PVTXQW'}
 - name: label_2
@@ -62,14 +62,6 @@ components:
   properties: {text: 'CONTACT:', bold: true, font_size: 18, align: left}
   type: Label
   layout_properties: {grid_position: 'RZWZDB,FASIXZ TZWNBY,GFYDWM'}
-- name: text_box_1
-  properties: {role: outlined}
-  type: TextBox
-  layout_properties: {grid_position: 'RZWZDB,LDIUQS UFYVPS,VSURLK'}
-- name: text_box_2
-  properties: {role: outlined, spacing_below: large}
-  type: TextBox
-  layout_properties: {grid_position: 'RZWZDB,LDIUQS KOMNVP,DYYRRB'}
 - name: spacer_4
   properties: {height: 32}
   type: Spacer
@@ -95,9 +87,4 @@ components:
     type: RepeatingPanel
     layout_properties: {}
   layout_properties: {grid_position: 'IPWVIN,COWUWP', full_width_row: false}
-- name: button_1
-  properties: {text: DOWNLOAD}
-  type: Button
-  layout_properties: {grid_position: 'AIMYON,AGHHYG'}
-  event_bindings: {click: button_1_click}
 is_package: true

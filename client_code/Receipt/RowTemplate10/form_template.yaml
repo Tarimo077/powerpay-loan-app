@@ -3,15 +3,15 @@ container:
   type: DataRowPanel
   properties: {align: center}
 components:
-- name: desc
-  properties: {role: outlined, align: center}
-  type: TextBox
-  layout_properties: {column: VJQQOR}
 - name: qty
   properties: {role: outlined, align: center}
   type: TextBox
   layout_properties: {column: JKSDUP}
-- name: amnt
+- name: desc
   properties: {role: outlined, align: center}
+  type: TextBox
+  layout_properties: {column: VJQQOR}
+- name: amnt
+  properties: {role: outlined}
   type: TextBox
   layout_properties: {column: OJLQEN}
