@@ -41,6 +41,7 @@ class Receipt(ReceiptTemplate):
     receName = self.receiptNum1 + ".pdf"
     media_object = anvil.server.call('create_pdf', self.billTo.text, self.contact.text, self.receiptNum1, self.date1, self.repeating_panel_1.items, receName)
     anvil.media.download(media_object)
+    open_form('Transactions', True)
 
   def outlined_button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
