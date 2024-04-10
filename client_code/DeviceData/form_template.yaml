@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"FZJEPR":32,"DJQIEK":28,"DMMIPD":15,"VPMSBS":20,"MORULN":23,"CHNKBM":17,"WXXWWB":12,"JLUWSC":25}',
+  properties: {col_widths: '{"FZJEPR":32,"DJQIEK":28,"DMMIPD":17,"VPMSBS":20,"MORULN":26,"CHNKBM":17,"WXXWWB":7,"JLUWSC":25}',
     role: outlined}
 components:
 - type: RichText
@@ -74,7 +74,7 @@ components:
     type: Label
     layout_properties: {slot: label8}
 - name: label_3
-  properties: {text: 'DEVICE:', align: right}
+  properties: {text: 'DEVICE:', align: left}
   type: Label
   layout_properties: {grid_position: 'LYVYPQ,WXXWWB', full_width_row: true}
 - name: devList

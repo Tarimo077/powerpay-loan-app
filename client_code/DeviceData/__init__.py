@@ -75,7 +75,7 @@ class DeviceData(DeviceDataTemplate):
     long = res['long']
     rawData = res['rawData']
     # Filter out coordinates with 0 latitude and longitude
-    filtered_data = [d for d in rawData if d['lat'] != 0 and d['long'] != 0 and d['long'] > 10]
+    filtered_data = [d for d in rawData if d['lat'] != 0 and d['long'] != 0 and d['long'] > 10 and d['long'] < 40]
     # Assuming data is your provided list of dictionaries
     sorted_data = sorted(filtered_data, key=lambda x: x['txtime'])  # Sort data based on txtime
 
@@ -99,6 +99,12 @@ class DeviceData(DeviceDataTemplate):
     self.map_2.add_component(polyline_first_third)
     self.map_2.add_component(polyline_second_third)
     self.map_2.add_component(polyline_third_third)
+    for z in sorted_data:
+      dt_object = datetime.strptime(str(z['txtime']), "%Y%m%d%H%M%S")
+      # Format datetime object
+      formatted_datetime = dt_object.strftime("%d %B %Y %I:%M %p")
+      w = GoogleMap.Marker(position=GoogleMap.LatLng(z['lat'], z['long']), animation=GoogleMap.Animation.DROP, clickable=True, label=z['txtime'], title=(dev+" location on "+formatted_datetime))
+      self.map_2.add_component(w)
     self.rawData = rawData
     self.map_1.clear()
     self.map_2.center = GoogleMap.LatLng(lat, long) 
@@ -119,7 +125,7 @@ class DeviceData(DeviceDataTemplate):
     self.map_1.disable_default_ui = True
     self.map_1.rotate_control = False
     self.map_1.street_view_control = False
-    m = GoogleMap.Marker(position=GoogleMap.LatLng(lat, long), animation=GoogleMap.Animation.DROP)
+    m = GoogleMap.Marker(position=GoogleMap.LatLng(lat, long), animation=GoogleMap.Animation.DROP, label=dev, clickable=True, title=(dev+' last location'))
     self.map_1.add_component(m)
     z = GoogleMap.Circle(center=GoogleMap.LatLng(lat, long), radius=550, fill_color="#0800FF")
     self.map_1.add_component(z)

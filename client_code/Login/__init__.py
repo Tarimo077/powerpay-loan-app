@@ -53,16 +53,18 @@ class Login(LoginTemplate):
       self.password.text = ''
       return
     else:
+      self.login.enabled = False
       self.item = d['username']
       #anvil.server.session['usr'] = username
       #print(anvil.server.session.get('usr'))
       anvil.server.call('strusr', d['username'])
       anvil.server.call('strInit', False)
-      open_form('Index')
       e = ':slightly_smiling_face:'
       em = anvil.server.call('emojiPass', e)
       tx = '\t\t\tHi '+d['username']+em+' \n\n\tWelcome To The Powerpay \n\t\t\t\t\t\tApp'
+      open_form('Index')
       alert(tx, buttons=None)
+      
 
   def eye_click(self, **event_args):
     """This method is called when the button is clicked"""
