@@ -1,0 +1,63 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"KOPVYR":3,"GTKGZA":67,"EBYGSC":16,"NOTDJW":4,"PVTXQW":15,"BFXUIX":45,"FASIXZ":8,"LDIUQS":22,"QRIGXA":62,"PMXMYO":3}'}
+components:
+- name: spacer_1
+  properties: {height: 32, spacing_above: large}
+  type: Spacer
+  layout_properties: {grid_position: 'TJYJQQ,KOPVYR', full_width_row: true}
+- name: label_1
+  properties: {font_size: 24, bold: true, text: PowerPay Africa Limited, spacing_above: large,
+    align: left, spacing_below: none}
+  type: Label
+  layout_properties: {grid_position: 'TJYJQQ,GTKGZA QTAOKH,KRYHBJ', full_width_row: true}
+- name: image_1
+  properties: {horizontal_align: center, spacing_above: none, height: '60', source: _/theme/powerpay_logo-logo.png,
+    display_mode: zoom_to_fill, vertical_align: center}
+  type: Image
+  layout_properties: {grid_position: 'TJYJQQ,GTKGZA BHMWUG,PVTXQW', full_width_row: true}
+- name: spacer_3
+  properties: {height: 32, spacing_above: large}
+  type: Spacer
+  layout_properties: {grid_position: 'TJYJQQ,GTKGZA BHMWUG,BFXUIX', full_width_row: true}
+- name: label_2
+  properties: {spacing_above: large, align: right, font_size: 24, bold: true, text: PAYMENT RECEIPT}
+  type: Label
+  layout_properties: {grid_position: 'TJYJQQ,EBYGSC THMKVN,PCJPDW'}
+- name: date
+  properties: {align: center}
+  type: Label
+  layout_properties: {grid_position: 'TJYJQQ,EBYGSC TACDLK,BIHVYY'}
+- name: spacer_2
+  properties: {height: 32, spacing_above: large}
+  type: Spacer
+  layout_properties: {grid_position: 'TJYJQQ,NOTDJW'}
+- name: image_2
+  properties: {height: '20', source: _/theme/Receipt line.png, display_mode: zoom_to_fill}
+  type: Image
+  layout_properties: {grid_position: 'OGILIA,EBKMQY', full_width_row: true}
+- name: spacer_5
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'RZWZDB,PMXMYO', full_width_row: true}
+- name: label_3
+  properties: {text: 'BILL TO: ', font_size: 18, bold: true, align: right}
+  type: Label
+  layout_properties: {grid_position: 'RZWZDB,FASIXZ HLQXWA,WDPKJC', full_width_row: true}
+- name: label_4
+  properties: {text: 'CONTACT:', bold: true, font_size: 18, align: right}
+  type: Label
+  layout_properties: {grid_position: 'RZWZDB,FASIXZ TZWNBY,GFYDWM'}
+- name: text_box_1
+  properties: {role: outlined}
+  type: TextBox
+  layout_properties: {grid_position: 'RZWZDB,LDIUQS UFYVPS,VSURLK'}
+- name: text_box_2
+  properties: {role: outlined}
+  type: TextBox
+  layout_properties: {grid_position: 'RZWZDB,LDIUQS KOMNVP,DYYRRB'}
+- name: spacer_4
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'RZWZDB,QRIGXA', full_width_row: true}
+is_package: true

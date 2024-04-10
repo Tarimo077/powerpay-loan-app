@@ -21,7 +21,7 @@ components:
       icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
       bold: true, underline: false, icon: 'fa:money'}
     name: moneyin
-    layout_properties: {grid_position: 'FPPKOT,HHCRYA'}
+    layout_properties: {grid_position: 'FPPKOT,HHCRYA', full_width_row: true}
   - type: Spacer
     properties: {height: 5}
     name: spacer_7
@@ -32,7 +32,7 @@ components:
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
     name: button_1
-    layout_properties: {grid_position: 'FPPKOT,VCOCKL ZNPXNM,YIXRCU'}
+    layout_properties: {grid_position: 'FPPKOT,VCOCKL ZNPXNM,YIXRCU', full_width_row: true}
     event_bindings: {click: button_1_click}
   - type: Spacer
     properties: {height: 45}
@@ -78,7 +78,7 @@ components:
       underline: false
       include_placeholder: false
     name: drop_down_1
-    layout_properties: {grid_position: 'MGTAWD,GSGGRO'}
+    layout_properties: {grid_position: 'MGTAWD,GSGGRO', full_width_row: true}
     event_bindings: {change: drop_down_1_change}
   - type: Button
     properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
@@ -86,7 +86,7 @@ components:
       font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
       italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:download'}
     name: button_2
-    layout_properties: {grid_position: 'XEVLPI,DAPTTN'}
+    layout_properties: {grid_position: 'XEVLPI,DAPTTN', full_width_row: true}
     event_bindings: {click: button_2_click}
   - type: Spacer
     properties: {height: 32}
@@ -127,7 +127,7 @@ components:
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '#0080FF', bold: true, underline: false, icon: 'fa:search'}
     name: query
-    layout_properties: {grid_position: 'SDFMPE,UUARUP'}
+    layout_properties: {grid_position: 'SDFMPE,UUARUP', full_width_row: true}
     event_bindings: {click: query_click}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -158,7 +158,7 @@ components:
       spacing_below: small
       background: ''
     name: data_grid_1
-    layout_properties: {grid_position: 'WPYNWS,WVEZKQ'}
+    layout_properties: {grid_position: 'WPYNWS,WVEZKQ', full_width_row: true}
     components:
     - type: RepeatingPanel
       properties: {spacing_above: none, spacing_below: none, item_template: Transactions.RowTemplate1}
@@ -167,19 +167,19 @@ components:
   - type: Spacer
     properties: {height: 46}
     name: spacer_4
-    layout_properties: {grid_position: 'XJKPZC,POVAPT'}
+    layout_properties: {grid_position: 'XJKPZC,POVAPT', full_width_row: true}
   - type: RichText
-    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: null, content: "{spacer} {button}\
-        \ \n{plot}", font: '', spacing_above: small, spacing_below: small, data: null,
-      background: '', format: markdown}
+    properties: {role: null, align: center, tooltip: '', enable_slots: true, border: '',
+      foreground: '', visible: true, font_size: null, content: "{button} \n{plot}",
+      font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+      format: markdown}
     name: rich_text_1
-    layout_properties: {grid_position: 'PWUTLQ,XHVTMZ'}
+    layout_properties: {grid_position: 'PWUTLQ,XHVTMZ', full_width_row: true}
     components:
     - type: Plot
       properties: {height: 515}
       name: plot_1
-      layout_properties: {grid_position: 'NIGARY,RCHWTS', slot: plot, width: 902.6}
+      layout_properties: {grid_position: 'NIGARY,RCHWTS', slot: plot, width: 987.7777099609375}
     - type: Button
       properties: {role: outlined-button, align: center, tooltip: '', border: '',
         enabled: true, foreground: 'theme:On Primary', visible: true, text: SWITCH TO BAR GRAPH,
@@ -188,14 +188,10 @@ components:
       name: bar_graph
       layout_properties: {slot: button}
       event_bindings: {click: bar_graph_click}
-    - type: Spacer
-      properties: {height: 28}
-      name: spacer_8
-      layout_properties: {slot: spacer, width: 333}
   - type: Spacer
     properties: {height: 36}
     name: spacer_5
-    layout_properties: {grid_position: 'ZJCFPJ,IYGBQQ'}
+    layout_properties: {grid_position: 'ZJCFPJ,IYGBQQ', full_width_row: true}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: TRANSACTORS BY AMOUNT, font_size: null, font: '', spacing_above: small,
@@ -221,7 +217,7 @@ components:
       spacing_below: small
       background: ''
     name: data_grid_3
-    layout_properties: {grid_position: 'DSJVPW,WEPMZG'}
+    layout_properties: {grid_position: 'DSJVPW,WEPMZG', full_width_row: true}
     components:
     - type: RepeatingPanel
       properties: {spacing_above: none, spacing_below: none, item_template: Transactions.RowTemplate3}
@@ -256,7 +252,7 @@ components:
       spacing_below: small
       background: ''
     name: data_grid_2
-    layout_properties: {grid_position: 'UOCPJE,BRWGQK'}
+    layout_properties: {grid_position: 'UOCPJE,BRWGQK', full_width_row: true}
     components:
     - type: RepeatingPanel
       properties: {spacing_above: none, spacing_below: none, item_template: Transactions.RowTemplate2}
