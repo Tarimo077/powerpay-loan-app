@@ -14,9 +14,15 @@ class Receipt(ReceiptTemplate):
     self.init_components(**properties)
     totl = 0
     for i in list:
-       =
+       totl = totl + i['amnt']
+    vat = (0.16 * totl)
+    subtotal = totl - vat
+    self.vat.text = '{:,}'.format(vat)
+    self.subTotal.text = '{:,}'.format(subtotal)
+    self.totalAmnt.text = '{:,}'.format(totl)
     if x == False:
       self.button_1.remove_from_parent()
+      self.outlined_button_1.remove_from_parent()
     self.repeating_panel_1.items = list
     self.billTo.text = billTo
     self.contact.text = contact
@@ -35,4 +41,8 @@ class Receipt(ReceiptTemplate):
     receName = self.receiptNum1 + ".pdf"
     media_object = anvil.server.call('create_pdf', self.billTo.text, self.contact.text, self.receiptNum1, self.date1, self.repeating_panel_1.items, receName)
     anvil.media.download(media_object)
+
+  def outlined_button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Transactions', True)
     

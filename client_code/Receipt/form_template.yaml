@@ -17,9 +17,9 @@ components:
   type: Image
   layout_properties: {grid_position: 'TJYJQQ,GTKGZA WUUTGR,IDFKCT'}
 - name: label_5
-  properties: {text: 'Kutana Place,
+  properties: {text: 'Kutana Place 2nd Floor,
 
-      2nd Floor, Ridgeways Milestone Business Centre,
+      Ridgeways Milestone Business Centre,
 
       Kiambu Road.', bold: true, align: center, spacing_below: none, italic: true,
     spacing_above: none}
@@ -101,14 +101,36 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'NNARJB,JUNHKY'}
+- name: label_7
+  properties: {align: right, bold: true, text: 'SUB-TOTAL:', font_size: 16, italic: true}
+  type: Label
+  layout_properties: {grid_position: 'NNARJB,BIKMEI KQIDLM,MIKJIL'}
+- name: label_9
+  properties: {align: right, text: 'VAT(16%):', bold: true, font_size: 16, italic: true}
+  type: Label
+  layout_properties: {grid_position: 'NNARJB,BIKMEI FQQVLY,KXSPLP'}
 - name: label_6
-  properties: {align: right, text: 'TOTAL:', bold: true, font_size: 18}
+  properties: {align: right, text: 'TOTAL:', bold: true, font_size: 20}
   type: Label
-  layout_properties: {grid_position: 'NNARJB,BIKMEI'}
+  layout_properties: {grid_position: 'NNARJB,BIKMEI TYPLKE,KKZKDJ'}
+- name: subTotal
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'NNARJB,QYZZJZ TQMBED,SWPPDP'}
+- name: vat
+  properties: {font_size: 16}
+  type: Label
+  layout_properties: {grid_position: 'NNARJB,QYZZJZ UAQCOY,JVWOKV'}
 - name: totalAmnt
-  properties: {align: left, font_size: 18}
+  properties: {align: left, font_size: 20, bold: true}
   type: Label
-  layout_properties: {grid_position: 'NNARJB,QYZZJZ'}
+  layout_properties: {grid_position: 'NNARJB,QYZZJZ MTTPFY,NZEAID'}
+- name: outlined_button_1
+  properties: {text: CANCEL, role: outlined-button, background: '#DB4437', foreground: 'theme:On
+      Primary', spacing_above: large, bold: true, icon: 'fa:backward'}
+  type: Button
+  layout_properties: {grid_position: 'AIMYON,IDWRRI'}
+  event_bindings: {click: outlined_button_1_click}
 - name: button_1
   properties: {text: DOWNLOAD, spacing_above: large, icon: 'fa:download', background: '#0800ff',
     foreground: 'theme:On Primary', bold: true}
