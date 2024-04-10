@@ -10,7 +10,8 @@ import anvil.media
 import pandas as pd
 import anvil.js
 import emoji
-
+import anvil.pdf
+from anvil.pdf import PDFRenderer
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -24,6 +25,10 @@ import emoji
 #   print("Hello, " + name + "!")
 #   return 42
 #
+@anvil.server.callable
+def create_pdf():
+  pdf = PDFRenderer(page_size='A4', filename='powerpay_receipt.pdf').render_form('Receipt')
+  return pdf
 
 @anvil.server.callable
 def emojiPass(e):

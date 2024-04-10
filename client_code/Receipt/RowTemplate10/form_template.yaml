@@ -1,0 +1,17 @@
+is_package: true
+container:
+  type: DataRowPanel
+  properties: {align: center}
+components:
+- name: desc
+  properties: {role: outlined, align: center}
+  type: TextBox
+  layout_properties: {column: VJQQOR}
+- name: qty
+  properties: {role: outlined, align: center}
+  type: TextBox
+  layout_properties: {column: JKSDUP}
+- name: amnt
+  properties: {role: outlined, align: center}
+  type: TextBox
+  layout_properties: {column: OJLQEN}
