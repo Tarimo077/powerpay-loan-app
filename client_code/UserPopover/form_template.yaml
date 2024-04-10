@@ -123,8 +123,8 @@ components:
   layout_properties: {grid_position: 'GVOLKM,CEPORU'}
 - type: Button
   properties: {role: logout2, align: left, tooltip: Log out, border: '', enabled: true,
-    foreground: '', visible: true, text: LOGOUT, font_size: 12, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '#DB4437',
+    foreground: 'theme:On Primary', visible: true, text: LOGOUT, font_size: 12, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#DB4437',
     bold: true, underline: false, icon: 'fa:sign-out'}
   name: button_1
   layout_properties: {grid_position: 'OWTNKH,ECCPQN'}

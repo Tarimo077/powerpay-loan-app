@@ -73,9 +73,9 @@ components:
     layout_properties: {grid_position: 'DWBRUG,LXBQPH'}
   - type: Button
     properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: SHARE, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#DB4437',
-      bold: true, underline: false, icon: 'fa:location-arrow'}
+      foreground: 'theme:On Primary', visible: true, text: SHARE, font_size: null,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '#DB4437', bold: true, underline: false, icon: 'fa:location-arrow'}
     name: button_1
     layout_properties: {grid_position: 'JXEOKS,ROJDXT'}
     event_bindings: {click: button_1_click}
@@ -170,10 +170,10 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - type: Label
-    properties: {role: bot, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-      spacing_below: small, italic: false, background: '', bold: false, underline: false,
-      icon: ''}
+    properties: {role: bot, align: center, tooltip: '', border: '', foreground: 'theme:On
+        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
     name: username_label
     layout_properties: {}
 - type: ColumnPanel
@@ -183,10 +183,10 @@ components:
   components:
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: HOME, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:home'}
+      foreground: 'theme:On Primary', visible: true, text: HOME, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:home'}
     name: home_link
     layout_properties:
       col_widths: {}
@@ -200,27 +200,10 @@ components:
       grid_position: SSORCJ,JEQGUY
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: CUSTOMERS, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:users'}
-    name: customers
-    layout_properties:
-      col_widths: {}
-      grid_position: NIQRCO,YGOWBL
-    event_bindings: {click: customers_click}
-  - type: Spacer
-    properties: {height: 3}
-    name: spacer_1_copy_2
-    layout_properties:
-      col_widths: {}
-      grid_position: CZDHPL,QNGAAK
-  - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: DEVICE MANAGEMENT, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:cogs'}
+      foreground: 'theme:On Primary', visible: true, text: DEVICE MANAGEMENT, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:cogs'}
     name: request
     layout_properties:
       col_widths: {}
@@ -234,10 +217,10 @@ components:
       grid_position: CFPRKZ,NNAESY
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: TRANSACTIONS, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:money'}
+      foreground: 'theme:On Primary', visible: true, text: TRANSACTIONS, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:money'}
     name: home_link_copy
     layout_properties:
       col_widths: {}
@@ -251,10 +234,10 @@ components:
       grid_position: BVYBZT,KZFPNV
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}',
-      spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false,
-      icon: 'fa:chain-broken'}
+      foreground: 'theme:On Primary', visible: true, text: SUPPORT, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '{}', spacing_below: small, italic: false, background: '#0080FF',
+      bold: true, underline: false, icon: 'fa:chain-broken'}
     name: home_link_copy_2
     layout_properties:
       col_widths: {}
@@ -267,10 +250,10 @@ components:
     layout_properties: {grid_position: 'RDVWWG,PVQPRQ'}
   - type: Link
     properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: '', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile,
-      font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-      spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false,
-      icon: 'fa:sign-out'}
+      foreground: 'theme:On Primary', visible: true, text: LOG OUT, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '#DB4437',
+      bold: true, underline: false, icon: 'fa:sign-out'}
     name: home_link_copy_3
     layout_properties:
       col_widths: {}

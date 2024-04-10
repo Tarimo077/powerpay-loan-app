@@ -99,7 +99,7 @@ class Home(HomeTemplate):
     
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home', 0)
+    open_form('Index')
 
   def customers_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -117,17 +117,13 @@ class Home(HomeTemplate):
     else:
       pass
 
-  def home_link_copy_3_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('Support')
-
   def transactions_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Transactions', True)
 
   def outlined_button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('Customers')
+    open_form('Index')
 
   def outlined_button_2_click(self, **event_args):
     """This method is called when the button is clicked"""

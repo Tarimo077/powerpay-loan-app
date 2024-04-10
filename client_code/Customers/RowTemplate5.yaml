@@ -5,9 +5,9 @@ container:
 components:
 - type: Button
   properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: see more, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: true, background: '#0080FF', bold: true,
-    underline: false, icon: 'fa:angle-double-right'}
+    foreground: 'theme:On Primary', visible: true, text: see more, font_size: null,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+    background: '#0080FF', bold: true, underline: false, icon: 'fa:angle-double-right'}
   name: see_more
   layout_properties: {column: YEVOMJ}
   event_bindings: {click: see_more_click}

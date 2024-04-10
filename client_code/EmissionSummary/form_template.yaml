@@ -1,0 +1,42 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"GTDKDE":50,"YFGVDO":10}'}
+components:
+- name: totalEmissions
+  properties: {role: special-label, foreground: 'theme:On Primary', icon: 'fa:cogs',
+    spacing_below: large, align: center, bold: true, font_size: 24}
+  type: Label
+  layout_properties: {grid_position: 'LAAKHP,MDDJBP', full_width_row: true}
+- name: emissionsPerDevice
+  properties: {foreground: 'theme:On Primary', role: special-label, icon: 'fa:cog',
+    spacing_below: large, align: center, bold: true, font_size: 23}
+  type: Label
+  layout_properties: {grid_position: 'LAAKHP,NRKBWX', full_width_row: true}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'BXPVCK,GTDKDE', full_width_row: true}
+- name: drop_down_1
+  properties: {role: outlined}
+  type: DropDown
+  layout_properties: {grid_position: 'BXPVCK,YFGVDO', full_width_row: true}
+  event_bindings: {change: drop_down_1_change}
+- name: plot_2
+  properties: {spacing_above: large, spacing_below: large}
+  type: Plot
+  layout_properties: {grid_position: 'NWIAJK,DSYXVT', full_width_row: true}
+- name: plot_1
+  properties: {spacing_above: large, spacing_below: large}
+  type: Plot
+  layout_properties: {grid_position: 'NWIAJK,BHAIUD', full_width_row: true}
+- name: switchGraph
+  properties: {text: SWITCH TO LINE GRAPH, role: outlined-button, background: '#0800FF',
+    foreground: 'theme:On Primary', icon: 'fa:line-chart', spacing_above: large, bold: true}
+  type: Button
+  layout_properties: {grid_position: 'DPWPUF,VLZTAN ZWAAQI,JGHZVA'}
+  event_bindings: {click: switchGraph_click}
+- name: plot_3
+  properties: {}
+  type: Plot
+  layout_properties: {grid_position: ''}
+is_package: true

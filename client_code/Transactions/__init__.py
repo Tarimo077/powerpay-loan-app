@@ -132,10 +132,6 @@ class Transactions(TransactionsTemplate):
     """This method is called when the link is clicked"""
     open_form('Transactions', True)
 
-  def home_link_copy_2_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('Support')
-
   def home_link_copy_3_click(self, **event_args):
     """This method is called when the link is clicked"""
     c = confirm('Are you sure you want to logout?', buttons=[("Yes", True),("No", False)])
@@ -146,7 +142,7 @@ class Transactions(TransactionsTemplate):
 
   def home_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home', 0)
+    open_form('Index')
 
   def customers_click(self, **event_args):
     """This method is called when the link is clicked"""

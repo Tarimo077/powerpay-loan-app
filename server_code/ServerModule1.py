@@ -8,6 +8,8 @@ import anvil.server
 import anvil.http
 import anvil.media
 import pandas as pd
+import anvil.js
+import emoji
 
 
 # This is a server module. It runs on the Anvil server,
@@ -22,6 +24,12 @@ import pandas as pd
 #   print("Hello, " + name + "!")
 #   return 42
 #
+
+@anvil.server.callable
+def emojiPass(e):
+  emo = emoji.emojize(e)
+  return emo
+  
 @anvil.server.callable
 def req(data):
   url = "https://appliapay.com/command"
@@ -29,6 +37,15 @@ def req(data):
     "Content-Type": "application/json"
   }
   response = anvil.http.request(url, method="GET", data=data, headers=headers, username='admin', password='123Give!@#')
+  return response
+
+@anvil.server.callable
+def getAllDeviceData():
+  url = "https://appliapay.com/allDeviceData"
+  headers = {
+    "Content-Type": "application/json"
+  }
+  response = anvil.http.request(url, method="GET", headers=headers, username='admin', password='123Give!@#')
   return response
 
 @anvil.server.callable
@@ -166,6 +183,42 @@ def getusername():
   return usrn
 
 @anvil.server.callable
+def strRawData(dt):
+  anvil.server.session['rawData'] = dt
+
+@anvil.server.callable
+def getRawData():
+  rwDt = anvil.server.session.get('rawData')
+  return rwDt
+
+@anvil.server.callable
+def strInit(dt):
+  anvil.server.session['init'] = dt
+
+@anvil.server.callable
+def getInit():
+  init = anvil.server.session.get('init')
+  return init
+
+@anvil.server.callable
+def strKwh(dt):
+  anvil.server.session['totalKwh'] = dt
+
+@anvil.server.callable
+def getKwh():
+  kwh = anvil.server.session.get('totalKwh')
+  return kwh
+
+@anvil.server.callable
+def strRuntime(dt):
+  anvil.server.session['runtime'] = dt
+
+@anvil.server.callable
+def getRuntime():
+  runtime = anvil.server.session.get('runtime')
+  return runtime
+
+@anvil.server.callable
 def download_customers(arr):
   array = arr
   df = pd.DataFrame(array)
@@ -198,4 +251,22 @@ def changeRange(dt):
   url = "https://appliapay.com/dynamicTs"
   response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', data=dt)
   return response
+
+@anvil.server.callable
+def changeRangeIndex(dt):
+  url = "https://appliapay.com/dynamicTsIndex"
+  response = anvil.http.request(url, method="GET", username='admin', password='123Give!@#', data=dt)
+  return response
+
+@anvil.server.callable
+def animate_label(label, val):
+  # Initialize count
+  count = 0
+  # Loop to animate the label
+  for i in range(val+1):
+  # Update label text
+    anvil.js.call_js_function(label, 'setText', str(i))
+        # Wait for 1 second (1000 milliseconds)
+    anvil.js.call_js_function(js.window, 'setTimeout', lambda: None, i * 1000)
+  
   

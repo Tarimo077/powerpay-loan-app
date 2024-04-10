@@ -28,14 +28,15 @@ class Request(RequestTemplate):
     response = anvil.server.call('req', dt)
     text = response.get_bytes().decode('utf-8')
     my_array = json.loads(text)
-    sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
+    sorted_items = sorted(my_array, key=lambda x: int(x['deviceID'].split('device')[-1]) if x['deviceID'] != 'OfficeFridge1' else float('inf'))
+    #sorted_items = sorted(my_array, key=lambda x: x['deviceID'])
     self.repeating_panel_1.items = sorted_items
     anvil.server.call('strDevArr', sorted_items)
     self.item = sorted_items
     active_devs = 0
     inactive_devs = 0
     for obj in my_array:
-      if obj["active"] == 'Yes':
+      if obj["active"] == 'Yes' or obj["active"] == True:
         active_devs += 1
       else:
         inactive_devs += 1
@@ -60,7 +61,7 @@ class Request(RequestTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home', 0)
+    open_form('Index')
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -73,10 +74,6 @@ class Request(RequestTemplate):
   def repeating_panel_1_show(self, **event_args):
     """This method is called when the RepeatingPanel is shown on the screen"""
     self.refresh_data_bindings()
-
-  def home_link_copy_2_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('Support')
 
   def home_link_copy_click(self, **event_args):
     """This method is called when the link is clicked"""

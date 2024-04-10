@@ -79,9 +79,9 @@ components:
         width: 366
     - type: Button
       properties: {role: pwdbtn, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
-        bold: false, underline: false, icon: 'fa:eye'}
+        foreground: 'theme:On Primary', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
       name: eye
       layout_properties:
         col_widths: {}
@@ -98,9 +98,9 @@ components:
       components: []
     - type: Button
       properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: '', visible: true, text: LOG IN, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#0080FF', bold: true, underline: false, icon: 'fa:sign-in'}
+        enabled: true, foreground: 'theme:On Primary', visible: true, text: LOG IN,
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:sign-in'}
       name: login
       layout_properties: {grid_position: 'MXGHRR,LZNGMR', slot: button1}
       event_bindings: {click: login_click}
