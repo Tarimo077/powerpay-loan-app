@@ -140,12 +140,17 @@ components:
     properties:
       role: tonal-data-grid
       columns:
-      - {id: WDPUXI, title: Transactor Name, data_key: name, $$hashKey: 'object:141093'}
+      - {id: WDPUXI, title: Transactor Name, data_key: name, $$hashKey: 'object:141093',
+        width: 200.66665649414062, expand: false}
       - {id: JLBRSM, title: Account Reference, data_key: ref, $$hashKey: 'object:39748',
+        expand: false, width: 200.77777099609375}
+      - {id: CNCMJG, title: Transaction ID, data_key: id, $$hashKey: 'object:39749',
+        width: 198.5555419921875, expand: false}
+      - {id: KWPYWM, title: Amount, data_key: amount, $$hashKey: 'object:39750', width: 201.111083984375,
         expand: false}
-      - {id: CNCMJG, title: Transaction ID, data_key: id, $$hashKey: 'object:39749'}
-      - {id: KWPYWM, title: Amount, data_key: amount, $$hashKey: 'object:39750'}
-      - {id: RCAREM, title: Transaction Time, data_key: transtime, $$hashKey: 'object:140008'}
+      - {id: RCAREM, title: Transaction Time, data_key: transtime, $$hashKey: 'object:140008',
+        width: 199.1109619140625, expand: false}
+      - {id: VQVXBX, data_key: column_1, title: ''}
       auto_header: true
       tooltip: ''
       border: ''

@@ -26,8 +26,8 @@ from anvil.pdf import PDFRenderer
 #   return 42
 #
 @anvil.server.callable
-def create_pdf():
-  pdf = PDFRenderer(page_size='A4', filename='powerpay_receipt.pdf').render_form('Receipt')
+def create_pdf(billTo, contact, receiptNum, dt, list, receName):
+  pdf = PDFRenderer(page_size='A3', filename=receName).render_form('Receipt',False, billTo, contact, receiptNum, dt, list)
   return pdf
 
 @anvil.server.callable

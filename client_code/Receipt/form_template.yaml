@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"KOPVYR":3,"GTKGZA":26,"EBYGSC":57,"NOTDJW":4,"PVTXQW":30,"FASIXZ":13,"LDIUQS":24,"QRIGXA":55,"PMXMYO":3,"XUCRSH":40,"BIHVYY":20}'}
+  properties: {col_widths: '{"KOPVYR":3,"GTKGZA":26,"EBYGSC":57,"NOTDJW":4,"PVTXQW":30,"FASIXZ":13,"LDIUQS":24,"QRIGXA":55,"PMXMYO":3,"XUCRSH":35,"BIHVYY":25,"JUNHKY":40,"BIKMEI":10,"QYZZJZ":10}'}
 components:
 - name: spacer_1
   properties: {height: 32, spacing_above: large}
@@ -8,7 +8,7 @@ components:
   layout_properties: {grid_position: 'TJYJQQ,KOPVYR', full_width_row: true}
 - name: label_1
   properties: {font_size: 24, bold: true, text: PowerPay Africa Limited, spacing_above: large,
-    align: left, spacing_below: none}
+    align: center, spacing_below: none}
   type: Label
   layout_properties: {grid_position: 'TJYJQQ,GTKGZA NDMPHQ,ZEZHUI', full_width_row: true}
 - name: image_1
@@ -21,24 +21,25 @@ components:
 
       2nd Floor, Ridgeways Milestone Business Centre,
 
-      Kiambu Road.', bold: true, align: left}
+      Kiambu Road.', bold: true, align: center, spacing_below: none, italic: true,
+    spacing_above: none}
   type: Label
   layout_properties: {grid_position: 'TJYJQQ,GTKGZA BHMWUG,PVTXQW'}
-- name: label_2
-  properties: {spacing_above: large, align: right, font_size: 24, bold: true, text: PAYMENT RECEIPT}
-  type: Label
-  layout_properties: {grid_position: 'TJYJQQ,EBYGSC THMKVN,PCJPDW', full_width_row: true}
 - name: spacer_6
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'TJYJQQ,EBYGSC TACDLK,XUCRSH', full_width_row: true}
+- name: label_2
+  properties: {spacing_above: large, align: left, font_size: 24, bold: true, text: PAYMENT RECEIPT}
+  type: Label
+  layout_properties: {grid_position: 'TJYJQQ,EBYGSC TACDLK,BIHVYY KBJEJO,JFPKBL'}
 - name: date
-  properties: {align: center, spacing_below: large}
+  properties: {align: left, spacing_below: large, bold: true, font_size: 16}
   type: Label
   layout_properties: {grid_position: 'TJYJQQ,EBYGSC TACDLK,BIHVYY PLXKHU,FAXGAA',
     full_width_row: true}
 - name: receiptNum
-  properties: {align: center, spacing_above: large}
+  properties: {align: left, spacing_above: large, bold: true, font_size: 16}
   type: Label
   layout_properties: {grid_position: 'TJYJQQ,EBYGSC TACDLK,BIHVYY UVFNZB,NIPQXH',
     full_width_row: true}
@@ -47,7 +48,8 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'TJYJQQ,NOTDJW'}
 - name: image_2
-  properties: {height: '20', source: _/theme/Receipt line.png, display_mode: zoom_to_fill}
+  properties: {height: '20', source: _/theme/Receipt line.png, display_mode: zoom_to_fill,
+    spacing_above: none}
   type: Image
   layout_properties: {grid_position: 'OGILIA,EBKMQY', full_width_row: true}
 - name: spacer_5
@@ -62,11 +64,11 @@ components:
   properties: {text: 'CONTACT:', bold: true, font_size: 18, align: left}
   type: Label
   layout_properties: {grid_position: 'RZWZDB,FASIXZ TZWNBY,GFYDWM'}
-- name: text_box_1
+- name: billTo
   properties: {role: outlined}
   type: TextBox
   layout_properties: {grid_position: 'RZWZDB,LDIUQS UFYVPS,VSURLK'}
-- name: text_box_2
+- name: contact
   properties: {role: outlined, spacing_below: large}
   type: TextBox
   layout_properties: {grid_position: 'RZWZDB,LDIUQS KOMNVP,DYYRRB'}
@@ -83,7 +85,7 @@ components:
     columns:
     - {id: JKSDUP, title: QTY, data_key: qty}
     - {id: VJQQOR, title: DESCRIPTION, data_key: desc}
-    - {id: OJLQEN, title: AMOUNT, data_key: amnt}
+    - {id: OJLQEN, title: AMOUNT(vat incl.), data_key: amnt}
     role: tonal-data-grid
     spacing_above: large
     show_page_controls: false
@@ -95,8 +97,21 @@ components:
     type: RepeatingPanel
     layout_properties: {}
   layout_properties: {grid_position: 'IPWVIN,COWUWP', full_width_row: false}
+- name: spacer_7
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'NNARJB,JUNHKY'}
+- name: label_6
+  properties: {align: right, text: 'TOTAL:', bold: true, font_size: 18}
+  type: Label
+  layout_properties: {grid_position: 'NNARJB,BIKMEI'}
+- name: totalAmnt
+  properties: {align: left, font_size: 18}
+  type: Label
+  layout_properties: {grid_position: 'NNARJB,QYZZJZ'}
 - name: button_1
-  properties: {text: DOWNLOAD}
+  properties: {text: DOWNLOAD, spacing_above: large, icon: 'fa:download', background: '#0800ff',
+    foreground: 'theme:On Primary', bold: true}
   type: Button
   layout_properties: {grid_position: 'AIMYON,AGHHYG'}
   event_bindings: {click: button_1_click}

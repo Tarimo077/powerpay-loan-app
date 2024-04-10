@@ -4,14 +4,17 @@ container:
   properties: {align: center}
 components:
 - name: qty
-  properties: {role: outlined, align: center}
+  properties: {role: outlined, type: number}
   type: TextBox
   layout_properties: {column: JKSDUP}
+  event_bindings: {change: qty_change}
 - name: desc
-  properties: {role: outlined, align: center}
-  type: TextBox
-  layout_properties: {column: VJQQOR}
-- name: amnt
   properties: {role: outlined}
   type: TextBox
+  layout_properties: {column: VJQQOR}
+  event_bindings: {change: desc_change}
+- name: amnt
+  properties: {role: outlined, type: number}
+  type: TextBox
   layout_properties: {column: OJLQEN}
+  event_bindings: {change: amnt_change}
