@@ -79,7 +79,7 @@ class EnergySummary(EnergySummaryTemplate):
     self.bar = False
     primary_color = '#DB4437'
     self.plot_1.data = go.Scatter(x=dates, y=totals, marker=dict(color=primary_color), mode='lines',
-                        line=dict(shape='spline',smoothing=0.7,width=3), hovertemplate='<b>%{x}</b><br>' + 'kwh: %{y}')
+                        line=dict(shape='spline',smoothing=0.7,width=3), hovertemplate=('<b>%{x}</b><br> kwh: %{y} kwh'))
     # Configure the plot layout
     self.plot_1.layout = {
       'title': 'ENERGY ACTIVITY PER DAY',
@@ -108,7 +108,8 @@ class EnergySummary(EnergySummaryTemplate):
   def plotKwhPerDevice(self, datas):
     countr = len(datas)
     countr = str(countr) + " DEVICES"
-    self.plot_2.data = go.Pie(hole=.5, values=list(datas.values()), hoverinfo="label+value+percent",
+    kiw = 'kwh'
+    self.plot_2.data = go.Pie(hole=.5, values=list(datas.values()), hoverinfo=("label+value+percent"),
                               labels=list(datas.keys()), title=countr, legendgrouptitle="DEVICES")
     self.plot_2.layout = {
       'title': 'KWH PER DEVICE' }

@@ -40,8 +40,9 @@ class CookingSummary(CookingSummaryTemplate):
     keyDevs2 = []
     countHrs = []
     for dev, hrs in runtime.items():
-      keyDevs2.append(dev)
-      countHrs.append(hrs)
+      if dev != 'OfficeFridge1':
+        keyDevs2.append(dev)
+        countHrs.append(hrs)
     self.plotCookingTimePerDevice(keyDevs2, countHrs)
     self.cookingTimeValue.text = str(round(self.timeHrs,1)) + " HOURS"
     self.totalMealsValue.text = str(self.mealNum) + " MEALS"
@@ -68,6 +69,7 @@ class CookingSummary(CookingSummaryTemplate):
     day_meal_counts = {}
 
     for entry in sorted_data:
+      if entry['deviceID'] != 'OfficeFridge1':
         device_id = entry['deviceID']
         txtime = datetime.strptime(str(entry['txtime']), "%Y%m%d%H%M%S")
 
@@ -113,7 +115,7 @@ class CookingSummary(CookingSummaryTemplate):
       countr = countr + x
     self.mealNum = countr
     countr = str(countr) + " MEALS"
-    self.plot_1.data = go.Pie(hole=.5, values=counts, hoverinfo="label+value+percent",
+    self.plot_1.data = go.Pie(hole=.5, values=counts, hoverinfo=("label+value+percent"),
                               labels=devs, title=countr)
     self.plot_1.layout = {
       'title': 'MEALS PER DEVICE' }
