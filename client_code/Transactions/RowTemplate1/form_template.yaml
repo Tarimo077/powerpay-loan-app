@@ -1,4 +1,6 @@
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  properties: {align: center}
 components:
 - name: outlined_button_1
   properties: {text: PROCESS RECEIPT, role: outlined-button, align: center, background: '#0800FF',
