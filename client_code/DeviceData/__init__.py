@@ -131,7 +131,6 @@ class DeviceData(DeviceDataTemplate):
     self.map_1.add_component(z)
     self.deviceLabel.text = " " + dev
     last_time = str(res['time'])
-    print(last_time)
     formatted_timestamp = datetime.strptime(last_time, "%Y%m%d%H%M%S").strftime("%Y-%m-%d %H:%M:%S")
     self.lastTime.text = " " + str(formatted_timestamp)
     if dev == 'OfficeFridge1':
