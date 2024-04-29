@@ -131,13 +131,15 @@ class DeviceData(DeviceDataTemplate):
     self.map_1.add_component(z)
     self.deviceLabel.text = " " + dev
     last_time = str(res['time'])
+    print(last_time)
     formatted_timestamp = datetime.strptime(last_time, "%Y%m%d%H%M%S").strftime("%Y-%m-%d %H:%M:%S")
     self.lastTime.text = " " + str(formatted_timestamp)
     if dev == 'OfficeFridge1':
       self.label_2.text = "Last Operation Time"
-      lb = f"TOTAL OPERATION TIME"
+      lb = "TOTAL OPERATION TIME"
     else:
-      lb = f"TOTAL COOKING TIME"
+      self.label_2.text = "Last Cooking Time"
+      lb = "TOTAL COOKING TIME"
     value = res['totalkwh']  # Replace with your actual value
     self.totalRuntime = res['runtime']
     self.totalKwh = value
@@ -149,7 +151,7 @@ class DeviceData(DeviceDataTemplate):
     self.plot_1.data = [go.Indicator(
     mode="gauge+number",
     value=value,
-    title=f"ENERGY CONSUMPTION",
+    title="ENERGY CONSUMPTION",
     number={'suffix': f" {units}"},
     gauge={
         'axis': {'range': [None, 100]},
@@ -169,7 +171,7 @@ class DeviceData(DeviceDataTemplate):
     self.energyCost.data = [go.Indicator(
     mode="gauge+number",
     value=(value)*23,
-    title=f"ENERGY COST",
+    title="ENERGY COST",
     number={'suffix': f" {unitz}"},
     gauge={
         'axis': {'range': [None, 500]},
@@ -183,7 +185,7 @@ class DeviceData(DeviceDataTemplate):
     self.carbonEmissions.data = [go.Indicator(
     mode="gauge+number",
     value=val,
-    title=f"CARBON EMISSIONS",
+    title="CARBON EMISSIONS",
     number={'suffix': f" {utz}"},
     gauge={
         'axis': {'range': [None, 50]},
@@ -240,7 +242,7 @@ class DeviceData(DeviceDataTemplate):
     self.plot_1.data = [go.Indicator(
     mode="gauge+number",
     value=self.adjsum,
-    title=f"ENERGY CONSUMPTION",
+    title="ENERGY CONSUMPTION",
     number={'suffix': f" {units}"},
     gauge={
         'axis': {'range': [None, 100]},
@@ -250,7 +252,7 @@ class DeviceData(DeviceDataTemplate):
     self.energyCost.data = [go.Indicator(
     mode="gauge+number",
     value=(self.adjsum)*23,
-    title=f"ENERGY COST",
+    title="ENERGY COST",
     number={'suffix': f" {unitz}"},
     gauge={
         'axis': {'range': [None, 500]},
@@ -260,15 +262,15 @@ class DeviceData(DeviceDataTemplate):
     if self.dev == 'OfficeFridge1':
       vl = self.adjsum*0.4999*0.1
       self.label_2.text = 'Last Operation Time'
-      titl = f"TOTAL OPERATION TIME"
+      titl = "TOTAL OPERATION TIME"
     else:
       vl = self.adjsum*0.4999*0.28
-      titl = f"TOTAL COOKING TIME"
+      titl = "TOTAL COOKING TIME"
       
     self.carbonEmissions.data = [go.Indicator(
     mode="gauge+number",
     value=vl,
-    title=f"CARBON EMISSIONS",
+    title="CARBON EMISSIONS",
     number={'suffix': f" {utz}"},
     gauge={
         'axis': {'range': [None, 50]},
@@ -352,7 +354,7 @@ class DeviceData(DeviceDataTemplate):
     em = ':eyes:'
     e = anvil.server.call('emojiPass', em)
     c = confirm('Are you sure you want to ' + strconc + ' ' + self.devData['deviceID'] +' '+ e , buttons=[("Yes", True),("No", False)])
-    if(c==True):
+    if c:
       anvil.server.call('changeStatus', dt)
       dt = {
       "data": 'GET'
