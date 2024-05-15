@@ -23,9 +23,9 @@ class DeviceData(DeviceDataTemplate):
         devData = x
       else:
         pass
-    if(devData['active']== True):
+    if(devData['active']):
       devData['active'] = 'Yes'
-    if(devData['active']== False):
+    else:
       devData['active'] = 'No'
     if(devData['active']=='Yes'):
       self.statusChange.text = 'Deactivate'
@@ -49,11 +49,11 @@ class DeviceData(DeviceDataTemplate):
       time_obj_server_tz = time_obj_utc.astimezone(timezone.utc).astimezone()
 
 # Convert the datetime object to Kenyan time
-      tz_offset = timedelta(hours=3)
-      time_obj_kenya = time_obj_server_tz # + tz_offset
+      #tz_offset = timedelta(hours=3)
+      #time_obj_kenya = time_obj_server_tz + tz_offset
 
 # Format the datetime object as a string in the desired format
-      formatted_time_str = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
+      formatted_time_str = time_obj_server_tz.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
       formatted_time_str = formatted_time_str.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
       self.statusTime.text = formatted_time_str
     else:
@@ -130,8 +130,16 @@ class DeviceData(DeviceDataTemplate):
     z = GoogleMap.Circle(center=GoogleMap.LatLng(lat, long), radius=550, fill_color="#0800FF")
     self.map_1.add_component(z)
     self.deviceLabel.text = " " + dev
-    last_time = str(res['time'])
-    formatted_timestamp = datetime.strptime(last_time, "%Y%m%d%H%M%S").strftime("%Y-%m-%d %H:%M:%S")
+    lenArr = len(res['rawData']) - 1
+    last_time = str(res['rawData'][lenArr]['time'])
+    formatted_timestamp = datetime.strptime(last_time, "%Y-%m-%dT%H:%M:%S.%fZ")
+    formatted_timestamp = formatted_timestamp.astimezone(timezone.utc).astimezone()
+    # Convert the datetime object to Kenyan time
+    tz_offset = timedelta(hours=3)
+    time_obj_kenya = formatted_timestamp + tz_offset
+# Format the datetime object as a string in the desired format
+    formatted_timestamp = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
+    formatted_timestamp = formatted_timestamp.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
     self.lastTime.text = " " + str(formatted_timestamp)
     if dev == 'OfficeFridge1':
       self.label_2.text = "Last Operation Time"
