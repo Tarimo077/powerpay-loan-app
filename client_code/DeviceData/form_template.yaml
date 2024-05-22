@@ -124,6 +124,24 @@ components:
   properties: {height: 32}
   name: spacer_4
   layout_properties: {grid_position: 'VTGRLW,DTYLMV', full_width_row: true}
+- name: data_grid_1
+  properties:
+    columns:
+    - {id: JKSDUP, title: Cooking Time(start), data_key: time}
+    - {id: VJQQOR, title: Meal Duration(minutes), data_key: mealDuration}
+    role: tonal-data-grid
+    rows_per_page: 10
+  type: DataGrid
+  components:
+  - name: repeating_panel_1
+    properties: {item_template: DeviceData.RowTemplate11, role: null}
+    type: RepeatingPanel
+    layout_properties: {}
+  layout_properties: {grid_position: 'VDYFMA,GFWHEH', full_width_row: true}
+- name: spacer_9
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'YCYLXU,UFTWII', full_width_row: true}
 - name: plot_2
   properties: {}
   type: Plot

@@ -141,6 +141,26 @@ class DeviceData(DeviceDataTemplate):
     formatted_timestamp = time_obj_kenya.strftime("%d %B %Y %I:%M%p").replace("AM", " AM").replace("PM", " PM")
     formatted_timestamp = formatted_timestamp.replace("th ", "").replace("st ", "").replace("nd ", "").replace("rd ", "")
     self.lastTime.text = " " + str(formatted_timestamp)
+    db = {
+      "range": 1000000000000000,
+      "device": dev
+    }
+    resp = anvil.server.call('getMeals', db)
+    resp = resp.get_bytes().decode('utf-8')
+    resp = json.loads(resp)
+    meals = resp['mealsWithDurations']
+    mls = []
+    for k in meals:
+      date_str = k['time']
+      # Parse the date string to a datetime object
+      date_obj = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%S.%fZ")
+      # Convert to the desired format
+      formatted_date = date_obj.strftime("%d %B %Y %I:%M:%S%p")
+      tm = int(k['mealDuration']/60)
+      dr = {"time": formatted_date, "mealDuration": tm}
+      mls.append(dr)
+    reversed_list = mls[::-1]
+    self.repeating_panel_1.items = reversed_list
     if dev == 'OfficeFridge1':
       self.label_2.text = "Last Operation Time"
       lb = "TOTAL OPERATION TIME"
@@ -200,6 +220,7 @@ class DeviceData(DeviceDataTemplate):
     }
 )]
     self.dataParseAndPlot(rawData)
+    
     # Any code you write here will run before the form opens.
 
   def button_1_click(self, **event_args):
