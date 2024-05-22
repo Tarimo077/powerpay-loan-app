@@ -151,13 +151,16 @@ class DeviceData(DeviceDataTemplate):
     meals = resp['mealsWithDurations']
     mls = []
     for k in meals:
-      date_str = k['time']
+      date_str = k['startTime']
+      date_str1 = k['endTime']
       # Parse the date string to a datetime object
       date_obj = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%S.%fZ")
+      date_obj_1 = datetime.strptime(date_str1, "%Y-%m-%dT%H:%M:%S.%fZ")
       # Convert to the desired format
       formatted_date = date_obj.strftime("%d %B %Y %I:%M:%S%p")
+      formatted_date_1 = date_obj_1.strftime("%d %B %Y %I:%M:%S%p")
       tm = int(k['mealDuration']/60)
-      dr = {"time": formatted_date, "mealDuration": tm}
+      dr = {"startTime": formatted_date, "endTime": formatted_date_1, "mealDuration": tm}
       mls.append(dr)
     reversed_list = mls[::-1]
     self.repeating_panel_1.items = reversed_list
