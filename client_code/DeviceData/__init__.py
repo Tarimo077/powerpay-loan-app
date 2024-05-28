@@ -165,10 +165,10 @@ class DeviceData(DeviceDataTemplate):
     reversed_list = mls[::-1]
     self.repeating_panel_1.items = reversed_list
     if dev == 'OfficeFridge1':
-      self.label_2.text = "Last Operation Time"
+      self.label_2.text = "Last Operation Time:"
       lb = "TOTAL OPERATION TIME"
     else:
-      self.label_2.text = "Last Cooking Time"
+      self.label_2.text = "Last Cooking Time:"
       lb = "TOTAL COOKING TIME"
     value = res['totalkwh']  # Replace with your actual value
     self.totalRuntime = res['runtime']
