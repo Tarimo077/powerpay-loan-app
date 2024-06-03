@@ -2,24 +2,20 @@ container:
   type: ColumnPanel
   properties: {col_widths: '{"ZIMWRL":23,"UEVWSI":35,"TFPUYA":22}'}
 components:
-- name: spacer_1
-  properties: {height: 103.11111450195312}
-  type: Spacer
-  layout_properties: {grid_position: 'CUIPJW,SFHXVT', full_width_row: true}
 - name: label_1
-  properties: {text: 'Device name(serial number):', align: right, bold: true}
+  properties: {text: 'Device name(serial number):', align: right, bold: true, spacing_above: large}
   type: Label
   layout_properties: {grid_position: 'QVQQSB,ZIMWRL', full_width_row: false}
 - name: deviceName
-  properties: {role: outlined, spacing_below: large}
+  properties: {role: outlined, spacing_below: large, spacing_above: large}
   type: TextBox
   layout_properties: {grid_position: 'QVQQSB,UEVWSI', full_width_row: false}
 - name: spacer_3
-  properties: {height: 32}
+  properties: {height: 32, spacing_above: large}
   type: Spacer
   layout_properties: {grid_position: 'QVQQSB,TFPUYA', full_width_row: false}
 - name: spacer_2
-  properties: {height: 39}
+  properties: {height: '20'}
   type: Spacer
   layout_properties: {grid_position: 'KZTEWW,UOCXOH'}
 - name: button_1

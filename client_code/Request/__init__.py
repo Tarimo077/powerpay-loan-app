@@ -93,7 +93,7 @@ class Request(RequestTemplate):
     nw_frm = AddDevice()
     alert_instance = alert(
         content=nw_frm,
-        large=False,
+        large=True,
         title="NEW DEVICE",
         dismissible=False,
         buttons=[('Cancel', 0)],
