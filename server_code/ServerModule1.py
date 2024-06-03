@@ -63,6 +63,15 @@ def changeStatus(data):
   return response
 
 @anvil.server.callable
+def addDevice(data):
+  url = "https://appliapay.com/addDevice"
+  headers = {
+    "Content-Type": "application/json"
+  }
+  response = anvil.http.request(url, method="POST", data=data, headers=headers, username='admin', password='123Give!@#')
+  return response
+
+@anvil.server.callable
 def sendUser(user):
   usr = user
   data = {

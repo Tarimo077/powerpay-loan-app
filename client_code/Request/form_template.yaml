@@ -5,7 +5,7 @@ container:
 components:
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"IITUUS":48,"DIIERS":12}',
     spacing_below: small, background: ''}
   name: content_panel
   layout_properties: {slot: default}
@@ -38,8 +38,22 @@ components:
       underline: false, icon: ''}
     name: label_2
     layout_properties: {grid_position: 'VLEQDS,AMTEWA'}
-  - type: Spacer
+  - name: spacer_1
+    properties: {height: '10'}
+    type: Spacer
+    layout_properties: {grid_position: 'IUAZBQ,NXDRYQ'}
+  - name: spacer_4
     properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'QAUODT,IITUUS'}
+  - name: outlined_button_1
+    properties: {text: NEW DEVICE, role: outlined-button, background: '#0800FF', foreground: 'theme:On
+        Primary', bold: true, icon: 'fa:plus-square'}
+    type: Button
+    layout_properties: {grid_position: 'QAUODT,DIIERS', full_width_row: true}
+    event_bindings: {click: outlined_button_1_click}
+  - type: Spacer
+    properties: {height: '10'}
     name: spacer_2
     layout_properties: {grid_position: 'FVAKVH,FIVTWB'}
   - type: DataGrid

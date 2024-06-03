@@ -10,6 +10,7 @@ import anvil.server
 import json
 from ..UserPopover import UserPopover
 from anvil_extras import popover
+from ..AddDevice import AddDevice
 
 class Request(RequestTemplate):
   def __init__(self, **properties):
@@ -36,7 +37,7 @@ class Request(RequestTemplate):
     active_devs = 0
     inactive_devs = 0
     for obj in my_array:
-      if obj["active"] == 'Yes' or obj["active"] == True:
+      if obj["active"] == 'Yes' or obj["active"]:
         active_devs += 1
       else:
         inactive_devs += 1
@@ -82,10 +83,24 @@ class Request(RequestTemplate):
   def link_1_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
     c = confirm('Are you sure you want to logout?', buttons=[("Yes", True),("No", False)])
-    if(c==True):
+    if(c):
       open_form('Login')
     else:
       pass
+
+  def outlined_button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    nw_frm = AddDevice()
+    alert_instance = alert(
+        content=nw_frm,
+        large=False,
+        title="NEW DEVICE",
+        dismissible=False,
+        buttons=[('Cancel', 0)],
+        role='outlined'
+      )
+    if alert_instance==0:
+      nw_frm.raise_event("x-close-alert")
 
 
 
