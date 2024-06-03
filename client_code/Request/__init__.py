@@ -20,7 +20,7 @@ class Request(RequestTemplate):
     if usr == "Jeff Tarimo" or usr == "Brian Olasya":
       self.outlined_button_1.visible = True
     else:
-      self.outlined_button_1.
+      self.outlined_button_1.visible = False
     words = usr.split()
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
