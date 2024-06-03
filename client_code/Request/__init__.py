@@ -17,6 +17,10 @@ class Request(RequestTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     usr = anvil.server.call('getusername')
+    if usr == "Jeff Tarimo" or usr == "Brian Olasya":
+      self.outlined_button_1.visible = True
+    else:
+      self.outlined_button_1.
     words = usr.split()
 # Extract the first character of each word and convert it to uppercase
     initials = [word[0].upper() for word in words]
@@ -94,7 +98,7 @@ class Request(RequestTemplate):
     alert_instance = alert(
         content=nw_frm,
         large=True,
-        title="NEW DEVICE",
+        title=None,
         dismissible=False,
         buttons=[('Cancel', 0)],
         role='outlined'

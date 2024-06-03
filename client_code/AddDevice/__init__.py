@@ -28,10 +28,10 @@ class AddDevice(AddDeviceTemplate):
         dt = {
           "device": self.deviceName.text
         }
-        res = anvil.server.call('addDevice', dt)
-        res = res.get_bytes().decode('utf-8')
-        res = json.loads(res)
-        print(res)
+        anvil.server.call('addDevice', dt)
+        self.raise_event("x-close-alert")
         open_form('Request')
       else:
+        self.raise_event("x-close-alert")
         open_form("Request")
+        
