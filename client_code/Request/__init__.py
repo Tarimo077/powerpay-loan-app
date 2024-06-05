@@ -38,6 +38,7 @@ class Request(RequestTemplate):
     key=lambda x: (
         float('inf') if x['deviceID'] == 'OfficeFridge1' else
         int(x['deviceID'].split('device')[-1]) if x['deviceID'].startswith('device') else
+        int(x['deviceID'][-6:]) if x['deviceID'].startswith('JD') else
         float('inf') - 1
     )
 )
