@@ -36,51 +36,66 @@ class Transactions(TransactionsTemplate):
     res = anvil.server.call('getcashin')
     text = res.get_bytes().decode('utf-8')
     my_array = json.loads(text)
+
     amounts = []
     dates = []
     totals = []
     total_amounts = {}
+
+# Sorting the array based on transtime
+    my_array.sort(key=lambda x: datetime.strptime(str(x['transtime']), '%Y%m%d%H%M%S'))
+
     for x in my_array:
       transtime = str(x['transtime'])
-      transtim = datetime.strptime(str(x['transtime']), '%Y%m%d%H%M%S')
+      transtim = datetime.strptime(transtime, '%Y%m%d%H%M%S')
       day = transtim.date().strftime('%Y-%m-%d')
-    # Check if the day is already in the dates list
       if day in dates:
         index = dates.index(day)
         totals[index] += x['amount']
       else:
         dates.append(day)
         totals.append(x['amount'])
-      amounts.append(x['amount'])
-      parsed_date = datetime.strptime(transtime, '%Y%m%d%H%M%S')
-      formatted_date = parsed_date.strftime('%d %B %Y %H:%M:%S')
-      time_obj = datetime.strptime(formatted_date, '%d %B %Y %H:%M:%S')
-# Convert the datetime object to the desired format
-      formatted_time = time_obj.strftime('%d %B %Y %I:%M:%S %p')
-      x['transtime'] = formatted_time
-      name = x['name']
-      amount = int(x['amount'])
-      if name in total_amounts:
+      
+    amounts.append(x['amount'])
+    
+    parsed_date = datetime.strptime(transtime, '%Y%m%d%H%M%S')
+    formatted_date = parsed_date.strftime('%d %B %Y %H:%M:%S')
+    time_obj = datetime.strptime(formatted_date, '%d %B %Y %H:%M:%S')
+    
+    formatted_time = time_obj.strftime('%d %B %Y %I:%M:%S %p')
+    x['transtime'] = formatted_time
+    
+    name = x['name']
+    amount = int(x['amount'])
+    
+    if name in total_amounts:
         total_amounts[name] += amount
-      else:
+    else:
         total_amounts[name] = amount
-      x['amount'] = format(x['amount'], ',')
+    
+    x['amount'] = format(x['amount'], ',')
+
     amnt = 0
     sorted_transactors = sorted(total_amounts.items(), key=lambda x: x[1], reverse=True)
     output = [{'name': nme, 'amount': am} for nme, am in sorted_transactors]
+
     for s in output:
       s['amount'] = format(s['amount'], ',')
+
     for y in amounts:
-      amnt = amnt + y 
+      amnt += y
+
     formatted_number = format(amnt, ',')
-    self.moneyin.text = "KSH "+str(formatted_number)
-    if(self.seecash==True):
+    self.moneyin.text = "KSH " + str(formatted_number)
+
+    if self.seecash:
       self.hide_cash()
     else:
       self.view_cash()
-    reversed = my_array[::-1]
-    self.arr = reversed
-    self.repeating_panel_1.items = reversed    
+
+    reversed_array = my_array[::-1]
+    self.arr = reversed_array
+    self.repeating_panel_1.items = reversed_array    
     names = [obj['name'] for obj in my_array]
     name_counter = Counter(names)
     self.plot_data_line(dates, totals)
