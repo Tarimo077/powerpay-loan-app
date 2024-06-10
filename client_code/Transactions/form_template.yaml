@@ -9,17 +9,11 @@ components:
   layout_properties: {slot: default}
   components:
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: CASH IN, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: CASH IN, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'VBGXUM,WPFRWB'}
   - type: Label
-    properties: {role: display, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:money'}
+    properties: {role: display, align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:money'}
     name: moneyin
     layout_properties: {grid_position: 'FPPKOT,HHCRYA', full_width_row: true}
   - type: Spacer
@@ -27,10 +21,7 @@ components:
     name: spacer_7
     layout_properties: {grid_position: 'FPPKOT,VCOCKL LIYLDU,QWDKRA'}
   - type: Button
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
+    properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
     name: button_1
     layout_properties: {grid_position: 'FPPKOT,VCOCKL ZNPXNM,YIXRCU', full_width_row: true}
     event_bindings: {click: button_1_click}
@@ -43,18 +34,12 @@ components:
     name: spacer_9
     layout_properties: {grid_position: 'MGTAWD,UVFYJS'}
   - type: TextBox
-    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: search
     layout_properties: {grid_position: 'MGTAWD,SREPPB'}
     event_bindings: {change: search_change}
   - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Search by:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '', visible: true, text: 'Search by:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_5
     layout_properties: {grid_position: 'MGTAWD,BYZNCJ'}
   - type: DropDown
@@ -81,10 +66,7 @@ components:
     layout_properties: {grid_position: 'MGTAWD,GSGGRO', full_width_row: true}
     event_bindings: {change: drop_down_1_change}
   - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: DOWNLOAD TRANSACTION DATA,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:download'}
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: DOWNLOAD TRANSACTION DATA, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:download'}
     name: button_2
     layout_properties: {grid_position: 'XEVLPI,DAPTTN', full_width_row: true}
     event_bindings: {click: button_2_click}
@@ -93,63 +75,40 @@ components:
     name: spacer_10
     layout_properties: {grid_position: 'XEVLPI,LBPNOO'}
   - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: false, text: 'From:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '', visible: false, text: 'From:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: from_date
     layout_properties: {grid_position: 'SDFMPE,ODUILT'}
   - type: DatePicker
-    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '',
-      placeholder: '', border: '', enabled: true, foreground: '', visible: false,
-      font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-      date: '', min_date: '', background: '', bold: true, underline: false, format: ''}
+    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: false, font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, date: '', min_date: '', background: '', bold: true, underline: false, format: ''}
     name: calender_from
     layout_properties: {grid_position: 'SDFMPE,VHWXYC'}
   - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: false, text: 'To:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '', visible: false, text: 'To:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: to_date
     layout_properties: {grid_position: 'SDFMPE,JMJWSQ'}
   - type: DatePicker
-    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '',
-      placeholder: '', border: '', enabled: true, foreground: '', visible: false,
-      font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-      date: '', min_date: '', background: '', bold: true, underline: false, format: ''}
+    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: false, font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, date: '', min_date: '', background: '', bold: true, underline: false, format: ''}
     name: calender_to
     layout_properties: {grid_position: 'SDFMPE,DOMQXP'}
     event_bindings: {change: calender_to_change}
   - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: false, text: QUERY, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#0080FF', bold: true, underline: false, icon: 'fa:search'}
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: false, text: QUERY, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:search'}
     name: query
     layout_properties: {grid_position: 'SDFMPE,UUARUP', full_width_row: true}
     event_bindings: {click: query_click}
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: TRANSACTIONS, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: TRANSACTIONS, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_2
     layout_properties: {grid_position: 'RZOHXA,NUYBRH'}
   - type: DataGrid
     properties:
       role: tonal-data-grid
       columns:
-      - {id: WDPUXI, title: Transactor Name, data_key: name, $$hashKey: 'object:141093',
-        width: 149, expand: false}
-      - {id: JLBRSM, title: Account Reference, data_key: ref, $$hashKey: 'object:39748',
-        expand: false, width: 151}
-      - {id: CNCMJG, title: Transaction ID, data_key: id, $$hashKey: 'object:39749',
-        width: 138, expand: false}
-      - {id: KWPYWM, title: Amount, data_key: amount, $$hashKey: 'object:39750', width: 113,
-        expand: false}
-      - {id: RCAREM, title: Transaction Time, data_key: transtime, $$hashKey: 'object:140008',
-        width: 156, expand: false}
+      - {id: WDPUXI, title: Transactor Name, data_key: name, $$hashKey: 'object:141093', width: 149, expand: false}
+      - {id: JLBRSM, title: Account Reference, data_key: ref, $$hashKey: 'object:39748', expand: false, width: 151}
+      - {id: CNCMJG, title: Transaction ID, data_key: id, $$hashKey: 'object:39749', width: 138, expand: false}
+      - {id: KWPYWM, title: Amount, data_key: amount, $$hashKey: 'object:39750', width: 113, expand: false}
+      - {id: RCAREM, title: Transaction Time, data_key: transtime, $$hashKey: 'object:140008', width: 156, expand: false}
       - {id: VQVXBX, data_key: column_1, title: ''}
       auto_header: true
       tooltip: ''
@@ -174,10 +133,22 @@ components:
     name: spacer_4
     layout_properties: {grid_position: 'XJKPZC,POVAPT', full_width_row: true}
   - type: RichText
-    properties: {role: null, align: center, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: null, content: "{button} \n{plot}",
-      font: '', spacing_above: small, spacing_below: small, data: null, background: '',
-      format: markdown}
+    properties:
+      role: null
+      align: center
+      tooltip: ''
+      enable_slots: true
+      border: ''
+      foreground: ''
+      visible: true
+      font_size: null
+      content: "{button} \n{plot}"
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      data: null
+      background: ''
+      format: markdown
     name: rich_text_1
     layout_properties: {grid_position: 'PWUTLQ,XHVTMZ', full_width_row: true}
     components:
@@ -186,10 +157,7 @@ components:
       name: plot_1
       layout_properties: {grid_position: 'NIGARY,RCHWTS', slot: plot, width: 987.7777099609375}
     - type: Button
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: 'theme:On Primary', visible: true, text: SWITCH TO BAR GRAPH,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#DB4437', bold: true, underline: false, icon: ''}
+      properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: SWITCH TO BAR GRAPH, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false, icon: ''}
       name: bar_graph
       layout_properties: {slot: button}
       event_bindings: {click: bar_graph_click}
@@ -198,10 +166,7 @@ components:
     name: spacer_5
     layout_properties: {grid_position: 'ZJCFPJ,IYGBQQ', full_width_row: true}
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: TRANSACTORS BY AMOUNT, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: TRANSACTORS BY AMOUNT, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_4
     layout_properties: {grid_position: 'TYBXPA,HBHHQM'}
   - type: DataGrid
@@ -233,10 +198,7 @@ components:
     name: spacer_6
     layout_properties: {grid_position: 'IWPQZM,FLIFMJ'}
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: TRANSACTORS BY FREQUENCY, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: TRANSACTORS BY FREQUENCY, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_3
     layout_properties: {grid_position: 'DJPTXZ,YWSOCS'}
   - type: DataGrid
@@ -269,10 +231,7 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - type: Label
-    properties: {role: bot, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: bot, align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: username_label
     layout_properties: {}
 - type: ColumnPanel
@@ -281,11 +240,7 @@ components:
   layout_properties: {slot: left-nav}
   components:
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: HOME, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:home'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: HOME, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:home'}
     name: home_link
     layout_properties:
       col_widths: {}
@@ -298,11 +253,7 @@ components:
       col_widths: {}
       grid_position: KNWVCR,ONELES
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: DEVICE MANAGEMENT, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:cogs'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: DEVICE MANAGEMENT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:cogs'}
     name: request
     layout_properties:
       col_widths: {}
@@ -315,11 +266,7 @@ components:
       col_widths: {}
       grid_position: CYKOSU,NKZGQI
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: TRANSACTIONS, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:money'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: TRANSACTIONS, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:money'}
     name: home_link_copy
     layout_properties:
       col_widths: {}
@@ -332,11 +279,7 @@ components:
       col_widths: {}
       grid_position: WPJSPE,GJNIEE
   - type: Link
-    properties: {role: selected, url: 'https://dev-tickett.pantheonsite.io/new-ticket/',
-      align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true,
-      text: SUPPORT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
-      italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:chain-broken'}
+    properties: {role: selected, url: 'https://dev-tickett.pantheonsite.io/new-ticket/', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:chain-broken'}
     name: home_link_copy_2
     layout_properties:
       col_widths: {}
@@ -347,20 +290,13 @@ components:
     name: spacer_3
     layout_properties: {grid_position: 'BRPEYG,RVMHKC'}
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: LOG OUT, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#DB4437',
-      bold: true, underline: false, icon: 'fa:sign-out'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false, icon: 'fa:sign-out'}
     name: home_link_copy_3
     layout_properties:
       col_widths: {}
       grid_position: PILHYD,HRZZXM
     event_bindings: {click: home_link_copy_3_click}
 - type: Label
-  properties: {role: footer, align: left, tooltip: '', border: '', foreground: '',
-    visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: 10,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-    background: '', bold: true, underline: false, icon: ''}
+  properties: {role: footer, align: left, tooltip: '', border: '', foreground: '', visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: 10, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
   name: label_1_copy
   layout_properties: {grid_position: 'UFPNQR,QXNCNH'}

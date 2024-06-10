@@ -36,12 +36,12 @@ def emojiPass(e):
   return emo
   
 @anvil.server.callable
-def req(data):
+def req():
   url = "https://appliapay.com/command"
   headers = {
     "Content-Type": "application/json"
   }
-  response = anvil.http.request(url, method="GET", data=data, headers=headers, username='admin', password='123Give!@#')
+  response = anvil.http.request(url, method="GET", headers=headers, username='admin', password='123Give!@#')
   return response
 
 @anvil.server.callable

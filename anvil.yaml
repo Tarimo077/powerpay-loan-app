@@ -8,9 +8,7 @@ services:
   client_config: {enable_v2: true}
   server_config: {}
 - source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: false, enable_automatically: true, use_email: true,
-    confirm_email: true, require_secure_passwords: true, allow_remember_me: true,
-    remember_me_days: 30}
+  client_config: {allow_signup: false, enable_automatically: true, use_email: true, confirm_email: true, require_secure_passwords: true, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 - source: /runtime/services/google.yml
   client_config: {api_key: AIzaSyAJRUccXQaN3rL9HeFe0JqQp67VRAoFUmM}
@@ -24,19 +22,13 @@ runtime_options:
   client_version: '3'
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
-metadata: {title: Powerpay App, description: 'Manage your borrowed devices with ease
-    using Powerpay Loan App! Keep track of all your loaned devices, their condition,
-    and who they''re loaned to, all in one place. Powerpay Loan App allows you to
-    set due dates, send reminders, and receive notifications when a device is overdue.
-    You can also quickly view device histories and generate reports to analyze usage
-    trends. With Powerpay Loan App, you can streamline your device loan process and
-    ensure all your devices are accounted for.', logo_img: 'asset:apple-touch-icon.png'}
+metadata: {title: Powerpay App, description: 'Manage your borrowed devices with ease using Powerpay Loan App! Keep track of all your loaned devices, their condition, and who they''re loaned to, all in one place. Powerpay Loan App allows you to set due dates, send reminders, and receive notifications when a device is overdue. You can also quickly view device histories and generate reports to analyze usage trends. With Powerpay Loan App, you can streamline your device loan process and ensure all your devices are accounted for.', logo_img: 'asset:apple-touch-icon.png'}
 startup_form: null
-native_deps: {head_html: '<link rel="preconnect" href="https://fonts.googleapis.com">
-
+native_deps:
+  head_html: |-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">'}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 db_schema:
   users:
     client: full

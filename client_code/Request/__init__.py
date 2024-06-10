@@ -27,10 +27,7 @@ class Request(RequestTemplate):
 # Join the initials together
     initials_string = ''.join(initials)
     self.username_label.text = initials_string    
-    dt = {
-      "data": 'GET'
-    }
-    response = anvil.server.call('req', dt)
+    response = anvil.server.call('req')
     text = response.get_bytes().decode('utf-8')
     my_array = json.loads(text)
     sorted_items = sorted(

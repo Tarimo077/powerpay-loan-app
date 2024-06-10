@@ -3,8 +3,7 @@ container:
   properties: {align: center}
 components:
 - name: outlined_button_1
-  properties: {text: PROCESS RECEIPT, role: outlined-button, align: center, background: '#0800FF',
-    foreground: 'theme:On Primary', bold: true}
+  properties: {text: PROCESS RECEIPT, role: outlined-button, align: center, background: '#0800FF', foreground: 'theme:On Primary', bold: true}
   type: Button
   layout_properties: {column: VQVXBX}
   event_bindings: {click: outlined_button_1_click}

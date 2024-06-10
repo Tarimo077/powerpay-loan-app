@@ -3,10 +3,7 @@ container:
   properties: {col_widths: '{"DDKZQT":16,"TBZDHT":44}'}
 components:
 - type: Label
-  properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
-      Primary', visible: true, text: CUSTOMER REACH, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
-    bold: true, underline: false, icon: 'fa:map-marker'}
+  properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: CUSTOMER REACH, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:map-marker'}
   name: label_1
   layout_properties: {grid_position: 'TSWJMF,IRROCP'}
 - type: GoogleMap
@@ -14,10 +11,7 @@ components:
   name: map_1
   layout_properties: {grid_position: 'KSTTTE,ZNHCSF'}
 - type: Button
-  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: 'theme:On Primary', visible: true, text: BACK TO CUSTOMERS, font_size: null,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-    background: '#0080FF', bold: true, underline: false, icon: 'fa:users'}
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: BACK TO CUSTOMERS, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:users'}
   name: button_1
   layout_properties: {grid_position: 'IRRGME,DDKZQT'}
   event_bindings: {click: button_1_click}
@@ -40,11 +34,24 @@ components:
   name: spacer_1
   layout_properties: {grid_position: 'CRHLPT,SDXFQZ'}
 - type: RichText
-  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: null, content: '{spacer}{button}
-
-      {plot}', font: '', spacing_above: small, spacing_below: small, data: null, background: '',
-    format: markdown}
+  properties:
+    role: null
+    align: left
+    tooltip: ''
+    enable_slots: true
+    border: ''
+    foreground: ''
+    visible: true
+    font_size: null
+    content: |-
+      {spacer}{button}
+      {plot}
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    data: null
+    background: ''
+    format: markdown
   name: rich_text_1
   layout_properties: {grid_position: 'CQPJLB,XDCNGW'}
   components:
@@ -57,10 +64,7 @@ components:
       slot: plot
       width: 972.5999999999999
   - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: SWITCH TO LINE GRAPH, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#DB4437', bold: true, underline: false, icon: ''}
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: SWITCH TO LINE GRAPH, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false, icon: ''}
     name: button_2
     layout_properties: {slot: button}
     event_bindings: {click: button_2_click}

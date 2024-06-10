@@ -3,17 +3,11 @@ container:
   data_bindings: []
 components:
 - type: Button
-  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: button_1, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-      Container', bold: false, underline: false, icon: ''}
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: button_1, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary Container', bold: false, underline: false, icon: ''}
   name: change_state
   layout_properties: {grid_position: 'YOTWIQ,MMFWLW', column: KNSICK}
 - type: Button
-  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: Device Data, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary
-      Container', bold: false, underline: false, icon: ''}
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Device Data, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary Container', bold: false, underline: false, icon: ''}
   name: button_1
   layout_properties: {grid_position: 'YOTWIQ,DDOMMN', column: ZZQYNH}
 is_package: true

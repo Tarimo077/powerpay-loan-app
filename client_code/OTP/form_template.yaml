@@ -3,24 +3,32 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: RichText
-  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: null, content: '{spacer2}{label_message}
-
+  properties:
+    role: null
+    align: left
+    tooltip: ''
+    enable_slots: true
+    border: ''
+    foreground: ''
+    visible: true
+    font_size: null
+    content: |-
+      {spacer2}{label_message}
       {label_number}
 
-
       {spacer1}{textbox_otp}
-
-      {spacer3}{label_error}', font: '', spacing_above: small, spacing_below: small,
-    data: null, background: '', format: markdown}
+      {spacer3}{label_error}
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    data: null
+    background: ''
+    format: markdown
   name: rich_text_1
   layout_properties: {grid_position: 'MQJUQE,JFHEUM'}
   components:
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'An OTP SMS has been sent to  ', font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'An OTP SMS has been sent to  ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_1
     layout_properties: {slot: label_message}
   - type: Spacer
@@ -32,10 +40,7 @@ components:
     name: spacer_3
     layout_properties: {slot: spacer1, width: -7}
   - type: TextBox
-    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: ENTER OTP,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: ENTER OTP, border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: otp
     layout_properties: {slot: textbox_otp}
     event_bindings: {change: otp_change}
@@ -44,10 +49,7 @@ components:
     name: spacer_4
     layout_properties: {slot: spacer3, width: -5}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#ff0000',
-      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-      spacing_below: small, italic: false, background: '', bold: false, underline: false,
-      icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#ff0000', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: error
     layout_properties: {slot: label_error}
   - type: Label

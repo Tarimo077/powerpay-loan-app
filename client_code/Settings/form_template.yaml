@@ -1,8 +1,7 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {tooltip: '', background: 'theme:Disabled Container', foreground: '',
-    border: '', visible: true, role: null, html: '@theme:standard-page.html'}
+  properties: {tooltip: '', background: 'theme:Disabled Container', foreground: '', border: '', visible: true, role: null, html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
@@ -10,36 +9,35 @@ components:
   layout_properties: {slot: default}
   components:
   - type: RichText
-    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: null, content: "{spacer6}{label_f_name}\
-        \ {label_star}\n{spacer7}{textbox_f_name} \n{spacer_1}\n{spacer8}{label_s_name}{label_star1}\n\
-        \ {spacer9}{textbox_s_name}\n{spacer_2}\n{spacer10}{label_mail} {label_star2}\n\
-        {spacer11}{textbox_mail}\n{spacer_3}\n{spacer12}{label_phone}{label_star4}\n\
-        {spacer13}{textbox_name}\n{spacer18}\n{spacer19}{button_save}", font: '',
-      spacing_above: small, spacing_below: small, data: null, background: 'theme:On
-        Primary', format: markdown}
+    properties:
+      role: null
+      align: left
+      tooltip: ''
+      enable_slots: true
+      border: ''
+      foreground: ''
+      visible: true
+      font_size: null
+      content: "{spacer6}{label_f_name} {label_star}\n{spacer7}{textbox_f_name} \n{spacer_1}\n{spacer8}{label_s_name}{label_star1}\n {spacer9}{textbox_s_name}\n{spacer_2}\n{spacer10}{label_mail} {label_star2}\n{spacer11}{textbox_mail}\n{spacer_3}\n{spacer12}{label_phone}{label_star4}\n{spacer13}{textbox_name}\n{spacer18}\n{spacer19}{button_save}"
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      data: null
+      background: theme:On Primary
+      format: markdown
     name: rich_text_2
     layout_properties: {grid_position: 'DIZYCK,AOSOGI'}
     components:
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'First Name:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'First Name:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_1
       layout_properties: {slot: label_f_name}
     - type: TextBox
-      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
       name: f_name
       layout_properties: {slot: textbox_f_name, width: 345}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
-        visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363', visible: true, text: ' *', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
       name: label_2
       layout_properties: {slot: label_star}
     - type: Spacer
@@ -47,17 +45,11 @@ components:
       name: spacer_2
       layout_properties: {slot: spacer_1, width: 360}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Second Name:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Second Name:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_3
       layout_properties: {slot: label_s_name}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
-        visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363', visible: true, text: ' *', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
       name: label_2_copy
       layout_properties:
         col_widths: {}
@@ -72,27 +64,18 @@ components:
         slot: spacer_2
         width: 359
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Email:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Email:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_4
       layout_properties: {slot: label_mail}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
-        visible: true, text: '*', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363', visible: true, text: '*', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
       name: label_2_copy_2
       layout_properties:
         col_widths: {}
         grid_position: FQQAFM,VCCXCW
         slot: label_star2
     - type: TextBox
-      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: email, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: email, spacing_below: small, italic: false, background: '', bold: false, underline: false}
       name: email
       layout_properties: {slot: textbox_mail, width: 351}
     - type: Spacer
@@ -104,17 +87,11 @@ components:
         slot: spacer_3
         width: 355
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Phone Number:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Phone Number:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_5
       layout_properties: {slot: label_phone}
     - type: TextBox
-      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: 254XXXXXXXXX,
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: 254XXXXXXXXX, border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: false, underline: false}
       name: phone
       layout_properties: {slot: textbox_name, width: 348}
     - type: Spacer
@@ -130,10 +107,7 @@ components:
         slot: spacer6
         width: 20
     - type: TextBox
-      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
       name: s_name
       layout_properties: {slot: textbox_s_name, width: 346}
     - type: Spacer
@@ -165,10 +139,7 @@ components:
       name: spacer_17
       layout_properties: {slot: spacer18, width: 354}
     - type: Button
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: 'theme:On Primary', visible: true, text: SAVE,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0080FF', bold: true, underline: false, icon: ''}
+      properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: SAVE, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: ''}
       name: save
       layout_properties: {slot: button_save}
       event_bindings: {click: save_click}
@@ -177,46 +148,45 @@ components:
       name: spacer_18
       layout_properties: {slot: spacer19, width: 179}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363',
-        visible: true, text: ' *', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#a16363', visible: true, text: ' *', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
       name: label_2_copy_3
       layout_properties:
         col_widths: {}
         grid_position: PXRGHY,ROOQRW
         slot: label_star4
   - type: RichText
-    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: null, content: '{spacer14}{label_currentpwd}
-
+    properties:
+      role: null
+      align: left
+      tooltip: ''
+      enable_slots: true
+      border: ''
+      foreground: ''
+      visible: true
+      font_size: null
+      content: |-
+        {spacer14}{label_currentpwd}
         {spacer11}{textbox_currentpwd}{spacer22}{button1}
-
         {spacer5}
-
         {spacer16}{label_newpwd}
-
         {spacer17}{textbox_newpwd}{spacer23}{button2}
-
         {spacer20}
-
-        {spacer21}{button_change}', font: '', spacing_above: small, spacing_below: small,
-      data: null, background: 'theme:On Primary', format: markdown}
+        {spacer21}{button_change}
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      data: null
+      background: theme:On Primary
+      format: markdown
     name: rich_text_1
     layout_properties: {grid_position: 'DIZYCK,EIOTZR'}
     components:
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Current Password:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Current Password:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_6
       layout_properties: {slot: label_currentpwd}
     - type: TextBox
-      properties: {role: outlined, align: left, hide_text: true, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
+      properties: {role: outlined, align: left, hide_text: true, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
       name: current_pwd
       layout_properties: {slot: textbox_currentpwd, width: 303}
     - type: Spacer
@@ -228,17 +198,11 @@ components:
         slot: spacer5
         width: 361
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'New Password:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'New Password:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_7
       layout_properties: {slot: label_newpwd}
     - type: TextBox
-      properties: {role: outlined, align: left, hide_text: true, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
+      properties: {role: outlined, align: left, hide_text: true, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
       name: new_pwd
       layout_properties: {slot: textbox_newpwd, width: 305}
     - type: Spacer
@@ -262,10 +226,7 @@ components:
       name: spacer_19
       layout_properties: {slot: spacer20, width: 360}
     - type: Button
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: 'theme:On Primary', visible: true, text: CHANGE,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#DB4437', bold: true, underline: false, icon: ''}
+      properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: CHANGE, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false, icon: ''}
       name: button_1
       layout_properties: {slot: button_change}
       event_bindings: {click: button_1_click}
@@ -274,18 +235,12 @@ components:
       name: spacer_13
       layout_properties: {slot: spacer21, width: 153}
     - type: Button
-      properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
+      properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
       name: button_2
       layout_properties: {slot: button1}
       event_bindings: {click: button_2_click}
     - type: Button
-      properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
+      properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0080FF', bold: false, underline: false, icon: 'fa:eye'}
       name: button_2_copy
       layout_properties:
         col_widths: {}
@@ -306,10 +261,7 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - type: Label
-    properties: {role: bot, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: bot, align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: username_label
     layout_properties: {}
 - type: ColumnPanel
@@ -318,11 +270,7 @@ components:
   layout_properties: {slot: left-nav}
   components:
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: HOME, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '{}', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:home'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: HOME, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:home'}
     name: link_1
     layout_properties: {grid_position: 'ITIFQS,MDXMWY'}
     components: []
@@ -332,11 +280,7 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'CMFWEE,OTZOIO'}
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: DEVICE MANAGEMENT, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:cogs'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: DEVICE MANAGEMENT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:cogs'}
     name: request
     layout_properties:
       col_widths: {}
@@ -349,11 +293,7 @@ components:
       col_widths: {}
       grid_position: QNPMXP,PZEJXA
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: TRANSACTIONS, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:money'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: TRANSACTIONS, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:money'}
     name: home_link_copy
     layout_properties:
       col_widths: {}
@@ -366,11 +306,7 @@ components:
       col_widths: {}
       grid_position: ICPYVM,FDJZFK
   - type: Link
-    properties: {role: selected, url: 'https://dev-tickett.pantheonsite.io/new-ticket/',
-      align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true,
-      text: SUPPORT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
-      italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:chain-broken'}
+    properties: {role: selected, url: 'https://dev-tickett.pantheonsite.io/new-ticket/', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: SUPPORT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:chain-broken'}
     name: home_link_copy_2
     layout_properties:
       col_widths: {}
@@ -381,11 +317,7 @@ components:
     name: spacer_4
     layout_properties: {grid_position: 'JCVAZZ,IMPFTZ'}
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: LOG OUT, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '{}', spacing_below: small, italic: false, background: '#DB4437',
-      bold: true, underline: false, icon: 'fa:sign-out'}
+    properties: {role: selected, url: '', align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: LOG OUT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small, italic: false, background: '#DB4437', bold: true, underline: false, icon: 'fa:sign-out'}
     name: link_1_copy
     layout_properties:
       col_widths: {}
@@ -397,10 +329,7 @@ components:
     name: spacer_5
     layout_properties: {grid_position: 'QMVHXZ,QUHBNO'}
   - type: Label
-    properties: {role: footer, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: 10,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: true, underline: false, icon: ''}
+    properties: {role: footer, align: left, tooltip: '', border: '', foreground: '', visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: 10, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_1_copy
     layout_properties:
       col_widths: {}

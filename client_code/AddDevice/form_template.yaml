@@ -3,8 +3,7 @@ container:
   properties: {col_widths: '{"ZIMWRL":23,"UEVWSI":35,"TFPUYA":22}'}
 components:
 - name: label_2
-  properties: {align: center, bold: true, spacing_above: large, spacing_below: large,
-    text: NEW DEVICE, font_size: 18}
+  properties: {align: center, bold: true, spacing_above: large, spacing_below: large, text: NEW DEVICE, font_size: 18}
   type: Label
   layout_properties: {grid_position: 'QPDIAV,IJUTJL', full_width_row: true}
 - name: label_1
@@ -24,8 +23,7 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'KZTEWW,UOCXOH'}
 - name: button_1
-  properties: {text: ADD DEVICE, spacing_above: large, role: outlined-button, background: '#0800FF',
-    foreground: 'theme:On Primary', icon: 'fa:plus-square'}
+  properties: {text: ADD DEVICE, spacing_above: large, role: outlined-button, background: '#0800FF', foreground: 'theme:On Primary', icon: 'fa:plus-square'}
   type: Button
   layout_properties: {grid_position: 'WJTRIY,VKTBUH'}
   event_bindings: {click: button_1_click}

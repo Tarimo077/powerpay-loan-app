@@ -18,67 +18,40 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'DZKIYP,NQRSDG'}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Name:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Name:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'QEDIGR,QQPIWS'}
   - type: TextBox
-    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: name,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: name, border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: cname
     layout_properties: {grid_position: 'QEDIGR,YPDUOS'}
     data_bindings: []
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'ID Number:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'ID Number:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_2
     layout_properties: {grid_position: 'ZQISBJ,VVVADS'}
   - type: TextBox
-    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: id number,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: id number, border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: id_num
     layout_properties: {grid_position: 'ZQISBJ,DKMFDK'}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Contact:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Contact:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_3
     layout_properties: {grid_position: 'TIPHCP,QVAPJV'}
   - type: TextBox
-    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: contact
     layout_properties: {grid_position: 'TIPHCP,THKVQO'}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Date of Birth:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Date of Birth:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_4
     layout_properties: {grid_position: 'DPHDVO,BALRXW'}
   - type: DatePicker
-    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '',
-      placeholder: Date of birth, border: '', enabled: true, foreground: '', visible: true,
-      font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-      date: '', min_date: '', background: '', bold: false, underline: false, format: ''}
+    properties: {role: outlined, align: left, max_date: '', pick_time: false, tooltip: '', placeholder: Date of birth, border: '', enabled: true, foreground: '', visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, date: '', min_date: '', background: '', bold: false, underline: false, format: ''}
     name: dob
     layout_properties: {grid_position: 'DPHDVO,NDMCMM'}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Customer Image:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Customer Image:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_5
     layout_properties: {grid_position: 'KJEWSM,SVDNOU', full_width_row: false}
   - type: FileLoader
@@ -109,10 +82,7 @@ components:
     name: file_loader_1
     layout_properties: {grid_position: 'KJEWSM,BXNUGM', full_width_row: false}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Device ID:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Device ID:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_6
     layout_properties: {grid_position: 'IAIVXL,CZFGGQ', full_width_row: false}
   - type: DropDown
@@ -142,10 +112,7 @@ components:
     name: spacer_2
     layout_properties: {grid_position: 'ORQDRB,RAMTQW'}
   - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Edit Customer, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: 'theme:Primary Container', bold: true, underline: false, icon: 'fa:user-plus'}
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Edit Customer, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary Container', bold: true, underline: false, icon: 'fa:user-plus'}
     name: button_1
     layout_properties: {grid_position: 'AFEBII,WPPSJL'}
     event_bindings: {click: button_1_click}

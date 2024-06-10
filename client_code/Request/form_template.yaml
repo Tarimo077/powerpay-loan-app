@@ -4,38 +4,24 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"IITUUS":48,"DIIERS":12}',
-    spacing_below: small, background: ''}
+  properties: {role: null, col_widths: '{"IITUUS":48,"DIIERS":12}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
   name: content_panel
   layout_properties: {slot: default}
   components:
   - type: Label
-    properties: {role: display, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:battery-full'}
+    properties: {role: display, bold: true, align: center, spacing_above: small, background: '#0080FF', icon: 'fa:battery-full', underline: false, font: '', icon_align: left, foreground: 'theme:On Primary', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
     name: activeDevs
     layout_properties: {grid_position: 'FBVXWY,YBMUKE', full_width_row: true}
   - type: Label
-    properties: {role: display, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#DB4437',
-      bold: true, underline: false, icon: 'fa:battery-empty'}
+    properties: {role: display, bold: true, align: center, spacing_above: small, background: '#DB4437', icon: 'fa:battery-empty', underline: false, font: '', icon_align: left, foreground: 'theme:On Primary', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
     name: inactiveDevs
     layout_properties: {grid_position: 'FBVXWY,UWFHAF', full_width_row: true}
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: Active Devices, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Active Devices}
     name: label_1
     layout_properties: {grid_position: 'VLEQDS,HTFLYA'}
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: Inactive Devices, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Inactive Devices}
     name: label_2
     layout_properties: {grid_position: 'VLEQDS,AMTEWA'}
   - name: spacer_1
@@ -47,8 +33,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'QAUODT,IITUUS', full_width_row: true}
   - name: outlined_button_1
-    properties: {text: NEW DEVICE, role: outlined-button, background: '#0800FF', foreground: 'theme:On
-        Primary', bold: true, icon: 'fa:plus-square'}
+    properties: {text: NEW DEVICE, role: outlined-button, background: '#0800FF', foreground: 'theme:On Primary', bold: true, icon: 'fa:plus-square'}
     type: Button
     layout_properties: {grid_position: 'QAUODT,DIIERS', full_width_row: true}
     event_bindings: {click: outlined_button_1_click}
@@ -59,28 +44,23 @@ components:
   - type: DataGrid
     properties:
       role: tonal-data-grid
-      columns:
-      - {id: OSFTJW, title: Device ID, data_key: deviceID, $$hashKey: 'object:25979',
-        width: '190', expand: false}
-      - {id: HMHTVO, title: Active, data_key: active, $$hashKey: 'object:25980', width: '190',
-        expand: false}
-      - {id: LPNYIR, title: Last status change, data_key: last status change, $$hashKey: 'object:25981',
-        width: '190', expand: false}
-      - {id: EDJPNX, title: Activate/Deactivate, data_key: status change, $$hashKey: 'object:26038',
-        width: '190', expand: false}
-      - {id: JNNYUS, title: Device Data, data_key: see data, $$hashKey: 'object:26040',
-        width: '', expand: false}
-      auto_header: true
-      tooltip: ''
-      border: ''
-      foreground: ''
-      rows_per_page: 10
-      visible: true
-      wrap_on: never
-      show_page_controls: true
       spacing_above: small
-      spacing_below: small
+      columns:
+      - {id: OSFTJW, title: Device ID, data_key: deviceID, $$hashKey: 'object:25979', width: '190', expand: false}
+      - {id: HMHTVO, title: Active, data_key: active, $$hashKey: 'object:25980', width: '190', expand: false}
+      - {id: LPNYIR, title: Last status change, data_key: last status change, $$hashKey: 'object:25981', width: '190', expand: false}
+      - {id: EDJPNX, title: Activate/Deactivate, data_key: status change, $$hashKey: 'object:26038', width: '190', expand: false}
+      - {id: JNNYUS, title: Device Data, data_key: see data, $$hashKey: 'object:26040', width: '', expand: false}
       background: ''
+      rows_per_page: 10
+      wrap_on: never
+      foreground: ''
+      show_page_controls: true
+      auto_header: true
+      spacing_below: small
+      visible: true
+      border: ''
+      tooltip: ''
     name: data_grid_1
     layout_properties: {grid_position: 'KDWAHQ,AZWIUA', full_width_row: true}
     components:
@@ -100,11 +80,7 @@ components:
   layout_properties: {slot: left-nav}
   components:
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: HOME, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '{}', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:home'}
+    properties: {role: selected, bold: true, align: center, col_widths: '{}', spacing_above: small, background: '#0080FF', icon: 'fa:home', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:On Primary', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: HOME}
     name: link_1
     layout_properties:
       col_widths: {}
@@ -118,11 +94,7 @@ components:
       col_widths: {}
       grid_position: IGFVQV,KVLWXH
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: DEVICE MANAGEMENT, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:cogs'}
+    properties: {role: selected, bold: true, align: center, col_widths: '', spacing_above: small, background: '#0080FF', icon: 'fa:cogs', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:On Primary', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: DEVICE MANAGEMENT}
     name: request
     layout_properties:
       col_widths: {}
@@ -135,11 +107,7 @@ components:
       col_widths: {}
       grid_position: INTENN,YCTGJI
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: TRANSACTIONS, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '', spacing_below: small, italic: false, background: '#0080FF',
-      bold: true, underline: false, icon: 'fa:money'}
+    properties: {role: selected, bold: true, align: center, col_widths: '', spacing_above: small, background: '#0080FF', icon: 'fa:money', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:On Primary', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: TRANSACTIONS}
     name: home_link_copy
     layout_properties:
       col_widths: {}
@@ -152,11 +120,7 @@ components:
       col_widths: {}
       grid_position: SGFWSR,EWNWTK
   - type: Link
-    properties: {role: selected, url: 'https://dev-tickett.pantheonsite.io/new-ticket/',
-      align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true,
-      text: SUPPORT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
-      italic: false, background: '#0080FF', bold: true, underline: false, icon: 'fa:chain-broken'}
+    properties: {role: selected, bold: true, align: center, col_widths: '', spacing_above: small, background: '#0080FF', icon: 'fa:chain-broken', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:On Primary', url: 'https://dev-tickett.pantheonsite.io/new-ticket/', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: SUPPORT}
     name: home_link_copy_2
     layout_properties:
       col_widths: {}
@@ -167,11 +131,7 @@ components:
     name: spacer_3
     layout_properties: {grid_position: 'LRUPNQ,ENNBFE'}
   - type: Link
-    properties: {role: selected, url: '', align: center, tooltip: '', border: '',
-      foreground: 'theme:On Primary', visible: true, text: LOG OUT, font_size: null,
-      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
-      col_widths: '{}', spacing_below: small, italic: false, background: '#DB4437',
-      bold: true, underline: false, icon: 'fa:sign-out'}
+    properties: {role: selected, bold: true, align: center, col_widths: '{}', spacing_above: small, background: '#DB4437', icon: 'fa:sign-out', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:On Primary', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: LOG OUT}
     name: link_1_copy
     layout_properties:
       col_widths: {}
@@ -184,16 +144,10 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - type: Label
-    properties: {role: bot, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: bot, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:On Primary', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
     name: username_label
     layout_properties: {}
 - type: Label
-  properties: {role: footer, align: left, tooltip: '', border: '', foreground: '',
-    visible: true, text: © 2023 Powerpay Africa. All Rights Reserved, font_size: 10,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-    background: '', bold: true, underline: false, icon: ''}
+  properties: {role: footer, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 10, tooltip: '', text: © 2023 Powerpay Africa. All Rights Reserved}
   name: label_1_copy_2
   layout_properties: {grid_position: 'UFPNQR,QXNCNH'}
